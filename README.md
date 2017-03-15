@@ -19,4 +19,5 @@
 * base.el - for common emacs configs;
 
 ### Screeenshot:
+![Image of editor]
 (https://github.com/sashlex/emacs-config/blob/master/img/screenshot.jpg)
