@@ -4,7 +4,7 @@
 *This project will never be claim complete or not buggy.*
 
 ### Usage:
-* Move file "init.el" from "configs" directory, in to "~/.emacs.d/" directory;
+* Move file "init.el" from "configs" directory, into "~/.emacs.d/" directory;
 * Set in file "~/.emacs.d/init.el" full path to file "index.el", which in "configs" directory;
 * Set in file "index.el", which in "configs" directory, variable "directory-root", which is full path to "config" directory;
 * Set your prefer font, theme, and other configs in "base.el" (for apply theme completely, remove before file "~/.emacs.d/configs/emacs.desktop");
