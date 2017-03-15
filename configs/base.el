@@ -10,7 +10,7 @@
 (defconst themes-dir (concat directory-root "themes/")) ;; TODO: __need fix__
 (defconst font "Menlo-9")
 ;; Packages list
-(setq package-list '( smex undo-tree company-statistics projectile ))
+(setq package-list '( smex undo-tree multiple-cursors company company-statistics projectile dtrt-indent))
 ;; * END *
 
 ;; * START - Prepare config directories *
@@ -25,7 +25,7 @@
   )
 ;; * END *
 
-;; * START - Packages repositories *
+;; * START - Package repositories *
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
