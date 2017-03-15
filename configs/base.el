@@ -9,6 +9,10 @@
 (defconst backups-dir (concat base-dir "backups/"))
 (defconst themes-dir (concat directory-root "themes/")) ;; TODO: __need fix__
 (defconst font "Menlo-9")
+;; define theme for window
+(set 'win-theme 'sunburst)
+;; define theme for terminal
+(set 'term-theme 'sunburst)
 ;; Packages list
 (setq package-list '( smex undo-tree multiple-cursors company company-statistics projectile dtrt-indent))
 ;; * END *
@@ -116,10 +120,11 @@
 
 ;; * START - Set theme [ for window or terminal ] *
 (add-to-list 'custom-theme-load-path themes-dir)
-(load-theme 'sunburst t) ;; TODO: __need fix__
+(load-theme win-theme t)
+(load-theme term-theme t)
 (if(display-graphic-p)
-    (enable-theme 'sunburst) ;; window theme
-  (enable-theme 'sunburst)) ;; terminal theme
+    (enable-theme win-theme) ;; window theme
+  (enable-theme term-theme)) ;; terminal theme
 ;; * END *
 
 ;; * Set font *
