@@ -19,7 +19,7 @@
 * "base.el" - for common emacs configs;
 
 ### Screenshot:
-![Image of editor](https://raw.githubusercontent.com/sashlex/emacs-config/master/img/screenshot.jpg)
+![Image of editor](https://raw.githubusercontent.com/sashlex/emacs-config/master/img/screenshot.png)
 
 ### Themes license note:
 Each theme has own license, for details see in theme file.
