@@ -1,4 +1,4 @@
-## Current emacs config
+## Current emacs config.
 
 *This config will be updated as soon as will needed.*
 *This project will never be claim complete or not buggy.*
@@ -19,4 +19,4 @@
 * base.el - for common emacs configs;
 
 ### Screeenshot:
-(https://editor.png)
+(https://github.com/sashlex/emacs-config/blob/master/img/screenshot.jpg)
