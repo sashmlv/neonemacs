@@ -113,7 +113,7 @@
 
 ;; * Set cursor type *
 ;;(setq-default cursor-type 'bar)
-themes-dir
+
 ;; * START - Set theme [ for window or terminal ] *
 (add-to-list 'custom-theme-load-path themes-dir)
 (load-theme 'sunburst t) ;; TODO: __need fix__
