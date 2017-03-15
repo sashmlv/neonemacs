@@ -18,5 +18,5 @@
 * "index.el" - for load your other config files;
 * "base.el" - for common emacs configs;
 
-### Screeenshot:
+### Screenshot:
 ![Image of editor](https://raw.githubusercontent.com/sashlex/emacs-config/master/img/screenshot.jpg)
