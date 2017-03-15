@@ -103,9 +103,6 @@
 (global-linum-mode -1)
 ;; * END *
 
-;; * Fringe-mode [ disable borders on left and right ] *
-(set-fringe-mode 0)
-
 ;; * Display the name of the current buffer in the title *
 (setq frame-title-format "%F: %f")
 
@@ -126,6 +123,9 @@
     (enable-theme win-theme) ;; window theme
   (enable-theme term-theme)) ;; terminal theme
 ;; * END *
+
+;; * Fringe-mode [ disable borders on left and right ] *
+(set-fringe-mode 0)
 
 ;; * Set font *
 (set-default-font font)

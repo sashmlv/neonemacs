@@ -1,6 +1,4 @@
 # disallow
 configs/.projectile
-configs/themes/*
 
 # allow
-!configs/themes/sunburst-theme.el
