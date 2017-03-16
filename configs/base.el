@@ -2,21 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-;; * START - Params *
-;; "directory-root" defined in index.el
-(defconst base-dir "~/.emacs.d/")
-(defconst config-dir (concat base-dir "configs/"))
-(defconst backups-dir (concat base-dir "backups/"))
-(defconst themes-dir (concat directory-root "themes/")) ;; TODO: __need fix__
-(defconst font "Menlo-9")
-;; define theme for window
-(set 'win-theme 'sunburst)
-;; define theme for terminal
-(set 'term-theme 'sunburst)
-;; Packages list
-(setq package-list '( smex undo-tree multiple-cursors company company-statistics projectile dtrt-indent))
-;; * END *
-
 ;; * START - Prepare config directories *
 (if(not(file-accessible-directory-p config-dir))
     (make-directory config-dir t)
@@ -204,13 +189,6 @@ scroll-conservatively  10000)
 (global-whitespace-mode 1)
 ;; * END *
 
-;; * START - Disable tabs, set indentation *
-(setq-default indent-tabs-mode nil)
-(setq tab-width 3)
-(require 'dtrt-indent)
-(dtrt-indent-mode 1)
-;; * END *
-
 ;; * START - Highlight current line *
 (defface hl-line '((t (:background "#101010")))
   "Face to use for `hl-line-face'." :group 'hl-line)
@@ -306,8 +284,6 @@ scroll-conservatively  10000)
    '(add-to-list 'dired-compress-file-suffixes
                  '("\\.zip\\'" ".zip" "unzip")))
 ;; * END *
-
-
 
 ;; * Replase remove, by remove in trash *
 (setq delete-by-moving-to-trash t)
