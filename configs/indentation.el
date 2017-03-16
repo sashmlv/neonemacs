@@ -19,6 +19,11 @@
 (setq css-indent-offset indent)
 ;; * END *
 
+;; * Highlight-indentation *
+(highlight-indentation-mode 1)
+(set-face-background 'highlight-indentation-face "#101010")
+(set-face-background 'highlight-indentation-current-column-face "#101010")
+
 ;; * Disable error on free variables *
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)

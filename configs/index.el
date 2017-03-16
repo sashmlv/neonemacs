@@ -5,6 +5,7 @@
 
 ;; TODO:
 ;; - enable js2-mode on js
+;; - fix highlight indentation (make load on file open?, set colors here?)
 
 ;; * START - Params *
 (setq directory-root "/media/user/disk/emacs-config/configs/")
@@ -30,10 +31,10 @@
                      company-statistics
                      projectile
                      js2-mode
+                     highlight-indentation
                      )
       )
 ;; * END *
-
 
 ;; Load configs
 (load (concat directory-root "base"))
