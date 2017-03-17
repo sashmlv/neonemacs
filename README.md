@@ -15,9 +15,10 @@
 ### Overview:
 
 * "init.el" - for load "index.el";
-* "index.el" - for parameters and load other config files;
-* "base.el" - for common emacs configs;
+* "index.el" - parameters and load other config files;
+* "base.el" - common emacs configs;
 * "indentation.el" - indentation settings;
+* "hooks.el" - hooks and modes;
 
 ### Screenshot:
 ![Image of editor](https://raw.githubusercontent.com/sashlex/emacs-config/master/img/screenshot.png)

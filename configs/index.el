@@ -5,6 +5,7 @@
 
 ;; TODO:
 ;; - enable js2-mode on js
+;; - move params in index.el
 
 ;; * START - Params *
 (setq directory-root "/media/user/disk/emacs-config/configs/")
@@ -14,8 +15,8 @@
 (defconst themes-dir (concat directory-root "themes/"))
 (defconst font "Menlo-9")
 (defconst indent 3) ;; 3 spaces ;; used in indentation.el
-(defconst indentation-color "#101010") ;; used in indentation.el
-(defconst indentation-current-line-color "#101010") ;; used in indentation.el
+(defconst indentation-color "#101010") ;; used in hooks.el
+(defconst indentation-current-line-color "#101010") ;; used in hooks.el
 
 ;; define theme for window
 (set 'win-theme 'sunburst)
@@ -40,6 +41,7 @@
 ;; Load configs
 (load (concat directory-root "base"))
 (load (concat directory-root "indentation"))
+(load (concat directory-root "hooks"))
 
 ;; * Disable error on free variables *
 ;; Local Variables:
