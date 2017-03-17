@@ -3,10 +3,10 @@
 ;;; Code:
 
 ;; * START - Highlight indentation hook *
-(add-hook 'highlight-indentation-mode-hook (lambda()(setq highlight-indentation-offset space-indent))) ;; set indent size ;; "space-indent" param in index.el
+(add-hook 'highlight-indentation-mode-hook (lambda()(setq highlight-indentation-offset current_indent))) ;; set indent size ;; "current_indent" param in index.el
 (add-hook 'prog-mode-hook 'highlight-indentation-mode) ;; highlight indent on each buffer
-(set-face-background 'highlight-indentation-face indentation-color) ;; "indentation-color" param in index.el
-(set-face-background 'highlight-indentation-current-column-face indentation-current-line-color) ;; "indentation-current-line-color" param in index.el
+(set-face-background 'highlight-indentation-face indentation_color) ;; "indentation-color" param in index.el
+(set-face-background 'highlight-indentation-current-column-face indentation_current_line_color) ;; "indentation-current-line-color" param in index.el
 ;; * END *
 
 ;; js2-mode on js files

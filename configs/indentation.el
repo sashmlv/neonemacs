@@ -4,22 +4,22 @@
 
 ;; * START - Disable tabs, set indentation *
 (setq-default indent-tabs-mode nil)
-(setq-default tab-width space-indent)
+(setq-default tab-width current_indent)
 
-(defvaralias 'c-basic-offset 'space-indent)
-(defvaralias 'cperl-indent-level 'space-indent)
+(defvaralias 'c-basic-offset 'current_indent)
+(defvaralias 'cperl-indent-level 'current_indent)
 
-(defvaralias 'php-mode-force-pear 'space-indent)
+(defvaralias 'php-mode-force-pear 'current_indent)
 
-(defvaralias 'js-indent-level 'space-indent)
+(defvaralias 'js-indent-level 'current_indent)
 
-(defvaralias 'web-mode-markup-indent-offset 'space-indent)
+(defvaralias 'web-mode-markup-indent-offset 'current_indent)
 
-(defvaralias 'web-mode-css-indent-offset  'space-indent)
+(defvaralias 'web-mode-css-indent-offset  'current_indent)
 
-(defvaralias 'web-mode-code-indent-offset 'space-indent)
+(defvaralias 'web-mode-code-indent-offset 'current_indent)
 
-(defvaralias 'css-indent-offset 'space-indent)
+(defvaralias 'css-indent-offset 'current_indent)
 
 
 

@@ -3,11 +3,11 @@
 ;;; Code:
 
 ;; * START - Prepare config directories *
-(if(not(file-accessible-directory-p config-dir))
-    (make-directory config-dir t)
+(if(not(file-accessible-directory-p config_dir))
+    (make-directory config_dir t)
   )
-(if(not(file-accessible-directory-p backups-dir))
-   (make-directory backups-dir t)
+(if(not(file-accessible-directory-p backups_dir))
+   (make-directory backups_dir t)
   )
 ;; * END *
 
@@ -53,7 +53,7 @@
       ;; Install the missing packages
       (dolist (package package-list)
         (unless (package-installed-p package)
-          (if (y-or-n-p (format "Package \"%s\" is missing. Do you want to install? " package))
+          (if (y-or-n-p (format "Package \"%s\" is missing. Do you want to install it? " package))
               (package-install package)))
         )
 
@@ -64,7 +64,7 @@
 ;; * END *
 
 ;; * START - Save session *
-(setq desktop-dirname config-dir)
+(setq desktop-dirname config_dir)
 (setq desktop-base-file-name "emacs.desktop")
 (setq desktop-base-lock-name "lock")
 (setq desktop-path (list desktop-dirname))
@@ -85,7 +85,7 @@
 (global-linum-mode -1)
 ;; * END *
 
-;; * Display the name of the current buffer in the title *
+;; * Display file name of the current buffer in the title *
 (setq frame-title-format "%F: %f")
 
 ;; * START - Display file size/time in mode-line
@@ -98,7 +98,7 @@
 ;;(setq-default cursor-type 'bar)
 
 ;; * START - Set theme [ for window or terminal ] *
-(add-to-list 'custom-theme-load-path themes-dir)
+(add-to-list 'custom-theme-load-path themes_dir)
 (load-theme win-theme t)
 (load-theme term-theme t)
 (if(display-graphic-p)
@@ -110,7 +110,7 @@
 (set-fringe-mode 0)
 
 ;; * Set font *
-(set-default-font font)
+(set-default-font current_font)
 
 ;; * Smooth scrolling *
 (setq scroll-step          1
@@ -124,7 +124,7 @@ scroll-conservatively  10000)
 ;; Enable versioning with default values (keep five last versions, I think!)
 (setq version-control t)
 ;; Save all backup file in this directory.
-(setq backup-directory-alist '(("." . "~/.emacs.d/backups/"))) ;; TODO: __need fix__
+(setq backup-directory-alist (list (cons "." backups_dir))) ;; param "backups_dir" from index.el
 ;; * END *
 
 ;; * Minibuffer autocompletition *

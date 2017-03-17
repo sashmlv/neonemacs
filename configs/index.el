@@ -7,15 +7,15 @@
 ;; - move params in index.el
 
 ;; * START - Params *
-(setq directory-root "/media/user/disk/emacs-config/configs/")
-(defconst base-dir "~/.emacs.d/")
-(defconst config-dir (concat base-dir "configs/"))
-(defconst backups-dir (concat base-dir "backups/"))
-(defconst themes-dir (concat directory-root "themes/"))
-(defconst font "Menlo-9")
-(defconst space-indent 3) ;; 3 spaces ;; used in indentation.el
-(defconst indentation-color "#101010") ;; used in hooks.el
-(defconst indentation-current-line-color "#101010") ;; used in hooks.el
+(setq root_dir "/media/user/disk/emacs-config/configs/")
+(defconst base_dir "~/.emacs.d/")
+(defconst config_dir (concat base_dir "configs/"))
+(defconst backups_dir (concat base_dir "backups/"))
+(defconst themes_dir (concat root_dir "themes/"))
+(defconst current_font "Menlo-9")
+(defconst current_indent 3) ;; 3 spaces ;; used in indentation.el
+(defconst indentation_color "#101010") ;; used in hooks.el
+(defconst indentation_current_line_color "#101010") ;; used in hooks.el
 
 ;; define theme for window
 (set 'win-theme 'sunburst)
@@ -41,9 +41,9 @@
 ;; * END *
 
 ;; Load configs
-(load (concat directory-root "base"))
-(load (concat directory-root "indentation"))
-(load (concat directory-root "hooks"))
+(load (concat root_dir "base"))
+(load (concat root_dir "indentation"))
+(load (concat root_dir "hooks"))
 
 
 
