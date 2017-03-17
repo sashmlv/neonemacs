@@ -8,7 +8,8 @@
 (set-face-background 'highlight-indentation-current-column-face indentation-current-line-color) ;; param in index.el
 ;; * END *
 
-
+;; js2-mode on js files
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 ;; * Disable error on free variables *
 ;; Local Variables:

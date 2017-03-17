@@ -9,9 +9,6 @@
 (if(not(file-accessible-directory-p backups-dir))
    (make-directory backups-dir t)
   )
-(if(not(file-accessible-directory-p themes-dir))
-   (make-directory themes-dir t)
-  )
 ;; * END *
 
 ;; * START - Package repositories *
@@ -150,7 +147,7 @@ scroll-conservatively  10000)
 (show-paren-mode 1)
 (setq show-paren-delay 0)
 (custom-set-faces
- '(show-paren-match ((t (:background "#000296"))))
+ '(show-paren-match ((t (:background "blue3"))))
  '(show-paren-mismatch ((((class color)) (:background "red" :foreground "white")))))
 ;; * END *
 
@@ -196,11 +193,12 @@ scroll-conservatively  10000)
 (global-hl-line-mode t)
 ;; * END *
 
-;; * Hightlight region *
-(set-face-attribute 'region nil :background "#222222")
+;; * Hightlight selection region *
+(set-face-attribute 'region nil :background "#232323")
 
 ;;Set cursor color
-(set-cursor-color "#0e0")
+;; (set-cursor-color "#0e0")
+(set-cursor-color "green2")
 ;;(set-mouse-color "goldenrod")
 
 ;; * START - Duplicate line, hotkey to duplicate line ( Ctrl + c, d ) *

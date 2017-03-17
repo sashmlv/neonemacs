@@ -4,7 +4,6 @@
 ;; * Parameters and loading other config files *
 
 ;; TODO:
-;; - enable js2-mode on js
 ;; - move params in index.el
 
 ;; * START - Params *
