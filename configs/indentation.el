@@ -2,6 +2,12 @@
 ;;; Commentary:
 ;;; Code:
 
+;; * START - Highlight indentation on load *
+(add-hook 'prog-mode-hook 'highlight-indentation-mode)
+(set-face-background 'highlight-indentation-face indentation-color) ;; param in index.el
+(set-face-background 'highlight-indentation-current-column-face indentation-current-line-color) ;; param in index.el
+;; * END *
+
 ;; * START - Disable tabs, set indentation *
 (setq-default indent-tabs-mode nil)
 (setq tab-width indent)
@@ -18,11 +24,6 @@
 
 (setq css-indent-offset indent)
 ;; * END *
-
-;; * Highlight-indentation *
-(highlight-indentation-mode 1)
-(set-face-background 'highlight-indentation-face "#101010")
-(set-face-background 'highlight-indentation-current-column-face "#101010")
 
 ;; * Disable error on free variables *
 ;; Local Variables:
