@@ -4,19 +4,25 @@
 
 ;; * START - Disable tabs, set indentation *
 (setq-default indent-tabs-mode nil)
-(setq tab-width indent)
+(setq-default tab-width space-indent)
 
-(setq c-basic-offset indent)
+(defvaralias 'c-basic-offset 'space-indent)
+(defvaralias 'cperl-indent-level 'space-indent)
 
-(setq php-mode-force-pear indent)
+(defvaralias 'php-mode-force-pear 'space-indent)
 
-(setq js-indent-level indent)
+(defvaralias 'js-indent-level 'space-indent)
 
-(setq web-mode-markup-indent-offset indent)
-(setq web-mode-css-indent-offset indent)
-(setq web-mode-code-indent-offset indent)
+(defvaralias 'web-mode-markup-indent-offset 'space-indent)
 
-(setq css-indent-offset indent)
+(defvaralias 'web-mode-css-indent-offset  'space-indent)
+
+(defvaralias 'web-mode-code-indent-offset 'space-indent)
+
+(defvaralias 'css-indent-offset 'space-indent)
+
+
+
 ;; * END *
 
 ;; * Disable error on free variables *

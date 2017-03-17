@@ -13,7 +13,7 @@
 (defconst backups-dir (concat base-dir "backups/"))
 (defconst themes-dir (concat directory-root "themes/"))
 (defconst font "Menlo-9")
-(defconst indent 3) ;; 3 spaces ;; used in indentation.el
+(defconst space-indent 3) ;; 3 spaces ;; used in indentation.el
 (defconst indentation-color "#101010") ;; used in hooks.el
 (defconst indentation-current-line-color "#101010") ;; used in hooks.el
 
@@ -33,6 +33,9 @@
                      projectile
                      js2-mode
                      highlight-indentation
+                     less-css-mode
+                     web-mode
+                     pug-mode
                      )
       )
 ;; * END *
@@ -41,6 +44,8 @@
 (load (concat directory-root "base"))
 (load (concat directory-root "indentation"))
 (load (concat directory-root "hooks"))
+
+
 
 ;; * Disable error on free variables *
 ;; Local Variables:
