@@ -18,7 +18,7 @@
 * "index.el" - parameters and load other config files;
 * "base.el" - common emacs configs;
 * "indentation.el" - indentation settings;
-* "hooks.el" - hooks and modes;
+* "hooks.el" - hooks call modes;
 
 ### Screenshot:
 ![Image of editor](https://raw.githubusercontent.com/sashlex/emacs-config/master/img/screenshot.png)
