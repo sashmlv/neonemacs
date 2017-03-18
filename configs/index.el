@@ -4,10 +4,10 @@
 ;; * Parameters and loading other config files *
 
 ;; TODO:
-;; - move params in index.el
+;; -
 
 ;; * START - Params *
-(setq root_dir "/media/user/disk/emacs-config/configs/")
+(defconst root_dir "/media/user/disk/emacs-config/configs/")
 (defconst base_dir "~/.emacs.d/")
 (defconst config_dir (concat base_dir "configs/"))
 (defconst backups_dir (concat base_dir "backups/"))
@@ -16,6 +16,24 @@
 (defconst current_indent 3) ;; 3 spaces ;; used in indentation.el
 (defconst indentation_color "#101010") ;; used in hooks.el
 (defconst indentation_current_line_color "#101010") ;; used in hooks.el
+
+(defconst brackets_match_foreground "white") ;; used in base.el
+(defconst brackets_match_background "blue3") ;; used in base.el
+(defconst brackets_mismatch_foreground "white") ;; used in base.el
+(defconst brackets_mismatch_background "red3") ;; used in base.el
+
+(defconst whitespace_foreground "#212121") ;; used in base.el
+(defconst whitespace_background "#070707") ;; used in base.el
+(defconst whitespace_weight 'light) ;; used in base.el
+
+(defconst whitespace_trailing_foreground "#ff2020") ;; used in base.el
+(defconst whitespace_trailing_background "#070707") ;; used in base.el
+(defconst whitespace_trailing_weight 'light) ;; used in base.el
+
+(defconst hl_line_background "#101010" ) ;; used in base.el
+(defconst hl_region_background "#232323" ) ;; used in base.el
+
+(defconst cursor_color "green2" ) ;; used in base.el
 
 ;; define theme for window
 (set 'win-theme 'sunburst)

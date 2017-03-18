@@ -124,7 +124,7 @@ scroll-conservatively  10000)
 ;; Enable versioning with default values (keep five last versions, I think!)
 (setq version-control t)
 ;; Save all backup file in this directory.
-(setq backup-directory-alist (list (cons "." backups_dir))) ;; param "backups_dir" from index.el
+(setq backup-directory-alist (list (cons "." backups_dir))) ;; "backups_dir" in index.el
 ;; * END *
 
 ;; * Minibuffer autocompletition *
@@ -147,8 +147,8 @@ scroll-conservatively  10000)
 (show-paren-mode 1)
 (setq show-paren-delay 0)
 (custom-set-faces
- '(show-paren-match ((t (:background "blue3"))))
- '(show-paren-mismatch ((((class color)) (:background "red" :foreground "white")))))
+ `(show-paren-match ((t (:background ,brackets_match_background :foreground ,brackets_match_foreground)))) ;; "brackets_match_background", "brackets_match_foreground" in index.el
+ `(show-paren-mismatch ((((class color)) (:background ,brackets_mismatch_background :foreground ,brackets_mismatch_foreground))))) ;; "brackets_mismatch_background", "brackets_mismatch_foreground" in index.el
 ;; * END *
 
 ;; * Disable word wrap *
@@ -167,39 +167,37 @@ scroll-conservatively  10000)
         ))
 (setq whitespace-style '(face trailing tabs spaces newline space-mark tab-mark newline-mark))
 (set-face-attribute 'whitespace-space nil
-                    :background "#070707"
-                    :foreground "#212121"
-                    :weight 'light) ;; ultra-bold, extra-bold, bold, semi-bold, normal, semi-light, light, extra-light, ultra-light
+                    :background whitespace_background ;; "whitespace_background" in index.el
+                    :foreground whitespace_foreground ;; "whitespace_foreground" in index.el
+                    :weight whitespace_weight) ;; ultra-bold, extra-bold, bold, semi-bold, normal, semi-light, light, extra-light, ultra-light
 (set-face-attribute 'whitespace-newline nil
-                    :background "#070707"
-                    :foreground "#212121"
-                    :weight 'light)
+                    :background whitespace_background
+                    :foreground whitespace_foreground
+                    :weight whitespace_weight) ;; "whitespace_weight" in index.el
 (set-face-attribute 'whitespace-tab nil
-                    :background "#070707"
-                    :foreground "#212121"
-                    :weight 'light)
+                    :background whitespace_background
+                    :foreground whitespace_foreground
+                    :weight whitespace_weight)
 (set-face-attribute 'whitespace-trailing nil
-                    :background "#070707"
-                    :foreground "#ff2020"
-                    :weight 'light)
+                    :background whitespace_trailing_background ;; "whitespace_trailing_background" in index.el
+                    :foreground whitespace_trailing_foreground ;; "whitespace_trailing_foreground" in index.el
+                    :weight whitespace_trailing_weight) ;; "whitespace_trailing_weight" in index.el
 (setq whitespace-line nil) ;; disable a bug, that highlight long lines
 (global-whitespace-mode 1)
 ;; * END *
 
 ;; * START - Highlight current line *
-(defface hl-line '((t (:background "#101010")))
+(defface hl-line `((t (:background ,hl_line_background))) ;; "hl_line_background" in index.el
   "Face to use for `hl-line-face'." :group 'hl-line)
 (setq hl-line-face 'hl-line)
 (global-hl-line-mode t)
 ;; * END *
 
 ;; * Hightlight selection region *
-(set-face-attribute 'region nil :background "#232323")
+(set-face-attribute 'region nil :background hl_region_background) ;; "hl_region_background" in index.el
 
 ;;Set cursor color
-;; (set-cursor-color "#0e0")
-(set-cursor-color "green2")
-;;(set-mouse-color "goldenrod")
+(set-cursor-color cursor_color) ;; "cursor_color" in index.el
 
 ;; * START - Duplicate line, hotkey to duplicate line ( Ctrl + c, d ) *
 (defun duplicate-line-or-region (&optional n)
@@ -209,17 +207,17 @@ scroll-conservatively  10000)
   (interactive "*p")
   (let ((use-region (use-region-p)))
     (save-excursion
-      (let ((text (if use-region        ;Get region if active, otherwise line
+      (let ((text (if use-region ;; Get region if active, otherwise line
                       (buffer-substring (region-beginning) (region-end))
                     (prog1 (thing-at-point 'line)
                       (end-of-line)
-                      (if (< 0 (forward-line 1)) ;Go to beginning of next line, or make a new one
+                      (if (< 0 (forward-line 1)) ;; Go to beginning of next line, or make a new one
                           (newline))))))
-        (dotimes (i (abs (or n 1)))     ;Insert N times, or once if not specified
+        (dotimes (i (abs (or n 1))) ;; Insert N times, or once if not specified
           (insert text))))
-    (if use-region nil                  ;Only if we're working with a line (not a region)
-      (let ((pos (- (point) (line-beginning-position)))) ;Save column
-        (if (> 0 n)                             ;Comment out original with negative arg
+    (if use-region nil ;; Only if we're working with a line (not a region)
+      (let ((pos (- (point) (line-beginning-position)))) ;; Save column
+        (if (> 0 n) ;; Comment out original with negative arg
             (comment-region (line-beginning-position) (line-end-position)))
         (forward-line 1)
         (forward-char pos)))))
