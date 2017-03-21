@@ -15,11 +15,11 @@
 
 ;; less-css-mode on less files
 (add-to-list 'auto-mode-alist '("\\.less\\'" . less-css-mode))
+;; highlight colors
+(add-hook 'less-css-mode-hook 'xah-syntax-color-hex)
 
 ;; pug-mode on pug files
 (add-to-list 'auto-mode-alist '("\\.\\(jade\\|pug\\)\\'" . pug-mode))
-
-
 
 ;; * Disable error on free variables *
 ;; Local Variables:

@@ -4,7 +4,7 @@
 ;; * Parameters and loading other config files *
 
 ;; TODO:
-;; -
+;; - highlight line spaces
 
 ;; * START - Params *
 (defconst root_dir "/media/user/disk/emacs-config/configs/")
@@ -61,6 +61,7 @@
 ;; Load configs
 (load (concat root_dir "base"))
 (load (concat root_dir "indentation"))
+(load (concat root_dir "custom-modes"))
 (load (concat root_dir "hooks"))
 
 

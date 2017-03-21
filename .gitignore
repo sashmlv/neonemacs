@@ -1,4 +1,4 @@
 # disallow
-configs/.projectile
+.projectile
 
 # allow
