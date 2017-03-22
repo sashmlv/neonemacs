@@ -25,3 +25,14 @@
 
 ### Themes license note:
 Each theme has own license, for details see in theme file.
+
+### Some keybindings:
+
+##### Move line:
+* "M-P" - move-line-up
+* "M-N" - move-line-down
+
+##### Multiple cursors:
+* "C->" - mark-next-like-this
+* "C-<" - mark-previous-like-this
+* "C-S-c C-S-c" - edit-lines

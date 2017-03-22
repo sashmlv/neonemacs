@@ -54,6 +54,7 @@
                      less-css-mode
                      web-mode
                      pug-mode
+
                      )
       )
 ;; * END *
