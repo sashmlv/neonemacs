@@ -183,7 +183,7 @@ scroll-conservatively  10000)
                     :foreground whitespace_trailing_foreground ;; "whitespace_trailing_foreground" in index.el
                     :weight whitespace_trailing_weight) ;; "whitespace_trailing_weight" in index.el
 (setq whitespace-line nil) ;; disable a bug, that highlight long lines
-(setq whitespace-empty-at-eob-regexp nil) ;; disable a bug, that highlight long lines
+(setq whitespace-empty nil) ;; disable a bug, that highlight long lines
 (global-whitespace-mode 1)
 ;; * END *
 
