@@ -154,9 +154,6 @@ scroll-conservatively  10000)
 ;; * Disable word wrap *
 (set-default 'truncate-lines t)
 
-;; * Remove in trash *
-(setq delete-by-moving-to-trash t)
-
 ;; * START - Whitespace mode *
 (require 'whitespace)
 (setq whitespace-display-mappings
@@ -183,7 +180,7 @@ scroll-conservatively  10000)
                     :foreground whitespace_trailing_foreground ;; "whitespace_trailing_foreground" in index.el
                     :weight whitespace_trailing_weight) ;; "whitespace_trailing_weight" in index.el
 (setq whitespace-line nil) ;; disable a bug, that highlight long lines
-(setq whitespace-empty-at-eob-regexp nil) ;; disable a bug, that highlight long lines
+(setq whitespace-empty nil) ;; disable a bug, that highlight last line
 (global-whitespace-mode 1)
 ;; * END *
 
@@ -196,6 +193,7 @@ scroll-conservatively  10000)
 
 ;; * Hightlight selection region *
 (set-face-attribute 'region nil :background hl_region_background) ;; "hl_region_background" in index.el
+;; (set-face-attribute 'region nil :box '(:color "black" :line-width -1))
 
 ;;Set cursor color
 (set-cursor-color cursor_color) ;; "cursor_color" in index.el

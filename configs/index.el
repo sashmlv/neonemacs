@@ -54,10 +54,12 @@
                      less-css-mode
                      web-mode
                      pug-mode
-
                      )
       )
 ;; * END *
+
+;; Set some parameters
+;; (set-background-color "#000")
 
 ;; Load configs
 (load (concat root_dir "base"))
