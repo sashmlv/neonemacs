@@ -9,6 +9,9 @@
 (if(not(file-accessible-directory-p backups_dir))
    (make-directory backups_dir t)
   )
+(if(not(file-accessible-directory-p undo_redo__dir))
+   (make-directory undo_redo__dir t)
+  )
 ;; * END *
 
 ;; * START - Package repositories *
@@ -248,9 +251,17 @@ scroll-conservatively  10000)
 (global-set-key (kbd "M-N") 'move-line-down)
 ;; * END *
 
-;; * UNDO-REDO melpa plugin *
+;; * undo-tree melpa plugin ( undo-redo ) *
 (require 'undo-tree)
 (global-undo-tree-mode t)
+;; auto save history
+(setq undo-tree-auto-save-history t)
+;; set history directory
+(setq undo-tree-history-directory-alist `(("." . ,undo_redo__dir)))
+;; compress history
+(defadvice undo-tree-make-history-save-file-name
+    (after undo-tree activate)
+  (setq ad-return-value (concat ad-return-value ".gz")))
 
 ;; * START - Multiple-cursors.el ( from elpa ) *
 (require 'multiple-cursors)

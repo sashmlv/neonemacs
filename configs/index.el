@@ -4,13 +4,15 @@
 ;; * Parameters and loading other config files *
 
 ;; TODO:
-;; - highlight line spaces
+;; - complete undo redo, load history by hook, on load buffer
+;; - highlighted line whitespaces
 
 ;; * START - Params *
 (defconst root_dir "/media/user/disk/emacs-config/configs/")
 (defconst base_dir "~/.emacs.d/")
 (defconst config_dir (concat base_dir "configs/"))
 (defconst backups_dir (concat base_dir "backups/"))
+(defconst undo_redo__dir (concat base_dir "undo_redo/")) ;; save undo-redo history in this dir
 (defconst themes_dir (concat root_dir "themes/"))
 (defconst current_font "Menlo-9")
 (defconst current_indent 3) ;; 3 spaces ;; used in indentation.el
