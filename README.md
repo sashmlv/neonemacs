@@ -3,6 +3,9 @@
 *This config will be updated as soon as will needed.*
 *This project will never be claim complete or not buggy.*
 
+### Features:
+* Long undo-tree history, that do not lost between sessions.
+
 ### Usage:
 * Move file "init.el" from "configs" directory, into "~/.emacs.d/" directory;
 * Set in file "~/.emacs.d/init.el" full path to file "index.el", which in "configs" directory;
@@ -38,7 +41,7 @@ Each theme has own license, for details see in theme file.
 * "C-S-c C-S-c" - edit-lines;
 
 ##### Undo redo:
-* "C-_, C-/" -  Undo changes;
-* "M-_, C-?" -  Redo changes;
+* "C-_, C-/" -  undo changes;
+* "M-_, C-?" -  redo changes;
 * "M-x undo-tree-save-history" - manually save undo history to file;
 * "M-x undo-tree-load-history" - manually load undo history from file;

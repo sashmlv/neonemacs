@@ -67,6 +67,7 @@
 ;; * END *
 
 ;; * START - Save session *
+(setq desktop-restore-eager 7) ;; how buffers restore immediately
 (setq desktop-dirname config_dir)
 (setq desktop-base-file-name "emacs.desktop")
 (setq desktop-base-lock-name "lock")
@@ -251,7 +252,7 @@ scroll-conservatively  10000)
 (global-set-key (kbd "M-N") 'move-line-down)
 ;; * END *
 
-;; * undo-tree melpa plugin ( undo-redo ) *
+;; * START undo-tree melpa plugin ( undo-redo ) setup *
 (require 'undo-tree)
 (global-undo-tree-mode t)
 ;; auto save history
@@ -262,6 +263,30 @@ scroll-conservatively  10000)
 (defadvice undo-tree-make-history-save-file-name
     (after undo-tree activate)
   (setq ad-return-value (concat ad-return-value ".gz")))
+;; load existed undo-tree history files (with lazy loading)
+(if use_undo_tree_history_files
+    (progn ;; "use_undo_tree_history_files" in index.el
+      (setq loaded_undo_tree_history_files nil) ;; list of loaded history files
+      (setq last_used_buffer (buffer-name(car(buffer-list)))) ;; restore last used buffer, from previous session, from buffer list
+      (setq undo_tree_history_initialized nil) ;; is undo-tree initialized
+      (add-hook 'window-configuration-change-hook
+                (lambda()
+                  (progn
+                    (if (or undo_tree_history_initialized (eq (buffer-name (current-buffer)) last_used_buffer)) ;; if not initialized and it is last used buffer, set hook which lazy load history
+                        (if (and (not (member (buffer-file-name (current-buffer)) loaded_undo_tree_history_files)) (eq (type-of (buffer-file-name (current-buffer))) 'string) (buffer-file-name (current-buffer))) ;; if current buffer has file, load undo-tree history file
+                        (progn
+                          (setq undo_tree_history_initialized t)
+                          (undo-tree-load-history nil t) ;; load history with disable error
+                          (add-to-list 'loaded_undo_tree_history_files (buffer-file-name (current-buffer))) ;; save to list loaded library
+                          )
+                        )
+                      )
+                    )
+                  )
+                )
+      )
+  )
+;; * END *
 
 ;; * START - Multiple-cursors.el ( from elpa ) *
 (require 'multiple-cursors)

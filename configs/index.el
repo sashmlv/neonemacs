@@ -4,8 +4,9 @@
 ;; * Parameters and loading other config files *
 
 ;; TODO:
-;; - complete undo redo, load history by hook, on load buffer
+;; - improve undo-tree load history comments and clear code
 ;; - highlighted line whitespaces
+;; - improve reference
 
 ;; * START - Params *
 (defconst root_dir "/media/user/disk/emacs-config/configs/")
@@ -32,10 +33,13 @@
 (defconst whitespace_trailing_background "#070707") ;; used in base.el
 (defconst whitespace_trailing_weight 'light) ;; used in base.el
 
-(defconst hl_line_background "#101010" ) ;; used in base.el
-(defconst hl_region_background "#232323" ) ;; used in base.el
+(defconst hl_line_background "#101010") ;; used in base.el
+(defconst hl_region_background "#232323") ;; used in base.el
 
-(defconst cursor_color "green2" ) ;; used in base.el
+(defconst cursor_color "green2") ;; used in base.el
+
+;; is need use undo-tree history files
+(defconst use_undo_tree_history_files t) ;; used in base.el
 
 ;; define theme for window
 (set 'win-theme 'sunburst)
