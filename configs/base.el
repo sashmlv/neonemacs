@@ -264,22 +264,22 @@ scroll-conservatively  10000)
     (after undo-tree activate)
   (setq ad-return-value (concat ad-return-value ".gz")))
 ;; load existed undo-tree history files (with lazy loading)
-(if use_undo_tree_history_files
-    (progn ;; "use_undo_tree_history_files" in index.el
+(if use_undo_tree_history_files ;; "use_undo_tree_history_files" in index.el
+    (progn
       (setq loaded_undo_tree_history_files nil) ;; list of loaded history files
       (setq last_used_buffer (buffer-name(car(buffer-list)))) ;; restore last used buffer, from previous session, from buffer list
       (setq undo_tree_history_initialized nil) ;; is undo-tree initialized
       (add-hook 'window-configuration-change-hook
                 (lambda()
                   (progn
-                    (if (or undo_tree_history_initialized (eq (buffer-name (current-buffer)) last_used_buffer)) ;; if not initialized and it is last used buffer, set hook which lazy load history
+                    (if (or undo_tree_history_initialized (eq (buffer-name (current-buffer)) last_used_buffer)) ;; if not initialized and it is last used buffer, set hook whith lazy load history (set hook once, when open last used buffer)
                         (if (and (not (member (buffer-file-name (current-buffer)) loaded_undo_tree_history_files)) (eq (type-of (buffer-file-name (current-buffer))) 'string) (buffer-file-name (current-buffer))) ;; if current buffer has file, load undo-tree history file
-                        (progn
-                          (setq undo_tree_history_initialized t)
-                          (undo-tree-load-history nil t) ;; load history with disable error
-                          (add-to-list 'loaded_undo_tree_history_files (buffer-file-name (current-buffer))) ;; save to list loaded library
+                            (progn
+                              (setq undo_tree_history_initialized t) ;; undo-tree was inited
+                              (undo-tree-load-history nil t) ;; load history with disable error
+                              (add-to-list 'loaded_undo_tree_history_files (buffer-file-name (current-buffer))) ;; save to list loaded library
+                              )
                           )
-                        )
                       )
                     )
                   )

@@ -21,8 +21,11 @@
 ;; pug-mode on pug files
 (add-to-list 'auto-mode-alist '("\\.\\(jade\\|pug\\)\\'" . pug-mode))
 
-;; js2-mode on js files
+;; yaml-mode on yml files
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+
+;; php-mode on php files
+(add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
 
 ;; * Disable error on free variables *
 ;; Local Variables:

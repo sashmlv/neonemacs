@@ -4,7 +4,9 @@
 *This project will never be claim complete or not buggy.*
 
 ### Features:
-* Long undo-tree history, that do not lost between sessions.
+* Long undo-tree history, that not lost between sessions.
+* Multiple cursors.
+* ...
 
 ### Usage:
 * Move file "init.el" from "configs" directory, into "~/.emacs.d/" directory;

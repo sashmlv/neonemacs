@@ -61,6 +61,7 @@
                      web-mode
                      pug-mode
                      yaml-mode
+                     php-mode
                      )
       )
 ;; * END *
