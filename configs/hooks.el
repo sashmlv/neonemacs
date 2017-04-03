@@ -24,8 +24,8 @@
 ;; yaml-mode on yml files
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
 
-;; php-mode on php files
-(add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
+;; web-mode on php files
+(add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
 
 ;; * Disable error on free variables *
 ;; Local Variables:

@@ -9,6 +9,7 @@
 * ...
 
 ### Usage:
+* clean "~/.emacs.d/" directory;
 * Move file "init.el" from "configs" directory, into "~/.emacs.d/" directory;
 * Set in file "~/.emacs.d/init.el" full path to file "index.el", which in "configs" directory;
 * Set in file "index.el", which in "configs" directory, variable "root_dir", which is full path to "config" directory;

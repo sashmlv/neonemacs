@@ -7,21 +7,18 @@
 (setq-default tab-width current_indent)
 
 (defvaralias 'c-basic-offset 'current_indent)
-(defvaralias 'cperl-indent-level 'current_indent)
 
-(defvaralias 'php-mode-force-pear 'current_indent)
+(defvaralias 'cperl-indent-level 'current_indent)
 
 (defvaralias 'js-indent-level 'current_indent)
 
-(defvaralias 'web-mode-markup-indent-offset 'current_indent)
+(setq web-mode-markup-indent-offset current_indent)
 
-(defvaralias 'web-mode-css-indent-offset  'current_indent)
+(setq web-mode-css-indent-offset current_indent)
 
-(defvaralias 'web-mode-code-indent-offset 'current_indent)
+(setq web-mode-code-indent-offset current_indent)
 
 (defvaralias 'css-indent-offset 'current_indent)
-
-
 
 ;; * END *
 

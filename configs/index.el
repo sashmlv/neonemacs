@@ -4,9 +4,9 @@
 ;; * Parameters and loading other config files *
 
 ;; TODO:
-;; - improve undo-tree load history comments and clear code
+;; - rethink project structure
 ;; - highlighted line whitespaces
-;; - improve reference
+;; - improve readme reference
 
 ;; * START - Params *
 (defconst root_dir "/media/user/disk/emacs-config/configs/")
@@ -61,7 +61,6 @@
                      web-mode
                      pug-mode
                      yaml-mode
-                     php-mode
                      )
       )
 ;; * END *
