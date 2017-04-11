@@ -13,7 +13,7 @@
 * Move file "init.el" from "configs" directory, into "~/.emacs.d/" directory;
 * Set in file "~/.emacs.d/init.el" full path to file "index.el", which in "configs" directory;
 * Set in file "index.el", which in "configs" directory, variable "configs_dir", which is full path to "config" directory;
-* Set your prefer font, theme, and other configs in "index.el" (for apply theme completely, before remove file "~/.emacs.d/configs/emacs.desktop");
+* Set your prefer font, theme, and other configs in "index.el" (for apply theme completely, before remove file "~/.emacs.d/emacs.desktop");
 * Overview all keybindings and other stuff in each config file, and set your prefer;
 * Create your custom config file, and require it in "index.el";
 * Now you can walk through code;

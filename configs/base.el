@@ -2,21 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
-;; * START - Prepare config directories *
-(if(not(file-accessible-directory-p config_dir))
-    (make-directory config_dir t)
-  )
-(if(not(file-accessible-directory-p backups_dir))
-   (make-directory backups_dir t)
-  )
-(if(not(file-accessible-directory-p undo_redo__dir))
-   (make-directory undo_redo__dir t)
-  )
-;; * END *
-
 ;; * START - Save session *
 (setq desktop-restore-eager 7) ;; how buffers restore immediately
-(setq desktop-dirname config_dir)
+(setq desktop-dirname base_dir)
 (setq desktop-base-file-name "emacs.desktop")
 (setq desktop-base-lock-name "lock")
 (setq desktop-path (list desktop-dirname))

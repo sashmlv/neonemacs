@@ -9,11 +9,11 @@
 ;; - improve readme reference
 ;; - setup tern
 ;; - fix lazy load undo tree
+;; - fix dir names
 
 ;; * START - Params *
 (defconst configs_dir "/media/user/disk/emacs-config/configs/")
 (defconst base_dir "~/.emacs.d/")
-(defconst config_dir (concat base_dir "configs/"))
 (defconst backups_dir (concat base_dir "backups/"))
 (defconst undo_redo__dir (concat base_dir "undo_redo/")) ;; save undo-redo history in this dir
 (defconst themes_dir (concat configs_dir "themes/"))
@@ -44,7 +44,7 @@
 (defconst use_undo_tree_history_files t) ;; used in base.el
 
 ;; is need use tern for javascript
-(defconst use_tern t) ;; used in packages-installation.el
+(defconst use_tern_mode t) ;; used in packages-installation.el
 
 ;; define theme for window
 (set 'win-theme 'sunburst)
@@ -72,6 +72,15 @@
 
 ;; Set some parameters
 ;; (set-background-color "#000")
+
+;; * START - Prepare config directories *
+(if(not(file-accessible-directory-p backups_dir))
+   (make-directory backups_dir t)
+  )
+(if(not(file-accessible-directory-p undo_redo__dir))
+   (make-directory undo_redo__dir t)
+  )
+;; * END *
 
 ;; Load configs
 (load (concat configs_dir "base"))

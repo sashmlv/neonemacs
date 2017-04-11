@@ -63,7 +63,7 @@
 
 ;; * START tern installation *
 ;; (shell-command-to-string "/bin/echo hello")
-(if use_tern
+(if use_tern_mode
     (progn
       ;;
       ;;
