@@ -7,6 +7,8 @@
 ;; - rethink project structure
 ;; - highlighted line whitespaces
 ;; - improve readme reference
+;; - setup tern
+;; - fix lazy load undo tree
 
 ;; * START - Params *
 (defconst configs_dir "/media/user/disk/emacs-config/configs/")
@@ -40,6 +42,9 @@
 
 ;; is need use undo-tree history files
 (defconst use_undo_tree_history_files t) ;; used in base.el
+
+;; is need use tern for javascript
+(defconst use_tern t) ;; used in packages-installation.el
 
 ;; define theme for window
 (set 'win-theme 'sunburst)

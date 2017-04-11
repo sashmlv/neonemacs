@@ -28,9 +28,6 @@ Version 2017-03-12"
           'face (list :background (match-string-no-properties 0)))))))
   (font-lock-flush))
 
-
-
-
 ;; * Disable error on free variables *
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)

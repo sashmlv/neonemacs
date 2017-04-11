@@ -61,10 +61,15 @@
   )
 ;; * END *
 
-
-
 ;; * START tern installation *
-
+;; (shell-command-to-string "/bin/echo hello")
+(if use_tern
+    (progn
+      ;;
+      ;;
+      ;;
+      )
+  )
 ;; * END *
 
 ;; * Disable error on free variables *
