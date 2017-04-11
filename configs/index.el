@@ -7,8 +7,6 @@
 ;; - rethink project structure
 ;; - highlighted line whitespaces
 ;; - improve readme reference
-;; - move all packages installation code on file packages-installation
-;; - set auto-yes on packages installation
 
 ;; * START - Params *
 (defconst configs_dir "/media/user/disk/emacs-config/configs/")
