@@ -12,6 +12,8 @@
 
 ;; js2-mode on js files
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+;; tern-mode
+;; (add-hook 'js2-mode-hook (lambda () (tern-mode t)))
 
 ;; less-css-mode on less files
 (add-to-list 'auto-mode-alist '("\\.less\\'" . less-css-mode))
