@@ -99,9 +99,9 @@
 ;; * END *
 
 ;; Load configs
-(load (concat configs_dir (file-name-as-directory "modes") "custom-modes")) ;; 1 - setup custom modes
-(load (concat configs_dir (file-name-as-directory "modes") "base-modes")) ;; 2 - setup available modes
-(load (concat configs_dir (file-name-as-directory "modes") "tern-mode")) ;; 3 - setup tern
+(load (concat configs_dir (file-name-as-directory "modes-setup") "custom-modes-setup")) ;; 1 - setup custom modes
+(load (concat configs_dir (file-name-as-directory "modes-setup") "base-modes-setup")) ;; 2 - setup available modes
+(load (concat configs_dir (file-name-as-directory "modes-setup") "tern-mode-setup")) ;; 3 - setup tern
 (load (concat configs_dir (file-name-as-directory "common") "indentation")) ;; 4 - setup indentation
 (load (concat configs_dir (file-name-as-directory "common") "hooks")) ;; 5 - setup hooks
 

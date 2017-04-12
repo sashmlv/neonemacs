@@ -1,4 +1,4 @@
-;;; base-modes --- available modes configuration:
+;;; base-modes-setup --- available modes configuration:
 ;;; Commentary:
 ;;; Code:
 
@@ -334,4 +334,4 @@ scroll-conservatively  10000)
 ;; byte-compile-warnings: (not free-vars)
 ;; End:
 
-;;; base-modes.el ends here
+;;; base-modes-setup.el ends here

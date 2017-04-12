@@ -24,8 +24,8 @@
 
 * "init.el" - for load "index.el";
 * "index.el" - parameters and loading other config files;
-* "modes/base-modes.el" - available modes setup;
-* "modes/custom-modes.el" - custom modes setup;
+* "modes-setup/base-modes-setup.el" - available modes setup;
+* "modes-setup/custom-modes-setup.el" - custom modes setup;
 * "comon/indentation.el" - indentation settings;
 * "common/hooks.el" - hooks and modes;
 

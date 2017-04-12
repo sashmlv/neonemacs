@@ -1,4 +1,4 @@
-;;; custom-modes --- custom modes configuration:
+;;; custom-modes-setup --- custom modes configuration:
 ;;; Commentary:
 ;;; Code:
 
@@ -33,4 +33,4 @@ Version 2017-03-12"
 ;; byte-compile-warnings: (not free-vars)
 ;; End:
 
-;;; custom-modes.el ends here
+;;; custom-modes-setup.el ends here

@@ -1,4 +1,4 @@
-;;; tern-mode --- tern installation and configuration:
+;;; tern-mode-setup --- tern installation and configuration:
 ;;; Commentary:
 ;;; Code:
 
@@ -38,7 +38,7 @@ fi
 " base_dir tern_dir tern_dir)
                 )
           (shell-command-to-string shell_commands) ;; execute installation
-          (setq need_emacs_restart t)
+          (setq need_emacs_restart t) ;; from index.el
           (message "Tern installed successfully!")
           )
       (progn
@@ -63,4 +63,4 @@ fi
 ;; byte-compile-warnings: (not free-vars)
 ;; End:
 
-;;; tern-mode.el ends here
+;;; tern-mode-setup.el ends here
