@@ -4,18 +4,18 @@
 *This project will never be claim complete or not buggy.*
 
 ### Features:
-* Long undo-tree history, that not lost between sessions.
-* Multiple cursors.
-* Tern mode for javascript development (now support only linux systems)
+* Packages autoinstallation;
+* Long undo-tree history, that not losts between sessions;
+* Multiple cursors;
+* Tern mode for javascript development (now support only linux systems);
 * ...
 
 ### Usage:
-* Clean your b
-"~/.emacs.d/" directory;
+* Clean your "~/.emacs.d/" directory;
 * Move file "init.el" from "configs" directory, into "~/.emacs.d/" directory;
 * Set in file "~/.emacs.d/init.el" full path to file "index.el", which in "configs" directory;
-* Set in file "index.el", which in "configs" directory, variable "configs_dir", which is full path to "config" directory;
-* Set your prefer font, theme, and other configs in "index.el" (for apply theme completely, before remove file "~/.emacs.d/emacs.desktop");
+* Set in file "index.el", which in "configs" directory, variable "configs_dir", which is full path to "configs" directory;
+* Set your prefer font, theme, and other configs in "index.el" (for apply theme completely, remove file "~/.emacs.d/emacs.desktop");
 * Overview all keybindings and other stuff in each config file, and set your prefer;
 * Create your custom config file, and require it in "index.el";
 * Now you can walk through code;
@@ -23,10 +23,11 @@
 ### Overview:
 
 * "init.el" - for load "index.el";
-* "index.el" - parameters and load other config files;
-* "base.el" - common emacs configs;
-* "indentation.el" - indentation settings;
-* "hooks.el" - hooks call modes;
+* "index.el" - parameters and loading other config files;
+* "modes/base-modes.el" - available modes setup;
+* "modes/custom-modes.el" - custom modes setup;
+* "comon/indentation.el" - indentation settings;
+* "common/hooks.el" - hooks and modes;
 
 ### Screenshot:
 ![Image of editor](https://raw.githubusercontent.com/sashlex/emacs-config/master/img/screenshot.png)

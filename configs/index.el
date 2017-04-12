@@ -5,10 +5,8 @@
 
 ;; TODO:
 ;; - highlighted line whitespaces
-;; - improve readme reference, write missing parameters and update
 ;; - fix lazy load undo tree
 ;; - directory separator
-;; - need refactoring
 
 ;; * START - Params *
 ;; Package repositories
