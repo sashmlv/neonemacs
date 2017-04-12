@@ -1,6 +1,53 @@
-;;; base --- common configuration:
+;;; base-modes --- available modes configuration:
 ;;; Commentary:
 ;;; Code:
+
+;; * START - Install packages from list *
+;; Check installed packages
+(setq need-package-install nil)
+(dolist (package package-list)
+  (if(not(package-installed-p package))
+      (setq need-package-install t)
+ ))
+
+;; install packages if needed
+(if need-package-install
+    (progn
+      ;; Get melpa archive into list
+      (catch 'get-archive-melpa
+        (dolist (archive package-archives)
+          (when (equal (car archive) "melpa")
+            (progn
+              (setq archives (list archive))
+              (throw 'get-archive-melpa archives))
+            )
+        )
+        nil
+        )
+
+      ;; Copy original archives
+      (setq archives-copy package-archives)
+
+      ;; Set package-archives to melpa archive
+      (setq package-archives archives)
+
+      ;; Fetch the list of packages available in melpa
+      (package-refresh-contents)
+
+      ;; Install the missing packages
+      (dolist (package package-list)
+        (unless (package-installed-p package)
+          ;; (if (y-or-n-p (format "Package \"%s\" is missing. Do you want to install it? " package))
+          (package-install package)
+          ;; )
+          )
+        )
+
+      ;; Rollback original archives
+      (setq package-archives archives-copy)
+      )
+  )
+;; * END *
 
 ;; * START - Save session *
 (setq desktop-restore-eager 7) ;; how buffers restore immediately
@@ -197,7 +244,7 @@ scroll-conservatively  10000)
 (setq undo-tree-auto-save-history t)
 
 ;; set history directory
-(setq undo-tree-history-directory-alist `(("." . ,undo_redo__dir)))
+(setq undo-tree-history-directory-alist `(("." . ,undo_redo_dir)))
 
 ;; compress history
 (defadvice undo-tree-make-history-save-file-name
@@ -287,4 +334,4 @@ scroll-conservatively  10000)
 ;; byte-compile-warnings: (not free-vars)
 ;; End:
 
-;;; base.el ends here
+;;; base-modes.el ends here

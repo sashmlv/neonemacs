@@ -6,10 +6,12 @@
 ### Features:
 * Long undo-tree history, that not lost between sessions.
 * Multiple cursors.
+* Tern mode for javascript development (now support only linux systems)
 * ...
 
 ### Usage:
-* Clean "~/.emacs.d/" directory;
+* Clean your b
+"~/.emacs.d/" directory;
 * Move file "init.el" from "configs" directory, into "~/.emacs.d/" directory;
 * Set in file "~/.emacs.d/init.el" full path to file "index.el", which in "configs" directory;
 * Set in file "index.el", which in "configs" directory, variable "configs_dir", which is full path to "config" directory;
