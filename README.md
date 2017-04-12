@@ -6,8 +6,8 @@
 ### Features:
 * Packages autoinstallation;
 * Long undo-tree history, that not losts between sessions;
-* Multiple cursors;
 * Tern mode for javascript development (now support only linux systems);
+* Multiple cursors;
 * ...
 
 ### Usage:

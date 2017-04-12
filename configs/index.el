@@ -3,11 +3,6 @@
 ;;; Code:
 ;; * Parameters and loading other config files *
 
-;; TODO:
-;; - highlighted line whitespaces
-;; - fix lazy load undo tree
-;; - undo-redo setup in separate file
-
 ;; * START - Params *
 ;; Package repositories
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
@@ -101,9 +96,10 @@
 ;; Load configs
 (load (concat configs_dir (file-name-as-directory "modes-setup") "custom-modes-setup")) ;; 1 - setup custom modes
 (load (concat configs_dir (file-name-as-directory "modes-setup") "base-modes-setup")) ;; 2 - setup available modes
-(load (concat configs_dir (file-name-as-directory "modes-setup") "tern-mode-setup")) ;; 3 - setup tern
-(load (concat configs_dir (file-name-as-directory "common") "indentation")) ;; 4 - setup indentation
-(load (concat configs_dir (file-name-as-directory "common") "hooks")) ;; 5 - setup hooks
+(load (concat configs_dir (file-name-as-directory "modes-setup") "undo-tree-mode-setup")) ;; 3 - setup undo-tree
+(load (concat configs_dir (file-name-as-directory "modes-setup") "tern-mode-setup")) ;; 4 - setup tern
+(load (concat configs_dir (file-name-as-directory "common") "indentation")) ;; 5 - setup indentation
+(load (concat configs_dir (file-name-as-directory "common") "hooks")) ;; 6 - setup hooks
 
 ;; restart emacs if needed
 (if need_emacs_restart

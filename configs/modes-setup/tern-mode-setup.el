@@ -38,7 +38,7 @@ fi
 " base_dir tern_dir tern_dir)
                 )
           (shell-command-to-string shell_commands) ;; execute installation
-          (setq need_emacs_restart t) ;; from index.el
+          (setq need_emacs_restart t) ;; "need_emacs_restart" in index.el
           (message "Tern installed successfully!")
           )
       (progn
@@ -55,7 +55,6 @@ fi
       (autoload 'tern-mode tern_file nil t)
       )
   )
-;; manual remove: (shell-command-to-string "rm -rf ~/.emacs.d/tern")
 ;; * END *
 
 ;; * Disable error on free variables *
