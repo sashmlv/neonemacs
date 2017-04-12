@@ -6,7 +6,7 @@
 ;; TODO:
 ;; - highlighted line whitespaces
 ;; - fix lazy load undo tree
-;; - directory separator
+;; - undo-redo setup in separate file
 
 ;; * START - Params *
 ;; Package repositories
@@ -17,15 +17,15 @@
 
 (setq need_emacs_restart nil)
 (defconst configs_dir "/media/user/disk/emacs-config/configs/")
-(defconst base_dir (concat (getenv "HOME") "/.emacs.d/" ))
-(defconst backups_dir (concat base_dir "backups/"))
-(defconst themes_dir (concat configs_dir "themes/"))
-(defconst undo_redo_dir (concat base_dir "undo_redo/")) ;; save undo-redo history in this dir
+(defconst base_dir (concat (file-name-as-directory (getenv "HOME")) (file-name-as-directory ".emacs.d")))
+(defconst backups_dir (concat base_dir (file-name-as-directory "backups")))
+(defconst themes_dir (concat configs_dir (file-name-as-directory "themes")))
+(defconst undo_redo_dir (concat base_dir (file-name-as-directory "undo_redo"))) ;; save undo-redo history in this dir
 
 ;; is need use tern for javascript development
 (defconst use_tern_mode t) ;; used in packages-installation.el
-(defconst tern_dir (concat base_dir "tern/")) ;; tern files placed here
-(defconst tern_file (concat tern_dir "emacs/" "tern.el")) ;; tern file
+(defconst tern_dir (concat base_dir (file-name-as-directory "tern"))) ;; tern files placed here
+(defconst tern_file (concat tern_dir (file-name-as-directory "emacs") "tern.el")) ;; tern file
 
 (defconst current_font "Menlo-9")
 (defconst current_indent 3) ;; 3 spaces ;; used in indentation.el
@@ -99,11 +99,11 @@
 ;; * END *
 
 ;; Load configs
-(load (concat configs_dir "modes/custom-modes")) ;; 1 - setup custom modes
-(load (concat configs_dir "modes/base-modes")) ;; 2 - setup available modes
-(load (concat configs_dir "modes/tern-mode")) ;; 3 - setup tern
-(load (concat configs_dir "common/indentation")) ;; 4 - setup indentation
-(load (concat configs_dir "common/hooks")) ;; 5 - setup hooks
+(load (concat configs_dir (file-name-as-directory "modes") "custom-modes")) ;; 1 - setup custom modes
+(load (concat configs_dir (file-name-as-directory "modes") "base-modes")) ;; 2 - setup available modes
+(load (concat configs_dir (file-name-as-directory "modes") "tern-mode")) ;; 3 - setup tern
+(load (concat configs_dir (file-name-as-directory "common") "indentation")) ;; 4 - setup indentation
+(load (concat configs_dir (file-name-as-directory "common") "hooks")) ;; 5 - setup hooks
 
 ;; restart emacs if needed
 (if need_emacs_restart

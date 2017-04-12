@@ -51,11 +51,10 @@ fi
 ;; load tern
 (if (and use_tern_mode (file-exists-p tern_file))
     (progn
-      (add-to-list 'load-path (concat tern_dir "emacs/" ))
+      (add-to-list 'load-path (concat tern_dir (file-name-as-directory "emacs")))
       (autoload 'tern-mode tern_file nil t)
       )
   )
-
 ;; manual remove: (shell-command-to-string "rm -rf ~/.emacs.d/tern")
 ;; * END *
 
