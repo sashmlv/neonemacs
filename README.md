@@ -10,6 +10,9 @@
 * Multiple cursors;
 * ...
 
+### Requirements:
+* Emacs >= 25
+
 ### Usage:
 * Clean your "~/.emacs.d/" directory;
 * Move file "init.el" from "configs" directory, into "~/.emacs.d/" directory;
@@ -24,6 +27,8 @@
 
 * "init.el" - for load "index.el";
 * "index.el" - parameters and loading other config files;
+* "modes-setup" - in this directory placed files, with some modes configuration;
+* "common" - in this directory placed common config files;
 * "modes-setup/base-modes-setup.el" - available modes setup;
 * "modes-setup/custom-modes-setup.el" - custom modes setup;
 * "comon/indentation.el" - indentation settings;
