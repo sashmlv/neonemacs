@@ -39,8 +39,17 @@
 ;; yaml-mode on yml files
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
 
-;; web-mode on php files
-(add-to-list 'auto-mode-alist '("\\.php\\'" . web-mode))
+;; php-mode on php files
+(add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
+;; php-mode fix indentation
+(add-hook 'php-mode-hook
+          (lambda()
+            (progn
+              (setq indent-tabs-mode nil)
+              (setq c-basic-offset 3)
+              )
+            )
+          )
 
 ;; * Disable error on free variables *
 ;; Local Variables:
