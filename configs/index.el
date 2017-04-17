@@ -69,6 +69,7 @@
                      web-mode
                      pug-mode
                      yaml-mode
+                     syntax-subword
                      )
       )
 (if use_tern_mode

@@ -2,13 +2,21 @@
 ;;; Commentary:
 ;;; Code:
 
-;; * START - Highlight indentation hook *
+;; * START - Highlight indentation hook setup *
 (highlight-indentation-mode 1) ;; for disable error
 (add-hook 'highlight-indentation-mode-hook (lambda()(setq highlight-indentation-offset current_indent))) ;; set indent size ;; "current_indent" in index.el
-(add-hook 'prog-mode-hook 'highlight-indentation-mode) ;; highlight indent on each buffer
 (set-face-background 'highlight-indentation-face indentation_color) ;; "indentation-color" in index.el
 (set-face-background 'highlight-indentation-current-column-face indentation_current_line_color) ;; "indentation-current-line-color" in index.el
-;; * END *
+;; * END (continue below) *
+
+;; enable common modes
+(add-hook
+ 'prog-mode-hook
+ (lambda()
+   (highlight-indentation-mode 1) ;; highlight indent on each buffer
+   (syntax-subword-mode 1) ;; make word editing and motion more fine-grained
+   )
+ )
 
 ;; js2-mode on js files
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
