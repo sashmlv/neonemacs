@@ -43,8 +43,6 @@
                                is_allow_execute_load_history_file ;; is allow execute
                                )
                               (progn
-                                ;; (write-region (concat "->" (buffer-name(current-buffer)) "<-") nil (concat undo_redo__dir "ololo.txt") 'append)
-
                                 (setq is_allow_execute_load_history_file nil) ;; set back disallow execute hook
                                 (undo-tree-load-history nil t) ;; load "current-buffer" history file, with disabled error message on file not found
                                 (add-to-list 'loaded_undo_tree_history_files (buffer-file-name (current-buffer))) ;; save to list loaded history file, for prevent load again
