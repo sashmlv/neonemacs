@@ -44,7 +44,7 @@
 ;; php-mode indentation fix
 (add-hook 'php-mode-hook (lambda() (progn
                                      (setq indent-tabs-mode nil)
-                                     (setq c-basic-offset current_indent)
+                                     (setq c-basic-offset current_indent) ;; "current_indent" in index.el
                                      )))
 
 ;; * Disable error on free variables *
