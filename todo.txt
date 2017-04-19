@@ -3,5 +3,4 @@ TODO:
 - highlighted current line whitespaces;
 - need undo-tree refacroring:
   1 - bug on load in dired buffer;
-  2 - bug on lazy load undo tree;
 - ...

@@ -31,10 +31,10 @@
       (setq loaded_undo_tree_history_files nil) ;; list of loaded history files
       (setq last_buffer_from_previous_session (buffer-name (car (buffer-list)))) ;; restore last used buffer, from previous session, from buffer list
       (setq undo_tree_history_initialized nil) ;; is undo-tree initialized
-      (add-hook 'window-configuration-change-hook ;; hook when current-buffer will have actual value
+      (add-hook 'window-configuration-change-hook ;; hook when current-buffer will be changed
                 (lambda()
                   (progn
-                    (if (or undo_tree_history_initialized (eq (buffer-name (current-buffer)) last_buffer_from_previous_session)) ;; on first loading, if not initialized, and it is last used buffer, restore history file (in next times, in other cases, parameter "undo_tree_history_initialized" make execute code allways)
+                    (if (or undo_tree_history_initialized (eq (buffer-name (current-buffer)) last_buffer_from_previous_session)) ;; on first loading, when emacs not loaded completelly, and it is last used buffer, restore history file (in next times, in other cases, parameter "undo_tree_history_initialized" make execute code allways)
                         (progn
                           (if (and
                                (not (member (buffer-file-name (current-buffer)) loaded_undo_tree_history_files)) ;; if history file still not loaded and ... ( see below )
@@ -43,12 +43,14 @@
                                is_allow_execute_load_history_file ;; is allow execute
                                )
                               (progn
-                                (setq undo_tree_history_initialized t) ;; set undo-tree was initialized
+                                ;; (write-region (concat "->" (buffer-name(current-buffer)) "<-") nil (concat undo_redo__dir "ololo.txt") 'append)
+
                                 (setq is_allow_execute_load_history_file nil) ;; set back disallow execute hook
                                 (undo-tree-load-history nil t) ;; load "current-buffer" history file, with disabled error message on file not found
                                 (add-to-list 'loaded_undo_tree_history_files (buffer-file-name (current-buffer))) ;; save to list loaded history file, for prevent load again
                                 )
                             )
+                          (setq undo_tree_history_initialized t) ;; set undo-tree was initialized
                           )
                       )
                     )
