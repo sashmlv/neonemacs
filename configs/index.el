@@ -66,7 +66,7 @@
                      js2-mode
                      highlight-indentation
                      less-css-mode
-                     ;; web-mode
+                     web-mode
                      php-mode
                      pug-mode
                      yaml-mode

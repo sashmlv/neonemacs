@@ -47,6 +47,9 @@
                                      (setq c-basic-offset current_indent) ;; "current_indent" in index.el
                                      )))
 
+;; web-mode on html files
+(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+
 ;; * Disable error on free variables *
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)

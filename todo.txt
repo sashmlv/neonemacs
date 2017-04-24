@@ -1,4 +1,4 @@
 TODO:
 
 - highlighted current line whitespaces;
-- ...
+- tern initialization is wrong (when on start open js file)
