@@ -21,8 +21,8 @@
 * Set your prefer font, theme, and other configs in "index.el" (for apply theme completely, remove file "~/.emacs.d/emacs.desktop");
 * Overview all keybindings and other stuff in each config file, and set your prefer;
 * Create your custom config file, and require it in "index.el";
-* Now you can walk through code;
 * If some error will occurred try remove ~/.emacs.d/emacs.desktop
+* Now you can walk through code;
 
 ### Overview:
 
