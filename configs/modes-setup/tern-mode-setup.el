@@ -8,6 +8,9 @@
     (if (eq system-type 'gnu/linux) ;; if linux
         (progn ;; go install tern
           (message "Wait a while, now installing 'tern'!")
+          (if (file-accessible-directory-p tern_dir) ;; remove tern directory if exists
+              (delete-directory tern_dir t)
+	    )
           (setq shell_commands
                 (format "
 check_message=\"\"
@@ -51,8 +54,9 @@ fi
 ;; load tern
 (if (and use_tern_mode (file-exists-p tern_file))
     (progn
-      (add-to-list 'load-path (concat tern_dir (file-name-as-directory "emacs")))
-      (autoload 'tern-mode tern_file nil t)
+      (setq exec-path (cons (concat tern_dir "bin") exec-path)) ;; set environment path to tern binary
+      (add-to-list 'load-path (concat tern_dir (file-name-as-directory "emacs"))) ;; set path to tern file
+      (autoload 'tern-mode tern_file nil t) ;; load tern.el
       )
   )
 ;; * END *

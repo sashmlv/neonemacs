@@ -1,4 +1,7 @@
 TODO:
 
 - highlighted current line whitespaces;
-- tern initialization is wrong (when on start open js file)
+- web-mode html file indentation
+- web-mode highlight open-close tags
+- move some modes in files
+- change company mode colors
