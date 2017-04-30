@@ -57,12 +57,12 @@
 ;; Packages list
 (setq package-list '(
                      restart-emacs ;; support only linux and windows
-                     smex
-                     undo-tree
+                     smex ;; minibuffer improvements
+                     undo-tree ;; undo-redo history
                      multiple-cursors
-                     company
+                     company ;; autocompletition
                      company-statistics
-                     projectile
+                     projectile ;; project management
                      js2-mode
                      highlight-indentation
                      less-css-mode
@@ -70,7 +70,8 @@
                      php-mode
                      pug-mode
                      yaml-mode
-                     syntax-subword
+                     syntax-subword ;; subword navigation
+                     magit ;; git support
                      )
       )
 (if use_tern_mode

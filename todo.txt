@@ -5,3 +5,4 @@ TODO:
 - web-mode highlight open-close tags
 - move some modes in files
 - change company mode colors
+- maybe will need fix undo-tree loading again
