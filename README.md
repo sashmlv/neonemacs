@@ -5,8 +5,9 @@
 
 ### Features:
 * Packages autoinstallation;
-* Long undo-tree history, that not losts between sessions;
-* Tern mode for javascript development (now support only linux systems);
+* Long "undo-tree" history, that not losts between sessions;
+* "Tern" mode for javascript development (now support only linux systems);
+* Git support through "Magit"
 * Multiple cursors;
 * ...
 

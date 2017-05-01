@@ -32,6 +32,7 @@
 (add-to-list 'auto-mode-alist '("\\.less\\'" . less-css-mode))
 ;; highlight colors
 (add-hook 'less-css-mode-hook 'xah-syntax-color-hex)
+(add-hook 'css-mode-hook 'xah-syntax-color-hex)
 
 ;; pug-mode on pug files
 (add-to-list 'auto-mode-alist '("\\.\\(jade\\|pug\\)\\'" . pug-mode))
