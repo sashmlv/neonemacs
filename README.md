@@ -9,6 +9,7 @@
 * "Tern" mode for javascript development (now support only linux systems);
 * Git support through "Magit"
 * Multiple cursors;
+* Highlight occurrences;
 * ...
 
 ### Requirements:
