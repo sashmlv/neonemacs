@@ -54,7 +54,6 @@ fi
 ;; load tern
 (if (and use_tern_mode (file-exists-p tern_file))
     (progn
-      (setq exec-path (cons (concat tern_dir "bin") exec-path)) ;; set environment path to tern binary
       (add-to-list 'load-path (concat tern_dir (file-name-as-directory "emacs"))) ;; set path to tern file
       (autoload 'tern-mode tern_file nil t) ;; load tern.el
       )

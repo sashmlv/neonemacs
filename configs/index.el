@@ -21,6 +21,9 @@
 (defconst use_tern_mode t) ;; used in modes-setup/tern-mode-setup.el
 (defconst tern_dir (concat base_dir (file-name-as-directory "tern"))) ;; tern files placed here
 (defconst tern_file (concat tern_dir (file-name-as-directory "emacs") "tern.el")) ;; tern file
+(if (and use_tern_mode (file-exists-p tern_file))
+  (setq exec-path (cons (concat tern_dir "bin") exec-path)) ;; set environment path to tern binary
+)
 
 (defconst current_font "Menlo-9")
 (defconst current_indent 3) ;; 3 spaces ;; used in common/indentation.el
@@ -72,6 +75,7 @@
                      yaml-mode
                      syntax-subword ;; subword navigation
                      magit ;; git support
+                     idle-highlight-mode ;; highlight occurrences
                      )
       )
 (if use_tern_mode
