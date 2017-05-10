@@ -1,4 +1,5 @@
 # disallow
 .projectile
+.tern-port
 
 # allow
