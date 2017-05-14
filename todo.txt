@@ -1,7 +1,0 @@
-TODO:
-
-- highlighted current line whitespaces;
-- web-mode highlight open-close tags
-- move some modes in files
-- change company mode colors
-- change packages archives installation

@@ -258,10 +258,13 @@ scroll-conservatively  10000)
 (setq dired-dwim-target t)
 
 ;; * START - Zip and unzip support *
+;; Z - key compress-uncompress file
 (eval-after-load "dired-aux"
    '(add-to-list 'dired-compress-file-suffixes
                  '("\\.zip\\'" ".zip" "unzip")))
 ;; * END *
+
+
 
 ;; * Replase remove, by remove in trash *
 (setq delete-by-moving-to-trash t)

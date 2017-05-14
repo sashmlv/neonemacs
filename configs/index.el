@@ -66,13 +66,9 @@
                      company ;; autocompletition
                      company-statistics
                      projectile ;; project management
-                     js2-mode
                      highlight-indentation
-                     less-css-mode
-                     web-mode
-                     php-mode
-                     pug-mode
-                     yaml-mode
+                     js2-mode less-css-mode web-mode php-mode pug-mode yaml-mode
+                     bongo ;; media player
                      syntax-subword ;; subword navigation
                      magit ;; git support
                      idle-highlight-mode ;; highlight occurrences
