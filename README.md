@@ -10,6 +10,7 @@
 * Git support through "Magit"
 * Multiple cursors;
 * Highlight occurrences;
+* "Bongo" media player;
 * ...
 
 ### Requirements:
