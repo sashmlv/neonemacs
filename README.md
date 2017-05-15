@@ -3,15 +3,13 @@
 *This config will be updated as soon as will needed.*
 *This project will never be claim complete or not buggy.*
 
-### Features:
+### Some features:
 * Packages autoinstallation;
 * Long "undo-tree" history, that not losts between sessions;
 * "Tern" mode for javascript development (now support only linux systems);
 * Git support through "Magit"
-* Multiple cursors;
-* Highlight occurrences;
 * "Bongo" media player;
-* ...
+* all installed packages you can see in index.el ...
 
 ### Requirements:
 * Emacs >= 25
