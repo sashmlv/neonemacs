@@ -266,10 +266,11 @@ scroll-conservatively  10000)
 
 ;; * START - google translator *
 (require 'google-translate)
-(require 'google-translate-smooth-ui)
+(require 'google-translate-default-ui)
 (setq google-translate-default-source-language "en")
 (setq google-translate-default-target-language "ru")
-(global-set-key (kbd "C-c t") 'google-translate-smooth-translate)
+(global-set-key (kbd "C-c t") 'google-translate-at-point)
+(global-set-key (kbd "C-c T") 'google-translate-query-translate)
 ;; * END *
 
 ;; * START - markdown mode *

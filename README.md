@@ -46,7 +46,8 @@ Each theme has own license, for details see in theme file.
 ### Some keybindings:
 
 ##### Translate text from "Eng" to "Rus":
-* "C-c t" - google-translate-smooth-translate
+* "C-c t" - google-translate-at-point
+* "C-c T" - google-translate-query-translate
 
 ##### Move line:
 * "M-P" - move-line-up;
