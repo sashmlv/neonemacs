@@ -9,6 +9,7 @@
 * "Tern" mode for javascript development (now support only linux systems);
 * Git support through "Magit"
 * "Bongo" media player;
+* Google translate;
 * all installed packages you can see in index.el ...
 
 ### Requirements:
@@ -43,6 +44,9 @@
 Each theme has own license, for details see in theme file.
 
 ### Some keybindings:
+
+##### Translate text from "Eng" to "Rus":
+* "C-c t" - google-translate-smooth-translate
 
 ##### Move line:
 * "M-P" - move-line-up;

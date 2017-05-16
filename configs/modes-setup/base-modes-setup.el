@@ -264,6 +264,14 @@ scroll-conservatively  10000)
                  '("\\.zip\\'" ".zip" "unzip")))
 ;; * END *
 
+;; * START - google translator *
+(require 'google-translate)
+(require 'google-translate-smooth-ui)
+(setq google-translate-default-source-language "en")
+(setq google-translate-default-target-language "ru")
+(global-set-key (kbd "C-c t") 'google-translate-smooth-translate)
+;; * END *
+
 ;; * START - markdown mode *
 (autoload 'markdown-mode "markdown-mode"
    "Major mode for editing Markdown files" t)

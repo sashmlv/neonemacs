@@ -72,12 +72,11 @@
                      syntax-subword ;; subword navigation
                      magit ;; git support
                      idle-highlight-mode ;; highlight occurrences
+                     google-translate
                      )
       )
 (if use_tern_mode
-    (progn
-      (add-to-list 'package-list 'company-tern)
-   )
+    (add-to-list 'package-list 'company-tern)
  )
 ;; * END *
 
