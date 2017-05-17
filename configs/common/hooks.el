@@ -15,7 +15,7 @@
  (lambda()
    (highlight-indentation-mode 1) ;; highlight indent on each buffer
    (syntax-subword-mode 1) ;; make word editing and motion more fine-grained
-   (idle-highlight-mode t) ;; highlight occurrences
+   (highlight-symbol-mode 1) ;; highlight occurrences
    )
  )
 

@@ -172,7 +172,7 @@ scroll-conservatively  10000)
 ;; * END *
 
 ;; * START - Highlight current line *
-(defface hl-line `((t (:background ,hl_line_background))) ;; "hl_line_background" in index.el
+(defface hl-line `((t (:background ,hl_line_background :underline nil :box nil))) ;; "hl_line_background" in index.el
   "Face to use for `hl-line-face'." :group 'hl-line)
 (setq hl-line-face 'hl-line)
 (global-hl-line-mode t)
@@ -181,6 +181,13 @@ scroll-conservatively  10000)
 ;; * Hightlight selection region *
 (set-face-attribute 'region nil :background hl_region_background) ;; "hl_region_background" in index.el
 ;; (set-face-attribute 'region nil :box '(:color "black" :line-width -1))
+
+;; * START - highlight-symbol  *
+(setq highlight-symbol-idle-delay 1)
+;; redefine highlight face attributes
+(set-face-attribute 'highlight-symbol-face nil :background nil :underline `(:color ,hl_occurrences_color)) ;; "hl_occurrences_color" in index.el
+;; (set-face-attribute 'highlight-symbol-face nil :background nil :box `(:line-width -1 :color ,hl_occurrences_color )) ;; "hl_occurrences_color" in index.el
+;; * END *
 
 ;;Set cursor color
 (set-cursor-color cursor_color) ;; "cursor_color" in index.el

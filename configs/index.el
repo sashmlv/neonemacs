@@ -45,6 +45,7 @@
 
 (defconst hl_line_background "#101010") ;; used in modes-setup/base-modes-setup.el
 (defconst hl_region_background "#232323") ;; used in modes-setup/base-modes-setup.el
+(defconst hl_occurrences_color "yellow") ;; used in modes-setup/base-modes-setup.el
 
 (defconst cursor_color "green2") ;; used in modes-setup/base-modes-setup.el
 
@@ -71,7 +72,7 @@
                      bongo ;; media player
                      syntax-subword ;; subword navigation
                      magit ;; git support
-                     idle-highlight-mode ;; highlight occurrences
+                     highlight-symbol ;; highlight occurrences
                      google-translate
                      )
       )
