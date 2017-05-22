@@ -45,7 +45,7 @@
 
 (defconst hl_line_background "#101010") ;; used in modes-setup/base-modes-setup.el
 (defconst hl_region_background "#232323") ;; used in modes-setup/base-modes-setup.el
-(defconst hl_occurrences_color "yellow") ;; used in modes-setup/base-modes-setup.el
+(defconst hl_occurrences_color "light slate blue") ;; used in modes-setup/base-modes-setup.el
 
 (defconst cursor_color "green2") ;; used in modes-setup/base-modes-setup.el
 
