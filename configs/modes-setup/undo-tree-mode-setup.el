@@ -41,8 +41,10 @@
                      allow_execute_load_undo_tree_history_file
                      )
                     (progn
-                      (undo-tree-load-history nil t) ;; load "current-buffer" history file, with disabled error message on file not found
-                      (add-to-list 'loaded_undo_tree_history_files (buffer-file-name (current-buffer))) ;; save to list loaded history file, for prevent load again
+                      (if (undo-tree-load-history nil t) ;; load "current-buffer" history file, with disabled error message on file not found (   t) - at end
+                          ;; save if loaded
+                          (add-to-list 'loaded_undo_tree_history_files (buffer-file-name (current-buffer))) ;; save to list loaded history file, for prevent load again
+                        )
                       )
                   )
                 (setq undo_tree_history_initialized t) ;; set undo-tree was initialized

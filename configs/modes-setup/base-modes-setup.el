@@ -185,7 +185,7 @@ scroll-conservatively  10000)
 ;; * START - highlight-symbol  *
 (setq highlight-symbol-idle-delay 1)
 ;; redefine highlight face attributes
-(set-face-attribute 'highlight-symbol-face nil :background nil :underline `(:color ,hl_occurrences_color)) ;; "hl_occurrences_color" in index.el
+;; (set-face-attribute 'highlight-symbol-face nil :background nil :underline `(:color ,hl_occurrences_color)) ;; "hl_occurrences_color" in index.el
 ;; (set-face-attribute 'highlight-symbol-face nil :background nil :box `(:line-width -1 :color ,hl_occurrences_color )) ;; "hl_occurrences_color" in index.el
 ;; * END *
 
