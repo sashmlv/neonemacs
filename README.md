@@ -36,6 +36,7 @@
 * "modes-setup/custom-modes-setup.el" - custom modes setup;
 * "comon/indentation.el" - indentation settings;
 * "common/hooks.el" - hooks and modes;
+* "common/keybindings.el" - define keybindings;
 
 ### Screenshot:
 ![Image of editor](https://raw.githubusercontent.com/sashlex/emacs-config/master/img/screenshot.png)

@@ -103,6 +103,7 @@
 (load (concat configs_dir (file-name-as-directory "modes-setup") "tern-mode-setup")) ;; 4 - setup tern
 (load (concat configs_dir (file-name-as-directory "common") "indentation")) ;; 5 - setup indentation
 (load (concat configs_dir (file-name-as-directory "common") "hooks")) ;; 6 - setup hooks
+(load (concat configs_dir (file-name-as-directory "common") "keybindings")) ;; 7 - setup keybindings
 
 ;; restart emacs if needed
 (if need_emacs_restart
