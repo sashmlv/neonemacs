@@ -41,6 +41,9 @@
 ;; yaml-mode on yml files
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
 
+;; json-mode on json files
+(add-to-list 'auto-mode-alist '("\\.json\\'" . json-mode))
+
 ;; php-mode on php files
 (add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
 ;; php-mode indentation fix
