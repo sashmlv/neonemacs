@@ -29,6 +29,9 @@
       )
   )
 
+;; typescript-mode on ts files
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+
 ;; less-css-mode on less files
 (add-to-list 'auto-mode-alist '("\\.less\\'" . less-css-mode))
 ;; highlight colors
@@ -40,6 +43,8 @@
 
 ;; yaml-mode on yml files
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+;; enable highlight-indentation on yml mode
+;; (add-hook 'yaml-mode-hook 'highlight-indentation-mode)
 
 ;; json-mode on json files
 (add-to-list 'auto-mode-alist '("\\.json\\'" . json-mode))

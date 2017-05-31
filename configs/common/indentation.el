@@ -13,6 +13,9 @@
 (setq web-mode-markup-indent-offset current_indent)
 (setq web-mode-css-indent-offset current_indent)
 (setq web-mode-code-indent-offset current_indent)
+
+;; typescript indentation mode
+(setq typescript-indent-level current_indent)
 ;; * END *
 
 ;; * Disable error on free variables *

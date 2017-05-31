@@ -68,7 +68,7 @@
                      company-statistics
                      projectile ;; project management
                      highlight-indentation
-                     js2-mode less-css-mode web-mode php-mode pug-mode yaml-mode markdown-mode json-mode
+                     js2-mode typescript-mode less-css-mode web-mode php-mode pug-mode yaml-mode markdown-mode json-mode
                      bongo ;; media player
                      syntax-subword ;; subword navigation
                      magit ;; git support
