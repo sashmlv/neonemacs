@@ -44,7 +44,7 @@
 ;; yaml-mode on yml files
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
 ;; enable highlight-indentation on yml mode
-;; (add-hook 'yaml-mode-hook 'highlight-indentation-mode)
+(add-hook 'yaml-mode-hook 'highlight-indentation-mode)
 
 ;; json-mode on json files
 (add-to-list 'auto-mode-alist '("\\.json\\'" . json-mode))
