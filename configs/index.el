@@ -74,11 +74,12 @@
                      magit ;; git support
                      highlight-symbol ;; highlight occurrences
                      google-translate
+                     dockerfile-mode
                      )
       )
 (if use_tern_mode
     (add-to-list 'package-list 'company-tern)
- )
+  )
 ;; * END *
 
 ;; Set some parameters

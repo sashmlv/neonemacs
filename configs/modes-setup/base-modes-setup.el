@@ -291,6 +291,9 @@ scroll-conservatively  10000)
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 ;; * END *
 
+;; Require dockerfile-mode
+(require 'dockerfile-mode)
+
 ;; * Replase remove, by remove in trash *
 (setq delete-by-moving-to-trash t)
 

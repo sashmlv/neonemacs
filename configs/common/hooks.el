@@ -60,6 +60,9 @@
 ;; web-mode on html files
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
 
+;; dockerfile-mode on Dockerfile
+(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
+
 ;; * Disable error on free variables *
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)
