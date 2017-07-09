@@ -75,6 +75,7 @@
                      highlight-symbol ;; highlight occurrences
                      google-translate
                      dockerfile-mode
+                     ivy ;; minibuffer improvement
                      )
       )
 (if use_tern_mode

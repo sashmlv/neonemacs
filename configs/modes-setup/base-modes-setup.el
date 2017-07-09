@@ -294,6 +294,9 @@ scroll-conservatively  10000)
 ;; Require dockerfile-mode
 (require 'dockerfile-mode)
 
+;; Enable ivy mode
+(ivy-mode 1)
+
 ;; * Replase remove, by remove in trash *
 (setq delete-by-moving-to-trash t)
 
