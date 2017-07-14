@@ -253,7 +253,7 @@ scroll-conservatively  10000)
 ;; * END *
 
 ;; * Revert-buffer *
-(global-set-key (kbd "C-c r") 'revert-buffer)
+(global-set-key (kbd "C-c C-r") 'revert-buffer)
 (global-auto-revert-mode)
 
 ;; * START - Company mode [ autocomplete ] *
@@ -279,6 +279,8 @@ scroll-conservatively  10000)
 (setq google-translate-default-target-language "ru")
 (global-set-key (kbd "C-c t") 'google-translate-at-point)
 (global-set-key (kbd "C-c T") 'google-translate-query-translate)
+(global-set-key (kbd "C-c r") 'google-translate-at-point-reverse)
+(global-set-key (kbd "C-c R") 'google-translate-query-translate-reverse)
 ;; * END *
 
 ;; * START - markdown mode *
@@ -296,6 +298,9 @@ scroll-conservatively  10000)
 
 ;; Enable ivy mode
 (ivy-mode 1)
+(setq ivy-use-virtual-buffers t)
+(setq enable-recursive-minibuffers t)
+(setq ivy-count-format "(%d/%d) ")
 
 ;; * Replase remove, by remove in trash *
 (setq delete-by-moving-to-trash t)
