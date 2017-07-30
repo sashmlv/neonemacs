@@ -304,8 +304,8 @@ scroll-conservatively  10000)
 (setq ivy-count-format "(%d/%d) ")
 
 ;; yasnippet
-(yas-global-mode 1)
-(setq yas-snippet-dirs (append `(,yasnippets_directory) yas-snippet-dirs))
+(setq yas-snippet-dirs (append `(,yasnippets_directory) yas-snippet-dirs)) ;; first
+(yas-global-mode 1) ;; second
 
 ;; disable newline at end
 (setq mode-require-final-newline nil)
