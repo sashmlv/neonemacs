@@ -305,7 +305,10 @@ scroll-conservatively  10000)
 
 ;; yasnippet
 (yas-global-mode 1)
-(setq yas-snippet-dirs '(yasnippets_directory))
+(setq yas-snippet-dirs (append `(,yasnippets_directory) yas-snippet-dirs))
+
+;; disable newline at end
+(setq mode-require-final-newline nil)
 
 ;; * Replase remove, by remove in trash *
 (setq delete-by-moving-to-trash t)

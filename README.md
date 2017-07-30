@@ -66,3 +66,7 @@ Each theme has own license, for details see in theme file.
 * "M-_, C-?" -  redo changes;
 * "M-x undo-tree-save-history" - manually save undo history to file;
 * "M-x undo-tree-load-history" - manually load undo history from file;
+
+### Notes:
+
+* After addition new snippets, make: *M-x, yas-reload-all*
