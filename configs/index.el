@@ -45,12 +45,15 @@
 
 (defconst hl_line_background "#101010") ;; used in modes-setup/base-modes-setup.el
 (defconst hl_region_background "#232323") ;; used in modes-setup/base-modes-setup.el
-(defconst hl_occurrences_color "light slate blue") ;; used in modes-setup/base-modes-setup.el
+(defconst hl_occurrences_color "magenta1") ;; used in modes-setup/base-modes-setup.el
 
 (defconst cursor_color "green2") ;; used in modes-setup/base-modes-setup.el
 
 ;; is need use undo-tree history files
 (defconst use_undo_tree_history_files t) ;; used in modes-setup/base-modes-setup.el
+
+;; yasnippets directory
+(defconst yasnippets_directory (concat configs_dir (directory-file-name "yasnippets"))) ;; used in modes-setup/base-modes-setup.el
 
 ;; define theme for window
 (set 'win-theme 'sunburst)
@@ -76,6 +79,7 @@
                      google-translate
                      dockerfile-mode
                      ivy ;; minibuffer improvement
+                     yasnippet ;; template system
                      )
       )
 (if use_tern_mode

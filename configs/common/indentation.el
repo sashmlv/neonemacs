@@ -16,6 +16,7 @@
 
 ;; yaml-mode indentation
 (setq yaml-indent-offset current_indent)
+;; (setq yaml-indent-offset 2)
 
 ;; typescript indentation mode
 (setq typescript-indent-level current_indent)

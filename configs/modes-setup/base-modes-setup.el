@@ -187,6 +187,7 @@ scroll-conservatively  10000)
 (setq highlight-symbol-idle-delay 1)
 ;; redefine highlight face attributes
 (set-face-attribute 'highlight-symbol-face nil :background nil :underline `(:color ,hl_occurrences_color)) ;; "hl_occurrences_color" in index.el
+;; (set-face-attribute 'highlight-symbol-face nil :background hl_occurrences_color :underline nil )
 ;; (set-face-attribute 'highlight-symbol-face nil :background nil :box `(:line-width -1 :color ,hl_occurrences_color )) ;; "hl_occurrences_color" in index.el
 ;; * END *
 
@@ -301,6 +302,10 @@ scroll-conservatively  10000)
 (setq ivy-use-virtual-buffers t)
 (setq enable-recursive-minibuffers t)
 (setq ivy-count-format "(%d/%d) ")
+
+;; yasnippet
+(yas-global-mode 1)
+(setq yas-snippet-dirs '(yasnippets_directory))
 
 ;; * Replase remove, by remove in trash *
 (setq delete-by-moving-to-trash t)
