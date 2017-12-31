@@ -16,26 +16,27 @@
           (after undo-tree activate)
         (setq ad-return-value (concat ad-return-value ".gz")))
 
-      (setq loaded_undo_tree_history_files nil) ;; list of loaded history files
+      (setq loaded_undo_tree_history_files nil) ;; list of loaded history files variable
       (setq last_buffer_from_previous_session (buffer-name (car (buffer-list)))) ;; restore last used buffer, from previous session, from buffer list
       (setq undo_tree_history_initialized nil) ;; is undo-tree initialized
-      (setq allow_execute_load_undo_tree_history_file t) ;; prevent execute while lazy loading (allow execute on first time when emacs starting, so set-> "t")
+      (setq allow_execute_load_undo_tree_history_file t) ;; prevent execute while lazy loading (allow execute on first time when emacs starting, so set -> "t")
+      (setq loading_history nil) ;; is loading file history now
 
-      (defun set_allow_execute_load_undo_tree_history_file (orig-fun &rest args) ;; prevent execute while lazy load file
+      ;; wrapper for any original function, for disabling load undo tree when not needed, when function executing
+      (defun set_allow_execute_load_undo_tree_history_file (orig-fun &rest args) ;; prevent execute while lazy load file for example
         (setq allow_execute_load_undo_tree_history_file nil) ;; start prevent
         (apply orig-fun args)
         (setq allow_execute_load_undo_tree_history_file t) ;; stop prevent
         )
-      (advice-add 'desktop-lazy-create-buffer :around #'set_allow_execute_load_undo_tree_history_file)
+      (advice-add 'desktop-lazy-create-buffer :around #'set_allow_execute_load_undo_tree_history_file) ;; hook on lazy load files
 
-      (add-hook 'window-configuration-change-hook 'load_undo_tree_history_file ) ;; hook when current-buffer will be changed
-
+      (add-hook 'window-configuration-change-hook 'load_undo_tree_history_file ) ;; hook when current-buffer will be changed load history
       (defun load_undo_tree_history_file()
         (progn
           (if (or undo_tree_history_initialized (eq (buffer-name (current-buffer)) last_buffer_from_previous_session)) ;; on first loading, when emacs not loaded completelly, and it is last used buffer, restore history file (in next times, in other cases, parameter "undo_tree_history_initialized" make execute code allways)
               (progn
                 (if (and
-                     (not (member (buffer-file-name (current-buffer)) loaded_undo_tree_history_files)) ;; if history file still not loaded and ... ( see below )
+                     (not (member (buffer-file-name (current-buffer)) loaded_undo_tree_history_files)) ;; if history file still not loaded and ... ( see next comment )
                      (eq (type-of (buffer-file-name (current-buffer))) 'string) ;; if file name string
                      (buffer-file-name (current-buffer)) ;; if current buffer has file, load this undo-tree history file.
                      allow_execute_load_undo_tree_history_file
@@ -51,9 +52,16 @@
             )
           )
         )
+
+      (add-hook 'kill-buffer-hook 'unload_undo_tree_history_file) ;; when buffer will killed remove them from loaded buffers list
+      (defun unload_undo_tree_history_file()
+        (setq current_buffer_file_path (buffer-file-name (current-buffer))) ;; get file path of current buffer
+        (if current_buffer_file_path ;; if killed buffer have file path, remove them from loaded list
+            (setq loaded_undo_tree_history_files (delete current_buffer_file_path loaded_undo_tree_history_files)) ;; update loaded buffers file list
+          )
+        )
       )
   )
-;; END
 ;; * END *
 
 ;; * Disable error on free variables *

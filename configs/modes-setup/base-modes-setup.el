@@ -304,11 +304,26 @@ scroll-conservatively  10000)
 (setq ivy-count-format "(%d/%d) ")
 
 ;; yasnippet
-(setq yas-snippet-dirs (append `(,yasnippets_directory) yas-snippet-dirs)) ;; first
+(if (boundp 'yas-snippet-dirs) ;; set where our yasnippets are placed
+    (setq yas-snippet-dirs (append `(,yasnippets_directory) yas-snippet-dirs)) ;; if yas-snippet-dirs defined add our directories to begin of list
+  (setq yas-snippet-dirs `(,yasnippets_directory))) ;; otherwise define yas-snippet-dirs with our directories
+
 (yas-global-mode 1) ;; second
 
 ;; disable newline at end
 (setq mode-require-final-newline nil)
+
+;; Vim-like text folding for Emacs
+(global-set-key (kbd "C-c f") #'vimish-fold)
+(global-set-key (kbd "C-c u") #'vimish-fold-delete)
+(vimish-fold-global-mode 1)
+
+;; grep with exclude directories or files
+(eval-after-load "grep"
+  '(progn
+    ;; (add-to-list 'grep-find-ignored-files "*.tmp")
+    (add-to-list 'grep-find-ignored-directories ".git")
+    (add-to-list 'grep-find-ignored-directories "node_modules")))
 
 ;; * Replase remove, by remove in trash *
 (setq delete-by-moving-to-trash t)

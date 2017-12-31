@@ -72,7 +72,7 @@
                      projectile ;; project management
                      highlight-indentation
                      js2-mode typescript-mode less-css-mode web-mode php-mode pug-mode yaml-mode markdown-mode json-mode rjsx-mode
-                     bongo ;; media player
+                     bongo volume ;; media player
                      syntax-subword ;; subword navigation
                      magit ;; git support
                      highlight-symbol ;; highlight occurrences
@@ -80,6 +80,7 @@
                      dockerfile-mode
                      ivy ;; minibuffer improvement
                      yasnippet ;; template system
+                     vimish-fold ;; fold-unfold library
                      )
       )
 (if use_tern_mode

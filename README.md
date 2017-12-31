@@ -46,6 +46,9 @@ Each theme has own license, for details see in theme file.
 
 ### Some keybindings:
 
+##### Switch buffers:
+* "C-x b" - then "C-s", "C-r" for choose;
+
 ##### Translate text to "RUS" - "ENG":
 * "C-c t" - google-translate-at-point
 * "C-c T" - google-translate-query-translate
