@@ -10,6 +10,7 @@
 * Git support through "Magit"
 * "Bongo" media player;
 * Google translate;
+* REST client;
 * all installed packages you can see in index.el ...
 
 ### Requirements:

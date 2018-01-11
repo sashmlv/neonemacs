@@ -81,6 +81,7 @@
                      ivy ;; minibuffer improvement
                      yasnippet ;; template system
                      vimish-fold ;; fold-unfold library
+                     restclient ;; REST client for emacs
                      )
       )
 (if use_tern_mode

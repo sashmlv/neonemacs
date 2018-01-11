@@ -66,6 +66,9 @@
 ;; dockerfile-mode on Dockerfile
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 
+;; restclient-mode on 'rest' file
+(add-to-list 'auto-mode-alist '("\\.rest\\'" . restclient-mode))
+
 ;; * Disable error on free variables *
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)

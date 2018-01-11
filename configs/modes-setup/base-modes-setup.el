@@ -307,7 +307,6 @@ scroll-conservatively  10000)
 (if (boundp 'yas-snippet-dirs) ;; set where our yasnippets are placed
     (setq yas-snippet-dirs (append `(,yasnippets_directory) yas-snippet-dirs)) ;; if yas-snippet-dirs defined add our directories to begin of list
   (setq yas-snippet-dirs `(,yasnippets_directory))) ;; otherwise define yas-snippet-dirs with our directories
-
 (yas-global-mode 1) ;; second
 
 ;; disable newline at end
@@ -317,6 +316,9 @@ scroll-conservatively  10000)
 (global-set-key (kbd "C-c f") #'vimish-fold)
 (global-set-key (kbd "C-c u") #'vimish-fold-delete)
 (vimish-fold-global-mode 1)
+
+;; REST client for emacs
+(require 'restclient)
 
 ;; grep with exclude directories or files
 (eval-after-load "grep"
