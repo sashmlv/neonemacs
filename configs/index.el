@@ -16,10 +16,10 @@
 (defconst themes_dir (concat configs_dir (file-name-as-directory "themes")))
 (defconst undo_redo_dir (concat base_dir (file-name-as-directory "undo_redo"))) ;; save undo-redo history in this dir
 
-(defconst current_font "Menlo-9")
-(defconst current_indent 3) ;; 3 spaces ;; used in common/indentation.el
-(defconst indentation_color "#101010") ;; used in common/hooks.el
-(defconst indentation_current_line_color "#101010") ;; used in common/hooks.el
+(defconst current_font "Fira Mono-9")
+(defconst current_indent 3)
+(defconst indentation_color "#101010")
+(defconst indentation_current_line_color "#101010")
 
 (defconst brackets_match_foreground "white")
 (defconst brackets_match_background "blue3")
@@ -36,7 +36,7 @@
 
 (defconst hl_line_background "#101010")
 (defconst hl_region_background "#232323")
-(defconst hl_occurrences_color "magenta1")
+(defconst hl_occurrences_color "cyan")
 
 (defconst cursor_color "green2")
 
