@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-;; * START - Install packages from list *
+;; Install packages from list
 ;; Check installed packages
 (setq need-package-install nil)
 (dolist (package package-list)
@@ -13,23 +13,6 @@
 ;; install packages if needed
 (if need-package-install
     (progn
-      ;; Get melpa archive into list
-      (catch 'get-archive-melpa
-        (dolist (archive package-archives)
-          (when (equal (car archive) "melpa")
-            (progn
-              (setq archives (list archive))
-              (throw 'get-archive-melpa archives))
-            )
-        )
-        nil
-        )
-
-      ;; Copy original archives
-      (setq archives-copy package-archives)
-
-      ;; Set package-archives to melpa archive
-      (setq package-archives archives)
 
       ;; Fetch the list of packages available in melpa
       (package-refresh-contents)
@@ -42,14 +25,10 @@
           ;; )
           )
         )
-
-      ;; Rollback original archives
-      (setq package-archives archives-copy)
       )
   )
-;; * END *
 
-;; * START - Save session *
+;; Save session
 (setq desktop-restore-eager 12) ;; how buffers restore immediately
 (setq desktop-dirname base_dir)
 (setq desktop-base-file-name "emacs.desktop")
@@ -59,77 +38,72 @@
 (setq desktop-save t)
 (desktop-save-mode t)
 (desktop-read)
-;; * END *
 
-;; * Change "yes or no" to "y or n" *
+;; Change "yes or no" to "y or n"
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;; * START - Disable GUI components *
+;; Disable GUI components
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'tooltip-mode) (tooltip-mode -1))
 (if (fboundp 'global-linum-mode) (global-linum-mode -1))
-;; * END *
 
-;; * Display file name of the current buffer in the title *
+;; Display file name of the current buffer in the title
 (setq frame-title-format "%F: %f")
 
-;; * START - Display file size/time in mode-line
+;; Display file size/time in mode-line
 (setq display-time-24hr-format t)
 (display-time-mode             t)
 (size-indication-mode          t)
-;; * END *
+
 
 ;; * Set cursor type *
 ;;(setq-default cursor-type 'bar)
 
-;; * START - Set theme [ for window or terminal ] *
+;; Set theme [ for window or terminal ] *
 (add-to-list 'custom-theme-load-path themes_dir)
 (load-theme win-theme t)
 (load-theme term-theme t)
 (if(display-graphic-p)
     (enable-theme win-theme) ;; window theme
   (enable-theme term-theme)) ;; terminal theme
-;; * END *
 
-;; * Fringe-mode [ disable borders on left and right ] *
+;; Fringe-mode [ disable borders on left and right ]
 (set-fringe-mode 0)
 
-;; * Set font *
+;; Set font
 (set-default-font current_font)
 
-;; * Smooth scrolling *
+;; Smooth scrolling
 (setq scroll-step          1
 scroll-conservatively  10000)
 
-;; * Delete selection [ Shift + d { delete selected text } ] *
+;; Delete selection [ Shift + d { delete selected text } ]
 (delete-selection-mode t)
 
-;; * START - Backup files. *
+;; Backup files
 (setq make-backup-files t)
 ;; Enable versioning with default values (keep five last versions, I think!)
 (setq version-control t)
 ;; Save all backup file in this directory.
 (setq backup-directory-alist (list (cons "." backups_dir))) ;; "backups_dir" in index.el
-;; * END *
 
-;; * Project management [ projectile ] *
+;; Project management [ projectile ]
 (projectile-mode)
 (setq projectile-switch-project-action 'projectile-dired)
 
-;; * START - Highlight brackets *
+;; Highlight brackets
 (show-paren-mode 1)
 (setq show-paren-delay 0)
 (custom-set-faces
  `(show-paren-match ((t (:background ,brackets_match_background :foreground ,brackets_match_foreground)))) ;; "brackets_match_background", "brackets_match_foreground" in index.el
  `(show-paren-mismatch ((((class color)) (:background ,brackets_mismatch_background :foreground ,brackets_mismatch_foreground))))) ;; "brackets_mismatch_background", "brackets_mismatch_foreground" in index.el
-;; * END *
 
-;; * Disable word wrap *
+;; Disable word wrap
 (set-default 'truncate-lines t)
 
-;; * START - Whitespace mode *
+;; Whitespace mode
 (require 'whitespace)
 (setq whitespace-display-mappings
       '(
@@ -157,32 +131,29 @@ scroll-conservatively  10000)
 (setq whitespace-line nil) ;; disable a bug, that highlight long lines
 (setq whitespace-empty nil) ;; disable a bug, that highlight last line
 (global-whitespace-mode 1)
-;; * END *
 
-;; * START - Highlight current line *
+;; Highlight current line
 (defface hl-line `((t (:background ,hl_line_background :underline nil :box nil))) ;; "hl_line_background" in index.el
   "Face to use for `hl-line-face'." :group 'hl-line)
 (setq hl-line-face 'hl-line)
 (global-hl-line-mode t)
-;; * END *
 
-;; * Hightlight selection region *
+;; Hightlight selection region
 (set-face-attribute 'region nil :background hl_region_background) ;; "hl_region_background" in index.el
 ;; (set-face-attribute 'region nil :box '(:color "black" :line-width -1))
 
-;; * START - highlight-symbol  *
+;; highlight-symbol
 (require 'highlight-symbol)
 (setq highlight-symbol-idle-delay 1)
 ;; redefine highlight face attributes
 (set-face-attribute 'highlight-symbol-face nil :background nil :underline `(:color ,hl_occurrences_color)) ;; "hl_occurrences_color" in index.el
 ;; (set-face-attribute 'highlight-symbol-face nil :background hl_occurrences_color :underline nil )
 ;; (set-face-attribute 'highlight-symbol-face nil :background nil :box `(:line-width -1 :color ,hl_occurrences_color )) ;; "hl_occurrences_color" in index.el
-;; * END *
 
 ;;Set cursor color
 (set-cursor-color cursor_color) ;; "cursor_color" in index.el
 
-;; * START - Duplicate line, hotkey to duplicate line ( Ctrl + c, d ) *
+;; Duplicate line, hotkey to duplicate line ( Ctrl + c, d )
 (defun duplicate-line-or-region (&optional n)
   "Duplicate current line, or region if active.
     With argument N, make N copies.
@@ -205,9 +176,8 @@ scroll-conservatively  10000)
         (forward-line 1)
         (forward-char pos)))))
 (global-set-key (kbd "C-c d") 'duplicate-line-or-region)
-;; * END *
 
-;; * START - Move selected  text up or down ( Alt + Shift + [ P || N ] ) *
+;; Move selected  text up or down ( Alt + Shift + [ P || N ] )
 (defun move-line (n)
   "Move the current line up or down by N lines."
   (interactive "p")
@@ -230,38 +200,34 @@ scroll-conservatively  10000)
   (move-line (if (null n) 1 n)))
 (global-set-key (kbd "M-P") 'move-line-up)
 (global-set-key (kbd "M-N") 'move-line-down)
-;; * END *
 
-;; * START - Multiple-cursors.el ( from elpa ) *
+;; Multiple-cursors.el ( from elpa )
 (require 'multiple-cursors)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
-;; * END *
 
-;; * Revert-buffer *
+;; Revert-buffer
 (global-set-key (kbd "C-c C-r") 'revert-buffer)
 (global-auto-revert-mode)
 
-;; * START - Company mode [ autocomplete ] *
+;; Company mode [ autocomplete ]
 (add-hook 'after-init-hook 'global-company-mode)
 (require 'company-statistics)
 (company-statistics-mode)
-;; * END *
 
-;; * Dired tries to guess a default target directory *
+;; Dired tries to guess a default target directory
 (setq dired-dwim-target t)
 
-;; * START - Zip and unzip support *
+;; Zip and unzip support
 ;; Z - key compress-uncompress file
 (eval-after-load "dired-aux"
    '(add-to-list 'dired-compress-file-suffixes
                  '("\\.zip\\'" ".zip" "unzip")))
-;; * END *
 
-;; * START - google translator *
+;; google translator
 (require 'google-translate)
 (require 'google-translate-default-ui)
 (setq google-translate-default-source-language "en")
@@ -270,9 +236,8 @@ scroll-conservatively  10000)
 (global-set-key (kbd "C-c T") 'google-translate-query-translate)
 (global-set-key (kbd "C-c r") 'google-translate-at-point-reverse)
 (global-set-key (kbd "C-c R") 'google-translate-query-translate-reverse)
-;; * END *
 
-;; * START - markdown mode *
+;; markdown mode
 (autoload 'markdown-mode "markdown-mode"
    "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
@@ -280,7 +245,6 @@ scroll-conservatively  10000)
 (autoload 'gfm-mode "markdown-mode"
    "Major mode for editing GitHub Flavored Markdown files" t)
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
-;; * END *
 
 ;; Require dockerfile-mode
 (require 'dockerfile-mode)
@@ -314,18 +278,16 @@ scroll-conservatively  10000)
 (ido-vertical-mode 1)
 (setq ido-vertical-define-keys 'C-n-C-p-up-down-left-right)
 
-;; * Minibuffer autocompletition *
+;; Minibuffer autocompletition
 ;; (require 'ido)
 ;; (ido-mode t)
 
-;; * START - Smex [ M-x enhancement ] *
+;; Smex [ M-x enhancement ]
 (require 'smex)
 (smex-initialize)
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
-;; * END *
-
 
 ;; grep with exclude directories or files
 (eval-after-load "grep"
@@ -340,10 +302,10 @@ scroll-conservatively  10000)
 (custom-set-variables '(wakatime-cli-path "/usr/local/bin/wakatime")) ;; do not forget set path to wakatime binary ( shell command: which wakatime )
 (global-wakatime-mode)
 
-;; * Replase remove, by remove in trash *
+;; Replase remove, by remove in trash
 (setq delete-by-moving-to-trash t)
 
-;; * Enable debug *
+;; Enable debug
 (setq debug-on-error t)
 
 ;; * Disable error on free variables *

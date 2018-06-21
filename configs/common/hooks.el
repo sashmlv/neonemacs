@@ -2,12 +2,11 @@
 ;;; Commentary:
 ;;; Code:
 
-;; * START - Highlight indentation hook setup *
+;; Highlight indentation hook setup
 (highlight-indentation-mode 1) ;; for disable error
 (add-hook 'highlight-indentation-mode-hook (lambda()(setq highlight-indentation-offset current_indent))) ;; set indent size ;; "current_indent" in index.el
 (set-face-background 'highlight-indentation-face indentation_color) ;; "indentation-color" in index.el
 (set-face-background 'highlight-indentation-current-column-face indentation_current_line_color) ;; "indentation-current-line-color" in index.el
-;; * END (continue below) *
 
 ;; enable common modes
 (add-hook
@@ -21,13 +20,6 @@
 
 ;; js2-mode on js files
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-;; tern-mode hook
-(if (and use_tern_mode (file-exists-p tern_file))
-    (progn
-      (add-hook 'js2-mode-hook (lambda () (tern-mode t)))
-      (add-to-list 'company-backends 'company-tern)
-      )
-  )
 
 ;; rjsx-mode on jsx files
 (add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))

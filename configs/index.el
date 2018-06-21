@@ -11,50 +11,41 @@
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 
 (setq need_emacs_restart nil)
-(defconst configs_dir "/media/mudak/disk/projects/emacs-config/configs/")
-;; (defconst configs_dir "/media/user/disk/emacs-config/configs/")
+(defconst configs_dir "/media/user/disk/emacs-config/configs/")
 (defconst base_dir (concat (file-name-as-directory (getenv "HOME")) (file-name-as-directory ".emacs.d")))
 (defconst backups_dir (concat base_dir (file-name-as-directory "backups")))
 (defconst themes_dir (concat configs_dir (file-name-as-directory "themes")))
 (defconst undo_redo_dir (concat base_dir (file-name-as-directory "undo_redo"))) ;; save undo-redo history in this dir
-
-;; is need use tern for javascript development
-(defconst use_tern_mode t) ;; used in modes-setup/tern-mode-setup.el
-(defconst tern_dir (concat base_dir (file-name-as-directory "tern"))) ;; tern files placed here
-(defconst tern_file (concat tern_dir (file-name-as-directory "emacs") "tern.el")) ;; tern file
-(if (and use_tern_mode (file-exists-p tern_file))
-  (setq exec-path (cons (concat tern_dir "bin") exec-path)) ;; set environment path to tern binary
-)
 
 (defconst current_font "Menlo-9")
 (defconst current_indent 3) ;; 3 spaces ;; used in common/indentation.el
 (defconst indentation_color "#101010") ;; used in common/hooks.el
 (defconst indentation_current_line_color "#101010") ;; used in common/hooks.el
 
-(defconst brackets_match_foreground "white") ;; used in modes-setup/base-modes-setup.el
-(defconst brackets_match_background "blue3") ;; used in modes-setup/base-modes-setup.el
-(defconst brackets_mismatch_foreground "white") ;; used in modes-setup/base-modes-setup.el
-(defconst brackets_mismatch_background "red3") ;; used in modes-setup/base-modes-setup.el
+(defconst brackets_match_foreground "white")
+(defconst brackets_match_background "blue3")
+(defconst brackets_mismatch_foreground "white")
+(defconst brackets_mismatch_background "red3")
 
-(defconst whitespace_foreground "#212121") ;; used in modes-setup/base-modes-setup.el
-(defconst whitespace_background "#070707") ;; used in modes-setup/base-modes-setup.el
-(defconst whitespace_weight 'light) ;; used in modes-setup/base-modes-setup.el
+(defconst whitespace_foreground "#212121")
+(defconst whitespace_background "#070707")
+(defconst whitespace_weight 'light)
 
-(defconst whitespace_trailing_foreground "#ff2020") ;; used in modes-setup/base-modes-setup.el
-(defconst whitespace_trailing_background "#070707") ;; used in modes-setup/base-modes-setup.el
-(defconst whitespace_trailing_weight 'light) ;; used in modes-setup/base-modes-setup.el
+(defconst whitespace_trailing_foreground "#ff2020")
+(defconst whitespace_trailing_background "#070707")
+(defconst whitespace_trailing_weight 'light)
 
-(defconst hl_line_background "#101010") ;; used in modes-setup/base-modes-setup.el
-(defconst hl_region_background "#232323") ;; used in modes-setup/base-modes-setup.el
-(defconst hl_occurrences_color "magenta1") ;; used in modes-setup/base-modes-setup.el
+(defconst hl_line_background "#101010")
+(defconst hl_region_background "#232323")
+(defconst hl_occurrences_color "magenta1")
 
-(defconst cursor_color "green2") ;; used in modes-setup/base-modes-setup.el
+(defconst cursor_color "green2")
 
 ;; is need use undo-tree history files
-(defconst use_undo_tree_history_files t) ;; used in modes-setup/base-modes-setup.el
+(defconst use_undo_tree_history_files t)
 
 ;; yasnippets directory
-(defconst yasnippets_directory (concat configs_dir (directory-file-name "yasnippets"))) ;; used in modes-setup/base-modes-setup.el
+(defconst yasnippets_directory (concat configs_dir (directory-file-name "yasnippets")))
 
 ;; define theme for window
 (set 'win-theme 'sunburst)
@@ -70,8 +61,7 @@
                      ;; approved packages
                      restart-emacs ;; support only linux and windows
                      smex ;; minibuffer improvements
-                     ;; ivy ;; minibuffer improvement
-                     ;;undo-tree ;; undo-redo history
+                     undo-tree ;; undo-redo history
                      multiple-cursors
                      company ;; autocompletition
                      company-statistics
@@ -80,19 +70,16 @@
                      js2-mode typescript-mode less-css-mode php-mode pug-mode yaml-mode markdown-mode json-mode rjsx-mode
                      bongo volume ;; media player
                      syntax-subword ;; subword navigation
-                     ;;magit ;; git support
+                     magit ;; git support
                      highlight-symbol ;; highlight occurrences
                      google-translate
                      dockerfile-mode
                      yasnippet ;; template system
                      vimish-fold ;; fold-unfold library
-                     ;; wakatime-mode ;; for time tracking
+                     wakatime-mode ;; for time tracking
                      xah-find
                      )
       )
-(if use_tern_mode
-    (add-to-list 'package-list 'company-tern)
-  )
 ;; * END *
 
 ;; Set some parameters
@@ -105,19 +92,15 @@
 (if(not(file-accessible-directory-p undo_redo_dir))
    (make-directory undo_redo_dir t)
   )
-(if(not(file-accessible-directory-p tern_dir))
-   (make-directory tern_dir t)
-  )
 ;; * END *
 
 ;; Load configs
-(load (concat configs_dir (file-name-as-directory "modes-setup") "custom-modes-setup")) ;; 1 - setup custom modes
-(load (concat configs_dir (file-name-as-directory "modes-setup") "base-modes-setup")) ;; 2 - setup available modes
-;;(load (concat configs_dir (file-name-as-directory "modes-setup") "undo-tree-mode-setup")) ;; 3 - setup undo-tree
-;;(load (concat configs_dir (file-name-as-directory "modes-setup") "tern-mode-setup")) ;; 4 - setup tern
-(load (concat configs_dir (file-name-as-directory "common") "indentation")) ;; 5 - setup indentation
-(load (concat configs_dir (file-name-as-directory "common") "hooks")) ;; 6 - setup hooks
-(load (concat configs_dir (file-name-as-directory "common") "keybindings")) ;; 7 - setup keybindings
+(load (concat configs_dir (file-name-as-directory "modes") "custom-modes-setup")) ;; - setup custom modes
+(load (concat configs_dir (file-name-as-directory "modes") "base-modes-setup")) ;; - setup available modes
+;;(load (concat configs_dir (file-name-as-directory "modes-setup") "undo-tree-mode-setup")) ;; - setup undo-tree
+(load (concat configs_dir (file-name-as-directory "common") "indentation")) ;; - setup indentation
+(load (concat configs_dir (file-name-as-directory "common") "hooks")) ;; - setup hooks
+(load (concat configs_dir (file-name-as-directory "common") "keybindings")) ;; - setup keybindings
 
 ;; restart emacs if needed
 (if need_emacs_restart

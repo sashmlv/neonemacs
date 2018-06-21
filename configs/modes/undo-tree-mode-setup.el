@@ -2,11 +2,11 @@
 ;;; Commentary:
 ;;; Code:
 
-;; * START undo-tree melpa plugin ( undo-redo ) setup *
+;; undo-tree melpa plugin ( undo-redo ) setup
 (require 'undo-tree)
 (global-undo-tree-mode t)
 
-;;y set hook that load undo-tree history files, when switching buffers
+;; set hook that load undo-tree history files, when switching buffers
 (if use_undo_tree_history_files ;; "use_undo_tree_history_files" in index.el
     (progn
       ;; (insert (format "%s" undo-limit)) ;; default: 80000, current:
@@ -66,7 +66,6 @@
         )
       )
   )
-;; * END *
 
 ;; * Disable error on free variables *
 ;; Local Variables:

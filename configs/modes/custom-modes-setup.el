@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-;; * xah-syntax-color-hex mode [ Highlight colors ] *
+;; xah-syntax-color-hex mode [ Highlight colors ]
 (defun xah-syntax-color-hex ()
   "Syntax color text of the form 「#ff1100」 and 「#abc」 in current buffer.
 URL `http://ergoemacs.org/emacs/emacs_CSS_colors.html'
@@ -28,7 +28,7 @@ Version 2017-03-12"
           'face (list :background (match-string-no-properties 0)))))))
   (font-lock-flush))
 
-;; * Change bracket pairs from one type to another on current line or text selection *
+;; Change bracket pairs from one type to another on current line or text selection
 (defun xah-change-bracket-pairs ( *from-chars *to-chars)
   "Change bracket pairs from one type to another on current line or text selection.
 For example, change all parenthesis () to square brackets [].
