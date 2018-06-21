@@ -89,6 +89,19 @@ scroll-conservatively  10000)
 ;; Save all backup file in this directory.
 (setq backup-directory-alist (list (cons "." backups_dir))) ;; "backups_dir" in index.el
 
+;; Change bracket pairs from one type to another on current line or text selection
+(global-set-key (kbd "C-c `") (lambda()
+                                (interactive)
+                                (setq from (read-string "Enter replacement:"))
+                                (setq to (read-string "Enter new value:"))
+                                (xah-change-bracket-pairs from to)
+                                )
+                )
+
+;; Disable overwrite-mode with Insert key on keyboard
+(define-key global-map [(insert)] nil)
+(define-key global-map [(control insert)] 'overwrite-mode)
+
 ;; Project management [ projectile ]
 (projectile-mode)
 (setq projectile-switch-project-action 'projectile-dired)

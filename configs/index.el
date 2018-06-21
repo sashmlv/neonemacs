@@ -3,7 +3,6 @@
 ;;; Code:
 ;; * Parameters and loading other config files *
 
-;; * START - Params *
 ;; Package repositories
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
@@ -80,19 +79,17 @@
                      xah-find
                      )
       )
-;; * END *
 
 ;; Set some parameters
 ;; (set-background-color "#000")
 
-;; * START - Prepare config directories *
+;; Prepare config directories *
 (if(not(file-accessible-directory-p backups_dir))
    (make-directory backups_dir t)
   )
 (if(not(file-accessible-directory-p undo_redo_dir))
    (make-directory undo_redo_dir t)
   )
-;; * END *
 
 ;; Load configs
 (load (concat configs_dir (file-name-as-directory "modes") "custom-modes-setup")) ;; - setup custom modes
