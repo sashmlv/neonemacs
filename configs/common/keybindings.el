@@ -11,6 +11,10 @@
                                 )
                 )
 
+;; * Disable overwrite-mode with Insert key on keyboard *
+(define-key global-map [(insert)] nil)
+(define-key global-map [(control insert)] 'overwrite-mode)
+
 ;; * Disable error on free variables *
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)

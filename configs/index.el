@@ -11,7 +11,8 @@
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 
 (setq need_emacs_restart nil)
-(defconst configs_dir "/media/user/disk/emacs-config/configs/")
+(defconst configs_dir "/media/mudak/disk/projects/emacs-config/configs/")
+;; (defconst configs_dir "/media/user/disk/emacs-config/configs/")
 (defconst base_dir (concat (file-name-as-directory (getenv "HOME")) (file-name-as-directory ".emacs.d")))
 (defconst backups_dir (concat base_dir (file-name-as-directory "backups")))
 (defconst themes_dir (concat configs_dir (file-name-as-directory "themes")))
@@ -63,25 +64,31 @@
 
 ;; Packages list
 (setq package-list '(
+                     ;; packages for checking
+                     ido-vertical-mode
+
+                     ;; approved packages
                      restart-emacs ;; support only linux and windows
                      smex ;; minibuffer improvements
-                     undo-tree ;; undo-redo history
+                     ;; ivy ;; minibuffer improvement
+                     ;;undo-tree ;; undo-redo history
                      multiple-cursors
                      company ;; autocompletition
                      company-statistics
                      projectile ;; project management
                      highlight-indentation
-                     js2-mode typescript-mode less-css-mode web-mode php-mode pug-mode yaml-mode markdown-mode json-mode rjsx-mode
+                     js2-mode typescript-mode less-css-mode php-mode pug-mode yaml-mode markdown-mode json-mode rjsx-mode
                      bongo volume ;; media player
                      syntax-subword ;; subword navigation
-                     magit ;; git support
+                     ;;magit ;; git support
                      highlight-symbol ;; highlight occurrences
                      google-translate
                      dockerfile-mode
-                     ivy ;; minibuffer improvement
                      yasnippet ;; template system
                      vimish-fold ;; fold-unfold library
-                     restclient ;; REST client for emacs
+                     ;; restclient ;; REST client for emacs
+                     ;; wakatime-mode ;; for time tracking
+                     xah-find
                      )
       )
 (if use_tern_mode
@@ -107,8 +114,8 @@
 ;; Load configs
 (load (concat configs_dir (file-name-as-directory "modes-setup") "custom-modes-setup")) ;; 1 - setup custom modes
 (load (concat configs_dir (file-name-as-directory "modes-setup") "base-modes-setup")) ;; 2 - setup available modes
-(load (concat configs_dir (file-name-as-directory "modes-setup") "undo-tree-mode-setup")) ;; 3 - setup undo-tree
-(load (concat configs_dir (file-name-as-directory "modes-setup") "tern-mode-setup")) ;; 4 - setup tern
+;;(load (concat configs_dir (file-name-as-directory "modes-setup") "undo-tree-mode-setup")) ;; 3 - setup undo-tree
+;;(load (concat configs_dir (file-name-as-directory "modes-setup") "tern-mode-setup")) ;; 4 - setup tern
 (load (concat configs_dir (file-name-as-directory "common") "indentation")) ;; 5 - setup indentation
 (load (concat configs_dir (file-name-as-directory "common") "hooks")) ;; 6 - setup hooks
 (load (concat configs_dir (file-name-as-directory "common") "keybindings")) ;; 7 - setup keybindings

@@ -54,20 +54,21 @@
 
 ;; php-mode on php files
 (add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
+
 ;; php-mode indentation fix
 (add-hook 'php-mode-hook (lambda() (progn
                                      (setq indent-tabs-mode nil)
                                      (setq c-basic-offset current_indent) ;; "current_indent" in index.el
                                      )))
 
-;; web-mode on html files
-(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+;; html-mode on html files
+(add-to-list 'auto-mode-alist '("\\.html\\'" . html-mode))
 
 ;; dockerfile-mode on Dockerfile
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 
 ;; restclient-mode on 'rest' file
-(add-to-list 'auto-mode-alist '("\\.rest\\'" . restclient-mode))
+;; (add-to-list 'auto-mode-alist '("\\.rest\\'" . restclient-mode))
 
 ;; * Disable error on free variables *
 ;; Local Variables:

@@ -50,7 +50,7 @@
 ;; * END *
 
 ;; * START - Save session *
-(setq desktop-restore-eager 7) ;; how buffers restore immediately
+(setq desktop-restore-eager 12) ;; how buffers restore immediately
 (setq desktop-dirname base_dir)
 (setq desktop-base-file-name "emacs.desktop")
 (setq desktop-base-lock-name "lock")
@@ -65,11 +65,11 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; * START - Disable GUI components *
-(tooltip-mode      -1)
-(menu-bar-mode     -1)
-(tool-bar-mode     -1)
-(scroll-bar-mode   -1)
-(global-linum-mode -1)
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+(if (fboundp 'tooltip-mode) (tooltip-mode -1))
+(if (fboundp 'global-linum-mode) (global-linum-mode -1))
 ;; * END *
 
 ;; * Display file name of the current buffer in the title *
@@ -112,18 +112,6 @@ scroll-conservatively  10000)
 (setq version-control t)
 ;; Save all backup file in this directory.
 (setq backup-directory-alist (list (cons "." backups_dir))) ;; "backups_dir" in index.el
-;; * END *
-
-;; * Minibuffer autocompletition *
-(require 'ido)
-(ido-mode t)
-
-;; * START - Smex [ M-x enhancement ] *
-(require 'smex)
-(smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 ;; * END *
 
 ;; * Project management [ projectile ] *
@@ -297,14 +285,8 @@ scroll-conservatively  10000)
 ;; Require dockerfile-mode
 (require 'dockerfile-mode)
 
-;; Enable ivy mode
-(ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
-(setq enable-recursive-minibuffers t)
-(setq ivy-count-format "(%d/%d) ")
-
 ;; yasnippet
-(if (boundp 'yas-snippet-dirs) ;; set where our yasnippets are placed
+(if (boundp 'yas-snippet-dirs) ;; first, set where our yasnippets are placed
     (setq yas-snippet-dirs (append `(,yasnippets_directory) yas-snippet-dirs)) ;; if yas-snippet-dirs defined add our directories to begin of list
   (setq yas-snippet-dirs `(,yasnippets_directory))) ;; otherwise define yas-snippet-dirs with our directories
 (yas-global-mode 1) ;; second
@@ -318,14 +300,48 @@ scroll-conservatively  10000)
 (vimish-fold-global-mode 1)
 
 ;; REST client for emacs
-(require 'restclient)
+;; (require 'restclient)
+
+;; find - replace
+;;(require 'xah-find)
+
+;; Enable ivy mode
+;; (ivy-mode 1)
+;; (setq ivy-use-virtual-buffers t)
+;; (setq enable-recursive-minibuffers t)
+;; (setq ivy-count-format "(%d/%d) ")
+
+;; vertical list in minibuffer
+(require 'ido-vertical-mode)
+(ido-mode 1)
+(ido-vertical-mode 1)
+(setq ido-vertical-define-keys 'C-n-C-p-up-down-left-right)
+
+;; * Minibuffer autocompletition *
+;; (require 'ido)
+;; (ido-mode t)
+
+;; * START - Smex [ M-x enhancement ] *
+(require 'smex)
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+;; * END *
+
 
 ;; grep with exclude directories or files
 (eval-after-load "grep"
   '(progn
     ;; (add-to-list 'grep-find-ignored-files "*.tmp")
     (add-to-list 'grep-find-ignored-directories ".git")
-    (add-to-list 'grep-find-ignored-directories "node_modules")))
+    (add-to-list 'grep-find-ignored-directories "node_modules")
+    (add-to-list 'grep-find-ignored-directories "bower_components")))
+
+;; wakatime mode for certain project paths ( do not forget create ~/.wakatime.cfg file with configs and api key )
+;; all configs in ~/.wakatime.cfg
+(custom-set-variables '(wakatime-cli-path "/usr/local/bin/wakatime")) ;; do not forget set path to wakatime binary ( shell command: which wakatime )
+(global-wakatime-mode)
 
 ;; * Replase remove, by remove in trash *
 (setq delete-by-moving-to-trash t)

@@ -6,9 +6,13 @@
 (require 'undo-tree)
 (global-undo-tree-mode t)
 
-;; set hook that load undo-tree history files, when switching buffers
+;;y set hook that load undo-tree history files, when switching buffers
 (if use_undo_tree_history_files ;; "use_undo_tree_history_files" in index.el
     (progn
+      ;; (insert (format "%s" undo-limit)) ;; default: 80000, current:
+      ;; (insert (format "%s" undo-strong-limit)) ;; default: 120000, current:
+      ;; (insert (format "%s" undo-outer-limit)) ;; default: 12000000, current:
+
       (remove-hook 'find-file-hook 'undo-tree-load-history-hook) ;; disable default
       (setq undo-tree-auto-save-history t) ;; auto save history
       (setq undo-tree-history-directory-alist `(("." . ,undo_redo_dir))) ;; set history directory

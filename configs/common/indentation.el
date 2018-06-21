@@ -2,7 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-;; * START - configure indentation *
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width current_indent)
 (setq c-basic-offset current_indent)
@@ -10,17 +9,14 @@
 (setq js-indent-level current_indent)
 (setq css-indent-offset current_indent)
 
-(setq web-mode-markup-indent-offset current_indent)
-(setq web-mode-css-indent-offset current_indent)
-(setq web-mode-code-indent-offset current_indent)
-
 ;; yaml-mode indentation
 (setq yaml-indent-offset current_indent)
-;; (setq yaml-indent-offset 2)
 
 ;; typescript indentation mode
 (setq typescript-indent-level current_indent)
-;; * END *
+
+;; html-mode indentation https://www.emacswiki.org/emacs/IndentingHtml
+(add-hook 'html-mode-hook (lambda () (set (make-local-variable 'sgml-basic-offset) current_indent)))
 
 ;; * Disable error on free variables *
 ;; Local Variables:
