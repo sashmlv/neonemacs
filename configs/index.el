@@ -86,7 +86,6 @@
                      dockerfile-mode
                      yasnippet ;; template system
                      vimish-fold ;; fold-unfold library
-                     ;; restclient ;; REST client for emacs
                      ;; wakatime-mode ;; for time tracking
                      xah-find
                      )

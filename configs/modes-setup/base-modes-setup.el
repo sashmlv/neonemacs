@@ -299,9 +299,6 @@ scroll-conservatively  10000)
 (global-set-key (kbd "C-c u") #'vimish-fold-delete)
 (vimish-fold-global-mode 1)
 
-;; REST client for emacs
-;; (require 'restclient)
-
 ;; find - replace
 ;;(require 'xah-find)
 
