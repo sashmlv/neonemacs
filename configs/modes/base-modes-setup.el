@@ -57,7 +57,6 @@
 (display-time-mode             t)
 (size-indication-mode          t)
 
-
 ;; * Set cursor type *
 ;;(setq-default cursor-type 'bar)
 

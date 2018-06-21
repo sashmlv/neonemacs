@@ -47,7 +47,8 @@
 (defconst yasnippets_directory (concat configs_dir (directory-file-name "yasnippets")))
 
 ;; define theme for window
-(set 'win-theme 'sunburst)
+;; (set 'win-theme 'sunburst)
+(set 'win-theme 'cyberpunk)
 
 ;; define theme for terminal
 (set 'term-theme 'sunburst)
@@ -94,7 +95,7 @@
 ;; Load configs
 (load (concat configs_dir (file-name-as-directory "modes") "custom-modes-setup")) ;; - setup custom modes
 (load (concat configs_dir (file-name-as-directory "modes") "base-modes-setup")) ;; - setup available modes
-;;(load (concat configs_dir (file-name-as-directory "modes-setup") "undo-tree-mode-setup")) ;; - setup undo-tree
+(load (concat configs_dir (file-name-as-directory "modes") "undo-tree-mode-setup")) ;; - setup undo-tree
 (load (concat configs_dir (file-name-as-directory "common") "indentation")) ;; - setup indentation
 (load (concat configs_dir (file-name-as-directory "common") "hooks")) ;; - setup hooks
 
