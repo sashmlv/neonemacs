@@ -97,7 +97,6 @@
 ;;(load (concat configs_dir (file-name-as-directory "modes-setup") "undo-tree-mode-setup")) ;; - setup undo-tree
 (load (concat configs_dir (file-name-as-directory "common") "indentation")) ;; - setup indentation
 (load (concat configs_dir (file-name-as-directory "common") "hooks")) ;; - setup hooks
-(load (concat configs_dir (file-name-as-directory "common") "keybindings")) ;; - setup keybindings
 
 ;; restart emacs if needed
 (if need_emacs_restart
