@@ -3,6 +3,9 @@
 ;;; Code:
 
 ;; undo-tree melpa plugin ( undo-redo ) setup
+(setq undo-limit 5242880) ;; 5mb history size
+(setq undo-strong-limit 10485760) ;; 10mb history size
+(setq undo-outer-limit 20971520) ;; 20mb history size
 (require 'undo-tree)
 (global-undo-tree-mode t)
 
@@ -47,7 +50,10 @@
                      )
                     (progn
                       (if (undo-tree-load-history nil t) ;; load "current-buffer" history file, with disabled error message on file not found (   t) - at end
-                          (add-to-list 'loaded_undo_tree_history_files (buffer-file-name (current-buffer))) ;; save to list loaded history file, for prevent load again
+                          (progn
+                            (ignore-errors (undo-tree-redo)) ;; enshure history
+                            (add-to-list 'loaded_undo_tree_history_files (buffer-file-name (current-buffer))) ;; save to list loaded history file, for prevent load again
+                            )
                         )
                       )
                   )

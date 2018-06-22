@@ -23,3 +23,6 @@
 * "M-_, C-?" -  redo changes;
 * "M-x undo-tree-save-history" - manually save undo history to file;
 * "M-x undo-tree-load-history" - manually load undo history from file;
+
+##### tabify, untabify:
+* M-x tabify, untabify
