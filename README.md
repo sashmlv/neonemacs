@@ -9,6 +9,7 @@
 * Git support through "Magit"
 * "Bongo" media player;
 * Google translate;
+* Indium for JavaScript development;
 * all installed packages you can see in index.el ...
 
 ### Usage:

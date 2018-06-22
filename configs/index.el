@@ -55,11 +55,6 @@
 
 ;; Packages list
 (setq package-list '(
-                     ;; packages for checking
-                     ido-vertical-mode
-                     ace-jump-mode
-
-                     ;; approved packages
                      restart-emacs ;; support only linux and windows
                      smex ;; minibuffer improvements
                      undo-tree ;; undo-redo history
@@ -70,7 +65,7 @@
                      highlight-indentation
                      js2-mode typescript-mode less-css-mode php-mode pug-mode yaml-mode markdown-mode json-mode rjsx-mode
                      bongo volume ;; media player
-                     ;; syntax-subword ;; subword navigation
+                     syntax-subword ;; subword navigation
                      magit ;; git support
                      highlight-symbol ;; highlight occurrences
                      google-translate
@@ -79,6 +74,9 @@
                      vimish-fold ;; fold-unfold library
                      wakatime-mode ;; for time tracking
                      xah-find
+                     ido-vertical-mode
+                     ace-jump-mode
+                     indium ;; see for setup: https://indium.readthedocs.io/en/latest/setup.html
                      )
       )
 
