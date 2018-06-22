@@ -12,14 +12,14 @@
 * all installed packages you can see in index.el ...
 
 ### Usage:
-* Clear your "~/.emacs.d/" directory;
+* Backup and clear your "~/.emacs.d/" directory;
 * Move file "init.el" from "configs" directory, into "~/.emacs.d/" directory;
 * Set in file "~/.emacs.d/init.el" full path to file "index.el", which in "configs" directory;
 * Set in file "index.el", which in "configs" directory, variable "configs_dir", which is full path to "configs" directory;
 * Set your prefer font, theme, and other configs in "index.el" (for apply theme completely, remove file "~/.emacs.d/emacs.desktop");
 * Overview all keybindings and other stuff in each config file, and set your prefer;
 * Create your custom config file, and require it in "index.el";
-* If some error will occurred try remove ~/.emacs.d/emacs.desktop
+* If some error will occur try remove ~/.emacs.d/emacs.desktop
 * Now you can walk through code;
 
 ### Overview:
@@ -28,8 +28,8 @@
 * "index.el" - parameters and loading other config files;
 * "modes" - in this directory placed files, with some modes configuration;
 * "common" - in this directory placed common config files;
-* "modes/base-modes-setup.el" - available modes setup;
-* "modes/custom-modes-setup.el" - custom modes setup;
+* "modes/base-setup.el" - base configs;
+* "modes/[some thing else].el" - other mode setup;
 * "comon/indentation.el" - indentation settings;
 * "common/hooks.el" - hooks and modes;
 

@@ -57,6 +57,7 @@
 (setq package-list '(
                      ;; packages for checking
                      ido-vertical-mode
+                     ace-jump-mode
 
                      ;; approved packages
                      restart-emacs ;; support only linux and windows
@@ -69,7 +70,7 @@
                      highlight-indentation
                      js2-mode typescript-mode less-css-mode php-mode pug-mode yaml-mode markdown-mode json-mode rjsx-mode
                      bongo volume ;; media player
-                     syntax-subword ;; subword navigation
+                     ;; syntax-subword ;; subword navigation
                      magit ;; git support
                      highlight-symbol ;; highlight occurrences
                      google-translate
@@ -93,11 +94,23 @@
   )
 
 ;; Load configs
-(load (concat configs_dir (file-name-as-directory "modes") "custom-modes-setup")) ;; - setup custom modes
-(load (concat configs_dir (file-name-as-directory "modes") "base-modes-setup")) ;; - setup available modes
-(load (concat configs_dir (file-name-as-directory "modes") "undo-tree-mode-setup")) ;; - setup undo-tree
-(load (concat configs_dir (file-name-as-directory "common") "indentation")) ;; - setup indentation
-(load (concat configs_dir (file-name-as-directory "common") "hooks")) ;; - setup hooks
+(load (concat configs_dir (file-name-as-directory "modes") "base-setup"))
+(load (concat configs_dir (file-name-as-directory "modes") "multiple-cursors"))
+(load (concat configs_dir (file-name-as-directory "modes") "smex"))
+(load (concat configs_dir (file-name-as-directory "modes") "ido-vertical"))
+(load (concat configs_dir (file-name-as-directory "modes") "whitespace"))
+(load (concat configs_dir (file-name-as-directory "modes") "highlight-symbol"))
+(load (concat configs_dir (file-name-as-directory "modes") "google-translate"))
+(load (concat configs_dir (file-name-as-directory "modes") "markdown"))
+(load (concat configs_dir (file-name-as-directory "modes") "xah-syntax-color-hex"))
+(load (concat configs_dir (file-name-as-directory "modes") "xah-change-bracket-pairs"))
+(load (concat configs_dir (file-name-as-directory "modes") "undo-tree"))
+(load (concat configs_dir (file-name-as-directory "modes") "ace-jump"))
+(load (concat configs_dir (file-name-as-directory "modes") "vimish-fold"))
+(load (concat configs_dir (file-name-as-directory "modes") "yasnippet"))
+(load (concat configs_dir (file-name-as-directory "modes") "wakatime"))
+(load (concat configs_dir (file-name-as-directory "common") "indentation"))
+(load (concat configs_dir (file-name-as-directory "common") "hooks"))
 
 ;; restart emacs if needed
 (if need_emacs_restart

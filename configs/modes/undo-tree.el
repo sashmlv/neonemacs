@@ -1,4 +1,4 @@
-;;; undo-tree-mode-setup --- undo-tree configuration:
+;;; undo-tree --- undo-tree configuration:
 ;;; Commentary:
 ;;; Code:
 
@@ -72,4 +72,4 @@
 ;; byte-compile-warnings: (not free-vars)
 ;; End:
 
-;;; undo-tree-mode-setup.el ends here
+;;; undo-tree.el ends here

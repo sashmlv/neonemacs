@@ -1,4 +1,4 @@
-;;; base-modes-setup --- available modes configuration:
+;;; base-setup --- available modes configuration:
 ;;; Commentary:
 ;;; Code:
 
@@ -115,35 +115,6 @@ scroll-conservatively  10000)
 ;; Disable word wrap
 (set-default 'truncate-lines t)
 
-;; Whitespace mode
-(require 'whitespace)
-(setq whitespace-display-mappings
-      '(
-        (space-mark ?\ [?\u00B7] [?.]) ;; (space-mark ? [?\u00B7])
-        (newline-mark ?\n [?\u2039 ?\n]) ;; u21DA, u00AB, ¶, u21B5, u25C0
-        (tab-mark ?\t [?\u203A ?\t]) ;; u21DB, u00BB, u00BB
-        ))
-(setq whitespace-style '(face trailing tabs spaces newline space-mark tab-mark newline-mark))
-(set-face-attribute 'whitespace-space nil
-                    :background whitespace_background ;; "whitespace_background" in index.el
-                    :foreground whitespace_foreground ;; "whitespace_foreground" in index.el
-                    :weight whitespace_weight) ;; ultra-bold, extra-bold, bold, semi-bold, normal, semi-light, light, extra-light, ultra-light
-(set-face-attribute 'whitespace-newline nil
-                    :background whitespace_background
-                    :foreground whitespace_foreground
-                    :weight whitespace_weight) ;; "whitespace_weight" in index.el
-(set-face-attribute 'whitespace-tab nil
-                    :background whitespace_background
-                    :foreground whitespace_foreground
-                    :weight whitespace_weight)
-(set-face-attribute 'whitespace-trailing nil
-                    :background whitespace_trailing_background ;; "whitespace_trailing_background" in index.el
-                    :foreground whitespace_trailing_foreground ;; "whitespace_trailing_foreground" in index.el
-                    :weight whitespace_trailing_weight) ;; "whitespace_trailing_weight" in index.el
-(setq whitespace-line nil) ;; disable a bug, that highlight long lines
-(setq whitespace-empty nil) ;; disable a bug, that highlight last line
-(global-whitespace-mode 1)
-
 ;; Highlight current line
 (defface hl-line `((t (:background ,hl_line_background :underline nil :box nil))) ;; "hl_line_background" in index.el
   "Face to use for `hl-line-face'." :group 'hl-line)
@@ -153,14 +124,6 @@ scroll-conservatively  10000)
 ;; Hightlight selection region
 (set-face-attribute 'region nil :background hl_region_background) ;; "hl_region_background" in index.el
 ;; (set-face-attribute 'region nil :box '(:color "black" :line-width -1))
-
-;; highlight-symbol
-(require 'highlight-symbol)
-(setq highlight-symbol-idle-delay 1)
-;; redefine highlight face attributes
-(set-face-attribute 'highlight-symbol-face nil :background nil :underline `(:color ,hl_occurrences_color)) ;; "hl_occurrences_color" in index.el
-;; (set-face-attribute 'highlight-symbol-face nil :background hl_occurrences_color :underline nil )
-;; (set-face-attribute 'highlight-symbol-face nil :background nil :box `(:line-width -1 :color ,hl_occurrences_color )) ;; "hl_occurrences_color" in index.el
 
 ;;Set cursor color
 (set-cursor-color cursor_color) ;; "cursor_color" in index.el
@@ -213,14 +176,6 @@ scroll-conservatively  10000)
 (global-set-key (kbd "M-P") 'move-line-up)
 (global-set-key (kbd "M-N") 'move-line-down)
 
-;; Multiple-cursors.el ( from elpa )
-(require 'multiple-cursors)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
-
 ;; Revert-buffer
 (global-set-key (kbd "C-c C-r") 'revert-buffer)
 (global-auto-revert-mode)
@@ -239,67 +194,8 @@ scroll-conservatively  10000)
    '(add-to-list 'dired-compress-file-suffixes
                  '("\\.zip\\'" ".zip" "unzip")))
 
-;; google translator
-(require 'google-translate)
-(require 'google-translate-default-ui)
-(setq google-translate-default-source-language "en")
-(setq google-translate-default-target-language "ru")
-(global-set-key (kbd "C-c t") 'google-translate-at-point)
-(global-set-key (kbd "C-c T") 'google-translate-query-translate)
-(global-set-key (kbd "C-c r") 'google-translate-at-point-reverse)
-(global-set-key (kbd "C-c R") 'google-translate-query-translate-reverse)
-
-;; markdown mode
-(autoload 'markdown-mode "markdown-mode"
-   "Major mode for editing Markdown files" t)
-(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-(autoload 'gfm-mode "markdown-mode"
-   "Major mode for editing GitHub Flavored Markdown files" t)
-(add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
-
-;; Require dockerfile-mode
-(require 'dockerfile-mode)
-
-;; yasnippet
-(if (boundp 'yas-snippet-dirs) ;; first, set where our yasnippets are placed
-    (setq yas-snippet-dirs (append `(,yasnippets_directory) yas-snippet-dirs)) ;; if yas-snippet-dirs defined add our directories to begin of list
-  (setq yas-snippet-dirs `(,yasnippets_directory))) ;; otherwise define yas-snippet-dirs with our directories
-(yas-global-mode 1) ;; second
-
 ;; disable newline at end
 (setq mode-require-final-newline nil)
-
-;; Vim-like text folding for Emacs
-(global-set-key (kbd "C-c f") #'vimish-fold)
-(global-set-key (kbd "C-c u") #'vimish-fold-delete)
-(vimish-fold-global-mode 1)
-
-;; find - replace
-;;(require 'xah-find)
-
-;; Enable ivy mode
-;; (ivy-mode 1)
-;; (setq ivy-use-virtual-buffers t)
-;; (setq enable-recursive-minibuffers t)
-;; (setq ivy-count-format "(%d/%d) ")
-
-;; vertical list in minibuffer
-(require 'ido-vertical-mode)
-(ido-mode 1)
-(ido-vertical-mode 1)
-(setq ido-vertical-define-keys 'C-n-C-p-up-down-left-right)
-
-;; Minibuffer autocompletition
-;; (require 'ido)
-;; (ido-mode t)
-
-;; Smex [ M-x enhancement ]
-(require 'smex)
-(smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;; grep with exclude directories or files
 (eval-after-load "grep"
@@ -309,20 +205,31 @@ scroll-conservatively  10000)
     (add-to-list 'grep-find-ignored-directories "node_modules")
     (add-to-list 'grep-find-ignored-directories "bower_components")))
 
-;; wakatime mode for certain project paths ( do not forget create ~/.wakatime.cfg file with configs and api key )
-;; all configs in ~/.wakatime.cfg
-(custom-set-variables '(wakatime-cli-path "/usr/local/bin/wakatime")) ;; do not forget set path to wakatime binary ( shell command: which wakatime )
-(global-wakatime-mode)
-
 ;; Replase remove, by remove in trash
 (setq delete-by-moving-to-trash t)
 
 ;; Enable debug
 (setq debug-on-error t)
 
+;; find - replace
+(require 'xah-find)
+
+;; Require dockerfile-mode
+(require 'dockerfile-mode)
+
+;; Enable ivy mode
+;; (ivy-mode 1)
+;; (setq ivy-use-virtual-buffers t)
+;; (setq enable-recursive-minibuffers t)
+;; (setq ivy-count-format "(%d/%d) ")
+
+;; Minibuffer autocompletition
+;; (require 'ido)
+;; (ido-mode t)
+
 ;; * Disable error on free variables *
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)
 ;; End:
 
-;;; base-modes-setup.el ends here
+;;; base-setup.el ends here
