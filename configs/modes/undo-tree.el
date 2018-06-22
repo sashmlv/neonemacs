@@ -51,7 +51,7 @@
                     (progn
                       (if (undo-tree-load-history nil t) ;; load "current-buffer" history file, with disabled error message on file not found (   t) - at end
                           (progn
-                            (undo-tree-save-history nil t) ;; touch history to enshure load, because bug on emacs has started
+                            (undo-tree-save-history nil t) ;; touch history to ensure load, because bug on emacs has started
                             (add-to-list 'loaded_undo_tree_history_files (buffer-file-name (current-buffer))) ;; save to list loaded history file, for prevent load again
                             )
                         )
