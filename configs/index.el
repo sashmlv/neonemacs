@@ -48,7 +48,7 @@
 
 ;; define theme for window
 ;; (set 'win-theme 'sunburst)
-(set 'win-theme 'cyberpunk)
+(set 'win-theme 'flatland-black)
 
 ;; define theme for terminal
 (set 'term-theme 'sunburst)
