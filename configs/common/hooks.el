@@ -20,6 +20,8 @@
 
 ;; js2-mode on js files
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+;; js2-refactor-mode on js2-mode
+(add-hook 'js2-mode-hook #'js2-refactor-mode)
 
 ;; rjsx-mode on jsx files
 (add-to-list 'auto-mode-alist '("components\\/.*\\.js\\'" . rjsx-mode))
