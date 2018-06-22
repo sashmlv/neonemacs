@@ -36,7 +36,7 @@
 ### Screenshot:
 ![Image of editor](https://raw.githubusercontent.com/sashlex/emacs-config/master/img/screenshot.png)
 
-### Themes license note:
+### Theme license note:
 Each theme has own license, for details see in theme file.
 
 ### Notes:
