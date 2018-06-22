@@ -83,10 +83,10 @@ scroll-conservatively  10000)
 
 ;; Backup files
 (setq make-backup-files t)
-;; Enable versioning with default values (keep five last versions, I think!)
+;; Enable versioning with default values (keep five last versions, I think.)
 (setq version-control t)
 ;; Save all backup file in this directory.
-(setq backup-directory-alist (list (cons "." backups_dir))) ;; "backups_dir" in index.el
+(setq backup-directory-alist (list (cons "." backups_dir)))
 
 ;; Change bracket pairs from one type to another on current line or text selection
 (global-set-key (kbd "C-c `") (lambda() (interactive) (setq from (read-string "Enter replacement:")) (setq to (read-string "Enter new value:")) (xah-change-bracket-pairs from to)))
@@ -103,20 +103,20 @@ scroll-conservatively  10000)
 (show-paren-mode 1)
 (setq show-paren-delay 0)
 (custom-set-faces
- `(show-paren-match ((t (:background ,brackets_match_background :foreground ,brackets_match_foreground)))) ;; "brackets_match_background", "brackets_match_foreground" in index.el
- `(show-paren-mismatch ((((class color)) (:background ,brackets_mismatch_background :foreground ,brackets_mismatch_foreground))))) ;; "brackets_mismatch_background", "brackets_mismatch_foreground" in index.el
+ `(show-paren-match ((t (:background ,brackets_match_background :foreground ,brackets_match_foreground))))
+ `(show-paren-mismatch ((((class color)) (:background ,brackets_mismatch_background :foreground ,brackets_mismatch_foreground)))))
 
 ;; Disable word wrap
 (set-default 'truncate-lines t)
 
 ;; Highlight current line
-(defface hl-line `((t (:background ,hl_line_background :underline nil :box nil))) ;; "hl_line_background" in index.el
+(defface hl-line `((t (:background ,hl_line_background :underline nil :box nil)))
   "Face to use for `hl-line-face'." :group 'hl-line)
 (setq hl-line-face 'hl-line)
 (global-hl-line-mode t)
 
 ;; Hightlight selection region
-(set-face-attribute 'region nil :background hl_region_background) ;; "hl_region_background" in index.el
+(set-face-attribute 'region nil :background hl_region_background)
 ;; (set-face-attribute 'region nil :box '(:color "black" :line-width -1))
 
 ;;Set cursor color
@@ -173,11 +173,6 @@ scroll-conservatively  10000)
 ;; Revert-buffer
 (global-set-key (kbd "C-c C-r") 'revert-buffer)
 (global-auto-revert-mode)
-
-;; Company mode [ autocomplete ]
-(add-hook 'after-init-hook 'global-company-mode)
-(require 'company-statistics)
-(company-statistics-mode)
 
 ;; Dired tries to guess a default target directory
 (setq dired-dwim-target t)
