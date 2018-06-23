@@ -1,4 +1,4 @@
-### Some shortcuts:
+### Somehow reference:
 
 ##### Switch buffers:
 * "C-x b" - then "C-s", "C-r" for choose;
@@ -21,11 +21,20 @@
 ##### Undo redo:
 * "C-_, C-/" -  undo changes;
 * "M-_, C-?" -  redo changes;
-* "M-x undo-tree-save-history" - manually save undo history to file;
-* "M-x undo-tree-load-history" - manually load undo history from file;
 
 ##### Tabify, untabify:
 * M-x tabify, untabify;
 
 ##### Expand region:
 * "C-=" - fast text selection;
+
+##### Avy navigation:
+* "C-;" - avy-goto-char-2;
+* "C-'" - avy-goto-line;
+* "M-g c" - avy-goto-char;
+* "M-g e" - avy-goto-word-0;
+* "M-g g" - avy-goto-line;
+* "M-g w" - avy-goto-word-1;
+* "M-g (" - avy-goto-open-paren;
+* "M-g )" - avy-goto-close-paren;
+* "M-g P" - avy-pop-mark;

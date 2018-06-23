@@ -7,7 +7,7 @@
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
+(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
 
 (setq need_emacs_restart nil)
 (defconst configs_dir "/media/user/disk/emacs-config/configs/")
@@ -50,7 +50,6 @@
 ;; (set 'win-theme 'sunburst)
 (set 'win-theme 'flatland-black)
 
-
 ;; define theme for terminal
 (set 'term-theme 'sunburst)
 
@@ -76,7 +75,7 @@
                      wakatime-mode ;; for time tracking
                      xah-find
                      ido-vertical-mode
-                     ace-jump-mode
+                     avy
                      indium ;; see for setup: https://indium.readthedocs.io/en/latest/setup.html
                      expand-region ;; expand-region for fast text selection
                      )
@@ -102,7 +101,7 @@
 (load (concat configs_dir (file-name-as-directory "modes") "xah-syntax-color-hex"))
 (load (concat configs_dir (file-name-as-directory "modes") "xah-change-bracket-pairs"))
 (load (concat configs_dir (file-name-as-directory "modes") "undo-tree"))
-(load (concat configs_dir (file-name-as-directory "modes") "ace-jump"))
+(load (concat configs_dir (file-name-as-directory "modes") "avy"))
 (load (concat configs_dir (file-name-as-directory "modes") "vimish-fold"))
 (load (concat configs_dir (file-name-as-directory "modes") "yasnippet"))
 (load (concat configs_dir (file-name-as-directory "modes") "wakatime"))
