@@ -38,3 +38,8 @@
 * "M-g (" - avy-goto-open-paren;
 * "M-g )" - avy-goto-close-paren;
 * "M-g P" - avy-pop-mark;
+
+##### Dumb jump, definition jump:
+* "C-M-g" - dumb-jump-go
+* "C-M-p" - dumb-jump-back
+* "C-M-q" - dumb-jump-quick-look

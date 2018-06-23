@@ -78,6 +78,7 @@
                      avy
                      indium ;; see for setup: https://indium.readthedocs.io/en/latest/setup.html
                      expand-region ;; expand-region for fast text selection
+                     dumb-jump ;; jump to variable definition
                      )
       )
 
@@ -103,6 +104,8 @@
 (load (concat configs_dir (file-name-as-directory "modes") "undo-tree"))
 (load (concat configs_dir (file-name-as-directory "modes") "avy"))
 (load (concat configs_dir (file-name-as-directory "modes") "vimish-fold"))
+(load (concat configs_dir (file-name-as-directory "modes") "dumb-jump"))
+
 (load (concat configs_dir (file-name-as-directory "modes") "yasnippet"))
 (load (concat configs_dir (file-name-as-directory "modes") "wakatime"))
 (load (concat configs_dir (file-name-as-directory "common") "indentation"))

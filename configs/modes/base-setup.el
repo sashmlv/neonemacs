@@ -220,6 +220,9 @@ scroll-conservatively  10000)
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
+;; dumb-jump, variable definition jump
+(dumb-jump-mode)
+
 ;; * Disable error on free variables *
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)
