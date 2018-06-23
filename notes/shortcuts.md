@@ -4,10 +4,10 @@
 * "C-x b" - then "C-s", "C-r" for choose;
 
 ##### Translate text to "RUS" - "ENG":
-* "C-c t" - google-translate-at-point
-* "C-c T" - google-translate-query-translate
-* "C-c r" - google-translate-at-point-reverse
-* "C-c R" - google-translate-query-translate-reverse
+* "C-c t" - google-translate-at-point;
+* "C-c T" - google-translate-query-translate;
+* "C-c r" - google-translate-at-point-reverse;
+* "C-c R" - google-translate-query-translate-reverse;
 
 ##### Move line:
 * "M-P" - move-line-up;
@@ -25,4 +25,7 @@
 * "M-x undo-tree-load-history" - manually load undo history from file;
 
 ##### Tabify, untabify:
-* M-x tabify, untabify
+* M-x tabify, untabify;
+
+##### Expand region:
+* "C-=" - fast text selection;

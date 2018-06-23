@@ -50,6 +50,7 @@
 ;; (set 'win-theme 'sunburst)
 (set 'win-theme 'flatland-black)
 
+
 ;; define theme for terminal
 (set 'term-theme 'sunburst)
 
@@ -77,7 +78,7 @@
                      ido-vertical-mode
                      ace-jump-mode
                      indium ;; see for setup: https://indium.readthedocs.io/en/latest/setup.html
-                     expand-region ;; expand-region for fastest text selection
+                     expand-region ;; expand-region for fast text selection
                      )
       )
 
