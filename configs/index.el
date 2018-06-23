@@ -77,11 +77,9 @@
                      ido-vertical-mode
                      ace-jump-mode
                      indium ;; see for setup: https://indium.readthedocs.io/en/latest/setup.html
+                     expand-region ;; expand-region for fastest text selection
                      )
       )
-
-;; Set some parameters
-;; (set-background-color "#000")
 
 ;; Prepare config directories *
 (if(not(file-accessible-directory-p backups_dir))
@@ -109,6 +107,9 @@
 (load (concat configs_dir (file-name-as-directory "modes") "wakatime"))
 (load (concat configs_dir (file-name-as-directory "common") "indentation"))
 (load (concat configs_dir (file-name-as-directory "common") "hooks"))
+
+;; Set some parameters
+;; (set-background-color "#000")
 
 ;; restart emacs if needed
 (if need_emacs_restart

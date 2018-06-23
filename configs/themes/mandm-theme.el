@@ -47,15 +47,41 @@
  mmorange-color "#FF7509"             ; "#FF7509"
  mmred-color "#EE3932"                ; "#EE3932"
  mmbrown-color "#441B02"              ; I made this up
- mmfg-color "#dcdcdc"                 ; fg based on zenburn
- )
-
-;; Background from brown
-(setq mmbg-color (color-darken-name (color-desaturate-name mmbrown-color 80) 2))
+ mmfg-color "#dcdcdc"                 ; zenburn fg
+ mmbg-color "#002b36"
+ )                ; zenburn bg
+                                      ; ("zenburn"     . "#2f2f2f")
+(setq mmbg-color (color-darken-name (color-desaturate-name mmbrown-color 90) 2))
 
 ; #50301B
 
 (deftheme mandm "The M&M color theme")
+
+(defcustom mandm-height-minus-1 0.8
+  "Font size -1."
+  :type 'number
+  :group 'mandm)
+
+(defcustom mandm-height-plus-1 1.1
+  "Font size +1."
+  :type 'number
+  :group 'mandm)
+
+(defcustom mandm-height-plus-2 1.15
+  "Font size +2."
+  :type 'number
+  :group 'mandm)
+
+(defcustom mandm-height-plus-3 1.2
+  "Font size +3."
+  :type 'number
+  :group 'mandm)
+
+(defcustom mandm-height-plus-4 1.3
+  "Font size +4."
+  :type 'number
+  :group 'mandm)
+
 
 ;;; Color Palette
 
@@ -89,6 +115,7 @@
     ("mandm-yellow"   . ,mmyellow-color)
     ("mandm-yellow-1" . ,(color-darken-name mmyellow-color 3))
     ("mandm-yellow-2" . ,(color-darken-name mmyellow-color 6))
+    ("mandm-yellow-5" . ,(color-darken-name mmyellow-color 20))
     ("mandm-green+4"  . ,(color-lighten-name mmgreen-color 12))
     ("mandm-green+3"  . ,(color-lighten-name mmgreen-color 8))
     ("mandm-green+2"  . ,(color-lighten-name mmgreen-color 6))
@@ -411,37 +438,17 @@ Also bind `class' to ((class color) (min-colors 89))."
 ;;;;; flx
    `(flx-highlight-face ((t (:foreground ,mandm-green+2 :weight bold))))
 ;;;;; flycheck
-   `(flycheck-error
-     ((((supports :underline (:style wave)))
-       (:underline (:style wave :color ,mandm-red-1) :inherit unspecified))
-      (t (:foreground ,mandm-red-1 :weight bold :underline t))))
-   `(flycheck-warning
-     ((((supports :underline (:style wave)))
-       (:underline (:style wave :color ,mandm-yellow) :inherit unspecified))
-      (t (:foreground ,mandm-yellow :weight bold :underline t))))
-   `(flycheck-info
-     ((((supports :underline (:style wave)))
-       (:underline (:style wave :color ,mandm-cyan) :inherit unspecified))
-      (t (:foreground ,mandm-cyan :weight bold :underline t))))
-   `(flycheck-fringe-error ((t (:foreground ,mandm-red-1 :weight bold))))
+   ;; I like color-"inverse" otherwise I completely miss the fact that it's set.
+   `(flycheck-error   ((t (:background ,mandm-red-4 :foreground ,mandm-fg :weight bold))))
+   `(flycheck-warning ((t (:background ,mandm-yellow-5 :foreground ,mandm-fg :weight bold))))
+   `(flycheck-info    ((t (:background ,mandm-cyan :foreground ,mandm-fg :weight bold ))))
+   `(flycheck-fringe-error   ((t (:foreground ,mandm-red :weight bold))))
    `(flycheck-fringe-warning ((t (:foreground ,mandm-yellow :weight bold))))
-   `(flycheck-fringe-info ((t (:foreground ,mandm-cyan :weight bold))))
+   `(flycheck-fringe-info    ((t (:foreground ,mandm-cyan :weight bold))))
 ;;;;; flymake
-   `(flymake-errline
-     ((((supports :underline (:style wave)))
-       (:underline (:style wave :color ,mandm-red)
-                   :inherit unspecified :foreground unspecified :background unspecified))
-      (t (:foreground ,mandm-red-1 :weight bold :underline t))))
-   `(flymake-warnline
-     ((((supports :underline (:style wave)))
-       (:underline (:style wave :color ,mandm-orange)
-                   :inherit unspecified :foreground unspecified :background unspecified))
-      (t (:foreground ,mandm-orange :weight bold :underline t))))
-   `(flymake-infoline
-     ((((supports :underline (:style wave)))
-       (:underline (:style wave :color ,mandm-green)
-                   :inherit unspecified :foreground unspecified :background unspecified))
-      (t (:foreground ,mandm-green-1 :weight bold :underline t))))
+   `(flymake-errline  ((t (:background ,mandm-red-4 :foreground ,mandm-fg :weight bold))))
+   `(flymake-warnline ((t (:background ,mandm-yellow-5 :foreground ,mandm-fg :weight bold))))
+   `(flymake-infoline ((t (:background ,mandm-cyan :foreground ,mandm-fg :weight bold ))))
 ;;;;; flyspell
    `(flyspell-duplicate
      ((((supports :underline (:style wave)))
@@ -752,14 +759,14 @@ Also bind `class' to ((class color) (min-colors 89))."
    `(org-formula ((t (:foreground ,mandm-yellow-2))))
    `(org-headline-done ((t (:foreground ,mandm-green+3))))
    `(org-hide ((t (:foreground ,mandm-bg-1))))
-   `(org-level-1 ((t (:foreground ,mandm-green+2 :height 145))))
-   `(org-level-2 ((t (:foreground ,mandm-green+2 :height 140))))
-   `(org-level-3 ((t (:foreground ,mandm-green+2 :height 135))))
-   `(org-level-4 ((t (:foreground ,mandm-green+2 :height 130))))
-   `(org-level-5 ((t (:foreground ,mandm-green+2 :height 125))))
-   `(org-level-6 ((t (:foreground ,mandm-green+2 :height 120))))
-   `(org-level-7 ((t (:foreground ,mandm-green+2 :height 115))))
-   `(org-level-8 ((t (:foreground ,mandm-green+2 :height 110))))
+   `(org-level-1 ((t (:foreground ,mandm-green+2 :height ,mandm-height-plus-4))))
+   `(org-level-2 ((t (:foreground ,mandm-green+2 :height ,mandm-height-plus-3))))
+   `(org-level-3 ((t (:foreground ,mandm-green+2 :height ,mandm-height-plus-2))))
+   `(org-level-4 ((t (:foreground ,mandm-green+2 :height ,mandm-height-plus-1))))
+   `(org-level-5 ((t (:foreground ,mandm-green+2 :weight bold))))
+   `(org-level-6 ((t (:foreground ,mandm-green+1 :weight bold))))
+   `(org-level-7 ((t (:foreground ,mandm-green :weight bold))))
+   `(org-level-8 ((t (:foreground ,mandm-green))))
    `(org-link ((t (:foreground ,mandm-yellow-2 :underline t))))
    `(org-scheduled ((t (:foreground ,mandm-green+4))))
    `(org-scheduled-previously ((t (:foreground ,mandm-red))))

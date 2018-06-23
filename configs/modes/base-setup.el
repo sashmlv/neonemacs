@@ -216,6 +216,10 @@ scroll-conservatively  10000)
 ;; (require 'ido)
 ;; (ido-mode t)
 
+;; expand-region for faster text selection
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+
 ;; * Disable error on free variables *
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)

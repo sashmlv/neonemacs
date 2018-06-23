@@ -68,6 +68,15 @@
   (custom-theme-set-faces
    'gruber-darker
 
+   ;; Agda2
+   `(agda2-highlight-datatype-face ((t (:foreground ,gruber-darker-quartz))))
+   `(agda2-highlight-primitive-type-face ((t (:foreground ,gruber-darker-quartz))))
+   `(agda2-highlight-function-face ((t (:foreground ,gruber-darker-niagara))))
+   `(agda2-highlight-keyword-face ((t ,(list :foreground gruber-darker-yellow
+                                             :bold t))))
+   `(agda2-highlight-inductive-constructor-face ((t (:foreground ,gruber-darker-green))))
+   `(agda2-highlight-number-face ((t (:foreground ,gruber-darker-wisteria))))
+
    ;; AUCTeX
    `(font-latex-bold-face ((t (:foreground ,gruber-darker-quartz :bold t))))
    `(font-latex-italic-face ((t (:foreground ,gruber-darker-quartz :italic t))))
@@ -89,6 +98,7 @@
    `(link ((t (:foreground ,gruber-darker-niagara :underline t))))
    `(link-visited ((t (:foreground ,gruber-darker-wisteria :underline t))))
    `(match ((t (:background ,gruber-darker-bg+4))))
+   `(shadow ((t (:foreground ,gruber-darker-bg+4))))
    `(minibuffer-prompt ((t (:foreground ,gruber-darker-niagara))))
    `(region ((t (:background ,gruber-darker-bg+3 :foreground nil))))
    `(secondary-selection ((t ,(list :background gruber-darker-bg+3
@@ -286,8 +296,13 @@
    `(mode-line-inactive ((t ,(list :background gruber-darker-bg+1
                                    :foreground gruber-darker-quartz))))
 
+   ;; Neo Dir
+   `(neo-dir-link-face ((t (:foreground ,gruber-darker-niagara))))
+
    ;; Org Mode
    `(org-agenda-structure ((t (:foreground ,gruber-darker-niagara))))
+   `(org-column ((t (:background ,gruber-darker-bg-1))))
+   `(org-column-title ((t (:background ,gruber-darker-bg-1 :underline t :weight bold))))
    `(org-done ((t (:foreground ,gruber-darker-green))))
    `(org-todo ((t (:foreground ,gruber-darker-red-1))))
    `(org-upcoming-deadline ((t (:foreground ,gruber-darker-yellow))))

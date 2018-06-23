@@ -8,8 +8,8 @@
  'sunburst
 
  ;; emacs
- '(cursor ((t (:background "green"))))
- '(default ((t (:background "#000" :foreground "#ddd"))))
+ '(cursor ((t (:background "yellow"))))
+ '(default ((t (:background "#111" :foreground "#ddd"))))
  '(mode-line ((t (:background "#e6e5e4" :foreground "black"))))
  '(highlight ((t (:bold t :slant italic))))
  '(gui-element ((t (:background "#0e2231" :foreground "black"))))
@@ -25,6 +25,7 @@
  '(region ((t (:background "#4a410d"))))
 
  ;; font-lock
+ '(font-lock-builtin-face ((t (:foreground "#dd7b3b"))))
  '(font-lock-builtin-face ((t (:foreground "#dd7b3b"))))
  '(font-lock-comment-face ((t (:foreground "#666" ))))
  '(font-lock-constant-face ((t (:foreground "#99cf50"))))
