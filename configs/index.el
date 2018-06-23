@@ -96,6 +96,7 @@
 (load (concat configs_dir (file-name-as-directory "modes") "smex"))
 (load (concat configs_dir (file-name-as-directory "modes") "ido-vertical"))
 (load (concat configs_dir (file-name-as-directory "modes") "whitespace"))
+(load (concat configs_dir (file-name-as-directory "modes") "company"))
 (load (concat configs_dir (file-name-as-directory "modes") "highlight-symbol"))
 (load (concat configs_dir (file-name-as-directory "modes") "google-translate"))
 (load (concat configs_dir (file-name-as-directory "modes") "markdown"))
