@@ -4,15 +4,15 @@
 
 ;; avy - fast navigation https://github.com/abo-abo/avy/wiki
 (setq avy-case-fold-search nil)
-(bind-key "C-;"    'avy-goto-char-2)
-(bind-key "C-'"    'avy-goto-line)
-(bind-key "M-g c"  'avy-goto-char)
-(bind-key "M-g e"  'avy-goto-word-0)
-(bind-key "M-g g"  'avy-goto-line)
-(bind-key "M-g w"  'avy-goto-word-1)
-(bind-key "M-g ("  'avy-goto-open-paren)
-(bind-key "M-g )"  'avy-goto-close-paren)
-(bind-key "M-g P"  'avy-pop-mark)
+(global-set-key (kbd "C-;") 'avy-goto-char-2)
+(global-set-key (kbd "C-'") 'avy-goto-line)
+(global-set-key (kbd "M-g c") 'avy-goto-char)
+(global-set-key (kbd "M-g e") 'avy-goto-word-0)
+(global-set-key (kbd "M-g g") 'avy-goto-line)
+(global-set-key (kbd "M-g w") 'avy-goto-word-1)
+(global-set-key (kbd "M-g (") 'avy-goto-open-paren)
+(global-set-key (kbd "M-g )") 'avy-goto-close-paren)
+(global-set-key (kbd "M-g P") 'avy-pop-mark)
 
 ;; * Disable error on free variables *
 ;; Local Variables:
