@@ -60,14 +60,6 @@
 ;; * Set cursor type *
 ;;(setq-default cursor-type 'bar)
 
-;; Set theme [ for window or terminal ] *
-(add-to-list 'custom-theme-load-path themes_dir)
-(load-theme win-theme t)
-(load-theme term-theme t)
-(if(display-graphic-p)
-    (enable-theme win-theme) ;; window theme
-  (enable-theme term-theme)) ;; terminal theme
-
 ;; Fringe-mode [ disable borders on left and right ]
 (set-fringe-mode 0)
 
@@ -108,19 +100,6 @@ scroll-conservatively  10000)
 
 ;; Disable word wrap
 (set-default 'truncate-lines t)
-
-;; Highlight current line
-(defface hl-line `((t (:background ,hl_line_background :underline nil :box nil)))
-  "Face to use for `hl-line-face'." :group 'hl-line)
-(setq hl-line-face 'hl-line)
-(global-hl-line-mode t)
-
-;; Hightlight selection region
-(set-face-attribute 'region nil :background hl_region_background)
-;; (set-face-attribute 'region nil :box '(:color "black" :line-width -1))
-
-;;Set cursor color
-(set-cursor-color cursor_color) ;; "cursor_color" in index.el
 
 ;; Duplicate line, hotkey to duplicate line ( Ctrl + c, d )
 (defun duplicate-line-or-region (&optional n)

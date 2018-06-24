@@ -16,7 +16,7 @@
 (defconst themes_dir (concat configs_dir (file-name-as-directory "themes")))
 (defconst undo_redo_dir (concat base_dir (file-name-as-directory "undo_redo"))) ;; save undo-redo history in this dir
 
-(defconst current_font "Fira Mono-9")
+(defconst current_font "Fira Mono-9") ;; or font "Melno-9"
 (defconst current_indent 3)
 (defconst indentation_color "#101010")
 (defconst indentation_current_line_color "#101010")
@@ -34,11 +34,11 @@
 (defconst whitespace_trailing_background "#070707")
 (defconst whitespace_trailing_weight 'light)
 
+(defconst cursor_color "green2")
+(defconst background_color "#000")
 (defconst hl_line_background "#101010")
 (defconst hl_region_background "#232323")
 (defconst hl_occurrences_color "cyan")
-
-(defconst cursor_color "green2")
 
 ;; is need use undo-tree history files
 (defconst use_undo_tree_history_files t)
@@ -47,8 +47,8 @@
 (defconst yasnippets_directory (concat configs_dir (directory-file-name "yasnippets")))
 
 ;; define theme for window
-;; (set 'win-theme 'sunburst)
-(set 'win-theme 'flatland-black)
+;; (set 'win-theme 'sunburst) ;; flatland-black, peacock
+(set 'win-theme 'dracula)
 
 ;; define theme for terminal
 (set 'term-theme 'sunburst)
@@ -110,9 +110,7 @@
 (load (concat configs_dir (file-name-as-directory "modes") "wakatime"))
 (load (concat configs_dir (file-name-as-directory "common") "indentation"))
 (load (concat configs_dir (file-name-as-directory "common") "hooks"))
-
-;; Set some parameters
-;; (set-background-color "#000")
+(load (concat configs_dir (file-name-as-directory "common") "theme"))
 
 ;; restart emacs if needed
 (if need_emacs_restart

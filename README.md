@@ -33,6 +33,7 @@
 * "modes/[some thing else].el" - other mode setup;
 * "comon/indentation.el" - indentation settings;
 * "common/hooks.el" - hooks and modes;
+* "common/theme.el" - theme parameters;
 
 ### Screenshot:
 ![Image of editor](https://raw.githubusercontent.com/sashlex/emacs-config/master/img/screenshot.png)
