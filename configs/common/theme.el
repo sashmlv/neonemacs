@@ -13,13 +13,15 @@
 ;; Background color
 (set-background-color background_color)
 
-;; Highlight current line
-(global-hl-line-mode 1) ;; this line first
-(set-face-background 'hl-line hl_line_background) ;; background face of the current line
-(set-face-foreground 'highlight nil) ;; to keep syntax highlighting
+;; Highlight curent line with face
+(defface hl-line-face `((t (:background ,hl_line_background :foreground nil))) ;; foreground nil - to keep syntax highlighting
+  "Face to use for `hl-line-face'." :group 'hl-line)
+(global-hl-line-mode t)
+(setq hl-line-face 'hl-line-face)
+(setq highlight-face 'hl-line-face)
 
-;; Hightlight selection region
-(set-face-background 'region hl_region_background) ;; background face of the current line
+;; Hightlight region
+(set-face-background 'region hl_region_background)
 (set-face-foreground 'region nil) ;; to keep syntax highlighting
 
 ;; Set cursor color

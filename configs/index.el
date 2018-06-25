@@ -47,8 +47,8 @@
 (defconst yasnippets_directory (concat configs_dir (directory-file-name "yasnippets")))
 
 ;; define theme for window
-;; (set 'win-theme 'sunburst) ;; flatland-black, peacock
-(set 'win-theme 'dracula)
+(set 'win-theme 'sunburst) ;; flatland-black, peacock
+;; (set 'win-theme 'dracula)
 
 ;; define theme for terminal
 (set 'term-theme 'sunburst)
