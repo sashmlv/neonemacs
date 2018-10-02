@@ -20,7 +20,8 @@
 
 (defconst current_font "Fira Mono-9") ;; or font "Menlo-9"
 (defconst current_indent 3)
-(defconst indentation_color "#101010")
+(defconst indentation_background_color "#202020")
+(defconst indentation_foreground_color "#555555")
 (defconst indentation_current_line_color "#101010")
 
 (defconst brackets_match_foreground "white")
@@ -49,8 +50,8 @@
 (defconst yasnippets_directory (concat configs_dir (directory-file-name "yasnippets")))
 
 ;; define theme for window
-(set 'win-theme 'sunburst) ;; flatland-black, peacock
-;; (set 'win-theme 'dracula)
+;; (set 'win-theme 'sunburst) ;; flatland-black, peacock
+(set 'win-theme 'dracula)
 
 ;; define theme for terminal
 (set 'term-theme 'sunburst)
