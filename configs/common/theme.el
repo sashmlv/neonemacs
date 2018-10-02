@@ -23,6 +23,7 @@
 ;; Hightlight region
 (set-face-background 'region hl_region_background)
 (set-face-foreground 'region nil) ;; to keep syntax highlighting
+(set-face-attribute 'region nil :distant-foreground nil) ;; to keep syntax highlighting
 
 ;; Set cursor color
 (set-cursor-color cursor_color)

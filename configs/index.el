@@ -30,11 +30,11 @@
 (defconst brackets_mismatch_background "red3")
 
 (defconst whitespace_foreground "#333333")
-(defconst whitespace_background "#070707")
+(defconst whitespace_background nil) ;; "#070707"
 (defconst whitespace_weight 'light)
 
 (defconst whitespace_trailing_foreground "#ff2020")
-(defconst whitespace_trailing_background "#070707")
+(defconst whitespace_trailing_background nil) ;; "#070707"
 (defconst whitespace_trailing_weight 'light)
 
 (defconst cursor_color "green2")
