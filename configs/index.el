@@ -82,6 +82,7 @@
                      indium ;; see for setup: https://indium.readthedocs.io/en/latest/setup.html
                      expand-region ;; expand-region for fast text selection
                      dumb-jump ;; jump to variable definition
+                     smart-mode-line ;; status bar customization
                      )
       )
 

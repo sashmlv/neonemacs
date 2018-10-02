@@ -202,6 +202,11 @@ scroll-conservatively  10000)
 ;; dumb-jump, variable definition jump
 (dumb-jump-mode)
 
+;; smart-mode-line
+(setq sml/no-confirm-load-theme t) ;; do not ask load theme at startup
+(setq sml/theme 'dark)
+(sml/setup)
+
 ;; * Disable error on free variables *
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)
