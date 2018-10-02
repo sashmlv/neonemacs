@@ -4,6 +4,8 @@
 ;; * Parameters and loading other config files *
 
 ;; Package repositories
+(require 'package)
+(package-initialize)
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
@@ -16,7 +18,7 @@
 (defconst themes_dir (concat configs_dir (file-name-as-directory "themes")))
 (defconst undo_redo_dir (concat base_dir (file-name-as-directory "undo_redo"))) ;; save undo-redo history in this dir
 
-(defconst current_font "Fira Mono-9") ;; or font "Melno-9"
+(defconst current_font "Fira Mono-9") ;; or font "Menlo-9"
 (defconst current_indent 3)
 (defconst indentation_color "#101010")
 (defconst indentation_current_line_color "#101010")
@@ -26,7 +28,7 @@
 (defconst brackets_mismatch_foreground "white")
 (defconst brackets_mismatch_background "red3")
 
-(defconst whitespace_foreground "#212121")
+(defconst whitespace_foreground "#333333")
 (defconst whitespace_background "#070707")
 (defconst whitespace_weight 'light)
 
@@ -36,8 +38,8 @@
 
 (defconst cursor_color "green2")
 (defconst background_color "#000")
-(defconst hl_line_background "#101010")
-(defconst hl_region_background "#232323")
+(defconst hl_line_background "#191919")
+(defconst hl_region_background "#252525")
 (defconst hl_occurrences_color "cyan")
 
 ;; is need use undo-tree history files
@@ -95,7 +97,6 @@
 (load (concat configs_dir (file-name-as-directory "modes") "multiple-cursors"))
 (load (concat configs_dir (file-name-as-directory "modes") "smex"))
 (load (concat configs_dir (file-name-as-directory "modes") "ido-vertical"))
-(load (concat configs_dir (file-name-as-directory "modes") "whitespace"))
 (load (concat configs_dir (file-name-as-directory "modes") "company"))
 (load (concat configs_dir (file-name-as-directory "modes") "highlight-symbol"))
 (load (concat configs_dir (file-name-as-directory "modes") "google-translate"))
@@ -111,6 +112,7 @@
 (load (concat configs_dir (file-name-as-directory "common") "indentation"))
 (load (concat configs_dir (file-name-as-directory "common") "hooks"))
 (load (concat configs_dir (file-name-as-directory "common") "theme"))
+(load (concat configs_dir (file-name-as-directory "common") "whitespace"))
 
 ;; restart emacs if needed
 (if need_emacs_restart

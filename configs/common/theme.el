@@ -16,9 +16,9 @@
 ;; Highlight curent line with face
 (defface hl-line-face `((t (:background ,hl_line_background :foreground nil))) ;; foreground nil - to keep syntax highlighting
   "Face to use for `hl-line-face'." :group 'hl-line)
-(global-hl-line-mode t)
 (setq hl-line-face 'hl-line-face)
 (setq highlight-face 'hl-line-face)
+(global-hl-line-mode t)
 
 ;; Hightlight region
 (set-face-background 'region hl_region_background)

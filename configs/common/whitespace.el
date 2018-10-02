@@ -12,23 +12,23 @@
         ))
 (setq whitespace-style '(face trailing tabs spaces newline space-mark tab-mark newline-mark))
 (set-face-attribute 'whitespace-space nil
-                    :background whitespace_background ;; "whitespace_background" in index.el
-                    :foreground whitespace_foreground ;; "whitespace_foreground" in index.el
+                    :background whitespace_background
+                    :foreground whitespace_foreground
                     :weight whitespace_weight) ;; ultra-bold, extra-bold, bold, semi-bold, normal, semi-light, light, extra-light, ultra-light
 (set-face-attribute 'whitespace-newline nil
                     :background whitespace_background
                     :foreground whitespace_foreground
-                    :weight whitespace_weight) ;; "whitespace_weight" in index.el
+                    :weight whitespace_weight)
 (set-face-attribute 'whitespace-tab nil
                     :background whitespace_background
                     :foreground whitespace_foreground
                     :weight whitespace_weight)
 (set-face-attribute 'whitespace-trailing nil
-                    :background whitespace_trailing_background ;; "whitespace_trailing_background" in index.el
-                    :foreground whitespace_trailing_foreground ;; "whitespace_trailing_foreground" in index.el
-                    :weight whitespace_trailing_weight) ;; "whitespace_trailing_weight" in index.el
-(setq whitespace-line nil) ;; disable a bug, that highlight long lines
-(setq whitespace-empty nil) ;; disable a bug, that highlight last line
+                    :background whitespace_trailing_background
+                    :foreground whitespace_trailing_foreground
+                    :weight whitespace_trailing_weight)
+(setq whitespace-line nil) ;; disable a bug, which highlight long lines
+(setq whitespace-empty nil) ;; disable a bug, which highlight last line
 (global-whitespace-mode 1)
 
 ;; * Disable error on free variables *
