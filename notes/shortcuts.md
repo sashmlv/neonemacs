@@ -43,3 +43,6 @@
 * "C-M-g" - dumb-jump-go
 * "C-M-p" - dumb-jump-back
 * "C-M-q" - dumb-jump-quick-look
+
+##### After add yasnippet make:
+* "M-x" - yas-reload-all;
