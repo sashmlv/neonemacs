@@ -16,6 +16,7 @@
 (setq typescript-indent-level current_indent)
 
 ;; html-mode indentation https://www.emacswiki.org/emacs/IndentingHtml
+(setq sgml-basic-offset current_indent)
 (add-hook 'html-mode-hook (lambda () (set (make-local-variable 'sgml-basic-offset) current_indent)))
 
 ;; * Disable error on free variables *
