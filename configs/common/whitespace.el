@@ -12,7 +12,7 @@
         ))
 (setq whitespace-style '(face trailing tabs spaces newline space-mark tab-mark newline-mark))
 (set-face-attribute 'whitespace-space nil
-                    :background whitespace_background
+                    :background whitespace_space_background
                     :foreground whitespace_foreground
                     :weight whitespace_weight) ;; ultra-bold, extra-bold, bold, semi-bold, normal, semi-light, light, extra-light, ultra-light
 (set-face-attribute 'whitespace-newline nil
@@ -24,9 +24,9 @@
                     :foreground whitespace_foreground
                     :weight whitespace_weight)
 (set-face-attribute 'whitespace-trailing nil
-                    :background whitespace_trailing_background
+                    :background whitespace_background
                     :foreground whitespace_trailing_foreground
-                    :weight whitespace_trailing_weight)
+                    :weight whitespace_weight)
 (setq whitespace-line nil) ;; disable a bug, which highlight long lines
 (setq whitespace-empty nil) ;; disable a bug, which highlight last line
 (global-whitespace-mode 1)
