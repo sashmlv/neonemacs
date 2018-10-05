@@ -24,7 +24,7 @@
                     :foreground whitespace_foreground
                     :weight whitespace_weight)
 (set-face-attribute 'whitespace-trailing nil
-                    :background whitespace_background
+                    :background whitespace_space_background
                     :foreground whitespace_trailing_foreground
                     :weight whitespace_weight)
 (setq whitespace-line nil) ;; disable a bug, which highlight long lines
