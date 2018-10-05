@@ -39,7 +39,8 @@
 (defconst background_color "#000")
 (defconst hl_line_background "#191919")
 (defconst hl_region_background "#252525")
-(defconst hl_occurrences_color "cyan")
+(defconst hl_occurrences_color "chartreuse")
+(defconst hl_search_occurrences_color "gray27")
 
 ;; is need use undo-tree history files
 (defconst use_undo_tree_history_files t)

@@ -28,6 +28,10 @@
 ;; Set cursor color
 (set-cursor-color cursor_color)
 
+;; Set search
+(custom-set-faces
+  `(lazy-highlight ((t (:foreground nil :background ,hl_search_occurrences_color)))))
+
 ;; * Disable error on free variables *
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)
