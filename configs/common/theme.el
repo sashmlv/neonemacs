@@ -30,7 +30,7 @@
 
 ;; Set search
 (custom-set-faces
-  `(lazy-highlight ((t (:foreground nil :background ,hl_search_occurrences_color)))))
+ `(lazy-highlight ((t (:foreground nil :background ,hl_search_occurrences_color)))))
 
 ;; * Disable error on free variables *
 ;; Local Variables:
