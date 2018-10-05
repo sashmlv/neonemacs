@@ -2,6 +2,13 @@
 ;;; Commentary:
 ;;; Code:
 
+;; Highlight indentation hook setup
+(highlight-indentation-mode 1) ;; for disable error
+(add-hook 'highlight-indentation-mode-hook (lambda()(setq highlight-indentation-offset current_indent))) ;; set indent size ;; "current_indent"
+(set-face-background 'highlight-indentation-face indentation_background_color)
+(set-face-foreground 'highlight-indentation-face indentation_foreground_color)
+(set-face-background 'highlight-indentation-current-column-face indentation_current_line_color) ;; "indentation-current-line-color"
+
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width current_indent)
 (setq c-basic-offset current_indent)

@@ -9,7 +9,7 @@
 (add-hook
  'prog-mode-hook
  (lambda()
-   (highlight-indent-guides-mode 1) ;; highlight indent in each buffer
+   (highlight-indentation-mode 1) ;; or (highlight-indent-guides-mode 1) ;; optionaly
    (syntax-subword-mode 1) ;; make word editing and motion more fine-grained
    (highlight-symbol-mode 1) ;; highlight occurrences
    )
