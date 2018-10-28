@@ -114,6 +114,7 @@
 (load (concat configs_dir (file-name-as-directory "common") "hooks"))
 (load (concat configs_dir (file-name-as-directory "common") "theme"))
 (load (concat configs_dir (file-name-as-directory "common") "whitespace"))
+(load (concat configs_dir (file-name-as-directory "common") "projects"))
 
 ;; restart emacs if needed
 (if need_emacs_restart

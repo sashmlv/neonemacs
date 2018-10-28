@@ -33,7 +33,7 @@
         )
       (advice-add 'desktop-lazy-create-buffer :around #'set_allow_execute_load_undo_tree_history_file) ;; hook on lazy load files
 
-      (add-hook 'window-configuration-change-hook 'load_undo_tree_history_file ) ;; hook when current-buffer will be changed load history
+      ;; (add-hook 'window-configuration-change-hook 'load_undo_tree_history_file ) ;; hook when current-buffer will be changed load history
       (defun load_undo_tree_history_file()
         (if (and
              (not loading_history) ;; one loading at once
