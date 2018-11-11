@@ -12,7 +12,7 @@
   (set-keyboard-coding-system encoding)
   )
 
-;; project specific configuration
+;; project specific configuration ( uncomment for change )
 ;; (add-hook
 ;;  'buffer-list-update-hook
 ;;  (lambda()

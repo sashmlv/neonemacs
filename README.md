@@ -33,6 +33,7 @@
 * "comon/indentation.el" - indentation settings;
 * "common/hooks.el" - hooks and modes;
 * "common/theme.el" - theme parameters;
+* "common/projects.el" - project specific configs;
 
 ### Screenshot:
 ![Image of editor](https://raw.githubusercontent.com/sashlex/emacs-config/master/img/screenshot.png)
