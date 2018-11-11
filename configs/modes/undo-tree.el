@@ -26,14 +26,17 @@
       (setq loading_history nil) ;; is loading file history now
 
       ;; wrapper for any original function, for disable load undo tree when it is not need, when function executing
-      (defun set_allow_execute_load_undo_tree_history_file (orig-fun &rest args) ;; prevent execute while lazy load file for example
+      (defun prevent_execute_load_undo_tree_history_file (orig-fun &rest args) ;; prevent execute while lazy load file for example
         (setq allow_execute_load_undo_tree_history_file nil) ;; start prevent
+        (remove-hook 'window-configuration-change-hook 'load_undo_tree_history_file ) ;; remove before function
+        ;; (setq allow_execute_load_undo_tree_history_file nil) ;; start prevent
         (apply orig-fun args)
-        (setq allow_execute_load_undo_tree_history_file t) ;; stop prevent
+        (add-hook 'window-configuration-change-hook 'load_undo_tree_history_file ) ;; add function
+        ;; (setq allow_execute_load_undo_tree_history_file t) ;; stop prevent
         )
-      (advice-add 'desktop-lazy-create-buffer :around #'set_allow_execute_load_undo_tree_history_file) ;; hook on lazy load files
+      (advice-add 'desktop-lazy-create-buffer :around #'prevent_execute_load_undo_tree_history_file) ;; hook on lazy load files
 
-      ;; (add-hook 'window-configuration-change-hook 'load_undo_tree_history_file ) ;; hook when current-buffer will be changed load history
+      (add-hook 'window-configuration-change-hook 'load_undo_tree_history_file ) ;; hook when current-buffer will be changed load history
       (defun load_undo_tree_history_file()
         (if (and
              (not loading_history) ;; one loading at once
@@ -50,7 +53,7 @@
                   (progn
                     (if (undo-tree-load-history nil t) ;; load "current-buffer" history file, with disabled error message on file not found ( ... t) - at end
                         (progn
-                          (undo-tree-save-history nil t) ;; touch history to ensure load, because bug on emacs has started
+                          ;; (undo-tree-save-history nil t) ;; touch history to ensure load, because bug on emacs has started
                           (add-to-list 'loaded_undo_tree_history_files (buffer-file-name (current-buffer))) ;; save to list loaded history file, for prevent load again
                           )
                       )
