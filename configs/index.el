@@ -110,6 +110,7 @@
 
 (load (concat configs_dir (file-name-as-directory "modes") "yasnippet"))
 (load (concat configs_dir (file-name-as-directory "modes") "wakatime"))
+(load (concat configs_dir (file-name-as-directory "modes") "smart-mode-line"))
 (load (concat configs_dir (file-name-as-directory "common") "indentation"))
 (load (concat configs_dir (file-name-as-directory "common") "hooks"))
 (load (concat configs_dir (file-name-as-directory "common") "theme"))

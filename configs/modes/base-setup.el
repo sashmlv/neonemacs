@@ -52,12 +52,7 @@
 ;; Display file name of the current buffer in the title
 (setq frame-title-format "%F: %f")
 
-;; Display file size/time in mode-line
-(setq display-time-24hr-format t)
-(display-time-mode             t)
-(size-indication-mode          t)
-
-;; * Set cursor type *
+;; Set cursor type
 ;;(setq-default cursor-type 'bar)
 
 ;; Fringe-mode [ disable borders on left and right ]
@@ -201,11 +196,6 @@ scroll-conservatively  10000)
 
 ;; dumb-jump, variable definition jump
 (dumb-jump-mode)
-
-;; smart-mode-line
-(setq sml/no-confirm-load-theme t) ;; do not ask load theme at startup
-(setq sml/theme 'dark)
-(sml/setup)
 
 ;; * Disable error on free variables *
 ;; Local Variables:

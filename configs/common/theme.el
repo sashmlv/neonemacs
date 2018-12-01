@@ -28,7 +28,7 @@
 ;; Set cursor color
 (set-cursor-color cursor_color)
 
-;; Set search
+;; Set search colors
 (custom-set-faces
  `(lazy-highlight ((t (:foreground nil :background ,hl_search_occurrences_color)))))
 
