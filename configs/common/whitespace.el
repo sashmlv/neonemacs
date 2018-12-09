@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
+(require 'whitespace)
 (setq whitespace-display-mappings
       '((space-mark ?\ [?\u00B7] [?.]) ;; (space-mark ? [?\u00B7])
         (newline-mark ?\n [?\u2039 ?\n]) ;; u21DA, u00AB, ¶, u21B5, u25C0

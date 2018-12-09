@@ -23,7 +23,6 @@
                     :background "#373737"
                     :foreground nil)
 
-
 ;; * Disable error on free variables *
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)

@@ -6,7 +6,7 @@
 (require 'package)
 (package-initialize)
 (setq package-archives nil)
-(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
@@ -84,13 +84,31 @@
         indium ;; see for setup: https://indium.readthedocs.io/en/latest/setup.html
         expand-region ;; fast text selection
         dumb-jump ;; jump to variable definition
-        smart-mode-line)) ;; status bar customization
+        smart-mode-line ;; status bar customization
+        highlight ;; highlight regex and other features
+        ))
 
 ;; create config directories
 (if(not(file-accessible-directory-p backups_dir))
    (make-directory backups_dir t))
 (if(not(file-accessible-directory-p undo_redo_dir))
    (make-directory undo_redo_dir t))
+
+;; install packages from list
+;; check installed packages
+(setq need_package_install nil)
+(dolist (package package-list)
+  (if(not(package-installed-p package))
+      (setq need_package_install t)))
+(if need_package_install ;; install packages if need
+    (progn
+      (package-refresh-contents) ;; fetch list of packages available in melpa
+      (dolist (package package-list) ;; install the missing packages
+        (unless (package-installed-p package)
+          ;; (if (y-or-n-p (format "Package \"%s\" is missing. Do you want to install it? " package))
+          (package-install package)
+          ;; )
+          ))))
 
 ;; load files
 (load (concat configs_dir (file-name-as-directory "modes") "multiple-cursors"))
@@ -112,7 +130,7 @@
        configs_dir
        (file-name-as-directory "modes")
        (file-name-as-directory "column-marker") "highlight-80-mode"))
-(load (concat configs_dir (file-name-as-directory "modes") "base-setup")) ;; must load modes before change
+(load (concat configs_dir (file-name-as-directory "modes") "base-setup")) ;; load modes before
 
 (load (concat configs_dir (file-name-as-directory "common") "indentation"))
 (load (concat configs_dir (file-name-as-directory "common") "hooks"))

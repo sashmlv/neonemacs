@@ -2,22 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-;; install packages from list
-;; check installed packages
-(setq need-package-install nil)
-(dolist (package package-list)
-  (if (not (package-installed-p package))
-      (setq need-package-install t)))
-
-(if need-package-install ;; install packages if need
-    (package-refresh-contents) ;; fetch list of packages available in melpa
-  (dolist (package package-list) ;; install the missing packages
-    (unless (package-installed-p package)
-      ;; (if (y-or-n-p (format "Package \"%s\" is missing. Do you want to install it? " package))
-      (package-install package)
-      ;; )
-      )))
-
 ;; save session
 (setq desktop-restore-eager 12) ;; how much buffers restore immediately
 (setq desktop-dirname base_dir)
