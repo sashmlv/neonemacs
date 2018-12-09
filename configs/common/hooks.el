@@ -9,9 +9,10 @@
 (add-hook
  'prog-mode-hook
  (lambda()
-   (highlight-indentation-mode 1) ;; or (highlight-indent-guides-mode 1) ;; optionaly
-   (syntax-subword-mode 1) ;; make word editing and motion more fine-grained
-   (highlight-symbol-mode 1) ;; highlight occurrences
+   (highlight-indentation-mode t) ;; or (highlight-indent-guides-mode 1) ;; optionaly
+   (syntax-subword-mode t) ;; make word editing and motion more fine-grained
+   (highlight-symbol-mode t) ;; highlight occurrences
+   (highlight-80-mode t) ;; highlight 80 column rule
    )
  )
 

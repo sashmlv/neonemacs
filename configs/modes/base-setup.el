@@ -180,7 +180,7 @@ scroll-conservatively  10000)
 ;; Require dockerfile-mode
 (require 'dockerfile-mode)
 
-;; Enable ivy mode
+;; Enable ivy mode ;; also install packages all-the-icons, all-the-icons-ivy if use ivy
 ;; (ivy-mode 1)
 ;; (setq ivy-use-virtual-buffers t)
 ;; (setq enable-recursive-minibuffers t)

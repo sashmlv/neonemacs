@@ -6,10 +6,13 @@
 ;; Package repositories
 (require 'package)
 (package-initialize)
+(setq package-archives nil)
+(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/"))
 (add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
+(add-to-list 'package-archives '("elpy" . "https://jorgenschaefer.github.io/packages/") t)
 
 (setq need_emacs_restart nil)
 (defconst configs_dir "/media/user/disk/emacs-config/configs/")
@@ -93,8 +96,7 @@
    (make-directory undo_redo_dir t)
   )
 
-;; Load configs
-(load (concat configs_dir (file-name-as-directory "modes") "base-setup"))
+;; Load files
 (load (concat configs_dir (file-name-as-directory "modes") "multiple-cursors"))
 (load (concat configs_dir (file-name-as-directory "modes") "smex"))
 (load (concat configs_dir (file-name-as-directory "modes") "ido-vertical"))
@@ -107,10 +109,11 @@
 (load (concat configs_dir (file-name-as-directory "modes") "undo-tree"))
 (load (concat configs_dir (file-name-as-directory "modes") "avy"))
 (load (concat configs_dir (file-name-as-directory "modes") "vimish-fold"))
-
 (load (concat configs_dir (file-name-as-directory "modes") "yasnippet"))
-(load (concat configs_dir (file-name-as-directory "modes") "wakatime"))
+;; (load (concat configs_dir (file-name-as-directory "modes") "wakatime"))
 (load (concat configs_dir (file-name-as-directory "modes") "smart-mode-line"))
+(load (concat configs_dir (file-name-as-directory "modes") (file-name-as-directory "column-marker") "highlight-80-mode"))
+(load (concat configs_dir (file-name-as-directory "modes") "base-setup")) ;; we must load modes before, then change parameters
 (load (concat configs_dir (file-name-as-directory "common") "indentation"))
 (load (concat configs_dir (file-name-as-directory "common") "hooks"))
 (load (concat configs_dir (file-name-as-directory "common") "theme"))
