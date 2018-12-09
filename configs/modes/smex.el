@@ -2,8 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-;; Smex [ M-x enhancement ]
-(require 'smex)
+;; M-x enhancement
 (smex-initialize)
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)

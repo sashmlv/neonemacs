@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-;; xah-syntax-color-hex mode [ Highlight colors ]
+;; highlight colors mode
 (defun xah-syntax-color-hex ()
   "Syntax color text of the form 「#ff1100」 and 「#abc」 in current buffer.
 URL `http://ergoemacs.org/emacs/emacs_CSS_colors.html'

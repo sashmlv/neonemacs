@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-;; Change bracket pairs from one type to another on current line or text selection
+;; change bracket pairs from one type to another on current line or text selection
 (defun xah-change-bracket-pairs ( *from-chars *to-chars)
   "Change bracket pairs from one type to another on current line or text selection.
 For example, change all parenthesis () to square brackets [].

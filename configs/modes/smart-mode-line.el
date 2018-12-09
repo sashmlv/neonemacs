@@ -2,14 +2,14 @@
 ;;; Commentary:
 ;;; Code:
 
-;; Mode line configuration
+;; mode line configuration
 (setq display-time-24hr-format t)
 (display-time-mode t)
 (line-number-mode t)
 (size-indication-mode t)
 (column-number-mode t)
 
-;; Smart-mode-line
+;; smart-mode-line configuration
 (setq sml/no-confirm-load-theme t) ;; do not ask load theme at startup
 (setq sml/override-theme nil)
 (setq sml/theme 'dark)

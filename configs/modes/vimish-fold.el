@@ -2,8 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-;; Vim-like text folding for Emacs
-(require 'vimish-fold)
 (global-set-key (kbd "C-c f") #'vimish-fold)
 (global-set-key (kbd "C-c u") #'vimish-fold-delete)
 (vimish-fold-global-mode 1)

@@ -2,34 +2,24 @@
 ;;; Commentary:
 ;;; Code:
 
-;; Install packages from list
-;; Check installed packages
+;; install packages from list
+;; check installed packages
 (setq need-package-install nil)
 (dolist (package package-list)
-  (if(not(package-installed-p package))
-      (setq need-package-install t)
- ))
+  (if (not (package-installed-p package))
+      (setq need-package-install t)))
 
-;; install packages if needed
-(if need-package-install
-    (progn
+(if need-package-install ;; install packages if need
+    (package-refresh-contents) ;; fetch list of packages available in melpa
+  (dolist (package package-list) ;; install the missing packages
+    (unless (package-installed-p package)
+      ;; (if (y-or-n-p (format "Package \"%s\" is missing. Do you want to install it? " package))
+      (package-install package)
+      ;; )
+      )))
 
-      ;; Fetch the list of packages available in melpa
-      (package-refresh-contents)
-
-      ;; Install the missing packages
-      (dolist (package package-list)
-        (unless (package-installed-p package)
-          ;; (if (y-or-n-p (format "Package \"%s\" is missing. Do you want to install it? " package))
-          (package-install package)
-          ;; )
-          )
-        )
-      )
-  )
-
-;; Save session
-(setq desktop-restore-eager 12) ;; how buffers restore immediately
+;; save session
+(setq desktop-restore-eager 12) ;; how much buffers restore immediately
 (setq desktop-dirname base_dir)
 (setq desktop-base-file-name "emacs.desktop")
 (setq desktop-base-lock-name "lock")
@@ -39,64 +29,62 @@
 (desktop-save-mode t)
 (desktop-read)
 
-;; Change "yes or no" to "y or n"
-(fset 'yes-or-no-p 'y-or-n-p)
+(fset 'yes-or-no-p 'y-or-n-p) ;; change "yes or no" to "y or n"
 
-;; Disable GUI components
+;; disable GUI components
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'tooltip-mode) (tooltip-mode -1))
 (if (fboundp 'global-linum-mode) (global-linum-mode -1))
 
-;; Display file name of the current buffer in the title
-(setq frame-title-format "%F: %f")
+(setq frame-title-format "%F: %f") ;; display current buffer file in the title
 
-;; Set cursor type
-;;(setq-default cursor-type 'bar)
+;; (setq-default cursor-type 'bar) ;; set cursor type
 
-;; Fringe-mode [ disable borders on left and right ]
-(set-fringe-mode 0)
+(set-fringe-mode 0) ;; disable borders
 
-;; Set font
-(set-default-font current_font)
+(set-default-font current_font) ;; set font
 
-;; Smooth scrolling
-(setq scroll-step          1
-scroll-conservatively  10000)
+(setq scroll-step 1 scroll-conservatively  10000) ;; smooth scrolling
 
-;; Delete selection [ Shift + d { delete selected text } ]
-(delete-selection-mode t)
+(delete-selection-mode t) ;; shift + d - delete selection
 
-;; Backup files
-(setq make-backup-files t)
-;; Enable versioning with default values (keep five last versions, I think.)
-(setq version-control t)
-;; Save all backup file in this directory.
-(setq backup-directory-alist (list (cons "." backups_dir)))
+(setq make-backup-files t) ;; backup files
 
-;; Change bracket pairs from one type to another on current line or text selection
-(global-set-key (kbd "C-c `") (lambda() (interactive) (setq from (read-string "Enter replacement:")) (setq to (read-string "Enter new value:")) (xah-change-bracket-pairs from to)))
+(setq version-control t) ;; enable versioning
 
-;; Disable overwrite-mode with Insert key on keyboard
+(setq backup-directory-alist (list (cons "." backups_dir))) ;; backup directory
+
+;; change bracket pairs from one type to another, on current line or text selection
+(global-set-key
+ (kbd "C-c `")
+ (lambda()
+   (interactive)
+   (setq from (read-string "Enter replacement:"))
+   (setq to (read-string "Enter new value:"))
+   (xah-change-bracket-pairs from to)))
+
+;; disable "insert" key ( which toggle overwrite-mode )
 (define-key global-map [(insert)] nil)
 (define-key global-map [(control insert)] 'overwrite-mode)
 
-;; Project management [ projectile ]
+;; project management
 (projectile-mode)
 (setq projectile-switch-project-action 'projectile-dired)
 
-;; Highlight brackets
+;; highlight brackets
 (show-paren-mode 1)
 (setq show-paren-delay 0)
 (custom-set-faces
- `(show-paren-match ((t (:background ,brackets_match_background :foreground ,brackets_match_foreground))))
- `(show-paren-mismatch ((((class color)) (:background ,brackets_mismatch_background :foreground ,brackets_mismatch_foreground)))))
+ `(show-paren-match
+   ((t (:background ,brackets_match_background :foreground ,brackets_match_foreground))))
+ `(show-paren-mismatch
+   ((((class color)) (:background ,brackets_mismatch_background :foreground ,brackets_mismatch_foreground)))))
 
-;; Disable word wrap
-(set-default 'truncate-lines t)
+(set-default 'truncate-lines t) ;; disable word wrap
 
-;; Duplicate line, hotkey to duplicate line ( Ctrl + c, d )
+;; duplicate line ( Ctrl + c, d )
 (defun duplicate-line-or-region (&optional n)
   "Duplicate current line, or region if active.
     With argument N, make N copies.
@@ -120,7 +108,7 @@ scroll-conservatively  10000)
         (forward-char pos)))))
 (global-set-key (kbd "C-c d") 'duplicate-line-or-region)
 
-;; Move selected  text up or down ( Alt + Shift + [ P || N ] )
+;; up or down selected text ( Alt + Shift + [ P || N ] )
 (defun move-line (n)
   "Move the current line up or down by N lines."
   (interactive "p")
@@ -144,57 +132,46 @@ scroll-conservatively  10000)
 (global-set-key (kbd "M-P") 'move-line-up)
 (global-set-key (kbd "M-N") 'move-line-down)
 
-;; Revert-buffer
+;; revert-buffer from file
 (global-set-key (kbd "C-c C-r") 'revert-buffer)
 (global-auto-revert-mode)
 
-;; Dired tries to guess a default target directory
+;; dired tries to guess a default target directory
 (setq dired-dwim-target t)
 
-;; Zip and unzip support
-;; Z - key compress-uncompress file
+;; zip/unzip, Z - key compress/uncompress
 (eval-after-load "dired-aux"
-   '(add-to-list 'dired-compress-file-suffixes
-                 '("\\.zip\\'" ".zip" "unzip")))
+  '(add-to-list 'dired-compress-file-suffixes
+                '("\\.zip\\'" ".zip" "unzip")))
 
-;; disable newline at end
-(setq mode-require-final-newline nil)
+(setq mode-require-final-newline nil) ;; remove newline at end
 
-;; grep with exclude directories or files
+;; grep skip these list
 (eval-after-load "grep"
   '(progn
-    ;; (add-to-list 'grep-find-ignored-files "*.tmp")
-    (add-to-list 'grep-find-ignored-directories ".git")
-    (add-to-list 'grep-find-ignored-directories "node_modules")
-    (add-to-list 'grep-find-ignored-directories "bower_components")))
+     ;; (add-to-list 'grep-find-ignored-files "*.tmp")
+     (add-to-list 'grep-find-ignored-directories ".git")
+     (add-to-list 'grep-find-ignored-directories "node_modules")
+     (add-to-list 'grep-find-ignored-directories "bower_components")))
 
-;; Replase remove, by remove in trash
-(setq delete-by-moving-to-trash t)
+(setq delete-by-moving-to-trash t) ;; replace remove, whith remove in trash
 
-;; Enable debug
-(setq debug-on-error t)
+(setq debug-on-error t) ;; enable debug
 
-;; find - replace
-(require 'xah-find)
-
-;; Require dockerfile-mode
-(require 'dockerfile-mode)
-
-;; Enable ivy mode ;; also install packages all-the-icons, all-the-icons-ivy if use ivy
+;; enable ivy mode ;; also try install all-the-icons, all-the-icons-ivy
 ;; (ivy-mode 1)
 ;; (setq ivy-use-virtual-buffers t)
 ;; (setq enable-recursive-minibuffers t)
 ;; (setq ivy-count-format "(%d/%d) ")
 
-;; Minibuffer autocompletition
+;; minibuffer autocompletition
 ;; (require 'ido)
 ;; (ido-mode t)
 
-;; expand-region for faster text selection
-(require 'expand-region)
+;; expand-region faster text selection
 (global-set-key (kbd "C-=") 'er/expand-region)
 
-;; dumb-jump, variable definition jump
+;; variable definition jump
 (dumb-jump-mode)
 
 ;; * Disable error on free variables *

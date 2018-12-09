@@ -22,9 +22,6 @@
 * "C-_, C-/" -  undo changes;
 * "M-_, C-?" -  redo changes;
 
-##### Tabify, untabify:
-* M-x tabify, untabify;
-
 ##### Expand region:
 * "C-=" - fast text selection;
 
@@ -44,5 +41,5 @@
 * "C-M-p" - dumb-jump-back
 * "C-M-q" - dumb-jump-quick-look
 
-##### After add yasnippet make:
+##### Reload yasnippet after add new:
 * "M-x" - yas-reload-all;

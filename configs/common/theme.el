@@ -2,35 +2,37 @@
 ;;; Commentary:
 ;;; Code:
 
-;; Set theme [ for window or terminal ] *
+;; set theme for window or terminal
 (add-to-list 'custom-theme-load-path themes_dir)
 (load-theme win-theme t)
 (load-theme term-theme t)
-(if(display-graphic-p)
+(if (display-graphic-p)
     (enable-theme win-theme) ;; window theme
   (enable-theme term-theme)) ;; terminal theme
 
-;; Background color
-(set-background-color background_color)
+(set-background-color background_color) ;; background color
 
-;; Highlight curent line with face
-(defface hl-line-face `((t (:background ,hl_line_background :foreground nil))) ;; foreground nil - to keep syntax highlighting
+;; highlight curent line with face
+(defface hl-line-face
+
+  ;; foreground nil - to keep syntax highlighting
+  `((t (:background ,hl_line_background :foreground nil)))
   "Face to use for `hl-line-face'." :group 'hl-line)
+
 (setq hl-line-face 'hl-line-face)
 (setq highlight-face 'hl-line-face)
 (global-hl-line-mode t)
 
-;; Hightlight region
-(set-face-background 'region hl_region_background)
-(set-face-foreground 'region nil) ;; to keep syntax highlighting
-(set-face-attribute 'region nil :distant-foreground nil) ;; to keep syntax highlighting
+(set-face-background 'region hl_region_background) ;; hightlight region
+(set-face-foreground 'region nil) ;; keep syntax highlighting
+(set-face-attribute 'region nil :distant-foreground nil) ;; keep syntax highlighting
 
-;; Set cursor color
-(set-cursor-color cursor_color)
+(set-cursor-color cursor_color) ;; set cursor color
 
-;; Set search colors
+;; search colors
 (custom-set-faces
- `(lazy-highlight ((t (:foreground nil :background ,hl_search_occurrences_color)))))
+ `(lazy-highlight
+   ((t (:foreground nil :background ,hl_search_occurrences_color)))))
 
 ;; * Disable error on free variables *
 ;; Local Variables:

@@ -2,11 +2,15 @@
 ;;; Commentary:
 ;;; Code:
 
-;; yasnippet
-(if (boundp 'yas-snippet-dirs) ;; first, set where our yasnippets are placed
-    (setq yas-snippet-dirs (append `(,yasnippets_directory) yas-snippet-dirs)) ;; if yas-snippet-dirs defined add our directories to begin of list
-  (setq yas-snippet-dirs `(,yasnippets_directory))) ;; otherwise define yas-snippet-dirs with our directories
-(yas-global-mode 1) ;; second
+(if (boundp 'yas-snippet-dirs) ;; at first, where our yasnippets are placed
+
+    ;; if yas-snippet-dirs defined add our directories to begin of list
+    (setq yas-snippet-dirs (append `(,yasnippets_directory) yas-snippet-dirs))
+
+  ;; otherwise define with our directories
+  (setq yas-snippet-dirs `(,yasnippets_directory)))
+
+(yas-global-mode 1) ;; at second
 
 ;; * Disable error on free variables *
 ;; Local Variables:

@@ -2,9 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
-;; company mode [ autocomplete ]
+;; autocompletition
 (add-hook 'after-init-hook 'global-company-mode)
-(require 'company-statistics)
 (company-statistics-mode)
 
 ;; * Disable error on free variables *

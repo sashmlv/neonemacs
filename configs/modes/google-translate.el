@@ -2,7 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-;; google translator
 (require 'google-translate)
 (require 'google-translate-default-ui)
 (setq google-translate-default-source-language "en")
