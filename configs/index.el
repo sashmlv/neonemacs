@@ -85,7 +85,7 @@
         expand-region ;; fast text selection
         dumb-jump ;; jump to variable definition
         smart-mode-line ;; status bar customization
-        highlight ;; highlight regex and other features
+        ;; highlight ;; highlight regex and other features
         ))
 
 ;; create config directories
