@@ -130,6 +130,10 @@
        configs_dir
        (file-name-as-directory "modes")
        (file-name-as-directory "column-marker") "highlight-80-mode"))
+(load (concat
+       configs_dir
+       (file-name-as-directory "modes")
+       (file-name-as-directory "highlight") "highlight"))
 (load (concat configs_dir (file-name-as-directory "modes") "base-setup")) ;; load modes before
 
 (load (concat configs_dir (file-name-as-directory "common") "indentation"))
