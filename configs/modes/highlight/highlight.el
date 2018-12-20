@@ -11,8 +11,36 @@
     default-directory)
   "easy-highlight.el"))
 
+(defface easy-highlight-face-r
+  '((t :foreground "white"
+       :background "#ad1457"
+       :weight bold
+       :underline t
+       ))
+  "Face for easy-highlight."
+  :group 'easy-highlight-face )
+
+(defface easy-highlight-face-g
+  '((t :foreground "white"
+       :background "#2e7d32"
+       :weight bold
+       :underline t
+       ))
+  "Face for easy-highlight."
+  :group 'easy-highlight-face )
+
+(defface easy-highlight-face-b
+  '((t :foreground "white"
+       :background "#1565c0"
+       :weight bold
+       :underline t
+       ))
+  "Face for easy-highlight."
+  :group 'easy-highlight-face )
+
 (global-font-lock-mode t)
-(setq easy-highlight:face-list '("match"))
+
+(setq easy-highlight:face-list '("easy-highlight-face-r" "easy-highlight-face-g" "easy-highlight-face-b"))
 
 ;; for highlight.el library
 ;; (hlt-choose-default-face 'column-marker-3)
