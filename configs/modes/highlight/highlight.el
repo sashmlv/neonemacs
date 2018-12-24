@@ -13,7 +13,7 @@
 
 (defface easy-highlight-face-r
   '((t :foreground "white"
-       :background "#ad1457"
+       :background "#AD1457"
        :weight bold
        :underline t
        ))
@@ -22,7 +22,7 @@
 
 (defface easy-highlight-face-g
   '((t :foreground "white"
-       :background "#2e7d32"
+       :background "#2E7D32"
        :weight bold
        :underline t
        ))
@@ -31,7 +31,7 @@
 
 (defface easy-highlight-face-b
   '((t :foreground "white"
-       :background "#1565c0"
+       :background "#1565C0"
        :weight bold
        :underline t
        ))

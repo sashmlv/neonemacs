@@ -65,6 +65,7 @@
         company-statistics
         projectile ;; project management
         highlight-indentation ;; or highlight-indent-guides
+        rainbow-delimiters ;; rainbow parentheses
 
         js2-mode js2-refactor typescript-mode less-css-mode php-mode
         pug-mode yaml-mode markdown-mode json-mode rjsx-mode
@@ -86,6 +87,7 @@
         dumb-jump ;; jump to variable definition
         smart-mode-line ;; status bar customization
         ;; highlight ;; highlight regex and other features
+
         ))
 
 ;; create config directories
