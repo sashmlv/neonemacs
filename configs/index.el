@@ -136,6 +136,7 @@
        configs_dir
        (file-name-as-directory "modes")
        (file-name-as-directory "highlight") "highlight"))
+(load (concat configs_dir (file-name-as-directory "modes") "heartbeat-cursor")) ;; heartbeat-cursor-mode
 (load (concat configs_dir (file-name-as-directory "modes") "base-setup")) ;; load modes before
 
 (load (concat configs_dir (file-name-as-directory "common") "indentation"))
