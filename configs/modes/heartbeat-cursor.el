@@ -40,6 +40,8 @@
                (setq tail (or (cdr tail) colors))
                (set-face-background 'cursor (car tail))))))))
 
+(heartbeat-cursor-mode t) ;; enable by default
+
 ;; * Disable error on free variables *
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)
