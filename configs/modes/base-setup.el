@@ -40,6 +40,8 @@
 
 (setq backup-directory-alist (list (cons "." backups_dir))) ;; backup directory
 
+(defalias 'list-buffers 'ibuffer) ;; make ibuffer default
+
 ;; change bracket pairs from one type to another, on current line or text selection
 (global-set-key
  (kbd "C-c `")
