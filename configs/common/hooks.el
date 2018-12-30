@@ -12,7 +12,8 @@
             (syntax-subword-mode t) ;; make word editing and motion more fine-grained
             (highlight-symbol-mode t) ;; highlight occurrences
             (highlight-80-mode t) ;; highlight 80 column rule
-            (rainbow-delimiters-mode))) ;; rainbow parentheses
+            (rainbow-delimiters-mode) ;; rainbow parentheses
+            ))
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
