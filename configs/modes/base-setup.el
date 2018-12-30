@@ -144,7 +144,7 @@
 
 (setq delete-by-moving-to-trash t) ;; replace remove, whith remove in trash
 
-(setq debug-on-error t) ;; enable debug
+;; (setq debug-on-error t)
 
 ;; enable ivy mode ;; also try install all-the-icons, all-the-icons-ivy
 ;; (ivy-mode 1)
