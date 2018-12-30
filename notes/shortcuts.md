@@ -43,3 +43,7 @@
 
 ##### Reload yasnippet after add new:
 * "M-x" - yas-reload-all;
+
+##### Recentering:
+* "C-l" - recenter-top-bottom;
+* "C-M-l" - reposition-window;
