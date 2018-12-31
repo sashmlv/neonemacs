@@ -25,6 +25,8 @@
 (add-to-list 'auto-mode-alist '("\\.json\\'" . json-mode))
 (add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
+(add-to-list 'auto-mode-alist '("\\.pl$" . perl-mode))
+(add-to-list 'auto-mode-alist '("\\.pm$" . perl-mode))
 
 ;; highlight colors
 (add-hook 'less-css-mode-hook 'xah-syntax-color-hex)
