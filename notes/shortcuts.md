@@ -48,6 +48,6 @@
 * "C-l" - recenter-top-bottom;
 * "C-M-l" - reposition-window;
 
-##### Movement by paragraph, sentence:
+##### Movement by sentence:
 * "M-e" - forward-sentence;
 * "M-a" - backward-sentence;
