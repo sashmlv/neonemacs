@@ -8,8 +8,8 @@
 ;; enable common modes
 (add-hook 'prog-mode-hook
           (lambda()
+            (subword-mode t)
             (highlight-indentation-mode t) ;; (highlight-indent-guides-mode 1)
-            (syntax-subword-mode t) ;; make word editing and motion more fine-grained
             (highlight-symbol-mode t) ;; highlight occurrences
             (highlight-80-mode t) ;; highlight 80 column rule
             (rainbow-delimiters-mode) ;; rainbow parentheses

@@ -71,7 +71,6 @@
         pug-mode yaml-mode markdown-mode json-mode rjsx-mode
 
         bongo volume ;; media player
-        syntax-subword ;; subword navigation
         magit ;; git support
         highlight-symbol ;; highlight occurrences
         google-translate
