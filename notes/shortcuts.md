@@ -1,4 +1,4 @@
-### Somehow reference:
+### Memo:
 
 ##### Switch buffers:
 * "C-x b" - then "C-s", "C-r" for choose;
@@ -36,14 +36,18 @@
 * "M-g )" - avy-goto-close-paren;
 * "M-g P" - avy-pop-mark;
 
+##### Reload yasnippet after add new:
+* "M-x" - yas-reload-all;
+
 ##### Dumb jump, definition jump:
 * "C-M-g" - dumb-jump-go
 * "C-M-p" - dumb-jump-back
 * "C-M-q" - dumb-jump-quick-look
 
-##### Reload yasnippet after add new:
-* "M-x" - yas-reload-all;
-
 ##### Recentering:
 * "C-l" - recenter-top-bottom;
 * "C-M-l" - reposition-window;
+
+##### Movement by paragraph, sentence:
+* "M-e" - forward-sentence;
+* "M-a" - backward-sentence;
