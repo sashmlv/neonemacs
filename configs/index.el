@@ -112,39 +112,44 @@
           ;; )
           ))))
 
-;; load files
-(load (concat configs_dir (file-name-as-directory "modes") "multiple-cursors"))
-(load (concat configs_dir (file-name-as-directory "modes") "smex"))
-(load (concat configs_dir (file-name-as-directory "modes") "ido-vertical"))
-(load (concat configs_dir (file-name-as-directory "modes") "company"))
-(load (concat configs_dir (file-name-as-directory "modes") "highlight-symbol"))
-(load (concat configs_dir (file-name-as-directory "modes") "google-translate"))
-(load (concat configs_dir (file-name-as-directory "modes") "markdown"))
-(load (concat configs_dir (file-name-as-directory "modes") "xah-syntax-color-hex"))
-(load (concat configs_dir (file-name-as-directory "modes") "xah-change-bracket-pairs"))
-(load (concat configs_dir (file-name-as-directory "modes") "undo-tree"))
-(load (concat configs_dir (file-name-as-directory "modes") "avy"))
-(load (concat configs_dir (file-name-as-directory "modes") "vimish-fold"))
-(load (concat configs_dir (file-name-as-directory "modes") "yasnippet"))
-;; (load (concat configs_dir (file-name-as-directory "modes") "wakatime"))
-(load (concat configs_dir (file-name-as-directory "modes") "smart-mode-line"))
-(load (concat
-       configs_dir
-       (file-name-as-directory "modes")
-       (file-name-as-directory "column-marker") "highlight-80-mode"))
-(load (concat
-       configs_dir
-       (file-name-as-directory "modes")
-       (file-name-as-directory "highlight") "highlight"))
-(load (concat configs_dir (file-name-as-directory "modes") "bm")) ;; bookmarks
-(load (concat configs_dir (file-name-as-directory "modes") "perl-mode"))
-(load (concat configs_dir (file-name-as-directory "modes") "base-setup")) ;; load modes before
 
-(load (concat configs_dir (file-name-as-directory "common") "indentation"))
-(load (concat configs_dir (file-name-as-directory "common") "hooks"))
-(load (concat configs_dir (file-name-as-directory "common") "theme"))
-(load (concat configs_dir (file-name-as-directory "common") "whitespace"))
-(load (concat configs_dir (file-name-as-directory "common") "projects"))
+(defun load-directory (path files)
+  "Load files from a path, parameter \"path\" is a directory path and \"files\" is a file list."
+
+  (if (and (stringp path) (not (null files)))
+      (dolist (file files)
+        (load (concat path file)))))
+
+;; modes
+(setq modes-list `(
+                   "multiple-cursors"
+                   "smex"
+                   "ido-vertical"
+                   "company"
+                   "highlight-symbol"
+                   "google-translate"
+                   "markdown"
+                   "xah-syntax-color-hex"
+                   "xah-change-bracket-pairs"
+                   "undo-tree"
+                   "avy"
+                   "vimish-fold"
+                   "yasnippet"
+                   ;; "wakatime"
+                   "smart-mode-line"
+                   "bm"
+                   "perl-mode"
+                   ,(concat (file-name-as-directory "column-marker") "highlight-80-mode")
+                   ,(concat (file-name-as-directory "highlight") "highlight")
+                   "base-setup" ;; load modes before this
+                   ))
+
+;; common configs
+(setq common-list '("indentation" "hooks" "theme" "whitespace" "projects"))
+
+;; load files
+(load-directory (concat configs_dir (file-name-as-directory "modes")) modes-list)
+(load-directory (concat configs_dir (file-name-as-directory "common")) common-list)
 
 (if need_emacs_restart
     (if (or
