@@ -27,6 +27,7 @@
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 (add-to-list 'auto-mode-alist '("\\.pl$" . perl-mode))
 (add-to-list 'auto-mode-alist '("\\.pm$" . perl-mode))
+(add-to-list 'auto-mode-alist '("\\.hs$" . haskell-mode))
 
 ;; highlight colors
 (add-hook 'less-css-mode-hook 'xah-syntax-color-hex)

@@ -88,6 +88,7 @@
         ;; highlight ;; highlight regex and other features
 
         bm ;; visible bookmarks
+        haskell-mode
         ))
 
 ;; create config directories
