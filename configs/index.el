@@ -140,6 +140,7 @@
 ;; common configs
 (setq common-list '("indentation" "hooks" "theme" "whitespace"))
 
+;; define directories parameters
 (defconst configs_dir "/media/user/disk/emacs-config/configs/")
 (defconst base_dir
   (concat (file-name-as-directory (getenv "HOME"))
@@ -147,7 +148,6 @@
 (defconst backups_dir (concat base_dir (file-name-as-directory "backups")))
 (defconst themes_dir (concat configs_dir (file-name-as-directory "themes")))
 (defconst undo_redo_dir (concat base_dir (file-name-as-directory "undo_redo"))) ;; undo-redo history dir
-
 (defconst yasnippets_directory (concat configs_dir (directory-file-name "yasnippets")))
 
 ;; create config directories
