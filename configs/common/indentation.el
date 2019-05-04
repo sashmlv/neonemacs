@@ -18,7 +18,6 @@
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width current_indent)
 (setq c-basic-offset current_indent)
-(setq cperl-indent-level current_indent)
 (setq js-indent-level current_indent)
 (setq css-indent-offset current_indent)
 (setq yaml-indent-offset current_indent)
@@ -28,13 +27,6 @@
 (setq sgml-basic-offset current_indent)
 (add-hook 'html-mode-hook
           (lambda () (set (make-local-variable 'sgml-basic-offset) current_indent)))
-
-;; https://www.emacswiki.org/emacs/IndentingPerl
-(setq cperl-indent-level current_indent
-      cperl-close-paren-offset (- current_indent)
-      cperl-continued-statement-offset current_indent
-      cperl-indent-parens-as-block t
-      cperl-tab-always-indent t)
 
 ;; * Disable error on free variables *
 ;; Local Variables:

@@ -14,13 +14,6 @@
 (add-to-list 'package-archives '("elpy" . "https://jorgenschaefer.github.io/packages/") t)
 
 (setq need_emacs_restart nil)
-(defconst configs_dir "/media/user/disk/emacs-config/configs/")
-(defconst base_dir
-  (concat (file-name-as-directory (getenv "HOME"))
-          (file-name-as-directory ".emacs.d")))
-(defconst backups_dir (concat base_dir (file-name-as-directory "backups")))
-(defconst themes_dir (concat configs_dir (file-name-as-directory "themes")))
-(defconst undo_redo_dir (concat base_dir (file-name-as-directory "undo_redo"))) ;; undo-redo history dir
 
 ;; "Fira Mono-9", "Andale Mono-9", "Liberation Mono-9", "Menlo-9", "Monaco-9", "Hack-9", "M+ 1m-9", "Anonymous Pro-9", "Source Code Pro-9", "DejaVu Sans Mono-9", "Iosevka-9", "Envy Code R-9"
 (defconst current_font "Liberation Mono-9")
@@ -48,8 +41,6 @@
 (defconst hl_search_occurrences_color "RoyalBlue3")
 
 (defconst use_undo_tree_history_files t)
-
-(defconst yasnippets_directory (concat configs_dir (directory-file-name "yasnippets")))
 
 ;; define theme for window
 (set 'win-theme 'dracula) ;; sunburst, flatland-black, peacock
@@ -96,12 +87,6 @@
         goto-chg ;; goto-last-change
         swoop ;; peculiar buffer navigation
         ))
-
-;; create config directories
-(if(not(file-accessible-directory-p backups_dir))
-   (make-directory backups_dir t))
-(if(not(file-accessible-directory-p undo_redo_dir))
-   (make-directory undo_redo_dir t))
 
 ;; install packages from list
 ;; check installed packages
@@ -153,9 +138,26 @@
                    ))
 
 ;; common configs
-(setq common-list '("indentation" "hooks" "theme" "whitespace" "projects"))
+(setq common-list '("indentation" "hooks" "theme" "whitespace"))
+
+(defconst configs_dir "/media/user/disk/emacs-config/configs/")
+(defconst base_dir
+  (concat (file-name-as-directory (getenv "HOME"))
+          (file-name-as-directory ".emacs.d")))
+(defconst backups_dir (concat base_dir (file-name-as-directory "backups")))
+(defconst themes_dir (concat configs_dir (file-name-as-directory "themes")))
+(defconst undo_redo_dir (concat base_dir (file-name-as-directory "undo_redo"))) ;; undo-redo history dir
+
+(defconst yasnippets_directory (concat configs_dir (directory-file-name "yasnippets")))
+
+;; create config directories
+(if(not(file-accessible-directory-p backups_dir))
+   (make-directory backups_dir t))
+(if(not(file-accessible-directory-p undo_redo_dir))
+   (make-directory undo_redo_dir t))
 
 ;; load files
+(load (concat configs_dir (file-name-as-directory "common") "projects")) ;; project specific params before
 (load-directory (concat configs_dir (file-name-as-directory "modes")) modes-list)
 (load-directory (concat configs_dir (file-name-as-directory "common")) common-list)
 
