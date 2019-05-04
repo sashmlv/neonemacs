@@ -148,6 +148,7 @@
                    "perl-mode"
                    ,(concat (file-name-as-directory "column-marker") "highlight-80-mode")
                    ,(concat (file-name-as-directory "highlight") "highlight")
+                   "new-line"
                    "base-setup" ;; load modes before this
                    ))
 

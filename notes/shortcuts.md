@@ -22,4 +22,7 @@
 * "C-=" - fast text selection;
 
 ##### Reload yasnippet after add new:
-* "M-x" - yas-reload-all;
+* "M-x yas-reload-all" - yas-reload-all;
+
+##### Hides the disturbing '^M' showing up:
+* "M-x hide-ctrl-M" - hide-ctrl-M;

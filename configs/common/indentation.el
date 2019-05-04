@@ -29,6 +29,13 @@
 (add-hook 'html-mode-hook
           (lambda () (set (make-local-variable 'sgml-basic-offset) current_indent)))
 
+;; https://www.emacswiki.org/emacs/IndentingPerl
+(setq cperl-indent-level current_indent
+      cperl-close-paren-offset (- current_indent)
+      cperl-continued-statement-offset current_indent
+      cperl-indent-parens-as-block t
+      cperl-tab-always-indent t)
+
 ;; * Disable error on free variables *
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)

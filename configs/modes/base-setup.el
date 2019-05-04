@@ -188,8 +188,8 @@
 (cfg:reverse-input-method 'russian-computer)
 
 ;; goto-chg goto-last-change
-(global-set-key (kbd "C-S-b") 'goto-last-change)
-(global-set-key (kbd "C-S-f") 'goto-last-change-reverse)
+(global-set-key (kbd "M-]") 'goto-last-change)
+(global-set-key (kbd "M-[") 'goto-last-change-reverse)
 
 ;; * Disable error on free variables *
 ;; Local Variables:

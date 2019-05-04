@@ -41,8 +41,8 @@
 * "C-x r j R" - jump to register R;
 
 ##### Goto last change:
-* "C-S-b" - goto-last-change;
-* "C-S-f" - goto-last-change-reverse;
+* "M-]" - goto-last-change;
+* "M-[" - goto-last-change-reverse;
 
 ##### Swoop navigation:
 * "M-x swoop" - swoop;
