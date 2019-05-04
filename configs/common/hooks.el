@@ -8,7 +8,8 @@
 ;; enable common modes
 (add-hook 'prog-mode-hook
           (lambda()
-            (subword-mode t)
+            (syntax-subword-mode t)
+            (smartscan-mode t)
             (highlight-indentation-mode t) ;; (highlight-indent-guides-mode 1)
             (highlight-symbol-mode t) ;; highlight occurrences
             (highlight-80-mode t) ;; highlight 80 column rule
@@ -28,6 +29,7 @@
 (add-to-list 'auto-mode-alist '("\\.pl$" . perl-mode))
 (add-to-list 'auto-mode-alist '("\\.pm$" . perl-mode))
 (add-to-list 'auto-mode-alist '("\\.hs$" . haskell-mode))
+(add-to-list 'auto-mode-alist '("\\.rs$" . rust-mode))
 
 ;; highlight colors
 (add-hook 'less-css-mode-hook 'xah-syntax-color-hex)

@@ -22,7 +22,8 @@
 (defconst themes_dir (concat configs_dir (file-name-as-directory "themes")))
 (defconst undo_redo_dir (concat base_dir (file-name-as-directory "undo_redo"))) ;; undo-redo history dir
 
-(defconst current_font "Fira Mono-9") ;; "Menlo-9"
+;; "Fira Mono-9", "Andale Mono-9", "Liberation Mono-9", "Menlo-9", "Monaco-9", "Hack-9", "M+ 1m-9", "Anonymous Pro-9", "Source Code Pro-9", "DejaVu Sans Mono-9", "Iosevka-9", "Envy Code R-9"
+(defconst current_font "Liberation Mono-9")
 (defconst current_indent 3)
 (defconst indentation_background_color "#202020")
 (defconst indentation_foreground_color "#555555")
@@ -41,8 +42,8 @@
 
 (defconst cursor_color "green2")
 (defconst background_color "#000")
-(defconst hl_line_background "#191919")
-(defconst hl_region_background "#252525")
+(defconst hl_line_background "#151515")
+(defconst hl_region_background "#202020")
 (defconst hl_occurrences_color "chartreuse")
 (defconst hl_search_occurrences_color "RoyalBlue3")
 
@@ -89,6 +90,11 @@
 
         bm ;; visible bookmarks
         haskell-mode
+        rust-mode
+        syntax-subword ;; make word editing and motion more fine-grained
+        smartscan ;; jumps between other symbols found at point
+        goto-chg ;; goto-last-change
+        swoop ;; peculiar buffer navigation
         ))
 
 ;; create config directories
