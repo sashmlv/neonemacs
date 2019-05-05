@@ -46,6 +46,10 @@
 
 (defalias 'list-buffers 'ibuffer) ;; make ibuffer default
 
+ ;; vertical buffer split by default
+(setq split-width-threshold 0)
+(setq split-height-threshold nil)
+
 (setq blink-cursor-blinks 0) ;; make cursor blinking always
 
 ;; change bracket pairs from one type to another, on current line or text selection
