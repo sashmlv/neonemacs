@@ -50,7 +50,8 @@
 
 (setq package-list
       '(restart-emacs ;; support only linux and windows
-        smex ;; minibuffer improvements
+        ;; smex ;; minibuffer improvements
+        ;; ido-vertical-mode
         undo-tree ;; undo-redo history
         multiple-cursors
         company ;; autocompletition
@@ -60,18 +61,17 @@
         rainbow-delimiters ;; rainbow parentheses
 
         js2-mode js2-refactor typescript-mode less-css-mode php-mode
-        pug-mode yaml-mode markdown-mode json-mode rjsx-mode
+        pug-mode yaml-mode markdown-mode json-mode rjsx-mode dockerfile-mode
+        haskell-mode rust-mode
 
         bongo volume ;; media player
         magit ;; git support
         highlight-symbol ;; highlight occurrences
         google-translate
-        dockerfile-mode
         yasnippet ;; template system
         vimish-fold ;; fold-unfold library
         ;; wakatime-mode ;; time tracking
         xah-find
-        ido-vertical-mode
         avy
         indium ;; see for setup: https://indium.readthedocs.io/en/latest/setup.html
         expand-region ;; fast text selection
@@ -80,12 +80,12 @@
         ;; highlight ;; highlight regex and other features
 
         bm ;; visible bookmarks
-        haskell-mode
-        rust-mode
         syntax-subword ;; make word editing and motion more fine-grained
         smartscan ;; jumps between other symbols found at point
         goto-chg ;; goto-last-change
-        swoop ;; peculiar buffer navigation
+        helm ;; incremental completion and selection narrowing framework
+        helm-projectile
+        helm-swoop ;; peculiar buffer navigation
         ))
 
 ;; install packages from list
@@ -134,6 +134,7 @@
                    ,(concat (file-name-as-directory "column-marker") "highlight-80-mode")
                    ,(concat (file-name-as-directory "highlight") "highlight")
                    "hide-new-line"
+                   "helm"
                    "base-setup" ;; load modes before this
                    ))
 
