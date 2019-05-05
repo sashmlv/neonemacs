@@ -1,4 +1,4 @@
-;;; new-lines --- new-line configuration:
+;;; hide-new-lines --- hide-new-line configuration:
 ;;; Commentary:
 ;;; Code:
 
@@ -13,4 +13,4 @@
 ;; byte-compile-warnings: (not free-vars)
 ;; End:
 
-;;; new-lines.el ends here
+;;; hide-new-lines.el ends here
