@@ -191,6 +191,13 @@
 (global-set-key (kbd "M-]") 'goto-last-change)
 (global-set-key (kbd "M-[") 'goto-last-change-reverse)
 
+;; dired-k
+;; You can use dired-k alternative to revert-buffer
+(define-key dired-mode-map (kbd "g") 'dired-k)
+;; always execute dired-k when dired buffer is opened
+(add-hook 'dired-initial-position-hook 'dired-k)
+(add-hook 'dired-after-readin-hook #'dired-k-no-revert)
+
 ;; * Disable error on free variables *
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)

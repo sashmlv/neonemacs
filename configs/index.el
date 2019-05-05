@@ -86,6 +86,7 @@
         helm ;; incremental completion and selection narrowing framework
         helm-projectile
         helm-swoop ;; peculiar buffer navigation
+        dired-k ;; highlights dired buffer like k
         ))
 
 ;; install packages from list
@@ -115,8 +116,8 @@
 ;; modes
 (setq modes-list `(
                    "multiple-cursors"
-                   "smex"
-                   "ido-vertical"
+                   ;; "smex"
+                   ;; "ido-vertical"
                    "company"
                    "highlight-symbol"
                    "google-translate"
