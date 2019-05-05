@@ -34,10 +34,14 @@
 
 (delete-selection-mode t) ;; shift + d - delete selection
 
-(setq make-backup-files t) ;; backup files
-
 (setq version-control t) ;; enable versioning
+(setq delete-old-versions t)
+(setq delete-by-moving-to-trash t)
+(setq kept-new-versions 6)
+(setq kept-old-versions 3)
+(setq vc-make-backup-files t)
 
+(setq make-backup-files t) ;; backup files
 (setq backup-directory-alist (list (cons "." backups_dir))) ;; backup directory
 
 (defalias 'list-buffers 'ibuffer) ;; make ibuffer default
