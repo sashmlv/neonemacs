@@ -44,6 +44,10 @@
 * "M-]" - goto-last-change;
 * "M-[" - goto-last-change-reverse;
 
+##### Navigate through occurrences at point:
+* "M-}" - highlight-symbol-next;
+* "M-{" - highlight-symbol-prev;
+
 ##### Swoop navigation:
 * "M-x swoop" - swoop;
 * "M-x swoop-multi" - swoop-multi;
