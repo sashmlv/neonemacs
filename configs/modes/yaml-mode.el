@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(setq yaml-indent-offset current_indent)
+(setq yaml-indent-offset 2)
 
 ;; * Disable error on free variables *
 ;; Local Variables:
