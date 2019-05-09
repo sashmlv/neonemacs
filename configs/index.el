@@ -95,7 +95,7 @@
                    ;; "wakatime"
                    "smart-mode-line"
                    "bm"
-                   "perl-mode" "yaml-mode"
+                   "perl-mode"
                    ,(concat (file-name-as-directory "column-marker") "highlight-80-mode")
                    ,(concat (file-name-as-directory "highlight") "highlight")
                    "hide-new-line"
