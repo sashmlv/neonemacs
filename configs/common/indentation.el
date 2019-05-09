@@ -20,7 +20,6 @@
 (setq c-basic-offset current_indent)
 (setq js-indent-level current_indent)
 (setq css-indent-offset current_indent)
-(setq yaml-indent-offset current_indent)
 (setq typescript-indent-level current_indent)
 
 ;; html-mode indentation https://www.emacswiki.org/emacs/IndentingHtml

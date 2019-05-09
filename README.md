@@ -16,21 +16,8 @@
 * Backup and clear "~/.emacs.d/" directory;
 * Move "configs/init.el", into "~/.emacs.d/";
 * Set in "~/.emacs.d/init.el" path to "configs/index.el";
-* Set in "configs/index.el", variable "configs_dir", which is full path to "configs" directory;
-* Set your font, theme, and other in "index.el" ( to apply theme completely, remove "~/.emacs.d/emacs.desktop" );
-* View files, and set your parameters;
-
-### Overview:
-* "init.el" - load "index.el";
-* "index.el" - parameters and load other files;
-* "modes" - mode configuration;
-* "common" - common config files;
-* "modes/base-setup.el" - base config;
-* "modes/[some thing else].el" - mode parameters;
-* "comon/indentation.el" - indentation settings;
-* "common/hooks.el" - hooks and modes;
-* "common/theme.el" - theme parameters;
-* "common/projects.el" - project specific configs;
+* Overview files, and set your prefer;
+* To apply theme completely try remove "~/.emacs.d/emacs.desktop";
 
 ### Screenshot:
 ![Image of editor](https://raw.githubusercontent.com/sashlex/emacs-config/master/img/screenshot.png)
