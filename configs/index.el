@@ -52,6 +52,7 @@
         helm-projectile
         helm-swoop ;; peculiar buffer navigation
         dired-k ;; highlights dired buffer like "k"
+        zzz-to-char ;; also backward zap-to-char
         ))
 
 ;; install packages from list

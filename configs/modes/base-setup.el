@@ -206,6 +206,9 @@
 (add-hook 'dired-initial-position-hook 'dired-k)
 ;; (add-hook 'dired-after-readin-hook #'dired-k-no-revert)
 
+;; zzz-to-char
+(global-set-key (kbd "M-z") #'zzz-to-char)
+
 ;; * Disable error on free variables *
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)

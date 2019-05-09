@@ -26,3 +26,6 @@
 
 ##### Hides the disturbing '^M' showing up:
 * "M-x hide-ctrl-M" - hide-ctrl-M;
+
+#####  Kill from point to a character:
+* "M-z" - zzz-to-char;
