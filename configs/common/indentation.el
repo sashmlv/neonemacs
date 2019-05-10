@@ -4,9 +4,21 @@
 
 ;; highlight indentation hook
 (highlight-indentation-mode 1) ;; disable error
-;; (add-hook 'highlight-indentation-mode-hook
-;;           (lambda()
-;;             (setq highlight-indentation-offset current_indent))) ;; set indent size
+
+(setq indent-tabs-mode nil)
+(setq tab-width current_indent)
+(setq c-basic-offset current_indent)
+(setq js-indent-level current_indent)
+(setq css-indent-offset current_indent)
+(setq typescript-indent-level current_indent)
+(setq rust-indent-offset current_indent)
+(setq yaml-indent-offset 2)
+
+(add-hook 'highlight-indentation-mode-hook
+          (lambda()
+            (setq highlight-indentation-offset current_indent) ;; set indent size
+            (cond ((eq major-mode 'yaml-mode)
+                   (setq highlight-indentation-offset yaml-indent-offset)))))
 
 (set-face-background 'highlight-indentation-face
                      indentation_background_color)
@@ -14,14 +26,6 @@
                      indentation_foreground_color)
 (set-face-background 'highlight-indentation-current-column-face
                      indentation_current_line_color)
-
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width current_indent)
-(setq c-basic-offset current_indent)
-(setq js-indent-level current_indent)
-(setq css-indent-offset current_indent)
-(setq typescript-indent-level current_indent)
-(setq yaml-indent-offset 2)
 
 ;; html-mode indentation https://www.emacswiki.org/emacs/IndentingHtml
 (setq sgml-basic-offset current_indent)
