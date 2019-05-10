@@ -28,10 +28,6 @@
 * "M-e" - forward-sentence;
 * "M-a" - backward-sentence;
 
-##### Jumps between other symbols at point [smartscan-mode]:
-* "M-n" - jump forward;
-* "M-p" - jump backward;
-
 ##### Navigate to mark:
 * "C-SPC C-SPC" - set mark;
 * "C-u C-SPC" - move to previous mark;
@@ -47,6 +43,8 @@
 ##### Navigate through occurrences at point:
 * "M-}" - highlight-symbol-next;
 * "M-{" - highlight-symbol-prev;
+* "M-p" - smartscan-symbol-go-backward;
+* "M-n" - smartscan-symbol-go-forward;
 
 ##### Swoop navigation:
 * "M-x swoop" - swoop;

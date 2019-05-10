@@ -53,6 +53,7 @@
         helm-swoop ;; peculiar buffer navigation
         dired-k ;; highlights dired buffer like "k"
         zzz-to-char ;; also backward zap-to-char
+        drag-stuff ;; drag stuf around
         ))
 
 ;; install packages from list
@@ -101,6 +102,7 @@
                    ,(concat (file-name-as-directory "highlight") "highlight")
                    "hide-new-line"
                    "helm"
+                   "drag-stuff"
                    "base-setup" ;; load modes before this
                    ))
 
