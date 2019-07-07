@@ -51,7 +51,9 @@
         ;; helm ;; incremental completion and selection narrowing framework
         ;; helm-projectile
         ;; helm-swoop ;; peculiar buffer navigation
-        ivy
+        ivy ;; completion for Emacs
+        counsel ;;  Ivy-enhanced versions of common Emacs commands
+        swiper ;; Ivy-enhanced alternative to isearch
         dired-k ;; highlights dired buffer like "k"
         zzz-to-char ;; also backward zap-to-char
         drag-stuff ;; drag stuf around
