@@ -48,9 +48,10 @@
         syntax-subword ;; make word editing and motion more fine-grained
         smartscan ;; jumps between other symbols found at point
         goto-chg ;; goto-last-change
-        helm ;; incremental completion and selection narrowing framework
-        helm-projectile
-        helm-swoop ;; peculiar buffer navigation
+        ;; helm ;; incremental completion and selection narrowing framework
+        ;; helm-projectile
+        ;; helm-swoop ;; peculiar buffer navigation
+        ivy
         dired-k ;; highlights dired buffer like "k"
         zzz-to-char ;; also backward zap-to-char
         drag-stuff ;; drag stuf around
@@ -101,7 +102,8 @@
                    ,(concat (file-name-as-directory "column-marker") "highlight-80-mode")
                    ,(concat (file-name-as-directory "highlight") "highlight")
                    "hide-new-line"
-                   "helm"
+                   ;; "helm"
+                   "ivy"
                    "drag-stuff"
                    "base-setup" ;; load modes before this
                    ))
