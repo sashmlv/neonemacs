@@ -30,6 +30,7 @@
 (add-to-list 'auto-mode-alist '("\\.pm$" . perl-mode))
 (add-to-list 'auto-mode-alist '("\\.hs$" . haskell-mode))
 (add-to-list 'auto-mode-alist '("\\.rs$" . rust-mode))
+(add-to-list 'auto-mode-alist '("\\.rest$" . restclient-mode))
 
 ;; highlight colors
 (add-hook 'less-css-mode-hook 'xah-syntax-color-hex)

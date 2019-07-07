@@ -57,6 +57,8 @@
         dired-k ;; highlights dired buffer like "k"
         zzz-to-char ;; also backward zap-to-char
         drag-stuff ;; drag stuf around
+        restclient ;; rest client
+        company-restclient ;; restclient completions
         ))
 
 ;; install packages from list
