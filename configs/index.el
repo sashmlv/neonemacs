@@ -15,7 +15,7 @@
 
 (setq package-list
       '(restart-emacs ;; support only linux and windows
-        ;; smex ;; minibuffer improvements
+        smex ;; minibuffer improvements
         ;; ido-vertical-mode
         undo-tree ;; undo-redo history
         multiple-cursors
@@ -87,7 +87,7 @@
 ;; modes
 (setq modes-list `(
                    "multiple-cursors"
-                   ;; "smex"
+                   "smex"
                    ;; "ido-vertical"
                    "company"
                    "highlight-symbol"
