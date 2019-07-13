@@ -42,7 +42,6 @@
         expand-region ;; fast text selection
         dumb-jump ;; jump to variable definition
         smart-mode-line ;; status bar customization
-        ;; highlight ;; highlight regex and other features
 
         bm ;; visible bookmarks
         syntax-subword ;; make word editing and motion more fine-grained
@@ -104,7 +103,6 @@
                    "bm"
                    "perl-mode"
                    ,(concat (file-name-as-directory "column-marker") "highlight-80-mode")
-                   ,(concat (file-name-as-directory "highlight") "highlight")
                    "hide-new-line"
                    ;; "helm"
                    "ivy"
