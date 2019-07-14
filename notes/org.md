@@ -9,3 +9,7 @@ SELECT * FROM users;
 #+name: my-query-result
 #+RESULTS: my-query
 ```
+
+##### Clear results buffer:
+* "M-x org-babel-remove-result" - org-babel-remove-result;
+* "C-c C-v k" - org-babel-remove-result;
