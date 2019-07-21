@@ -9,7 +9,10 @@
       (file-name-directory load-file-name)
     default-directory)
   "pomodoro.el"))
-  ;; "tomatohead.el"))
+
+;; redefine function from library to customize fonts
+(defun pomodoro-add-to-mode-line ()
+  (setq-default mode-line-format (cons '((:propertize pomodoro-mode-line-string face (:foreground "tomato" :weight bold))) mode-line-format)))
 
 (pomodoro-add-to-mode-line)
 
