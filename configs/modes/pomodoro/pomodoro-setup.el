@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-;; load column-marker from same directory
+;; https://github.com/baudtack/pomodoro.el
 (load-file
  (concat
   (if load-file-name
