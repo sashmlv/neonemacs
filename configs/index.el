@@ -108,6 +108,7 @@
                    "ivy"
                    "drag-stuff"
                    "base-setup" ;; load modes before this
+                   "org"
                    ,(concat (file-name-as-directory "pomodoro") "pomodoro-setup")
                    ))
 

@@ -14,6 +14,7 @@
 (defun pomodoro-add-to-mode-line ()
   (setq-default mode-line-format (cons '((:propertize pomodoro-mode-line-string face (:foreground "tomato" :weight bold))) mode-line-format)))
 
+(setq-default pomodoro-play-sounds nil)
 (pomodoro-add-to-mode-line)
 
 ;; * Disable error on free variables *
