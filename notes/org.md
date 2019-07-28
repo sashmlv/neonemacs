@@ -1,5 +1,9 @@
 ### Org-mode:
 
+##### Clear results buffer:
+* "M-x org-babel-remove-result" - org-babel-remove-result;
+* "C-c C-v k" - org-babel-remove-result;
+
 ##### Sql query example from some org file:
 ```
 #+name: my-query
@@ -10,6 +14,9 @@ SELECT * FROM users;
 #+RESULTS: my-query
 ```
 
-##### Clear results buffer:
-* "M-x org-babel-remove-result" - org-babel-remove-result;
-* "C-c C-v k" - org-babel-remove-result;
+##### Shell:
+```
+#+BEGIN_SRC shell
+echo $0
+#+END_SRC
+```
