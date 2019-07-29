@@ -24,7 +24,7 @@
                 (bg4          "#565761")
                 (bg5          "#44475a")
                 (cursor       "green2")
-                (builtin      "dodger blue")
+                (builtin      "MediumPurple1")
                 (keyword      "deep pink")
                 (const        "#00e5ff")
                 (comment      "#afafaf")
