@@ -1,4 +1,5 @@
 ;;; base-setup --- available modes configuration:
+;;; base-setup --- available modes configuration:
 ;;; Commentary:
 ;;; Code:
 
@@ -177,6 +178,7 @@
 
 ;; dired-k
 ;; You can use dired-k alternative to revert-buffer
+(require 'dired-k)
 (define-key dired-mode-map (kbd "g") 'dired-k)
 ;; always execute dired-k when dired buffer is opened
 (add-hook 'dired-initial-position-hook 'dired-k)

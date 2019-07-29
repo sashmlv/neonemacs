@@ -30,7 +30,8 @@
 (defconst use_undo_tree_history_files t)
 
 ;; define theme for window
-(set 'win-theme 'dracula) ;; sunburst, flatland-black, peacock
+;; (set 'win-theme 'dracula) ;; sunburst, flatland-black, peacock
+(set 'win-theme 'neon) ;; sunburst, flatland-black, peacock
 
 ;; define theme for terminal
 (set 'term-theme 'dracula)
