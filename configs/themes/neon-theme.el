@@ -50,7 +50,7 @@
                (minibuffer-prompt :bold t :foreground ,keyword)
                (region :background ,str :foreground ,bg1)
                (show-paren-match-face :background ,warning)
-               (trailing-whitespace :foreground nil :background ,warning)
+               (trailing-whitespace :foreground ,warning :background ,bg1)
                (vertical-border :foreground ,bg2)
                (warning :foreground ,warning)
                (whitespace-trailing :inherit trailing-whitespace)
