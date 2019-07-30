@@ -24,14 +24,14 @@
                 (bg4          "#565761")
                 (bg5          "#44475a")
                 (cursor       "green2")
-                (builtin      "MediumPurple1")
-                (keyword      "deep pink")
-                (const        "#00e5ff")
-                (comment      "#afafaf")
-                (func         "SeaGreen1")
-                (str          "yellow")
+                (builtin      "DarkOrchid1" ) ;; "MediumPurple1" "SlateBlue1"
+                (keyword      "VioletRed1" ) ;; "maroon1" "deep pink"
+                (const        "SteelBlue1" ) ;; "cyan" "DeepSkyBlue1" "SteelBlue1" "SkyBlue1"
+                (comment      "gray63") ;; DarkGray
+                (func         "aquamarine1" ) ;; "SeaGreen1"
+                (str          "orange1" ) ;; "yellow2" "yellow1" "LightGoldenrod1"
                 (type         "#bd93f9")
-                (var          "#f8f8f2")
+                (var          "DodgerBlue1")
                 (warning      "#ff0000")
                 ))
       (faces '(;; default
