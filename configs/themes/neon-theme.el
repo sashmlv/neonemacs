@@ -24,15 +24,16 @@
                 (bg4          "#565761")
                 (bg5          "#44475a")
                 (cursor       "green2")
-                (builtin      "DarkOrchid1" ) ;; "MediumPurple1" "SlateBlue1"
-                (keyword      "VioletRed1" ) ;; "maroon1" "deep pink"
+                (builtin      "MediumPurple1" ) ;; "SlateBlue1" "DarkOrchid1"
+                (keyword      "maroon1" ) ;; "deep pink" "VioletRed1"
                 (const        "SteelBlue1" ) ;; "cyan" "DeepSkyBlue1" "SteelBlue1" "SkyBlue1"
-                (comment      "gray63") ;; DarkGray
-                (func         "aquamarine1" ) ;; "SeaGreen1"
-                (str          "orange1" ) ;; "yellow2" "yellow1" "LightGoldenrod1"
+                (comment      "gray60")
+                (func         "#54ff9f" ) ;; "SeaGreen1""#54ff9f"
+                (str          "LightGoldenrod1" ) ;; "yellow2" "yellow1"
                 (type         "#bd93f9")
-                (var          "DodgerBlue1")
+                (var          "SteelBlue1" ) ;; "DodgerBlue1"
                 (warning      "#ff0000")
+                (region       "gray14")
                 ))
       (faces '(;; default
                (cursor :background ,cursor)
@@ -48,7 +49,7 @@
                (link :foreground ,const :underline t)
                (linum :slant italic :foreground ,bg4 :background ,bg1)
                (minibuffer-prompt :bold t :foreground ,keyword)
-               (region :background ,str :foreground ,bg1)
+               (region :foreground nil :background ,region)
                (show-paren-match-face :background ,warning)
                (trailing-whitespace :foreground ,warning :background ,bg1)
                (vertical-border :foreground ,bg2)
