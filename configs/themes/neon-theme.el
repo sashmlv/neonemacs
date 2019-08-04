@@ -23,17 +23,17 @@
                 (bg3          "#464752")
                 (bg4          "#565761")
                 (bg5          "#44475a")
-                (cursor       "green2")
-                (builtin      "MediumPurple1" ) ;; "SlateBlue1" "DarkOrchid1"
-                (keyword      "maroon1" ) ;; "deep pink" "VioletRed1"
-                (const        "SteelBlue1" ) ;; "cyan" "DeepSkyBlue1" "SteelBlue1" "SkyBlue1"
-                (comment      "gray60")
-                (func         "#54ff9f" ) ;; "SeaGreen1""#54ff9f"
-                (str          "LightGoldenrod1" ) ;; "yellow2" "yellow1"
-                (type         "#bd93f9")
-                (var          "SteelBlue1" ) ;; "DodgerBlue1"
-                (warning      "#ff0000")
-                (region       "gray14")
+                (cursor       "#00EE00") ;;
+                (builtin      "#00A693" ) ;;
+                (keyword      "#FF00FF" ) ;;
+                (const        "#5F2DFF" ) ;;
+                (comment      "#9E9E9E") ;;
+                (func         "#54ff9f" ) ;;
+                (str          "#FFFF00" ) ;;
+                (type         "#bd93f9") ;;
+                (var          "#9573FF" ) ;;
+                (warning      "#ff0000") ;;
+                (region       "#242424") ;;
                 ))
       (faces '(;; default
                (cursor :background ,cursor)
