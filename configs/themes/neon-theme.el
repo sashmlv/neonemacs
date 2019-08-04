@@ -23,17 +23,21 @@
                 (bg3          "#464752")
                 (bg4          "#565761")
                 (bg5          "#44475a")
-                (cursor       "#00EE00") ;;
-                (builtin      "#00A693" ) ;;
-                (keyword      "#FF00FF" ) ;;
-                (const        "#5F2DFF" ) ;;
-                (comment      "#9E9E9E") ;;
-                (func         "#54ff9f" ) ;;
-                (str          "#FFFF00" ) ;;
-                (type         "#bd93f9") ;;
-                (var          "#9573FF" ) ;;
-                (warning      "#ff0000") ;;
-                (region       "#242424") ;;
+                (cursor       "#00EE00")
+                (builtin      "#5973FF" )
+                ;; (builtin      "#00A693" )
+                (keyword      "#FF00FF" )
+                (const        "#00FFF6" )
+                ;; (const        "#5F2DFF" )
+                (comment      "#9E9E9E")
+                (func         "#00FF28" )
+                ;; (func         "#54ff9f" )
+                (str          "#FFFF00" )
+                (type         "#bd93f9")
+                (var          "#8400FF" )
+                ;; (var          "#9573FF" )
+                (warning      "#ff0303")
+                (region       "#242424")
                 ))
       (faces '(;; default
                (cursor :background ,cursor)
@@ -69,6 +73,26 @@
                (font-lock-type-face :foreground ,type )
                (font-lock-variable-name-face :foreground ,var)
                (font-lock-warning-face :foreground ,warning :background ,bg2)
+               ;; auto-complete
+               (ac-completion-face :underline t :foreground ,keyword)
+               ;; js2-mode
+               (js2-external-variable :foreground ,type  )
+               (js2-function-param :foreground ,const)
+               (js2-jsdoc-html-tag-delimiter :foreground ,str)
+               (js2-jsdoc-html-tag-name :foreground ,fg4)
+               (js2-jsdoc-value :foreground ,str)
+               (js2-private-function-call :foreground ,const)
+               (js2-private-member :foreground ,fg3)
+               ;; js3-mode
+               (js3-error-face :underline ,warning)
+               (js3-external-variable-face :foreground ,var)
+               (js3-function-param-face :foreground ,fg4)
+               (js3-instance-member-face :foreground ,const)
+               (js3-jsdoc-tag-face :foreground ,keyword)
+               (js3-warning-face :underline ,keyword)
+               ;; mode-line
+               (mode-line :foreground nil :background ,bg3 :box ,bg3)
+               (mode-line-inactive :foreground ,fg1 :background ,bg1 :box ,bg1)
                )))
 
   (apply #'custom-theme-set-faces
