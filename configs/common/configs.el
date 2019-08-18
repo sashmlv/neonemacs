@@ -23,7 +23,7 @@
 (defconst cursor_color "green2")
 (defconst background_color "#000")
 (defconst hl_line_background "#151515")
-(defconst hl_region_background "#202020")
+(defconst hl_region_background "#101070")
 (defconst hl_occurrences_color "chartreuse")
 (defconst hl_search_occurrences_color "RoyalBlue3")
 
