@@ -14,9 +14,9 @@
 * "C-<" - mark-previous-like-this;
 * "C-S-c C-S-c" - edit-lines;
 
-##### Undo redo:
-* "C-_, C-/" -  undo changes;
-* "M-_, C-?" -  redo changes;
+##### Undo, Reverse undo:
+* "C-/" - undo;
+* "C-g C-/" - reverse undo;
 
 ##### Expand region:
 * "C-=" - fast text selection;
@@ -27,5 +27,5 @@
 ##### Hides the disturbing '^M' showing up:
 * "M-x hide-ctrl-M" - hide-ctrl-M;
 
-#####  Kill from point to a character:
+##### Kill from point to a character:
 * "M-z" - zzz-to-char;
