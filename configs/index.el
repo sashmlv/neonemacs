@@ -94,7 +94,7 @@
                    "markdown"
                    "xah-syntax-color-hex"
                    "xah-change-bracket-pairs"
-                   "undo-tree"
+                   ;; "undo-tree"
                    "avy"
                    "vimish-fold"
                    "yasnippet"
