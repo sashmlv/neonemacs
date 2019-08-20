@@ -51,3 +51,7 @@
 * "M-x swoop-multi" - swoop-multi;
 * "M-x swoop-pcre-regexp" - swoop-pcre-regexp;
 * "M-x swoop-back-to-last-position" - swoop-back-to-last-position;
+
+##### Fast find file:
+* "M-x project-find-file";
+* "M-x projectile-find-file";
