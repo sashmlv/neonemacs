@@ -58,6 +58,8 @@
         drag-stuff ;; drag stuf around
         restclient ;; rest client
         company-restclient ;; restclient completions
+
+        popup-kill-ring ;; kill ring menu
         ))
 
 ;; install packages from list

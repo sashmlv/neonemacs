@@ -5,6 +5,9 @@
 ;; highlight indentation hook
 (highlight-indentation-mode 1) ;; disable error
 
+;; make tab key do indent first then completion.
+(setq-default tab-always-indent 'complete)
+
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width current_indent)
 (setq-default c-basic-offset current_indent)
