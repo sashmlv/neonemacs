@@ -66,10 +66,6 @@
 (define-key global-map [(insert)] nil)
 (define-key global-map [(control insert)] 'overwrite-mode)
 
-;; project management
-(projectile-mode)
-(setq projectile-switch-project-action 'projectile-dired)
-
 ;; highlight brackets
 (show-paren-mode 1)
 (setq show-paren-delay 0)

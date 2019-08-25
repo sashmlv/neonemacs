@@ -113,6 +113,7 @@
                    "base-setup" ;; load modes before this
                    "org"
                    ,(concat (file-name-as-directory "pomodoro") "pomodoro-setup")
+                   "projectile"
                    ))
 
 ;; common configs
