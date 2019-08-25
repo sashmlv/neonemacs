@@ -60,6 +60,7 @@
         company-restclient ;; restclient completions
 
         popup-kill-ring ;; kill ring menu
+        trr ;; type-writing trainer
         ))
 
 ;; install packages from list
