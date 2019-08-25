@@ -1,5 +1,4 @@
-;;; base-setup --- available modes configuration:
-;;; base-setup --- available modes configuration:
+;;; base-setup.el --- Modes configuration
 ;;; Commentary:
 ;;; Code:
 
@@ -127,16 +126,6 @@
 
 ;; (setq debug-on-error t)
 
-;; enable ivy mode ;; also try install all-the-icons, all-the-icons-ivy
-;; (ivy-mode 1)
-;; (setq ivy-use-virtual-buffers t)
-;; (setq enable-recursive-minibuffers t)
-;; (setq ivy-count-format "(%d/%d) ")
-
-;; minibuffer autocompletition
-;; (require 'ido)
-;; (ido-mode t)
-
 ;; expand-region faster text selection
 (global-set-key (kbd "C-=") 'er/expand-region)
 
@@ -182,10 +171,5 @@
 
 ;; zzz-to-char
 (global-set-key (kbd "M-z") #'zzz-to-char)
-
-;; * Disable error on free variables *
-;; Local Variables:
-;; byte-compile-warnings: (not free-vars)
-;; End:
 
 ;;; base-setup.el ends here

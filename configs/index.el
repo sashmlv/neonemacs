@@ -114,6 +114,7 @@
                    "org"
                    ,(concat (file-name-as-directory "pomodoro") "pomodoro-setup")
                    "projectile"
+                   "midnight-mode"
                    ))
 
 ;; common configs
@@ -134,10 +135,5 @@
          (string-equal system-type "windows-nt"))
         (restart-emacs)
       (kill-emacs))) ;; if no linux/windows
-
-;; * Disable error on free variables *
-;; Local Variables:
-;; byte-compile-warnings: (not free-vars)
-;; End:
 
 ;;; index.el ends here
