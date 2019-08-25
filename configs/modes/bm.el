@@ -39,7 +39,7 @@
 (add-hook 'vc-before-checkin-hook 'bm-buffer-save)
 
 ;; set bookmark face
-(setq  bm-persistent-face '(:foreground nil :background "#2a0946"))
+(setq  bm-persistent-face '(:foreground nil :background "#310060"))
 
 ;; * Disable error on free variables *
 ;; Local Variables:
