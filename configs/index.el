@@ -26,8 +26,8 @@
         rainbow-delimiters ;; rainbow parentheses
 
         js2-mode js2-refactor typescript-mode less-css-mode php-mode
-        pug-mode yaml-mode markdown-mode json-mode rjsx-mode dockerfile-mode
-        haskell-mode rust-mode
+        pug-mode yaml-mode markdown-mode json-mode dockerfile-mode
+        haskell-mode rust-mode web-mode
 
         bongo volume ;; media player
         magit ;; git support
