@@ -15,6 +15,9 @@
 (setq-default css-indent-offset current_indent)
 (setq-default typescript-indent-level current_indent)
 (setq-default rust-indent-offset current_indent)
+(setq-default web-mode-markup-indent-offset current_indent)
+(setq-default web-mode-css-indent-offset current_indent)
+(setq-default web-mode-code-indent-offset current_indent)
 (setq-default yaml-indent-offset 2)
 
 (add-hook 'highlight-indentation-mode-hook
