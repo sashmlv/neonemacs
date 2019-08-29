@@ -5,25 +5,12 @@
 ;; "Fira Mono-9", "Andale Mono-9", "Liberation Mono-9", "Menlo-9", "Monaco-9", "Hack-9", "M+ 1m-9", "Anonymous Pro-9", "Source Code Pro-9", "DejaVu Sans Mono-9", "Iosevka-9", "Envy Code R-9"
 (defconst current_font "Fira Mono-8")
 (defconst current_indent 3) ;; common indentation
-(defconst indentation_background_color "#202020")
-(defconst indentation_foreground_color "#555555")
-(defconst indentation_current_line_color "#101010")
 
 (defconst brackets_match_foreground "white")
 (defconst brackets_match_background "blue3")
 (defconst brackets_mismatch_foreground "white")
 (defconst brackets_mismatch_background "red3")
 
-(defconst whitespace_weight 'light)
-(defconst whitespace_foreground "#333333")
-(defconst whitespace_background nil)
-(defconst whitespace_space_background "#070707")
-(defconst whitespace_trailing_foreground "#ff2020")
-
-(defconst cursor_color "green2")
-(defconst background_color "#000")
-(defconst hl_line_background "#151515")
-(defconst hl_region_background "#101070")
 (defconst hl_occurrences_color "chartreuse")
 (defconst hl_search_occurrences_color "RoyalBlue3")
 

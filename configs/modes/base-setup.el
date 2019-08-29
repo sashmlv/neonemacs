@@ -52,6 +52,8 @@
 
 (setq blink-cursor-blinks 0) ;; make cursor blinking always
 
+(global-hl-line-mode t) ;; highlight curent line
+
 ;; change bracket pairs from one type to another, on current line or text selection
 (global-set-key
  (kbd "C-c `")

@@ -26,13 +26,6 @@
             (cond ((eq major-mode 'yaml-mode)
                    (setq highlight-indentation-offset yaml-indent-offset)))))
 
-(set-face-background 'highlight-indentation-face
-                     indentation_background_color)
-(set-face-foreground 'highlight-indentation-face
-                     indentation_foreground_color)
-(set-face-background 'highlight-indentation-current-column-face
-                     indentation_current_line_color)
-
 ;; html-mode indentation https://www.emacswiki.org/emacs/IndentingHtml
 (setq-default sgml-basic-offset current_indent)
 (add-hook 'html-mode-hook
