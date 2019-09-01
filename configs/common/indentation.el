@@ -1,4 +1,4 @@
-;;; indentation --- indentation configuration:
+;;; indentation.el --- Indentation params
 ;;; Commentary:
 ;;; Code:
 
@@ -30,10 +30,5 @@
 (setq-default sgml-basic-offset current_indent)
 (add-hook 'html-mode-hook
           (lambda () (set (make-local-variable 'sgml-basic-offset) current_indent)))
-
-;; * Disable error on free variables *
-;; Local Variables:
-;; byte-compile-warnings: (not free-vars)
-;; End:
 
 ;;; indentation.el ends here
