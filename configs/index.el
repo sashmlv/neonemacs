@@ -110,11 +110,11 @@
                    ;; "helm"
                    "ivy"
                    "drag-stuff"
-                   "base-setup" ;; load modes before this
                    "org"
                    ,(concat (file-name-as-directory "pomodoro") "pomodoro-setup")
                    "projectile"
                    "midnight-mode"
+                   "base-setup" ;; load modes before this
                    ))
 
 ;; common configs

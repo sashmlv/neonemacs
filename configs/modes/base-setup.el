@@ -32,7 +32,7 @@
 
 (setq scroll-step 1 scroll-conservatively  10000) ;; smooth scrolling
 
-(delete-selection-mode t) ;; shift + d - delete selection
+(delete-selection-mode t) ;; delete selection
 
 (setq version-control t) ;; enable versioning
 (setq delete-old-versions t)
