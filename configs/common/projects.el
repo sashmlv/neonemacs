@@ -14,6 +14,7 @@
 ;; set/reset indentation
 (defun set_indentation( indent )
   "Set indentation."
+  (setq current_indent indent)
   (setq-default js-indent-level indent)
   (setq-default css-indent-offset indent)
   (setq-default web-mode-markup-indent-offset indent)
@@ -29,9 +30,8 @@
 ;;    (if (string-match-p "\/disk\/project\/directory\/" default-directory)
 ;;        (progn
 ;;          (change_encoding 'windows-1251)
-;;          (setq current_indent 3) ;; common indentation param
 ;;          (set_indentation 3)
-;;          )))) ;; windows-1251 encoding
+;;          ))))
 
 ;; * Disable error on free variables *
 ;; Local Variables:
@@ -39,3 +39,4 @@
 ;; End:
 
 ;;; projects.el ends here
+
