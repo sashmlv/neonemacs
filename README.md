@@ -2,15 +2,7 @@
 
 *This config will update as needed.*
 *This project never claim complete or not buggy.*
-
-### Some features:
-* Package autoinstallation;
-* Long "undo-tree" history, not lost between sessions;
-* "Magit" for git support;
-* "Bongo" player;
-* Google translate;
-* Indium for JavaScript development;
-* Full package list in index.el;
+*For features check the code.*
 
 ### Installation:
 * Backup and clear "~/.emacs.d/" directory;
