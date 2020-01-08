@@ -61,6 +61,7 @@
 
         popup-kill-ring ;; kill ring menu
         trr ;; type-writing trainer
+        eslint-fix ;; automatically format after saving
         ))
 
 ;; install packages from list
@@ -104,6 +105,8 @@
                    ;; "wakatime"
                    "smart-mode-line"
                    "bm"
+                   "js2-mode"
+                   "js2-refactor"
                    "perl-mode"
                    ,(concat (file-name-as-directory "column-marker") "highlight-80-mode")
                    "hide-new-line"

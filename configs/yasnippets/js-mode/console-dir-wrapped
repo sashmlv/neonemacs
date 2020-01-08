@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name : console.dir.wrapped
+# key: ,cld
+# --
+console.log( '----------------------------------------\n\n\n' );
+console.dir( $0, { depth: null, colors: true });
+console.log( '\n\n\n----------------------------------------' );

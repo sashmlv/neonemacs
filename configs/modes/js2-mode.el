@@ -11,6 +11,3 @@
 ;; End:
 
 ;;; js2-mode.el ends here
-
-
-
