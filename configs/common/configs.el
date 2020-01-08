@@ -39,6 +39,10 @@
 (if(not(file-accessible-directory-p undo_redo_dir))
    (make-directory undo_redo_dir t))
 
+;; make Ctrl+z - new prefix key
+(define-prefix-command 'ring-map)
+(global-set-key (kbd "C-z") 'ring-map)
+
 ;; * Disable error on free variables *
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)
