@@ -117,6 +117,7 @@
                    ,(concat (file-name-as-directory "pomodoro") "pomodoro-setup")
                    "projectile"
                    "midnight-mode"
+                   "recentf-mode"
                    "base-setup" ;; load modes before this
                    ))
 
