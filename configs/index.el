@@ -61,7 +61,7 @@
 
         popup-kill-ring ;; kill ring menu
         trr ;; type-writing trainer
-        eslint-fix ;; automatically format after saving
+        eslint-fix ;; js code format
         ))
 
 ;; install packages from list
