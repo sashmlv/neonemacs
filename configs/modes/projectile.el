@@ -5,6 +5,6 @@
 (projectile-mode)
 (setq projectile-switch-project-action 'projectile-dired)
 (setq projectile-completion-system 'ivy)
-(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+(define-key projectile-mode-map (kbd "C-z p") 'projectile-command-map)
 
 ;;; projectile.el ends here
