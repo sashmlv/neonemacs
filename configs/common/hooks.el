@@ -13,7 +13,7 @@
             (highlight-indentation-mode t) ;; (highlight-indent-guides-mode 1)
             (highlight-symbol-mode t) ;; highlight occurrences
             (highlight-80-mode t) ;; highlight 80 column rule
-            (rainbow-delimiters-mode) ;; rainbow parentheses
+            (rainbow-delimiters-mode t) ;; rainbow parentheses
             ))
 
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
