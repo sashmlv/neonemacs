@@ -11,7 +11,7 @@
    (setq to (read-string "Enter new value:"))
    (xah-change-bracket-pairs from to)))
 
-(global-set-key (kbd "C-c d") 'duplicate-line-or-region)
+(global-set-key (kbd "C-c d")   'duplicate-line-or-region)
 (global-set-key (kbd "C-c C-r") 'revert-buffer)
 
 ;; expand-region faster text selection
@@ -25,8 +25,8 @@
 (global-set-key (kbd "M-z") #'zzz-to-char)
 
 ;; avy - fast navigation https://github.com/abo-abo/avy/wiki
-(global-set-key (kbd "C-;") 'avy-goto-char-2)
-(global-set-key (kbd "C-'") 'avy-goto-line)
+(global-set-key (kbd "C-;")   'avy-goto-char-2)
+(global-set-key (kbd "C-'")   'avy-goto-line)
 (global-set-key (kbd "M-g c") 'avy-goto-char)
 (global-set-key (kbd "M-g e") 'avy-goto-word-0)
 (global-set-key (kbd "M-g g") 'avy-goto-line)
@@ -62,8 +62,9 @@
 (global-set-key (kbd "M-{") 'highlight-symbol-prev)
 
 ;; ivy
-(global-set-key (kbd "C-s") 'swiper)
-(global-set-key (kbd "M-x") 'counsel-M-x)
+(global-set-key (kbd "C-s")     'swiper)
+(global-set-key (kbd "C-S-s")   'isearch-forward)
+(global-set-key (kbd "M-x")     'counsel-M-x)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 
 ;; multiple-cursors

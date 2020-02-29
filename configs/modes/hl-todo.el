@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
+(global-hl-todo-mode t)
 (setq hl-todo-keyword-faces
       '(("TODO" . "#FF5500")
         ("NOTE" . "#00FF55")

@@ -44,11 +44,11 @@
 (setq make-backup-files t) ;; backup files
 (setq backup-directory-alist (list (cons "." backups_dir))) ;; backup directory
 
-(defalias 'list-buffers 'ibuffer) ;; make ibuffer default
+(defalias 'list-buffers 'ivy-switch-buffer) ;; make ibuffer default
 
- ;; vertical buffer split by default
-(setq split-width-threshold 0)
-(setq split-height-threshold nil)
+;; vertical buffer split by default
+;; (setq split-width-threshold 0)
+;; (setq split-height-threshold nil)
 
 (setq blink-cursor-blinks 0) ;; make cursor blinking always
 
