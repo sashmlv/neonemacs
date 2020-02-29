@@ -18,7 +18,7 @@
 
 ;; define theme for window
 ;; (set 'win-theme 'dracula) ;; sunburst, flatland-black, peacock
-(set 'win-theme 'neon) ;; sunburst, flatland-black, peacock
+(set 'win-theme 'neon) ;; neon, sunburst, flatland-black, peacock
 
 ;; define theme for terminal
 (set 'term-theme 'dracula)
