@@ -119,6 +119,7 @@
                    "projectile"
                    "midnight-mode"
                    "recentf-mode"
+                   "eshell"
                    "base-setup" ;; load modes before this
                    ))
 
