@@ -62,7 +62,7 @@
         popup-kill-ring ;; kill ring menu
         trr ;; type-writing trainer
         eslint-fix ;; js code format
-        hl-todo ;; TODO/FIXME/NOTE/... highlight
+        hl-todo ;; TODO/TEMP/NOTE/... highlight
         ))
 
 ;; install packages from list

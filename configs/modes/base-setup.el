@@ -3,7 +3,7 @@
 ;;; Code:
 
 ;; save session
-(setq desktop-restore-eager 12) ;; how much buffers restore immediately
+(setq desktop-restore-eager 40) ;; how much buffers restore immediately
 (setq desktop-dirname base_dir)
 (setq desktop-base-file-name "emacs.desktop")
 (setq desktop-base-lock-name "lock")
@@ -11,7 +11,6 @@
 (setq desktop-restore-frames t)
 (setq desktop-save t)
 (desktop-save-mode t)
-(desktop-read)
 
 (fset 'yes-or-no-p 'y-or-n-p) ;; change "yes or no" to "y or n"
 
