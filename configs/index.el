@@ -90,7 +90,6 @@
 
 ;; modes
 (setq modes-list `(
-                   "multiple-cursors"
                    "smex"
                    ;; "ido-vertical"
                    "company"
@@ -124,7 +123,7 @@
                    ))
 
 ;; common configs
-(setq common-list '("indentation" "hooks" "theme" "whitespace"))
+(setq common-list '("indentation" "hooks" "theme" "whitespace" "keybindings"))
 
 (load (concat (file-name-directory load-file-name) (file-name-as-directory "common") "configs")) ;; load configs file ( see for params )
 

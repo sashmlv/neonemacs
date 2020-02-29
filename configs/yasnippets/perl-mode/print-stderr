@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name : print-stderr
+# key: ,pr
+# --
+print STDERR "\n----------------------------------------\n";
+print STDERR Dumper $0;
+print STDERR "\n----------------------------------------\n";

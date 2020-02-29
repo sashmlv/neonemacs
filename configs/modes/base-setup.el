@@ -54,15 +54,6 @@
 
 (global-hl-line-mode t) ;; highlight curent line
 
-;; change bracket pairs from one type to another, on current line or text selection
-(global-set-key
- (kbd "C-c `")
- (lambda()
-   (interactive)
-   (setq from (read-string "Enter replacement:"))
-   (setq to (read-string "Enter new value:"))
-   (xah-change-bracket-pairs from to)))
-
 ;; disable "insert" key ( which toggle overwrite-mode )
 (define-key global-map [(insert)] nil)
 (define-key global-map [(control insert)] 'overwrite-mode)
@@ -100,10 +91,8 @@
             (comment-region (line-beginning-position) (line-end-position)))
         (forward-line 1)
         (forward-char pos)))))
-(global-set-key (kbd "C-c d") 'duplicate-line-or-region)
 
 ;; revert-buffer from file
-(global-set-key (kbd "C-c C-r") 'revert-buffer)
 (global-auto-revert-mode)
 
 ;; dired tries to guess a default target directory
@@ -121,15 +110,13 @@
   '(progn
      ;; (add-to-list 'grep-find-ignored-files "*.tmp")
      (add-to-list 'grep-find-ignored-directories ".git")
+     (add-to-list 'grep-find-ignored-directories "log")
      (add-to-list 'grep-find-ignored-directories "node_modules")
      (add-to-list 'grep-find-ignored-directories "bower_components")))
 
 (setq delete-by-moving-to-trash t) ;; replace remove, whith remove in trash
 
 ;; (setq debug-on-error t)
-
-;; expand-region faster text selection
-(global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; variable definition jump
 (dumb-jump-mode)
@@ -159,10 +146,6 @@
       (activate-input-method current))))
 (cfg:reverse-input-method 'russian-computer)
 
-;; goto-chg goto-last-change
-(global-set-key (kbd "M-]") 'goto-last-change)
-(global-set-key (kbd "M-[") 'goto-last-change-reverse)
-
 ;; dired-k
 ;; You can use dired-k alternative to revert-buffer
 (require 'dired-k)
@@ -170,8 +153,5 @@
 ;; always execute dired-k when dired buffer is opened
 (add-hook 'dired-initial-position-hook 'dired-k)
 ;; (add-hook 'dired-after-readin-hook #'dired-k-no-revert)
-
-;; zzz-to-char
-(global-set-key (kbd "M-z") #'zzz-to-char)
 
 ;;; base-setup.el ends here

@@ -2,12 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(global-set-key (kbd "C-x r t") 'bm-toggle) ;; set a bookmark
-(global-set-key (kbd "C-x r n") 'bm-next) ;; jump to a next bookmark
-(global-set-key (kbd "C-x r p") 'bm-previous) ;; jump to a previous bookmakr
-(global-set-key (kbd "C-x r s") 'bm-show-all) ;; bookmarks show
-(global-set-key (kbd "C-x r r") 'bm-remove-all-current-buffer) ;; delete bookmarks
-
 ;; https://github.com/joodland/bm
 ;; make bookmarks persistent as default
 (setq-default bm-buffer-persistence t)
