@@ -63,6 +63,7 @@
         trr ;; type-writing trainer
         eslint-fix ;; js code format
         hl-todo ;; TODO/TEMP/NOTE/... highlight
+        flycheck ;; syntax checking
         ))
 
 ;; install packages from list
@@ -120,6 +121,7 @@
                    "midnight-mode"
                    "recentf-mode"
                    "eshell"
+                   "flycheck"
                    "base-setup" ;; load modes before this
                    ))
 
