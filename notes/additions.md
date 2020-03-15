@@ -1,4 +1,4 @@
 ### Addition packages:
 
-##### For ```counsel-ag``` command:
+##### For ```ag``` package:
 * apt-get install silversearcher-ag

@@ -66,6 +66,7 @@
 
         undo-propose ;; stage undo’s in a temporary buffer
         ;; undo-fu ;; linear undo with redo
+        ag ;; search using ag (the silver searcher)
         ))
 
 ;; install packages from list
