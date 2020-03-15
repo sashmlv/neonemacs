@@ -1,9 +1,5 @@
 ## Current emacs config.
 
-*This config will update as needed.*
-*This project never claim complete or not buggy.*
-*For features check the code.*
-
 ### Installation:
 * Backup and clear "~/.emacs.d/" directory;
 * Move "configs/init.el", into "~/.emacs.d/";
