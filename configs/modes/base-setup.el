@@ -153,4 +153,8 @@
 (add-hook 'dired-initial-position-hook 'dired-k)
 ;; (add-hook 'dired-after-readin-hook #'dired-k-no-revert)
 
+;; undo limits
+(setq undo-limit (* 3 undo-limit))
+(setq undo-strong-limit (* 3 undo-strong-limit))
+
 ;;; base-setup.el ends here
