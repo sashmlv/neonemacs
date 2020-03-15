@@ -2,6 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
+;; make Ctrl+z - new prefix key
+(define-prefix-command 'ring-map)
+(global-set-key (kbd "C-z") 'ring-map)
+
 ;; change bracket pairs from one type to another, on current line or text selection
 (global-set-key
  (kbd "C-c `")
@@ -90,5 +94,9 @@
 ;; vimish-fold
 (global-set-key (kbd "C-c f") #'vimish-fold)
 (global-set-key (kbd "C-c u") #'vimish-fold-delete)
+
+;; undo-fu
+;; (global-set-key (kbd "C-/") 'undo-fu-only-undo)
+;; (global-set-key (kbd "C-?") 'undo-fu-only-redo)
 
 ;;; keybindings.el ends here

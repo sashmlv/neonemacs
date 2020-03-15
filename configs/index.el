@@ -17,7 +17,6 @@
       '(restart-emacs ;; support only linux and windows
         smex ;; minibuffer improvements
         ;; ido-vertical-mode
-        undo-tree ;; undo-redo history
         multiple-cursors
         company ;; autocompletition
         company-statistics
@@ -64,6 +63,9 @@
         eslint-fix ;; js code format
         hl-todo ;; TODO/TEMP/NOTE/... highlight
         flycheck ;; syntax checking
+
+        undo-propose ;; stage undo’s in a temporary buffer
+        ;; undo-fu ;; linear undo with redo
         ))
 
 ;; install packages from list
@@ -100,7 +102,6 @@
                    "markdown"
                    "xah-syntax-color-hex"
                    "xah-change-bracket-pairs"
-                   ;; "undo-tree"
                    "avy"
                    "vimish-fold"
                    "yasnippet"
