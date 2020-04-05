@@ -157,4 +157,7 @@
 (setq undo-limit (* 3 undo-limit))
 (setq undo-strong-limit (* 3 undo-strong-limit))
 
+;; editorconfig
+(editorconfig-mode 1)
+
 ;;; base-setup.el ends here
