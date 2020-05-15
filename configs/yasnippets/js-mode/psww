@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name : process.stdout.write.wrapped
+# key: ,psww
+# --
+process.stdout.write( \`----------------------------------------\n\n\n\` );
+process.stdout.write( \`\${ JSON.stringify( $0, null, ' ' )}\` );
+process.stdout.write( \`\n\n\n----------------------------------------\n\` );
