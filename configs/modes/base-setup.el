@@ -51,8 +51,6 @@
 
 (setq blink-cursor-blinks 0) ;; make cursor blinking always
 
-(global-hl-line-mode t) ;; highlight curent line
-
 ;; disable "insert" key ( which toggle overwrite-mode )
 (define-key global-map [(insert)] nil)
 (define-key global-map [(control insert)] 'overwrite-mode)

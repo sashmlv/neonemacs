@@ -15,6 +15,23 @@
  `(lazy-highlight
    ((t (:foreground nil :background ,hl_search_occurrences_color)))))
 
+;; whitespace
+;; (require 'whitespace)
+;; (set-face-attribute 'whitespace-space nil :foreground "#252525" :background nil :weight 'light)
+;; (set-face-attribute 'whitespace-newline nil :foreground "#252525" :background nil :weight 'light)
+;; (set-face-attribute 'whitespace-tab nil :foreground "#252525" :background nil :weight 'light)
+;; (set-face-attribute 'trailing-whitespace nil :foreground "#FF0000" :background nil :weight 'light)
+;; (set-face-attribute 'whitespace-trailing nil :inherit 'trailing-whitespace)
+;; ;; indentation
+;; (set-face-attribute 'highlight-indentation-face nil :foreground "#303030" :background "#101010")
+;; (set-face-attribute 'highlight-indentation-current-column-face nil :foreground nil :background nil)
+;; ;; region
+;; (set-face-attribute 'region nil :foreground nil :background "#575757" :distant-foreground nil)
+
+;; ;; hl-line-mode
+;; (global-hl-line-mode 1) ;; highlight curent line
+;; (set-face-attribute 'hl-line nil :foreground nil :background "#151515")
+
 ;; * Disable error on free variables *
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)

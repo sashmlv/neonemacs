@@ -99,4 +99,7 @@
 ;; (global-set-key (kbd "C-/") 'undo-fu-only-undo)
 ;; (global-set-key (kbd "C-?") 'undo-fu-only-redo)
 
+;; dired
+(global-set-key (kbd "C-x C-j") 'dired-jump)
+
 ;;; keybindings.el ends here
