@@ -14,7 +14,7 @@
 
 (deftheme neon)
 
-(let ((colors '((fg1               "#f8f8f2")
+(let ((colors '((fg1               "#ffffff") ;; main font #f8f8f2
                 (fg2               "#e2e2dc")
                 (fg3               "#ccccc7")
                 (fg4               "#b6b6b2")
