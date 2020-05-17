@@ -52,8 +52,7 @@
 ;;       foo: 3
 ;;   },
 ;;       bar = 2;
-;; (setq-default js-indent-first-init 'dynamic) ;; 'dynamic, nil, t
-(setq-default js-indent-first-init nil)
+(setq-default js-indent-first-init nil) ;; 'dynamic, nil, t
 
 ;; Example:
 ;; let x = svg.mumble()
@@ -66,18 +65,16 @@
 ;;            arg3)
 (setq-default js-indent-align-list-continuation nil)
 
-;; Fix indentation for js variables declaration
-;; (fix indentation from original function, wich handle indent for this)
+;; Fix indentation for multiline variable declaration
+;; see emacs source - js.el, at end of function: js--multi-line-declaration-indentation
+;; (when returns value, return current column with indentation)
 (defun fix_vars_indent (orig-fun &rest args)
-  (setq orig_value (apply orig-fun args))
-  (if (and orig_value (>= orig_value js-indent-level))
-
-      ;; one level back indentation
-      (* (- (/ orig_value js-indent-level) 1) js-indent-level)
-    nil))
+  (when (apply orig-fun args)
+    (goto-char (match-beginning 0))
+    (+ (current-column) js-indent-level)))
 
 (advice-add #'js--multi-line-declaration-indentation :around #'fix_vars_indent)
-;; for disable fix indentation run this:
+;; for disable fix run this:
 ;; (advice-remove #'js--multi-line-declaration-indentation #'fix_vars_indent)
 
 ;; * Disable error on free variables *
