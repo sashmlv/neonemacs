@@ -67,7 +67,7 @@
 
 ;; Fix indentation for multiline variable declaration
 ;; see emacs source - js.el, at end of function: js--multi-line-declaration-indentation
-;; (when returns value, return current column with indentation)
+;; ( when returns value, rollback goto-char and return current-column with indentation )
 (defun fix_vars_indent (orig-fun &rest args)
   (when (apply orig-fun args)
     (goto-char (match-beginning 0))
