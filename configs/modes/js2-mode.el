@@ -68,12 +68,13 @@
 ;; Fix indentation for multiline variable declaration
 ;; see emacs source - js.el, at end of function: js--multi-line-declaration-indentation
 ;; ( when returns value, rollback goto-char and return current-column with indentation )
-(defun fix_vars_indent (orig-fun &rest args)
-  (when (apply orig-fun args)
-    (goto-char (match-beginning 0))
-    (+ (current-column) js-indent-level)))
+(when (eq js-indent-first-init nil)
+  (defun fix_vars_indent (orig-fun &rest args)
+    (when (apply orig-fun args)
+      (goto-char (match-beginning 0))
+      (+ (current-column) js-indent-level)))
+  (advice-add #'js--multi-line-declaration-indentation :around #'fix_vars_indent))
 
-(advice-add #'js--multi-line-declaration-indentation :around #'fix_vars_indent)
 ;; for disable fix run this:
 ;; (advice-remove #'js--multi-line-declaration-indentation #'fix_vars_indent)
 
