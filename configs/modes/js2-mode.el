@@ -45,7 +45,7 @@
 ;; Example:
 ;; switch (true) {
 ;; case variable:
-(setq-default js-switch-indent-offset 0)
+(setq-default js-switch-indent-offset current_indent)
 
 ;; Example:
 ;;   var o = {
