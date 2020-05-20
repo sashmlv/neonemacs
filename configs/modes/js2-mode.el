@@ -7,8 +7,8 @@
 
 ;; turn off all warnings in js2-mode
 (setq-default js2-mode-show-parse-errors t
-      js2-mode-show-strict-warnings nil
-      js2-strict-missing-semi-warning nil
+      js2-mode-show-strict-warnings t
+      js2-strict-missing-semi-warning t
       js2-strict-trailing-comma-warning nil)
 
 ;; Example:
