@@ -16,7 +16,7 @@
             (rainbow-delimiters-mode t) ;; rainbow parentheses
             ))
 
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.\\(js\\|mjs\\|cjs\\)\\'" . js2-mode))
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
 (add-to-list 'auto-mode-alist '("\\.\\(jsx\\|tsx\\)\\'" . web-mode))
