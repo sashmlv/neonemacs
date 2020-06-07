@@ -125,6 +125,7 @@
                    "recentf-mode"
                    "eshell"
                    "flycheck"
+                   "ag"
                    "base-setup" ;; load modes before this
                    ))
 
