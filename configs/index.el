@@ -113,7 +113,7 @@
                    "js2-mode"
                    "js2-refactor"
                    "perl-mode"
-                   ,(concat (file-name-as-directory "column-marker") "highlight-80-mode")
+                   ,(concat (file-name-as-directory "column-marker") "highlight-100-mode")
                    "hide-new-line"
                    ;; "helm"
                    "ivy"

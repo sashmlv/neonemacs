@@ -1,4 +1,4 @@
-;;; highlight-80-mode --- highlight-80-mode configuration:
+;;; highlight-100-mode --- highlight-100-mode configuration:
 ;;; Commentary:
 ;;; Code:
 
@@ -10,12 +10,12 @@
     default-directory)
   "column-marker.el"))
 
-(define-minor-mode highlight-80-mode
-  "Toggle highlight-80-mode."
+(define-minor-mode highlight-100-mode
+  "Toggle highlight-100-mode."
   :init-value nil
-  :lighter " Highlight-80"
-  (if highlight-80-mode
-      (column-marker-1 80)
+  :lighter " Highlight-100"
+  (if highlight-100-mode
+      (column-marker-1 100)
     (column-marker-1 -1)))
 
 ;; highlight styles
@@ -28,7 +28,4 @@
 ;; byte-compile-warnings: (not free-vars)
 ;; End:
 
-;;; highlight-80-mode.el ends here
-
-
-
+;;; highlight-100-mode.el ends here
