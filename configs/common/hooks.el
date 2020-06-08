@@ -12,7 +12,7 @@
             (smartscan-mode t)
             (highlight-indentation-mode t) ;; (highlight-indent-guides-mode 1)
             (highlight-symbol-mode t) ;; highlight occurrences
-            (highlight-80-mode t) ;; highlight 80 column rule
+            (highlight-100-mode t) ;; highlight 80 column rule
             (rainbow-delimiters-mode t) ;; rainbow parentheses
             ))
 
