@@ -29,3 +29,6 @@
 
 ##### Kill from point to a character:
 * "M-z" - zzz-to-char;
+
+##### Fast sites jump:
+* "M-x webjump" - webjump;
