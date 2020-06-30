@@ -1,0 +1,22 @@
+;;; highlight-indentation --- highlight-indentation configuration:
+;;; Commentary:
+;;; Code:
+
+;; highlight indentation hook
+(highlight-indentation-mode t)
+
+(defun highlight_indentation_offset ()
+  (progn
+    (setq highlight-indentation-offset current_indent) ;; set indent size
+    (cond ((eq major-mode 'yaml-mode)
+          (setq highlight-indentation-offset yaml-indent-offset)))
+   ))
+(remove-hook 'highlight-indentation-mode-hook 'highlight_indentation_offset)
+(add-hook 'highlight-indentation-mode-hook 'highlight_indentation_offset)
+
+;; * Disable error on free variables *
+;; Local Variables:
+;; byte-compile-warnings: (not free-vars)
+;; End:
+
+;;; highlight-indentation.el ends here

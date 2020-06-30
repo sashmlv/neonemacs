@@ -127,6 +127,8 @@
                    "eshell"
                    "flycheck"
                    "ag"
+                   "highlight-indentation"
+                   ;; "highlight-indent-guides"
                    "base-setup" ;; load modes before this
                    ))
 

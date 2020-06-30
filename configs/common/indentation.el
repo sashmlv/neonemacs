@@ -2,9 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-;; highlight indentation hook
-(highlight-indentation-mode 1) ;; disable error
-
 ;; make tab key do indent first then completion.
 (setq-default tab-always-indent 'complete)
 (setq-default indent-tabs-mode nil)
@@ -18,15 +15,6 @@
 (setq-default web-mode-css-indent-offset current_indent)
 (setq-default web-mode-code-indent-offset current_indent)
 (setq-default yaml-indent-offset 2)
-
-(defun highlight_indentation_offset ()
-  (progn
-    (setq highlight-indentation-offset current_indent) ;; set indent size
-    (cond ((eq major-mode 'yaml-mode)
-          (setq highlight-indentation-offset yaml-indent-offset)))
-   ))
-(remove-hook 'highlight-indentation-mode-hook 'highlight_indentation_offset)
-(add-hook 'highlight-indentation-mode-hook 'highlight_indentation_offset)
 
 ;; html-mode indentation https://www.emacswiki.org/emacs/IndentingHtml
 (setq-default sgml-basic-offset current_indent)
