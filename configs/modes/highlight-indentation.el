@@ -10,7 +10,6 @@
    (progn
       (if (gethash 'indent_size props)
          (setq current_indent (string-to-number (gethash 'indent_size props))))))
-(remove-hook 'editorconfig-after-apply-functions 'set_current_indent_from_editorconfig)
 (add-hook 'editorconfig-after-apply-functions 'set_current_indent_from_editorconfig)
 
 (defun highlight_indentation_offset ()
@@ -19,8 +18,8 @@
       (cond ((eq major-mode 'yaml-mode)
                (setq highlight-indentation-offset yaml-indent-offset)))
       ))
-(remove-hook 'highlight-indentation-mode-hook 'highlight_indentation_offset)
 (add-hook 'highlight-indentation-mode-hook 'highlight_indentation_offset)
+
 ;; * Disable error on free variables *
 ;; Local Variables:
 ;; byte-compile-warnings: (not free-vars)
