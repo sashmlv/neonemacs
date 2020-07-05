@@ -3,7 +3,7 @@
 ##### For ```ag``` package:
 * sudo apt install silversearcher-ag
 
-##### For ```ripgrep``` package:
+##### For ```rg``` package:
 * sudo apt install ripgrep
 
 

@@ -69,7 +69,7 @@
         undo-propose ;; stage undo’s in a temporary buffer
         ;; undo-fu ;; linear undo with redo
         ag ;; search using ag (the silver searcher)
-        ripgrep ;; search using ripgrep
+        rg ;; search using ripgrep
         editorconfig ;; editorconfig plugin
         ))
 
