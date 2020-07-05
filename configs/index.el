@@ -60,7 +60,8 @@
         company-restclient ;; restclient completions
 
         popup-kill-ring ;; kill ring menu
-        trr ;; type-writing trainer
+        ;; trr ;; type-writing trainer
+        speed-type ;; practice touch/speed typing in emacs
         eslint-fix ;; js code format
         hl-todo ;; TODO/TEMP/NOTE/... highlight
         flycheck ;; syntax checking
