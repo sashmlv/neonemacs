@@ -1,10 +1,14 @@
 ### Addition packages:
 
 ##### For ```ag``` package:
-* apt-get install silversearcher-ag
+* sudo apt install silversearcher-ag
+
+##### For ```ripgrep``` package:
+* sudo apt install ripgrep
+
 
 ##### For ```editorconfig``` package:
-* apt-get install editorconfig
+* sudo apt install editorconfig
 
 ##### For ```eslint-fix``` package:
 * [Node.js](https://nodejs.org)
