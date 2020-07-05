@@ -6,10 +6,11 @@
 (highlight-indentation-mode t)
 
 ;; set current_indent value from .editorconfig file
+(setq current_indent_original current_indent)
 (defun set_current_indent_from_editorconfig (props)
-   (progn
-      (if (gethash 'indent_size props)
-         (setq current_indent (string-to-number (gethash 'indent_size props))))))
+  (if (gethash 'indent_size props)
+      (setq current_indent (string-to-number (gethash 'indent_size props)))
+    (setq current_indent current_indent_original)))
 (add-hook 'editorconfig-after-apply-functions 'set_current_indent_from_editorconfig)
 
 (defun highlight_indentation_offset ()
