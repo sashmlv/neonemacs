@@ -6,7 +6,6 @@
 ##### For ```rg``` package:
 * sudo apt install ripgrep
 
-
 ##### For ```editorconfig``` package:
 * sudo apt install editorconfig
 

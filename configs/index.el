@@ -135,7 +135,7 @@
                    ))
 
 ;; common configs
-(setq common-list '("indentation" "hooks" "theme" "whitespace" "keybindings"))
+(setq common-list '("indentation" "hooks" "theme" "whitespace" "keybindings" "search"))
 
 (load (concat (file-name-directory load-file-name) (file-name-as-directory "common") "configs")) ;; load configs file ( see for params )
 
