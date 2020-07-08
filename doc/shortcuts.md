@@ -1,8 +1,5 @@
 ### Shortcuts:
 
-##### Switch buffers:
-* "C-x b" - then "C-s", "C-r" for choose;
-
 ##### Translate text to "RUS" - "ENG":
 * "C-c t" - google-translate-at-point;
 * "C-c T" - google-translate-query-translate;
@@ -32,3 +29,7 @@
 
 ##### Fast sites jump:
 * "M-x webjump" - webjump;
+
+##### Switch search method:
+* "M-x switch-search" - switch-search;
+

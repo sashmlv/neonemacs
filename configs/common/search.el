@@ -2,12 +2,12 @@
 ;;; Commentary:
 ;;; Code:
 
-(defun set-search()
-  "Set search method for C-s, C-r keybindings."
+(defun switch-search()
+  "Switch search method for C-s, C-r keybindings."
   (interactive)
   (setq search_method
         (completing-read
-         "Set search method for C-s, C-r:"
+         "Switch search method for C-s, C-r:"
          '(("swiper") ("isearch"))
          nil t))
   (cond ((equal search_method "swiper")
