@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: temp
+# key: ,temp
+# --
+TEMP: $0

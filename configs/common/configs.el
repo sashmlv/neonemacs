@@ -32,6 +32,7 @@
 (defconst themes_dir (concat configs_dir (file-name-as-directory "themes")))
 (defconst undo_redo_dir (concat base_dir (file-name-as-directory "undo_redo"))) ;; undo-redo history dir
 (defconst yasnippets_directory (concat configs_dir (directory-file-name "yasnippets")))
+(defconst yasnippets_common_directory (concat configs_dir (file-name-as-directory "yasnippets") "common"))
 
 ;; create config directories
 (if(not(file-accessible-directory-p backups_dir))
