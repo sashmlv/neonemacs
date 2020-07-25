@@ -14,6 +14,8 @@
 (setq-default web-mode-markup-indent-offset current_indent)
 (setq-default web-mode-css-indent-offset current_indent)
 (setq-default web-mode-code-indent-offset current_indent)
+(setq-default sh-basic-offset current_indent)
+(setq-default sh-indentation current_indent)
 (setq-default yaml-indent-offset 2)
 
 ;; html-mode indentation https://www.emacswiki.org/emacs/IndentingHtml
