@@ -23,12 +23,10 @@
         projectile ;; project management
         highlight-indentation ;; or highlight-indent-guides
         rainbow-delimiters ;; rainbow parentheses
-
         js2-mode js2-refactor typescript-mode less-css-mode php-mode
         pug-mode yaml-mode markdown-mode json-mode dockerfile-mode
         haskell-mode rust-mode web-mode
         eslint-fix ;; fix current file using ESLint
-
         bongo volume ;; media player
         magit ;; git support
         highlight-symbol ;; highlight occurrences
@@ -42,7 +40,6 @@
         expand-region ;; fast text selection
         dumb-jump ;; jump to variable definition
         smart-mode-line ;; status bar customization
-
         bm ;; visible bookmarks
         syntax-subword ;; make word editing and motion more fine-grained
         smartscan ;; jumps between other symbols found at point
@@ -58,19 +55,18 @@
         drag-stuff ;; drag stuf around
         restclient ;; rest client
         company-restclient ;; restclient completions
-
         popup-kill-ring ;; kill ring menu
         ;; trr ;; type-writing trainer
-        speed-type ;; practice touch/speed typing in emacs
+        ;; speed-type ;; practice touch/speed typing in emacs
         eslint-fix ;; js code format
         hl-todo ;; TODO/TEMP/NOTE/... highlight
         flycheck ;; syntax checking
-
         undo-propose ;; stage undo’s in a temporary buffer
         ;; undo-fu ;; linear undo with redo
         ag ;; search using ag (the silver searcher)
         rg ;; search using ripgrep
         editorconfig ;; editorconfig plugin
+        ob-mongo ;; mongodb support for org-mode
         ))
 
 ;; install packages from list

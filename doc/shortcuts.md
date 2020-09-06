@@ -32,4 +32,3 @@
 
 ##### Switch search method:
 * "M-x switch-search" - switch-search;
-
