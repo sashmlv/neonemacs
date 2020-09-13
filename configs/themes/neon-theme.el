@@ -14,15 +14,15 @@
 
 (deftheme neon)
 
-(let ((colors '((fg1               "#ffffff") ;; main font #f8f8f2
-                (fg2               "#e2e2dc")
-                (fg3               "#ccccc7")
-                (fg4               "#b6b6b2")
+(let ((colors '((fg1               "#FFFFFF") ;; main font #F8F8F2
+                (fg2               "#E2E2DC")
+                (fg3               "#CCCCC7")
+                (fg4               "#B6B6B2")
                 (bg1               "#000000")
                 (bg2               "#373844")
                 (bg3               "#464752")
                 (bg4               "#565761")
-                (bg5               "#44475a")
+                (bg5               "#44475A")
                 (cursor            "#00EE00")
                 (builtin           "#FF1493")
                 (keyword           "#FF00FF")
@@ -30,9 +30,9 @@
                 (comment           "#909090")
                 (func              "#8400FF")
                 (str               "#FFFF00")
-                (type              "#bd93f9")
+                (type              "#BD93F9")
                 (var               "#00FF28")
-                (warning           "#ff0303")
+                (warning           "#FF0303")
                 (region            "#109010")
                 (whitespace_fg     "#252525")
                 (whitespace_bg     "#000000")
@@ -40,6 +40,15 @@
                 (indentation_fg    "#303030")
                 (indentation_bg    "#101010")
                 (hl_line_bg        "#151515")
+                (hl_line_bg        "#151515")
+                (dired_directory   "#009688")
+                (dired_flagged     "#F44336")
+                (dired_header      "#BC4873")
+                (dired_mark        "#FFD600")
+                (dired_marked      "#5C6BC0")
+                (dired_perm_write  "#E57373")
+                (dired_symlink     "#BDBDBD")
+                (dired_warning     "#FF0303")
                 ))
       (faces '(;; default
                (cursor :background ,cursor)
@@ -117,6 +126,16 @@
                (web-mode-string-face :foreground ,str)
                (web-mode-type-face :inherit ,font-lock-type-face)
                (web-mode-warning-face :inherit ,font-lock-warning-face)
+               ;; dired
+               (dired-directory :foreground ,dired_directory :weight normal)
+               (dired-flagged :foreground ,dired_flagged)
+               (dired-header :foreground ,dired_header :background ,bg1)
+               (dired-ignored :inherit shadow) ;; ???
+               (dired-mark :foreground ,dired_mark :weight bold)
+               (dired-marked :foreground ,dired_marked :weight bold)
+               (dired-perm-write :foreground ,dired_perm_write :underline nil)
+               (dired-symlink :foreground ,dired_symlink :weight normal :slant italic)
+               (dired-warning :foreground ,warning :underline t)
                )))
 
   (apply #'custom-theme-set-faces
