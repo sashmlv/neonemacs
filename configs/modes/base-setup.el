@@ -102,15 +102,6 @@
 
 (setq mode-require-final-newline nil) ;; remove newline at end
 
-;; grep skip these list
-(eval-after-load "grep"
-  '(progn
-     ;; (add-to-list 'grep-find-ignored-files "*.tmp")
-     (add-to-list 'grep-find-ignored-directories ".git")
-     (add-to-list 'grep-find-ignored-directories "log")
-     (add-to-list 'grep-find-ignored-directories "node_modules")
-     (add-to-list 'grep-find-ignored-directories "bower_components")))
-
 (setq delete-by-moving-to-trash t) ;; replace remove, whith remove in trash
 
 ;; (setq debug-on-error t)

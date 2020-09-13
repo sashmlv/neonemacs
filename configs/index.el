@@ -125,6 +125,7 @@
                    "eshell"
                    "flycheck"
                    "ag"
+                   "grep"
                    "highlight-indentation"
                    ;; "highlight-indent-guides"
                    "base-setup" ;; load modes before this
