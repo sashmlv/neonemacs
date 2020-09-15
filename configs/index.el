@@ -23,7 +23,7 @@
         projectile ;; project management
         highlight-indentation ;; or highlight-indent-guides
         rainbow-delimiters ;; rainbow parentheses
-        js2-mode js2-refactor typescript-mode less-css-mode php-mode
+        js2-mode js2-refactor rjsx-mode typescript-mode less-css-mode php-mode
         pug-mode yaml-mode markdown-mode json-mode dockerfile-mode
         haskell-mode rust-mode web-mode
         eslint-fix ;; fix current file using ESLint
@@ -58,7 +58,6 @@
         popup-kill-ring ;; kill ring menu
         ;; trr ;; type-writing trainer
         ;; speed-type ;; practice touch/speed typing in emacs
-        eslint-fix ;; js code format
         hl-todo ;; TODO/TEMP/NOTE/... highlight
         flycheck ;; syntax checking
         undo-propose ;; stage undo’s in a temporary buffer
