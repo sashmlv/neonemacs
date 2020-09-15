@@ -59,11 +59,6 @@
 (global-set-key (kbd "C-c r") 'google-translate-at-point-reverse)
 (global-set-key (kbd "C-c R") 'google-translate-query-translate-reverse)
 
-;; helm
-;; (global-set-key (kbd "M-x") 'helm-M-x)
-;; (global-set-key (kbd "C-x b") 'helm-mini)
-;; (global-set-key (kbd "C-x C-f") 'helm-find-files)
-
 ;; navigate through occurrences
 (global-set-key (kbd "M-}") 'highlight-symbol-next)
 (global-set-key (kbd "M-{") 'highlight-symbol-prev)

@@ -44,9 +44,6 @@
         syntax-subword ;; make word editing and motion more fine-grained
         smartscan ;; jumps between other symbols found at point
         goto-chg ;; goto-last-change
-        ;; helm ;; incremental completion and selection narrowing framework
-        ;; helm-projectile
-        ;; helm-swoop ;; peculiar buffer navigation
         ivy ;; completion for Emacs
         counsel ;;  Ivy-enhanced versions of common Emacs commands
         swiper ;; Ivy-enhanced alternative to isearch
@@ -113,7 +110,6 @@
                    "perl-mode"
                    ,(concat (file-name-as-directory "column-marker") "highlight-100-mode")
                    "hide-new-line"
-                   ;; "helm"
                    "ivy"
                    "drag-stuff"
                    "org"
