@@ -2,6 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
+;; disable emacs exiting accidentally, use save-buffers-kill-terminal instead
+(global-unset-key (kbd "C-x C-c"))
+
 ;; make Ctrl+z - new prefix key
 (define-prefix-command 'ring-map)
 (global-set-key (kbd "C-z") 'ring-map)
