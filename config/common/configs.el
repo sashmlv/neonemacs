@@ -29,7 +29,7 @@
   (concat (file-name-as-directory (getenv "HOME"))
           (file-name-as-directory ".emacs.d")))
 (defconst backups_dir (concat base_dir (file-name-as-directory "backups")))
-(defconst themes_dir (concat configs_dir (file-name-as-directory "themes")))
+(defconst theme_dir (concat configs_dir (file-name-as-directory "theme")))
 (defconst undo_redo_dir (concat base_dir (file-name-as-directory "undo_redo"))) ;; undo-redo history dir
 (defconst yasnippet_directory (concat configs_dir (directory-file-name "yasnippet")))
 (defconst yasnippet_common_directory (concat configs_dir (file-name-as-directory "yasnippet") "common"))

@@ -3,7 +3,7 @@
 ;;; Code:
 
 ;; set theme for window or terminal
-(add-to-list 'custom-theme-load-path themes_dir)
+(add-to-list 'custom-theme-load-path theme_dir)
 (load-theme win-theme t)
 (load-theme term-theme t)
 (if (display-graphic-p)
