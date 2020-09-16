@@ -98,4 +98,7 @@
 ;; dired
 (global-set-key (kbd "C-x C-j") 'dired-jump)
 
+;; webjump
+(global-set-key (kbd "C-c j") 'webjump)
+
 ;;; keybindings.el ends here

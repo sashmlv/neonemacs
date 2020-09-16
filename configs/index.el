@@ -123,6 +123,7 @@
                    "grep"
                    "highlight-indentation"
                    ;; "highlight-indent-guides"
+                   "webjump"
                    "base-setup" ;; load modes before this
                    ))
 
