@@ -1,4 +1,4 @@
-;;; whitespace --- whitespace configuration:
+;;; whitespace.el --- whitespace configuration
 ;;; Commentary:
 ;;; Code:
 
@@ -21,10 +21,5 @@
 (setq whitespace-line nil) ;; disable highlight long lines
 (setq whitespace-empty nil) ;; fix bug whith highlight last line
 (global-whitespace-mode t)
-
-;; * Disable error on free variables *
-;; Local Variables:
-;; byte-compile-warnings: (not free-vars)
-;; End:
 
 ;;; whitespace.el ends here

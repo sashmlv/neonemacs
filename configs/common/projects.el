@@ -1,4 +1,4 @@
-;;; projects --- project specific configuration:
+;;; projects.el --- project specific configuration
 ;;; Commentary:
 ;;; Code:
 
@@ -33,10 +33,4 @@
 ;;          (set_indentation 3)
 ;;          ))))
 
-;; * Disable error on free variables *
-;; Local Variables:
-;; byte-compile-warnings: (not free-vars)
-;; End:
-
 ;;; projects.el ends here
-

@@ -1,4 +1,4 @@
-;;; keybindings.el --- Keybindings
+;;; keybindings.el --- keybindings
 ;;; Commentary:
 ;;; Code:
 

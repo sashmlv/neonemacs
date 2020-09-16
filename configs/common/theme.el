@@ -1,4 +1,4 @@
-;;; theme --- theme configuration:
+;;; theme.el --- theme configuration
 ;;; Commentary:
 ;;; Code:
 
@@ -31,10 +31,5 @@
 ;; ;; hl-line-mode
 ;; (global-hl-line-mode 1) ;; highlight curent line
 ;; (set-face-attribute 'hl-line nil :foreground nil :background "#151515")
-
-;; * Disable error on free variables *
-;; Local Variables:
-;; byte-compile-warnings: (not free-vars)
-;; End:
 
 ;;; theme.el ends here

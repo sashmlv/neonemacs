@@ -1,7 +1,6 @@
-;;; index --- configuration loader:
+;;; index.el --- configuration loader
 ;;; Commentary:
 ;;; Code:
-;; * Parameters and loading other config files *
 
 (require 'package)
 (package-initialize)
@@ -88,8 +87,8 @@
       (dolist (file files)
         (load (concat path file)))))
 
-;; modes
-(setq modes-list `(
+;; lisp files (configs, params)
+(setq lisp-list `(
                    "smex"
                    ;; "ido-vertical"
                    "company"
@@ -136,7 +135,7 @@
 
 ;; load files
 (load (concat configs_dir (file-name-as-directory "common") "projects")) ;; project specific params before
-(load-directory (concat configs_dir (file-name-as-directory "modes")) modes-list)
+(load-directory (concat configs_dir (file-name-as-directory "lisp")) lisp-list)
 (load-directory (concat configs_dir (file-name-as-directory "common")) common-list)
 
 (if need_emacs_restart

@@ -1,4 +1,4 @@
-;;; search --- search configuration:
+;;; search.el --- search configuration
 ;;; Commentary:
 ;;; Code:
 
@@ -18,10 +18,5 @@
          (global-set-key (kbd "C-r") 'isearch-backward))
         (t (global-set-key (kbd "C-s") 'swiper)
            (global-set-key (kbd "C-r") 'swiper))))
-
-;; * Disable error on free variables *
-;; Local Variables:
-;; byte-compile-warnings: (not free-vars)
-;; End:
 
 ;;; search.el ends here

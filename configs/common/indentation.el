@@ -1,4 +1,4 @@
-;;; indentation.el --- Indentation params
+;;; indentation.el --- indentation
 ;;; Commentary:
 ;;; Code:
 

@@ -1,4 +1,4 @@
-;;; hooks --- hooks configuration:
+;;; hooks.el --- hooks
 ;;; Commentary:
 ;;; Code:
 
@@ -44,10 +44,5 @@
           (lambda()
             (setq indent-tabs-mode nil)
             (setq c-basic-offset current_indent)))
-
-;; * Disable error on free variables *
-;; Local Variables:
-;; byte-compile-warnings: (not free-vars)
-;; End:
 
 ;;; hooks.el ends here

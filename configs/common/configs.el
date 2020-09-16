@@ -1,4 +1,4 @@
-;;; configs --- configs configuration:
+;;; configs.el --- configs
 ;;; Commentary:
 ;;; Code:
 
@@ -37,10 +37,5 @@
 ;; create config directories
 (if(not(file-accessible-directory-p backups_dir))
    (make-directory backups_dir t))
-
-;; * Disable error on free variables *
-;; Local Variables:
-;; byte-compile-warnings: (not free-vars)
-;; End:
 
 ;;; configs.el ends here
