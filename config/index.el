@@ -135,6 +135,7 @@
 
 ;; load files
 (load (concat configs_dir (file-name-as-directory "common") "projects")) ;; project specific params before
+(load (concat configs_dir (file-name-as-directory "common") "prj")) ;; !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 (load-directory (concat configs_dir (file-name-as-directory "lisp")) lisp-list)
 (load-directory (concat configs_dir (file-name-as-directory "common")) common-list)
 
