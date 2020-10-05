@@ -34,7 +34,7 @@
                 (var               "#00FF28")
                 (warning           "#FF0303")
                 (region            "#109010")
-                (whitespace_fg     "#252525")
+                (whitespace_fg     "#272727")
                 (whitespace_bg     "#000000")
                 (whitespace_trfg   "#FF0000")
                 (indentation_fg    "#303030")
