@@ -26,6 +26,7 @@
         pug-mode yaml-mode markdown-mode json-mode dockerfile-mode
         haskell-mode rust-mode web-mode
         eslint-fix ;; fix current file using ESLint
+        js-comint ;; js repl
         bongo volume ;; media player
         magit ;; git support
         highlight-symbol ;; highlight occurrences
