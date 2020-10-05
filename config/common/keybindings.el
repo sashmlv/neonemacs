@@ -53,12 +53,6 @@
 (global-set-key (kbd "M-P") 'drag-stuff-up)
 (global-set-key (kbd "M-N") 'drag-stuff-down)
 
-;; google-translate
-(global-set-key (kbd "C-c t") 'google-translate-at-point)
-(global-set-key (kbd "C-c T") 'google-translate-query-translate)
-(global-set-key (kbd "C-c r") 'google-translate-at-point-reverse)
-(global-set-key (kbd "C-c R") 'google-translate-query-translate-reverse)
-
 ;; navigate through occurrences
 (global-set-key (kbd "M-}") 'highlight-symbol-next)
 (global-set-key (kbd "M-{") 'highlight-symbol-prev)
