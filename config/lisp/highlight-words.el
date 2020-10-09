@@ -1,4 +1,4 @@
-;;; hl-todo.el --- hl-todo configuration
+;;; highlight-words.el --- highlight-words configuration
 ;;; Commentary:
 ;;; Code:
 
@@ -6,9 +6,8 @@
   ;; "Highlight words in code"
   (font-lock-add-keywords
    nil
-   '(("\\(TODO:\\)"  1 '(:foreground "#FF5500") prepend)
-     ("\\(NOTE:\\)"  1 '(:foreground "#00FF55") prepend)
-     ("\\(TEMP:\\)"  1 '(:foreground "#0055FF") prepend)
-   )))
+   '(("\\(TODO:?\\)"  1 '(:foreground "#FF5500" :background "#151515") prepend)
+     ("\\(NOTE:?\\)"  1 '(:foreground "#00FF55" :background "#151515") prepend)
+     ("\\(TEMP:?\\)"  1 '(:foreground "#0055FF" :background "#151515") prepend))))
 
-;;; hl-todo.el ends here
+;;; highlight-words.el ends here
