@@ -55,7 +55,6 @@
         popup-kill-ring ;; kill ring menu
         ;; trr ;; type-writing trainer
         ;; speed-type ;; practice touch/speed typing in emacs
-        hl-todo ;; TODO/TEMP/NOTE/... highlight
         flycheck ;; syntax checking
         undo-propose ;; stage undo’s in a temporary buffer
         ;; undo-fu ;; linear undo with redo
@@ -94,7 +93,7 @@
                    ;; "ido-vertical"
                    "company"
                    "highlight-symbol"
-                   "hl-todo"
+                   "highlight-words"
                    "google-translate"
                    "markdown"
                    "xah-syntax-color-hex"

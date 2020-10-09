@@ -14,6 +14,7 @@
             (highlight-symbol-mode t) ;; highlight occurrences
             (highlight-100-mode t) ;; highlight 100 column rule
             (rainbow-delimiters-mode t) ;; rainbow parentheses
+            (highlight-words)
             ))
 
 (add-to-list 'auto-mode-alist '("\\.\\(js\\|mjs\\|cjs\\)\\'" . js2-mode))
