@@ -28,9 +28,6 @@
 (global-set-key (kbd "M-]") 'goto-last-change)
 (global-set-key (kbd "M-[") 'goto-last-change-reverse)
 
-;; zzz-to-char
-(global-set-key (kbd "M-z") #'zzz-to-char)
-
 ;; avy - fast navigation https://github.com/abo-abo/avy/wiki
 (global-set-key (kbd "C-;")   'avy-goto-char-2)
 (global-set-key (kbd "C-'")   'avy-goto-line)
@@ -49,7 +46,6 @@
 (global-set-key (kbd "C-x r s") 'bm-show-all) ;; bookmarks show
 (global-set-key (kbd "C-x r r") 'bm-remove-all-current-buffer) ;; delete bookmarks
 
-;; drag-stuff
 (global-set-key (kbd "M-P") 'drag-stuff-up)
 (global-set-key (kbd "M-N") 'drag-stuff-down)
 
@@ -70,18 +66,14 @@
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
 
-;; projectile
 (define-key projectile-mode-map (kbd "C-z p") 'projectile-command-map)
 
-;; recentf
 (global-set-key "\C-z\ b" 'recentf-open-files)
 
-;; smex
 ;; (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
-;; vimish-fold
 (global-set-key (kbd "C-c f") #'vimish-fold)
 (global-set-key (kbd "C-c u") #'vimish-fold-delete)
 
@@ -89,10 +81,8 @@
 ;; (global-set-key (kbd "C-/") 'undo-fu-only-undo)
 ;; (global-set-key (kbd "C-?") 'undo-fu-only-redo)
 
-;; dired
 (global-set-key (kbd "C-x C-j") 'dired-jump)
-
-;; webjump
 (global-set-key (kbd "C-c j") 'webjump)
+(global-set-key (kbd "C-c t") 'google_translate)
 
 ;;; keybindings.el ends here

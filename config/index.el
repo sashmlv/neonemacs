@@ -48,7 +48,6 @@
         counsel ;;  Ivy-enhanced versions of common Emacs commands
         swiper ;; Ivy-enhanced alternative to isearch
         dired-k ;; highlights dired buffer like "k"
-        zzz-to-char ;; also backward zap-to-char
         drag-stuff ;; drag stuf around
         restclient ;; rest client
         company-restclient ;; restclient completions

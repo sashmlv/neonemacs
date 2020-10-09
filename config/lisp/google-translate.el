@@ -6,7 +6,6 @@
 (require 'google-translate-default-ui)
 (setq google-translate-default-source-language "en")
 (setq google-translate-default-target-language "ru")
-(global-set-key (kbd "C-c t") 'google_translate)
 
 (defun google_translate ()
   (interactive)
