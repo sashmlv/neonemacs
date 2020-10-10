@@ -39,7 +39,6 @@
         indium ;; see for setup: https://indium.readthedocs.io/en/latest/setup.html
         expand-region ;; fast text selection
         dumb-jump ;; jump to variable definition
-        smart-mode-line ;; status bar customization
         bm ;; visible bookmarks
         syntax-subword ;; make word editing and motion more fine-grained
         smartscan ;; jumps between other symbols found at point
@@ -102,7 +101,7 @@
                    "vimish-fold"
                    "yasnippet"
                    ;; "wakatime"
-                   "smart-mode-line"
+                   "mode-line"
                    "bm"
                    "js2-mode"
                    "js2-refactor"
