@@ -136,6 +136,12 @@
                (dired-perm-write :foreground ,dired_perm_write :underline nil)
                (dired-symlink :foreground ,dired_symlink :weight normal :slant italic)
                (dired-warning :foreground ,warning :underline t)
+               ;; mode-line
+               (mode-line :foreground ,fg1 :background ,bg1 :weight normal)
+               ;; mode-line-buffer-id
+               ;; mode-line-emphasis
+               ;; mode-line-highlight
+               ;; mode-line-inactive
                )))
 
   (apply #'custom-theme-set-faces
