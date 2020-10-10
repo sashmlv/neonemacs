@@ -138,6 +138,7 @@
                (dired-warning :foreground ,warning :underline t)
                ;; mode-line
                (mode-line :foreground ,fg1 :background ,bg1 :weight normal)
+               (mode-line-inactive :foreground ,fg1 :background ,bg1 :weight normal)
                ;; mode-line-buffer-id
                ;; mode-line-emphasis
                ;; mode-line-highlight
