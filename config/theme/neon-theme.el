@@ -110,9 +110,6 @@
                (js3-instance-member-face :foreground ,const)
                (js3-jsdoc-tag-face :foreground ,keyword)
                (js3-warning-face :underline ,keyword)
-               ;; mode-line
-               (mode-line :foreground nil :background ,bg3 :box ,bg3)
-               (mode-line-inactive :foreground ,fg1 :background ,bg1 :box ,bg1)
                ;; web-mode
                (web-mode-builtin-face :inherit ,font-lock-builtin-face)
                (web-mode-comment-face :inherit ,font-lock-comment-face)
@@ -137,12 +134,8 @@
                (dired-symlink :foreground ,dired_symlink :weight normal :slant italic)
                (dired-warning :foreground ,warning :underline t)
                ;; mode-line
-               (mode-line :foreground ,fg1 :background ,bg1 :weight normal)
-               (mode-line-inactive :foreground ,fg1 :background ,bg1 :weight normal)
-               ;; mode-line-buffer-id
-               ;; mode-line-emphasis
-               ;; mode-line-highlight
-               ;; mode-line-inactive
+               (mode-line :inverse-video nil :foreground ,fg1 :background ,bg1 :weight normal)
+               (mode-line-inactive :inverse-video nil :foreground ,fg1 :background ,bg1 :weight normal)
                )))
 
   (apply #'custom-theme-set-faces

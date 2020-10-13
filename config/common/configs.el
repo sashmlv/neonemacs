@@ -16,13 +16,6 @@
 
 (defconst use_undo_tree_history_files t)
 
-;; define theme for window
-;; (set 'win-theme 'dracula) ;; sunburst, flatland-black, peacock
-(set 'win-theme 'neon) ;; neon, cyberpunk, grandshell
-
-;; define theme for terminal
-(set 'term-theme 'dracula)
-
 ;; define directories
 (defconst configs_dir (file-name-directory (directory-file-name (file-name-directory load-file-name))))
 (defconst base_dir

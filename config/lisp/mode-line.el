@@ -8,12 +8,13 @@
 (line-number-mode t)
 (size-indication-mode t)
 (column-number-mode t)
+(setq auto-revert-check-vc-info t)
 
 (defun buffer_path(&optional path_limit part_length)
   "Get active buffer path, with limit path length"
   (let ((path))
     (setq default_path_limit 50)
-    (setq default_part_length 10)
+    (setq default_part_length 20)
     (setq curr_path (or buffer-file-name (directory-file-name default-directory)))
     (or path_limit (setq path_limit default_path_limit))
     (cond ((not part_length)
@@ -30,8 +31,8 @@
                               (push element result)))
                           (nreverse (nthcdr 2 result)))
                         "/")
-                       (file-name-nondirectory (directory-file-name (file-name-directory curr_path))) ;; file/dir parent
-                       (file-name-nondirectory curr_path)))))
+                       (file-name-nondirectory (directory-file-name (file-name-directory curr_path))) ;; file/dir parent name
+                       (file-name-nondirectory curr_path))))) ;; file/dir name
     (if (> (length path) path_limit)
         (progn
           (if (not part_length) (setq part_length (1+ default_part_length)))
@@ -61,7 +62,6 @@
                'mode-line-remote
                'mode-line-frame-identification
                '(:eval (buffer_path))
-               " "
                '(vc-mode vc-mode)
                " "
                'mode-line-modes

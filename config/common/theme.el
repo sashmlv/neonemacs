@@ -2,6 +2,13 @@
 ;;; Commentary:
 ;;; Code:
 
+;; define theme for window
+;; (set 'win-theme 'dracula) ;; sunburst, flatland-black, peacock
+(set 'win-theme 'neon) ;; neon, cyberpunk, grandshell
+
+;; define theme for terminal
+(set 'term-theme 'dracula)
+
 ;; set theme for window or terminal
 (add-to-list 'custom-theme-load-path theme_dir)
 (load-theme win-theme t)
