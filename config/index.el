@@ -23,7 +23,7 @@
         highlight-indentation ;; or highlight-indent-guides
         rainbow-delimiters ;; rainbow parentheses
         js2-mode js2-refactor rjsx-mode typescript-mode less-css-mode php-mode
-        pug-mode yaml-mode markdown-mode json-mode dockerfile-mode
+        pug-mode yaml-mode markdown-mode json-mode dockerfile-mode svelte-mode
         haskell-mode rust-mode web-mode
         eslint-fix ;; fix current file using ESLint
         js-comint ;; js repl
