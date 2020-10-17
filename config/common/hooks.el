@@ -21,6 +21,7 @@
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
 (add-to-list 'auto-mode-alist '("\\.\\(ts\\|tsx\\)\\'" . typescript-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
+(add-to-list 'auto-mode-alist '("\\.svelte\\'" . svelte-mode))
 (add-to-list 'auto-mode-alist '("\\.less\\'" . less-css-mode))
 (add-to-list 'auto-mode-alist '("\\.\\(jade\\|pug\\)\\'" . pug-mode))
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
