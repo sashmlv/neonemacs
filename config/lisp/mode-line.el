@@ -38,8 +38,8 @@
           (if (not part_length) (setq part_length (1+ default_part_length)))
           (setq part_length (1- part_length))
           (if (>= part_length 0)
-              (setq path (buffer_path path_limit part_length))
-            (replace-regexp-in-string "\\/\\{2,\\}" "" path)))
+              (setq path (buffer_path path_limit part_length)))
+            (replace-regexp-in-string "\\/\\{2,\\}" "" path))
       path)))
 
 (setq-default mode-line-format
