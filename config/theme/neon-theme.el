@@ -136,6 +136,9 @@
                ;; mode-line
                (mode-line :inverse-video nil :foreground ,fg1 :background ,bg1 :weight normal)
                (mode-line-inactive :inverse-video nil :foreground ,fg1 :background ,bg1 :weight normal)
+               (buffer_path :foreground "#424ec6")
+               (buffer_path_dir :foreground "#6b73d5")
+               (buffer_path_file :foreground "#969fe4")
                )))
 
   (apply #'custom-theme-set-faces

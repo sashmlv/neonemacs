@@ -10,6 +10,16 @@
 (column-number-mode t)
 (setq auto-revert-check-vc-info t)
 
+(defface buffer_path
+  '((t :foreground "#FFFFFF" :weight normal))
+  "Face for highlight current buffer path.")
+(defface buffer_path_dir
+  '((t :foreground "#B8F2FE" :weight normal))
+  "Face for highlight directory of current buffer.")
+(defface buffer_path_file
+  '((t :foreground "#EDC9AF" :weight normal))
+  "Face for highlight file of current buffer.")
+
 (defun buffer_path(&optional path_limit part_length)
   "Get active buffer path, with limit path length"
   (let ((path))
@@ -21,18 +31,24 @@
            (setq path curr_path))
           (part_length
            (setq path (format
-                       "%s/%s/%s"
-                       (mapconcat
-                        'identity
-                        (let ((result ()))
-                          (dolist (element (split-string curr_path "\\/"))
-                            (if (< part_length (length element))
-                                (push (substring element 0 part_length) result)
-                              (push element result)))
-                          (nreverse (nthcdr 2 result)))
-                        "/")
-                       (file-name-nondirectory (directory-file-name (file-name-directory curr_path))) ;; file/dir parent name
-                       (file-name-nondirectory curr_path))))) ;; file/dir name
+                       "%s%s%s"
+                       (propertize (mapconcat
+                         'identity
+                         (let ((result ()))
+                           (dolist (element (split-string curr_path "\\/"))
+                             (if (< part_length (length element))
+                                 (push (substring element 0 part_length) result)
+                               (push element result)))
+                           (nreverse (nthcdr 2 result)))
+                         "/") 'face 'buffer_path)
+                       (propertize (concat
+                                    "/"
+                                    (file-name-nondirectory (directory-file-name (file-name-directory curr_path))))
+                                   'face 'buffer_path_dir) ;; file or dir parent name
+                       (propertize (concat
+                                    "/"
+                                    (file-name-nondirectory curr_path))
+                                   'face 'buffer_path_file))))) ;; file or dir name
     (if (> (length path) path_limit)
         (progn
           (if (not part_length) (setq part_length (1+ default_part_length)))
