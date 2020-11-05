@@ -142,6 +142,8 @@
                (mode_line_position :foreground "#969FE4")
                (mode_line_buffer_size :foreground "#FF69B4")
                (mode_line_modified :foreground "#FF1493")
+               (mode_line_mode_name :foreground "#CCCCCC")
+               (mode_line_minor_mode_alist :foreground "#CCCCCC")
                ;; vc-mode
                (vc-state-base :foreground "#FF1493")
                )))

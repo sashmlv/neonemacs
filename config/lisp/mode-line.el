@@ -28,6 +28,12 @@
 (defface mode_line_modified
   '((t :foreground "#FFFFFF" :weight normal))
   "Face for highlight buffer modified.")
+(defface mode_line_mode_name
+  '((t :foreground "#FFFFFF" :weight normal))
+  "Face for highlight mode name.")
+(defface mode_line_minor_mode_alist
+  '((t :foreground "#FFFFFF" :weight normal))
+  "Face for highlight minor mode alist.")
 
 (defun buffer_path(&optional path_limit part_length)
   "Get active buffer path, with limit path length"
@@ -81,25 +87,26 @@
               (list
                "%e"
                'mode-line-front-space
-               '(:eval (propertize "%+" 'face 'mode_line_modified)) ;; readonly, modified
-               " "
-               'mode-line-mule-info
+               '(:eval (propertize (format-time-string "%H:%M") 'face 'mode_line_position))
                " "
                '(:eval (propertize "%l:%C %P" 'face 'mode_line_position)) ;; line, column, position at buffer in %
                " "
-               'mode-line-client
-               'mode-line-remote
-               'mode-line-frame-identification
+               '(:propertize mode-line-remote face mode_line_position)
+               " "
                '(:eval (buffer_path))
+               " "
+               '(:eval (propertize "%+" 'face 'mode_line_position)) ;; readonly, modified
+               " "
+               ;; (symbol-name (vc-state (buffer-file-name (current-buffer))))
+               '(:eval (propertize (car (vc-git-branches)) 'face 'mode_line_position))
                " "
                '(:eval (propertize "%I" 'face 'mode_line_buffer_size)) ;; file size
                " "
-               '(vc-mode vc-mode)
+               '(:eval (propertize (symbol-name buffer-file-coding-system) 'face 'mode_line_position))
                " "
-               'mode-line-modes
-               (mode-line-fill 'mode-line 6) ;; fill line with spaces
-               '(:eval (format-time-string "%H.%M"))
-               'mode-line-end-spaces
+               '(:propertize mode-name face mode_line_mode_name)
+               '(:propertize minor-mode-alist face mode_line_minor_mode_alist)
+               ;; (mode-line-fill 'mode-line 6) ;; fill line with spaces
                ))
 
 ;;; mode-line.el ends here
