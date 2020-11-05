@@ -19,6 +19,15 @@
 (defface buffer_path_file
   '((t :foreground "#EDC9AF" :weight normal))
   "Face for highlight file of current buffer.")
+(defface mode_line_position
+  '((t :foreground "#FFFFFF" :weight normal))
+  "Face for highlight cursor position.")
+(defface mode_line_buffer_size
+  '((t :foreground "#FFFFFF" :weight normal))
+  "Face for highlight buffer size.")
+(defface mode_line_modified
+  '((t :foreground "#FFFFFF" :weight normal))
+  "Face for highlight buffer modified.")
 
 (defun buffer_path(&optional path_limit part_length)
   "Get active buffer path, with limit path length"
@@ -58,29 +67,38 @@
             (replace-regexp-in-string "\\/\\{2,\\}" "" path))
       path)))
 
+(defun mode-line-fill (face reserve)
+  "Return empty space using FACE and leaving RESERVE space on the right."
+  (unless reserve
+    (setq reserve 20))
+  (when (and window-system (eq 'right (get-scroll-bar-mode)))
+    (setq reserve (- reserve 3)))
+  (propertize " "
+              'display `((space :align-to (- (+ right right-fringe right-margin) ,reserve)))
+              'face face))
+
 (setq-default mode-line-format
               (list
                "%e"
                'mode-line-front-space
-               "%+" ;; readonly, modified
+               '(:eval (propertize "%+" 'face 'mode_line_modified)) ;; readonly, modified
                " "
                'mode-line-mule-info
                " "
-               '(:eval (format-time-string "%H.%M"))
-               " "
-               "%l:%C" ;; line, column
-               " "
-               "%P"
-               " "
-               "%I" ;; file size
+               '(:eval (propertize "%l:%C %P" 'face 'mode_line_position)) ;; line, column, position at buffer in %
                " "
                'mode-line-client
                'mode-line-remote
                'mode-line-frame-identification
                '(:eval (buffer_path))
+               " "
+               '(:eval (propertize "%I" 'face 'mode_line_buffer_size)) ;; file size
+               " "
                '(vc-mode vc-mode)
                " "
                'mode-line-modes
+               (mode-line-fill 'mode-line 6) ;; fill line with spaces
+               '(:eval (format-time-string "%H.%M"))
                'mode-line-end-spaces
                ))
 

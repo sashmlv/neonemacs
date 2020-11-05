@@ -136,9 +136,14 @@
                ;; mode-line
                (mode-line :inverse-video nil :foreground ,fg1 :background ,bg1 :weight normal)
                (mode-line-inactive :inverse-video nil :foreground ,fg1 :background ,bg1 :weight normal)
-               (buffer_path :foreground "#424ec6")
-               (buffer_path_dir :foreground "#6b73d5")
-               (buffer_path_file :foreground "#969fe4")
+               (buffer_path :foreground "#424EC6")
+               (buffer_path_dir :foreground "#6B73D5")
+               (buffer_path_file :foreground "#969FE4")
+               (mode_line_position :foreground "#969FE4")
+               (mode_line_buffer_size :foreground "#FF69B4")
+               (mode_line_modified :foreground "#FF1493")
+               ;; vc-mode
+               (vc-state-base :foreground "#FF1493")
                )))
 
   (apply #'custom-theme-set-faces
