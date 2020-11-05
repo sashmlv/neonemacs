@@ -43,7 +43,17 @@
     (setq curr_path (or buffer-file-name (directory-file-name default-directory)))
     (or path_limit (setq path_limit default_path_limit))
     (cond ((not part_length)
-           (setq path curr_path))
+           (setq path (format
+                       "%s%s%s"
+                       (propertize
+                        (directory-file-name (file-name-directory (directory-file-name (file-name-directory curr_path))))
+                        'face 'buffer_path) ;; grand parent
+                       (propertize
+                        (concat "/" (file-name-nondirectory (directory-file-name (file-name-directory curr_path))))
+                        'face 'buffer_path_dir) ;; parent
+                       (propertize
+                        (concat "/" (file-name-nondirectory curr_path))
+                        'face 'buffer_path_file)))) ;; file, dir
           (part_length
            (setq path (format
                        "%s%s%s"
