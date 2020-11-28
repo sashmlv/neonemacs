@@ -27,7 +27,7 @@
 
 (set-fringe-mode 0) ;; disable borders
 
-(set-default-font current_font) ;; set font
+(set-frame-font current_font) ;; set font
 
 (setq scroll-step 1 scroll-conservatively  10000) ;; smooth scrolling
 
@@ -58,11 +58,6 @@
 ;; highlight brackets
 (show-paren-mode 1)
 (setq show-paren-delay 0)
-(custom-set-faces
- `(show-paren-match
-   ((t (:background ,brackets_match_background :foreground ,brackets_match_foreground))))
- `(show-paren-mismatch
-   ((((class color)) (:background ,brackets_mismatch_background :foreground ,brackets_mismatch_foreground)))))
 
 (set-default 'truncate-lines t) ;; disable word wrap
 

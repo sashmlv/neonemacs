@@ -6,16 +6,6 @@
 (defconst current_font "Fira Mono-8")
 (defconst current_indent 3) ;; common indentation
 
-(defconst brackets_match_foreground "white")
-(defconst brackets_match_background "blue3")
-(defconst brackets_mismatch_foreground "white")
-(defconst brackets_mismatch_background "red3")
-
-(defconst hl_occurrences_color "chartreuse")
-(defconst hl_search_occurrences_color "RoyalBlue3")
-
-(defconst use_undo_tree_history_files t)
-
 ;; define directories
 (defconst configs_dir (file-name-directory (directory-file-name (file-name-directory load-file-name))))
 (defconst base_dir

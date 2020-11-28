@@ -23,7 +23,7 @@
                 (bg3               "#464752")
                 (bg4               "#565761")
                 (bg5               "#44475A")
-                (cursor            "#00EE00")
+                (cursor            "#00FF00")
                 (builtin           "#FF1493")
                 (keyword           "#FF00FF")
                 (const             "#00FFFF")
@@ -59,15 +59,24 @@
                (highlight :foreground ,fg3 :background ,bg3)
                (info-quoted-name :foreground ,builtin)
                (info-string :foreground ,str)
-               (lazy-highlight :foreground ,fg2 :background ,bg3)
                (link :foreground ,const :underline t)
                (linum :slant italic :foreground ,bg4 :background ,bg1)
                (minibuffer-prompt :bold t :foreground ,keyword)
-               (show-paren-match-face :background ,warning)
                (vertical-border :foreground ,bg2)
                (warning :foreground ,warning)
                (header-line :background ,bg1)
+               ;; search occurrences
+               (lazy-highlight :foreground nil :background "#3A5FCD")
+               ;; parentheses
+               (show-paren-match :foreground "#FFFFFF" :background "#0000CD")
+               (show-paren-mismatch :foreground "#FFFFFF" :background "#CD0000")
                ;; syntax
+               ;; background "blue"
+               ;; font-lock-doc-string-face
+               ;; font-lock-comment-delimiter-face
+               ;; font-lock-preprocessor-face
+               ;; font-lock-regexp-grouping-backslash
+               ;; font-lock-regexp-grouping-construct
                (font-lock-builtin-face :foreground ,builtin)
                (font-lock-comment-face :foreground ,comment)
                (font-lock-constant-face :foreground ,const)
@@ -146,6 +155,10 @@
                (mode_line_minor_mode_alist :foreground "#CCCCCC")
                ;; vc-mode
                (vc-state-base :foreground "#FF1493")
+               ;; highlight symbol face
+               (highlight-symbol-face :background "#000000" :underline (:color "#7FFF00"))
+               ;; (highlight-symbol-face :background "#7FFF00" :underline nil )
+               ;; (highlight-symbol-face :background nil :box (:line-width -1 :color "#7FFF00"))
                )))
 
   (apply #'custom-theme-set-faces

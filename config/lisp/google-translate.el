@@ -17,4 +17,8 @@
          (google-translate-at-point-reverse))
         (t (google-translate-at-point))))
 
+(defun google-translate--search-tkk ()
+  "Search TKK."
+  (list 430675 2721866130))
+
 ;;; google-translate.el ends here

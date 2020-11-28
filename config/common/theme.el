@@ -17,11 +17,6 @@
     (enable-theme win-theme) ;; window theme
   (enable-theme term-theme)) ;; terminal theme
 
-;; search colors
-(custom-set-faces
- `(lazy-highlight
-   ((t (:foreground nil :background ,hl_search_occurrences_color)))))
-
 ;; whitespace
 ;; (require 'whitespace)
 ;; (set-face-attribute 'whitespace-space nil :foreground "#252525" :background nil :weight 'light)
