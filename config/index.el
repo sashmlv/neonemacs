@@ -5,7 +5,7 @@
 (require 'package)
 (package-initialize)
 (setq package-archives nil)
-;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 ;;(add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
 ;;(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
@@ -38,7 +38,7 @@
         avy
         indium ;; see for setup: https://indium.readthedocs.io/en/latest/setup.html
         expand-region ;; fast text selection
-        dumb-jump ;; jump to variable definition
+        ;; dumb-jump ;; jump to variable definition
         bm ;; visible bookmarks
         syntax-subword ;; make word editing and motion more fine-grained
         smartscan ;; jumps between other symbols found at point
@@ -60,6 +60,7 @@
         rg ;; search using ripgrep
         editorconfig ;; editorconfig plugin
         ob-mongo ;; mongodb support for org-mode
+        tide
         ))
 
 ;; install packages from list
@@ -121,6 +122,7 @@
                    "highlight-indentation"
                    ;; "highlight-indent-guides"
                    "webjump"
+                   "tide"
                    "base-setup" ;; load modes before this
                    ))
 

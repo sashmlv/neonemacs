@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name : fof
+# key: ,fof
+# --
+for(const ${1:i} of ${2:collection}) {
+
+  $0
+}

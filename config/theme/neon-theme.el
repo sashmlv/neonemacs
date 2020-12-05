@@ -71,7 +71,7 @@
                (show-paren-match :foreground "#FFFFFF" :background "#0000CD")
                (show-paren-mismatch :foreground "#FFFFFF" :background "#CD0000")
                ;; syntax
-               ;; background "blue"
+               ;; background "black"
                ;; font-lock-doc-string-face
                ;; font-lock-comment-delimiter-face
                ;; font-lock-preprocessor-face

@@ -17,10 +17,28 @@
             (highlight-words)
             ))
 
+;; PREV
+;; (add-to-list 'auto-mode-alist '("\\.\\(js\\|mjs\\|cjs\\)\\'" . js2-mode))
+;; (add-hook 'js2-mode-hook #'js2-refactor-mode)
+;; (add-to-list 'auto-mode-alist '("\\.\\(ts\\|tsx\\)\\'" . typescript-mode))
+;; (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
+;; PREV
+
+;; TMP
+;; (add-to-list 'auto-mode-alist '("\\.\\(js\\|mjs\\|cjs\\)\\'" . js-mode))
+;; (add-to-list 'auto-mode-alist '("\\.\\(ts\\|tsx\\)\\'" . typescript-mode))
+;; (add-to-list 'auto-mode-alist '("\\.jsx\\'" . js-mode))
+;; (add-hook 'js2-mode-hook #'js2-refactor-mode)
+;; (add-hook 'js-mode-hook 'js2-minor-mode)
+;; TMP
+
+;; TESTING tide
 (add-to-list 'auto-mode-alist '("\\.\\(js\\|mjs\\|cjs\\)\\'" . js2-mode))
-(add-hook 'js2-mode-hook #'js2-refactor-mode)
-(add-to-list 'auto-mode-alist '("\\.\\(ts\\|tsx\\)\\'" . typescript-mode))
-(add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+;; (add-hook 'js2-mode-hook #'js2-refactor-mode)
+;; (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
+;; TESTING tide
+
 (add-to-list 'auto-mode-alist '("\\.svelte\\'" . svelte-mode))
 (add-to-list 'auto-mode-alist '("\\.less\\'" . less-css-mode))
 (add-to-list 'auto-mode-alist '("\\.\\(jade\\|pug\\)\\'" . pug-mode))

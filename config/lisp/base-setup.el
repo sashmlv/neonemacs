@@ -101,9 +101,6 @@
 
 ;; (setq debug-on-error t)
 
-;; variable definition jump
-(dumb-jump-mode)
-
 ;; make shortcuts working in russian layout
 (defun cfg:reverse-input-method (input-method)
   "Build the reverse mapping of single letters from INPUT-METHOD."
@@ -143,5 +140,9 @@
 
 ;; editorconfig
 (editorconfig-mode 1)
+
+;; variable definition jump
+;; (dumb-jump-mode)
+;; (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
 
 ;;; base-setup.el ends here
