@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name : json stringify
-# key: ,js
+# key: js
 # --
 JSON.stringify( $0 )

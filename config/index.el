@@ -32,6 +32,8 @@
         highlight-symbol ;; highlight occurrences
         google-translate
         yasnippet ;; template system
+        yasnippet-snippets
+        ivy-yasnippet
         vimish-fold ;; fold-unfold library
         ;; wakatime-mode ;; time tracking
         xah-find

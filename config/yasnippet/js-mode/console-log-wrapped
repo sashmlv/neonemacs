@@ -1,6 +1,6 @@
 # -*- mode: snippet -*-
 # name : console.log.wrapped
-# key: ,clw
+# key: clw
 # --
 console.log(
   '----------------------------------------\n\n\n',

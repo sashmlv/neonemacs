@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name : json parse
-# key: ,jpr
+# key: jpr
 # --
 JSON.parse( $0 )

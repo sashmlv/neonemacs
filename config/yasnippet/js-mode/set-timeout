@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name : set-timeout
-# key: ,st
+# key: st
 # --
 setTimeout(_=> {$0}, $1);

@@ -1,5 +1,5 @@
 # - - mode: snippet - -
 # name : typeof
-# key: ,ty
+# key: ty
 # --
 typeof $0
