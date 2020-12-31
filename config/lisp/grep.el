@@ -3,6 +3,7 @@
 ;;; Code:
 
 ;; grep skip these list
+(require 'grep)
 (eval-after-load "grep"
   '(progn
      ;; (add-to-list 'grep-find-ignored-files "*.tmp")

@@ -21,4 +21,7 @@
       ))
 (add-hook 'highlight-indentation-mode-hook 'highlight_indentation_offset)
 
+;; enable highlight-indentation on yml mode
+(add-hook 'yaml-mode-hook 'highlight-indentation-mode)
+
 ;;; highlight-indentation.el ends here

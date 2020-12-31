@@ -1,9 +1,12 @@
-;;; perl-mode.el --- perl-mode configuration
+;;; perl.el --- perl configuration
 ;;; Commentary:
 ;;; Code:
 
 ;; https://github.com/shibayu36/emacs/blob/master/emacs.d/inits/20-edit-mode-perl.el
 (defalias 'perl-mode 'cperl-mode)
+
+(add-to-list 'auto-mode-alist '("\\.pl$" . perl-mode))
+(add-to-list 'auto-mode-alist '("\\.pm$" . perl-mode))
 
 (add-hook 'cperl-mode-hook
           '(lambda ()
@@ -27,4 +30,4 @@
       cperl-hairy nil
       cperl-electric-parens nil)
 
-;;; perl-mode.el ends here
+;;; perl.el ends here

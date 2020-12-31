@@ -22,9 +22,9 @@
         projectile ;; project management
         highlight-indentation ;; or highlight-indent-guides
         rainbow-delimiters ;; rainbow parentheses
-        js2-mode js2-refactor rjsx-mode typescript-mode less-css-mode php-mode
+        js2-mode js2-refactor rjsx-mode less-css-mode php-mode
         pug-mode yaml-mode markdown-mode json-mode dockerfile-mode svelte-mode
-        haskell-mode rust-mode web-mode
+        haskell-mode web-mode
         eslint-fix ;; fix current file using ESLint
         js-comint ;; js repl
         bongo volume ;; media player
@@ -62,7 +62,8 @@
         rg ;; search using ripgrep
         editorconfig ;; editorconfig plugin
         ob-mongo ;; mongodb support for org-mode
-        tide
+        typescript-mode tide
+        rust-mode racer
         ))
 
 ;; install packages from list
@@ -89,47 +90,21 @@
         (load (concat path file)))))
 
 ;; lisp files (configs, params)
-(setq lisp-list `(
-                   "smex"
-                   ;; "ido-vertical"
-                   "company"
-                   "highlight-symbol"
-                   "highlight-words"
-                   "google-translate"
-                   "markdown"
-                   "xah-syntax-color-hex"
-                   "xah-change-bracket-pairs"
-                   "avy"
-                   "vimish-fold"
-                   "yasnippet"
-                   ;; "wakatime"
-                   "mode-line"
-                   "bm"
-                   "js2-mode"
-                   "js2-refactor"
-                   "perl-mode"
-                   ,(concat (file-name-as-directory "column-marker") "highlight-100-mode")
-                   "hide-new-line"
-                   "ivy"
-                   "drag-stuff"
-                   "org"
-                   ,(concat (file-name-as-directory "pomodoro") "pomodoro-setup")
-                   "projectile"
-                   "midnight-mode"
-                   "recentf-mode"
-                   "eshell"
-                   "flycheck"
-                   "ag"
-                   "grep"
-                   "highlight-indentation"
-                   ;; "highlight-indent-guides"
-                   "webjump"
-                   "tide"
-                   "base-setup" ;; load modes before this
-                   ))
+(setq lisp-list ;; "doom-modeline" "highlight-indent-guides" "ido-vertical" "wakatime"
+      `(
+        "ag" "avy" "bm"
+        ,(concat (file-name-as-directory "column-marker") "highlight-100-mode")
+        "company" "css" "dockerfile" "drag-stuff" "eshell" "flycheck" "google-translate"
+        "grep" "haskell" "hide-new-line" "highlight-indentation" "highlight-symbol" "highlight-words"
+        "ivy" "json" "js-typescript" "markdown" "midnight-mode" "mode-line" "org" "perl" "php"
+        ,(concat (file-name-as-directory "pomodoro") "pomodoro-setup")
+        "projectile" "pug" "recentf-mode" "restclient" "rust" "smex" "svelte" "vimish-fold" "webjump"
+        "xah-change-bracket-pairs" "xah-syntax-color-hex" "yaml" "yasnippet"
+        "prog-mode" "base-setup" ;; last modes
+        ))
 
 ;; common configs
-(setq common-list '("indentation" "hooks" "theme" "whitespace" "keybindings" "search"))
+(setq common-list '("indentation" "theme" "whitespace" "keybindings" "search"))
 
 (load (concat (file-name-directory load-file-name) (file-name-as-directory "common") "configs")) ;; load configs file ( see for params )
 

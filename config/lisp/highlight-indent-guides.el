@@ -2,6 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
-(setq-default highlight-indent-guides-method 'bitmap)
+;; highlight indentation
+(setq highlight-indent-guides-method 'character)
+;; (setq-default highlight-indent-guides-method 'bitmap)
 
 ;;; highlight-indent-guides.el ends here
