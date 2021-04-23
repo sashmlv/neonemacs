@@ -48,7 +48,7 @@
         ivy ;; completion for Emacs
         counsel ;;  Ivy-enhanced versions of common Emacs commands
         swiper ;; Ivy-enhanced alternative to isearch
-        dired-k ;; highlights dired buffer like "k"
+        diff-hl ;; git highlights
         drag-stuff ;; drag stuf around
         restclient ;; rest client
         company-restclient ;; restclient completions
@@ -99,7 +99,7 @@
         "ivy" "json" "js-typescript" "markdown" "midnight-mode" "mode-line" "org" "perl" "php"
         ,(concat (file-name-as-directory "pomodoro") "pomodoro-setup")
         "projectile" "pug" "recentf-mode" "restclient" "rust" "smex" "svelte" "vimish-fold" "webjump"
-        "xah-change-bracket-pairs" "xah-syntax-color-hex" "yaml" "yasnippet"
+        "xah-change-bracket-pairs" "xah-syntax-color-hex" "yaml" "yasnippet" "dired"
         "prog-mode" "base-setup" ;; last modes
         ))
 

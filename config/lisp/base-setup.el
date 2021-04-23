@@ -87,14 +87,6 @@
 ;; revert-buffer from file
 (global-auto-revert-mode)
 
-;; dired tries to guess a default target directory
-(setq dired-dwim-target t)
-
-;; zip/unzip, Z - key compress/uncompress
-(eval-after-load "dired-aux"
-  '(add-to-list 'dired-compress-file-suffixes
-                '("\\.zip\\'" ".zip" "unzip")))
-
 (setq mode-require-final-newline nil) ;; remove newline at end
 
 (setq delete-by-moving-to-trash t) ;; replace remove, whith remove in trash
@@ -125,14 +117,6 @@
     (when input-method
       (activate-input-method current))))
 (cfg:reverse-input-method 'russian-computer)
-
-;; dired-k
-;; You can use dired-k alternative to revert-buffer
-(require 'dired-k)
-(define-key dired-mode-map (kbd "g") 'dired-k)
-;; always execute dired-k when dired buffer is opened
-(add-hook 'dired-initial-position-hook 'dired-k)
-;; (add-hook 'dired-after-readin-hook #'dired-k-no-revert)
 
 ;; undo limits
 (setq undo-limit (* 3 undo-limit))
