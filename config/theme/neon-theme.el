@@ -28,7 +28,7 @@
                 (keyword           "#FF00FF")
                 (const             "#00FFFF")
                 (comment           "#909090")
-                (func              "#8400FF")
+                (func              "#9006FF") ;; #8400FF
                 (str               "#FFFF00")
                 (type              "#BD93F9")
                 (var               "#00FF28")
@@ -95,6 +95,8 @@
                (whitespace-tab :foreground ,whitespace_fg :background nil :weight light)
                (trailing-whitespace :foreground ,whitespace_trfg :background ,whitespace_bg :weight light)
                (whitespace-trailing :inherit trailing-whitespace)
+               (whitespace-line :foreground nil :background nil)
+               ;; (whitespace-empty :foreground nil :background nil) ;; remove this ?
                ;; indentation
                (highlight-indentation-face :foreground ,indentation_fg :background ,indentation_bg)
                (highlight-indentation-current-column-face :foreground nil :background nil)

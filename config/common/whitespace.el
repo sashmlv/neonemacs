@@ -2,7 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'whitespace)
 (setq whitespace-display-mappings
       '((space-mark ?\ [?\u00B7] [?.]) ;; (space-mark ? [?\u00B7])
         (newline-mark ?\n [?\u2039 ?\n]) ;; u21DA, u00AB, ¶, u21B5, u25C0
@@ -18,8 +17,9 @@
         tab-mark
         newline-mark))
 
-(setq whitespace-line nil) ;; disable highlight long lines
-(setq whitespace-empty nil) ;; fix bug whith highlight last line
-(global-whitespace-mode t)
+(defun enable-whitespace ()
+  (whitespace-mode t))
+
+(add-hook 'prog-mode-hook #'enable-whitespace)
 
 ;;; whitespace.el ends here
