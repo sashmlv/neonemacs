@@ -38,7 +38,6 @@
                 (whitespace_bg     "#000000")
                 (whitespace_trfg   "#FF0000")
                 (indentation_fg    "#303030")
-                (indentation_bg    "#101010")
                 (hl_line_bg        "#151515")
                 (hl_line_bg        "#151515")
                 (dired_directory   "#009688")
@@ -98,8 +97,18 @@
                (whitespace-line :foreground nil :background nil)
                ;; (whitespace-empty :foreground nil :background nil) ;; remove this ?
                ;; indentation
-               (highlight-indentation-face :foreground ,indentation_fg :background ,indentation_bg)
                (highlight-indentation-current-column-face :foreground nil :background nil)
+               (highlight-indentation-face
+                :foreground ,indentation_fg
+                :background nil
+                ;; (frame-char-width (selected-frame)) -> 7
+                ;; (frame-char-height (selected-frame)) -> 14
+                :stipple ,(list 7 14 (string
+                                      8 8 8 8 8 8 8
+                                      8 8 8 8 8 8 8
+                                      ))
+                :inherit nil
+                )
                ;; region
                (region :foreground nil :background ,region :distant-foreground nil)
                ;; hl-line-mode
