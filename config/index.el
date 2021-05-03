@@ -38,7 +38,6 @@
         ;; wakatime-mode ;; time tracking
         xah-find
         avy
-        indium ;; see for setup: https://indium.readthedocs.io/en/latest/setup.html
         expand-region ;; fast text selection
         ;; dumb-jump ;; jump to variable definition
         bm ;; visible bookmarks
