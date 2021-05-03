@@ -28,7 +28,7 @@
                 (keyword           "#FF00FF")
                 (const             "#00FFFF")
                 (comment           "#909090")
-                (func              "#9006FF") ;; #8400FF
+                (func              "#9612FF") ;; #9006FF, #8400FF
                 (str               "#FFFF00")
                 (type              "#BD93F9")
                 (var               "#00FF28")

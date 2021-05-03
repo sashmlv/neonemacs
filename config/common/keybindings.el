@@ -85,4 +85,7 @@
 (global-set-key (kbd "C-c j") 'webjump)
 (global-set-key (kbd "C-c t") 'google_translate)
 
+;; Redefine active window switcher
+(global-set-key (kbd "M-o") 'other-window)
+
 ;;; keybindings.el ends here
