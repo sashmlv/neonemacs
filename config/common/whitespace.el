@@ -21,5 +21,6 @@
   (whitespace-mode t))
 
 (add-hook 'prog-mode-hook #'enable-whitespace)
+(add-hook 'org-mode-hook #'enable-whitespace)
 
 ;;; whitespace.el ends here
