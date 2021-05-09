@@ -19,16 +19,20 @@
 * "C-=" - fast text selection;
 
 ##### Reload yasnippet after add new:
-* "M-x yas-reload-all" - yas-reload-all;
+* "M-x yas-reload-all";
 
 ##### Hides the disturbing '^M' showing up:
-* "M-x hide-ctrl-M" - hide-ctrl-M;
+* "M-x hide-ctrl-M";
 
 ##### Kill from point to a character:
 * "M-z" - zzz-to-char;
 
 ##### Fast sites jump:
-* "M-x webjump" - webjump;
+* "M-x webjump";
 
 ##### Switch search method:
-* "M-x switch-search" - switch-search;
+* "M-x switch-search";
+
+##### Switch font name/size:
+* "M-x switch-font-name"
+* "M-x switch-font-size"

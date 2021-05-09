@@ -63,6 +63,7 @@
         ob-mongo ;; mongodb support for org-mode
         typescript-mode tide
         rust-mode racer
+        ;; dap-mode
         ))
 
 ;; install packages from list
@@ -91,7 +92,7 @@
 ;; lisp files (configs, params)
 (setq lisp-list ;; "doom-modeline" "highlight-indent-guides" "ido-vertical" "wakatime"
       `(
-        "ag" "avy" "bm"
+        "ag" "avy" "bm" "font"
         ,(concat (file-name-as-directory "column-marker") "highlight-100-mode")
         "company" "css" "dockerfile" "drag-stuff" "eshell" "flycheck" "google-translate"
         "grep" "haskell" "hide-new-line" "highlight-indentation" "highlight-symbol" "highlight-words"

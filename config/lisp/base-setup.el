@@ -4,7 +4,7 @@
 
 ;; save session
 (setq desktop-restore-eager 40) ;; how much buffers restore immediately
-(setq desktop-dirname base_dir)
+(setq desktop-dirname user-emacs-directory)
 (setq desktop-base-file-name "emacs.desktop")
 (setq desktop-base-lock-name "lock")
 (setq desktop-path (list desktop-dirname))
@@ -26,8 +26,6 @@
 ;; (setq-default cursor-type 'bar) ;; set cursor type
 
 (set-fringe-mode 0) ;; disable borders
-
-(set-frame-font current_font) ;; set font
 
 (setq scroll-step 1 scroll-conservatively  10000) ;; smooth scrolling
 
