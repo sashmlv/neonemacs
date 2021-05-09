@@ -36,3 +36,6 @@
 ##### Switch font name/size:
 * "M-x switch-font-name"
 * "M-x switch-font-size"
+
+##### Show current font:
+* "M-x show-current-font"

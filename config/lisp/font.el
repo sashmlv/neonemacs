@@ -57,4 +57,9 @@
   (set-frame-font current_font)
   (write-region current_font nil current_font_file))
 
+(defun show-current-font()
+  "Switch font size."
+  (interactive)
+  (message current_font))
+
 ;;; font.el ends here
