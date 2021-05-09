@@ -29,7 +29,7 @@
   (interactive)
   (setq current_font_name
         (completing-read
-         "Switch font name"
+         "Switch font name: "
          (delq nil (delete-dups (font-family-list)))
          nil t))
   (setq current_font (format "%s-%s" current_font_name current_font_size))
@@ -41,7 +41,7 @@
   (interactive)
   (setq current_font_size
         (completing-read
-         "Switch font size"
+         "Switch font size: "
          '(("3")
            ("4")
            ("5")
