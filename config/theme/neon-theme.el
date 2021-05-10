@@ -14,6 +14,17 @@
 
 (deftheme neon)
 
+(defun get-highlight-indentation-face-stipple ()
+  "Return stipple for highlight indentation face."
+  (list
+   (frame-char-width (selected-frame))
+   (frame-char-height (selected-frame))
+   (apply 'string (make-list (* (frame-char-width (selected-frame)) (frame-char-height (selected-frame))) 8))))
+
+(add-hook ;; fix face stipple for indentation
+ 'after-setting-font-hook
+ (lambda () (set-face-attribute 'highlight-indentation-face nil :stipple (get-highlight-indentation-face-stipple))))
+
 (let ((colors '((fg1               "#FFFFFF") ;; main font #F8F8F2
                 (fg2               "#E2E2DC")
                 (fg3               "#CCCCC7")
@@ -101,12 +112,7 @@
                (highlight-indentation-face
                 :foreground ,indentation_fg
                 :background nil
-                ;; (frame-char-width (selected-frame)) -> 7
-                ;; (frame-char-height (selected-frame)) -> 14
-                :stipple ,(list 7 14 (string
-                                      8 8 8 8 8 8 8
-                                      8 8 8 8 8 8 8
-                                      ))
+                :stipple ,(get-highlight-indentation-face-stipple)
                 :inherit nil
                 )
                ;; region
