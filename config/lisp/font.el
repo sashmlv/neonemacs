@@ -4,7 +4,7 @@
 
 ;; Andale Mono, Anonymous Pro, Consolas, DejaVu Sans Mono, Envy Code R, Fira Code, Fira Mono,
 ;; Hack, IBM Plex Mono, Iosevka, JetBrains Mono, Liberation Mono, Lucida Console, Lucida Sans,
-;; M+ 1m, Menlo, Monaco, Monospace, PT Mono, Rec Mono Linear, Source Code Pro, Ubuntu Mono
+;; M+ 1m, Menlo, Monaco, PT Mono, Rec Mono Linear, Source Code Pro, Ubuntu Mono
 (defun get-string-from-file (filePath)
   "Return filePath's file content."
   (with-temp-buffer

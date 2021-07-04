@@ -19,7 +19,7 @@
         multiple-cursors
         company ;; autocompletition
         company-statistics
-        projectile ;; project management
+        ;; projectile ;; project management
         highlight-indentation ;; or highlight-indent-guides
         rainbow-delimiters ;; rainbow parentheses
         js2-mode js2-refactor rjsx-mode less-css-mode php-mode
@@ -98,7 +98,7 @@
         "grep" "haskell" "hide-new-line" "highlight-indentation" "highlight-symbol" "highlight-words"
         "ivy" "json" "js-typescript" "markdown" "midnight-mode" "mode-line" "org" "perl" "php"
         ,(concat (file-name-as-directory "pomodoro") "pomodoro-setup")
-        "projectile" "pug" "recentf-mode" "restclient" "rust" "smex" "svelte" "vimish-fold" "webjump"
+        "pug" "recentf-mode" "restclient" "rust" "smex" "svelte" "vimish-fold" "webjump"
         "xah-change-bracket-pairs" "xah-syntax-color-hex" "yaml" "yasnippet" "dired"
         "prog-mode" "base-setup" ;; last modes
         ))
