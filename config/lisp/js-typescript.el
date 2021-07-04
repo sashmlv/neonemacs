@@ -226,7 +226,8 @@
 (setq lsp-keymap-prefix "C-z")
 (add-hook 'typescript-mode-hook #'lsp-deferred)
 (add-hook 'js2-mode-hook #'lsp-deferred)
-(setq-local flycheck-checker 'lsp)
+(setq flycheck-checker 'lsp)
+(setq lsp-headerline-breadcrumb-enable nil)
 ;; LSP mode, DAP mode
 
 ;;; js-typescript.el ends here
