@@ -66,7 +66,7 @@
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
 
-(define-key projectile-mode-map (kbd "C-z p") 'projectile-command-map)
+;; (Define-key projectile-mode-map (kbd "C-z p") 'projectile-command-map)
 
 (global-set-key "\C-z\ b" 'recentf-open-files)
 
