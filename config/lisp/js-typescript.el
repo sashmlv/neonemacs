@@ -232,10 +232,9 @@
 
 ;; Eglot
 (require 'eglot)
-(add-to-list 'eglot-server-programs '(typescript-mode . ("typescript-language-server" "--stdio")))
-(add-to-list 'eglot-server-programs '(js2-mode . ("typescript-language-server" "--stdio")))
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
 (add-to-list 'auto-mode-alist '("\\.\\(js\\|mjs\\|cjs\\)\\'" . js2-mode))
+(add-to-list 'eglot-server-programs '((typescript-mode js2-mode) "typescript-language-server" "--stdio"))
 (add-hook 'typescript-mode-hook 'eglot-ensure)
 (add-hook 'js2-mode-hook 'eglot-ensure)
 ;; Eglot

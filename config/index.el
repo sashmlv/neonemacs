@@ -70,6 +70,7 @@
 ;; install packages from list
 ;; check installed packages
 (setq need_package_install nil)
+(setq need_emacs_restart nil) ;; change while initialization
 (dolist (package package-list)
   (if(not(package-installed-p package))
       (setq need_package_install t)))
@@ -81,7 +82,8 @@
           ;; (if (y-or-n-p (format "Package \"%s\" is missing. Do you want to install it? " package))
           (package-install package)
           ;; )
-          ))))
+          ))
+      (setq need_emacs_restart t))) ;; restart emacs for "eglot" package installed
 
 (defun load-directory (path files)
   "Load files from a path, parameter \"path\" is a directory path and \"files\" is a file list."
@@ -108,8 +110,6 @@
 (setq common-list '("indentation" "theme" "whitespace" "keybindings" "search"))
 
 (load (concat (file-name-directory load-file-name) (file-name-as-directory "common") "configs")) ;; load configs file ( see for params )
-
-(setq need_emacs_restart nil) ;; change while initialization
 
 ;; load files
 (load (concat configs_dir (file-name-as-directory "common") "projects")) ;; project specific params before
