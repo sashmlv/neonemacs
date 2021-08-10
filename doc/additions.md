@@ -22,3 +22,7 @@
 * ```M-x```, ```dap-debug``` or ```dap-debug-edit-template```
 * [Usage](https://emacs-lsp.github.io/dap-mode/page/configuration/#javascript)
 * [Template parameters](https://code.visualstudio.com/docs/nodejs/nodejs-debugging)
+
+##### For ```eglot``` and ```js```, ```ts``` development:
+* [Node.js](https://nodejs.org)
+* ```npm install -g typescript-language-server typescript```

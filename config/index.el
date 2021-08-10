@@ -63,7 +63,8 @@
         ob-mongo ;; mongodb support for org-mode
         typescript-mode tide
         rust-mode racer
-        lsp-mode dap-mode
+        ;; lsp-mode dap-mode
+        eglot
         ))
 
 ;; install packages from list

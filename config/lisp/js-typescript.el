@@ -220,14 +220,24 @@
 ;; (flycheck-add-mode 'typescript-tslint 'web-mode)
 ;; TMP DISABLED ------------
 
-;; LSP mode, DAP mode
+;; ;; LSP mode, DAP mode
+;; (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+;; (add-to-list 'auto-mode-alist '("\\.\\(js\\|mjs\\|cjs\\)\\'" . js2-mode))
+;; (setq lsp-keymap-prefix "C-z")
+;; (add-hook 'typescript-mode-hook #'lsp-deferred)
+;; (add-hook 'js2-mode-hook #'lsp-deferred)
+;; (setq flycheck-checker 'lsp)
+;; (setq lsp-headerline-breadcrumb-enable nil)
+;; ;; LSP mode, DAP mode
+
+;; Eglot
+(require 'eglot)
+(add-to-list 'eglot-server-programs '(typescript-mode . ("typescript-language-server" "--stdio")))
+(add-to-list 'eglot-server-programs '(js2-mode . ("typescript-language-server" "--stdio")))
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
 (add-to-list 'auto-mode-alist '("\\.\\(js\\|mjs\\|cjs\\)\\'" . js2-mode))
-(setq lsp-keymap-prefix "C-z")
-(add-hook 'typescript-mode-hook #'lsp-deferred)
-(add-hook 'js2-mode-hook #'lsp-deferred)
-(setq flycheck-checker 'lsp)
-(setq lsp-headerline-breadcrumb-enable nil)
-;; LSP mode, DAP mode
+(add-hook 'typescript-mode-hook 'eglot-ensure)
+(add-hook 'js2-mode-hook 'eglot-ensure)
+;; Eglot
 
 ;;; js-typescript.el ends here
