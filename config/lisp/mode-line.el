@@ -9,6 +9,7 @@
 (size-indication-mode t)
 (column-number-mode t)
 (setq auto-revert-check-vc-info t)
+(global-total-lines-mode) ;; `total-lines' variable in modeline
 
 (defface buffer_path
   '((t :foreground "#FFFFFF" :weight normal))
@@ -40,7 +41,7 @@
   (let ((path))
     (setq default_path_limit 50)
     (setq default_part_length 20)
-    (setq curr_path (or buffer-file-name (directory-file-name default-directory)))
+    (setq curr_path (or buffer-file-name (directory-file-name (expand-file-name default-directory))))
     (or path_limit (setq path_limit default_path_limit))
     (cond ((not part_length)
            (setq path (format
@@ -91,30 +92,22 @@
          (buffer_path_string (buffer_path free_space_length)))
     (format "%s%s%s" start_part buffer_path_string end_part)))
 
-(global-total-lines-mode) ;; `total-lines' variable in modeline
-
 (setq mode-line-format
       '((:eval (mode-line-render
                 (format-mode-line (list
                                    "%e"
                                    'mode-line-front-space
-                                   '(:eval (propertize (format-time-string "%H:%M") 'face 'mode_line_position))
-                                   " "
-                                   '(:eval (propertize (format "%%l:%d:%%C" total-lines) 'face 'mode_line_position)) ;; line : total lines : column
-                                   " "
-                                   '(:propertize mode-line-remote face mode_line_position)
-                                   " "))
+                                   '(:eval (propertize (format-time-string "%H:%M ") 'face 'mode_line_position))
+                                   '(:eval (propertize (format "%%l:%d:%%C " total-lines) 'face 'mode_line_position)) ;; line : total lines : column
+                                   '(:eval (propertize (replace-regexp-in-string "(\\|)" "" (format "%s " mode-line-remote)) 'face 'mode_line_position))
+                                   ))
                 (format-mode-line (list
                                    " "
                                    '(:eval (propertize "%+" 'face 'mode_line_position)) ;; readonly, modified
-                                   " "
-                                   ;; (symbol-name (vc-state (buffer-file-name (current-buffer))))
-                                   '(:eval (propertize (car (vc-git-branches)) 'face 'mode_line_position))
-                                   " "
-                                   '(:eval (propertize "%I" 'face 'mode_line_buffer_size)) ;; file size
-                                   " "
-                                   '(:eval (propertize (symbol-name buffer-file-coding-system) 'face 'mode_line_position))
-                                   " "
+                                   '(:eval (propertize (format " %s " (vc-state (buffer-file-name (current-buffer))))))
+                                   '(:eval (propertize (car (vc-git-branches))) 'face 'mode_line_position)
+                                   '(:eval (propertize " %I " 'face 'mode_line_buffer_size)) ;; file size
+                                   '(:eval (propertize (format "%s " buffer-file-coding-system) 'face 'mode_line_position))
                                    '(:propertize mode-name face mode_line_mode_name)
                                    '(:propertize minor-mode-alist face mode_line_minor_mode_alist)))))))
 
