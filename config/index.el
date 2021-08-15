@@ -63,8 +63,9 @@
         ob-mongo ;; mongodb support for org-mode
         typescript-mode tide
         rust-mode racer
-        ;; lsp-mode dap-mode
-        eglot
+        ;; lsp-mode dap-mode ;; JS, TS, - IDE
+        ;; eglot ;; JS, TS, - IDE
+        total-lines ;; buffer's total number of lines in mode-line
         ))
 
 ;; install packages from list

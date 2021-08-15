@@ -83,40 +83,39 @@
             (replace-regexp-in-string "\\/\\{2,\\}" "" path))
       path)))
 
-(defun mode-line-fill (face reserve)
-  "Return empty space using FACE and leaving RESERVE space on the right."
-  (unless reserve
-    (setq reserve 20))
-  (when (and window-system (eq 'right (get-scroll-bar-mode)))
-    (setq reserve (- reserve 3)))
-  (propertize " "
-              'display `((space :align-to (- (+ right right-fringe right-margin) ,reserve)))
-              'face face))
+(defun mode-line-render (start_part end_part)
+  "Return a string containing start_part, buffer_path and end_part."
+  (let* ((start_length (length start_part))
+         (end_length (length end_part))
+         (free_space_length (- (window-width) start_length end_length))
+         (buffer_path_string (buffer_path free_space_length)))
+    (format "%s%s%s" start_part buffer_path_string end_part)))
 
-(setq-default mode-line-format
-              (list
-               "%e"
-               'mode-line-front-space
-               '(:eval (propertize (format-time-string "%H:%M") 'face 'mode_line_position))
-               " "
-               '(:eval (propertize "%l:%C %P" 'face 'mode_line_position)) ;; line, column, position at buffer in %
-               " "
-               '(:propertize mode-line-remote face mode_line_position)
-               " "
-               '(:eval (buffer_path))
-               " "
-               '(:eval (propertize "%+" 'face 'mode_line_position)) ;; readonly, modified
-               " "
-               ;; (symbol-name (vc-state (buffer-file-name (current-buffer))))
-               '(:eval (propertize (car (vc-git-branches)) 'face 'mode_line_position))
-               " "
-               '(:eval (propertize "%I" 'face 'mode_line_buffer_size)) ;; file size
-               " "
-               '(:eval (propertize (symbol-name buffer-file-coding-system) 'face 'mode_line_position))
-               " "
-               '(:propertize mode-name face mode_line_mode_name)
-               '(:propertize minor-mode-alist face mode_line_minor_mode_alist)
-               ;; (mode-line-fill 'mode-line 6) ;; fill line with spaces
-               ))
+(global-total-lines-mode) ;; `total-lines' variable in modeline
+
+(setq mode-line-format
+      '((:eval (mode-line-render
+                (format-mode-line (list
+                                   "%e"
+                                   'mode-line-front-space
+                                   '(:eval (propertize (format-time-string "%H:%M") 'face 'mode_line_position))
+                                   " "
+                                   '(:eval (propertize (format "%%l:%d:%%C" total-lines) 'face 'mode_line_position)) ;; line : total lines : column
+                                   " "
+                                   '(:propertize mode-line-remote face mode_line_position)
+                                   " "))
+                (format-mode-line (list
+                                   " "
+                                   '(:eval (propertize "%+" 'face 'mode_line_position)) ;; readonly, modified
+                                   " "
+                                   ;; (symbol-name (vc-state (buffer-file-name (current-buffer))))
+                                   '(:eval (propertize (car (vc-git-branches)) 'face 'mode_line_position))
+                                   " "
+                                   '(:eval (propertize "%I" 'face 'mode_line_buffer_size)) ;; file size
+                                   " "
+                                   '(:eval (propertize (symbol-name buffer-file-coding-system) 'face 'mode_line_position))
+                                   " "
+                                   '(:propertize mode-name face mode_line_mode_name)
+                                   '(:propertize minor-mode-alist face mode_line_minor_mode_alist)))))))
 
 ;;; mode-line.el ends here
