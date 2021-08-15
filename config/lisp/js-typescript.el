@@ -147,78 +147,81 @@
           ))))
   )
 
-;; PREV
+;; JS2-MODE
 ;; (add-to-list 'auto-mode-alist '("\\.\\(js\\|mjs\\|cjs\\)\\'" . js2-mode))
 ;; (add-hook 'js2-mode-hook #'js2-refactor-mode)
 ;; (add-to-list 'auto-mode-alist '("\\.\\(ts\\|tsx\\)\\'" . typescript-mode))
 ;; (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
-;; PREV
+;; JS2-MODE
 
-;; TMP
+;; JS-MODE
 ;; (add-to-list 'auto-mode-alist '("\\.\\(js\\|mjs\\|cjs\\)\\'" . js-mode))
 ;; (add-to-list 'auto-mode-alist '("\\.\\(ts\\|tsx\\)\\'" . typescript-mode))
 ;; (add-to-list 'auto-mode-alist '("\\.jsx\\'" . js-mode))
 ;; (add-hook 'js2-mode-hook #'js2-refactor-mode)
 ;; (add-hook 'js-mode-hook 'js2-minor-mode)
-;; TMP
+;; JS-MODE
 
-;; TMP DISABLED ------------
-;; ;; JavaScript, TypeScript
-;; (require 'tide)
-;; (require 'flycheck)
-;; (require 'web-mode)
+;; TIDE
+;; JavaScript, TypeScript
+(require 'tide)
+(require 'flycheck)
+(require 'web-mode)
 
-;; (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
-;; (add-to-list 'auto-mode-alist '("\\.\\(js\\|mjs\\|cjs\\)\\'" . js2-mode))
-;; ;; (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
-;; (add-hook 'js2-mode-hook #'js2-refactor-mode)
-;; (js2r-add-keybindings-with-prefix "C-c C-m")
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+(add-to-list 'auto-mode-alist '("\\.\\(js\\|mjs\\|cjs\\)\\'" . js2-mode))
+;; (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
+(add-hook 'js2-mode-hook #'js2-refactor-mode)
+(js2r-add-keybindings-with-prefix "C-c C-m")
 
-;; (defun setup-tide-mode ()
-;;   (interactive)
-;;   (tide-setup)
-;;   (flycheck-mode +1)
-;;   (setq flycheck-check-syntax-automatically '(save mode-enabled))
-;;   (eldoc-mode +1)
-;;   (tide-hl-identifier-mode +1)
-;;   ;; company is an optional dependency. You have to
-;;   ;; install it separately via package-install
-;;   ;; `M-x package-install [ret] company`
-;;   (company-mode +1))
+(defun setup-tide-mode ()
+  (interactive)
+  (tide-setup)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1)
+  ;; company is an optional dependency. You have to
+  ;; install it separately via package-install
+  ;; `M-x package-install [ret] company`
+  (company-mode +1))
 
-;; ;; aligns annotation to the right hand side
-;; (setq company-tooltip-align-annotations t)
+;; aligns annotation to the right hand side
+(setq company-tooltip-align-annotations t)
 
-;; ;; JavaScript
-;; (add-hook 'js2-mode-hook #'setup-tide-mode)
-;; ;; configure javascript-tide checker to run after your default javascript checker
-;; (flycheck-add-next-checker 'javascript-eslint 'javascript-tide 'append)
+;; always show documentation for the symbol at point
+(setq tide-always-show-documentation t)
 
-;; ;; JSX
-;; (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
-;; (add-hook 'web-mode-hook
-;;           (lambda ()
-;;             (when (string-equal "jsx" (file-name-extension buffer-file-name))
-;;               (setup-tide-mode))))
-;; ;; configure jsx-tide checker to run after your default jsx checker
-;; (flycheck-add-mode 'javascript-eslint 'web-mode)
-;; (flycheck-add-next-checker 'javascript-eslint 'jsx-tide 'append)
+;; JavaScript
+(add-hook 'js2-mode-hook #'setup-tide-mode)
+;; configure javascript-tide checker to run after your default javascript checker
+(flycheck-add-next-checker 'javascript-eslint 'javascript-tide 'append)
 
-;; ;; TypeScript
-;; ;; formats the buffer before saving
-;; ;; (add-hook 'before-save-hook 'tide-format-before-save)
-;; (add-hook 'typescript-mode-hook #'setup-tide-mode)
+;; JSX
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
+(add-hook 'web-mode-hook
+          (lambda ()
+            (when (string-equal "jsx" (file-name-extension buffer-file-name))
+              (setup-tide-mode))))
+;; configure jsx-tide checker to run after your default jsx checker
+(flycheck-add-mode 'javascript-eslint 'web-mode)
+(flycheck-add-next-checker 'javascript-eslint 'jsx-tide 'append)
 
-;; ;; TSX
-;; (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
-;; (add-hook 'web-mode-hook
-;;           (lambda ()
-;;             (when (string-equal "tsx" (file-name-extension buffer-file-name))
-;;               (setup-tide-mode))))
+;; TypeScript
+;; formats the buffer before saving
+;; (add-hook 'before-save-hook 'tide-format-before-save)
+(add-hook 'typescript-mode-hook #'setup-tide-mode)
 
-;; ;; enable typescript-tslint checker
-;; (flycheck-add-mode 'typescript-tslint 'web-mode)
-;; TMP DISABLED ------------
+;; TSX
+(add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+(add-hook 'web-mode-hook
+          (lambda ()
+            (when (string-equal "tsx" (file-name-extension buffer-file-name))
+              (setup-tide-mode))))
+
+;; enable typescript-tslint checker
+(flycheck-add-mode 'typescript-tslint 'web-mode)
+;; TIDE
 
 ;; ;; LSP mode, DAP mode
 ;; (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
@@ -230,13 +233,13 @@
 ;; (setq lsp-headerline-breadcrumb-enable nil)
 ;; ;; LSP mode, DAP mode
 
-;; Eglot
-(require 'eglot)
-(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
-(add-to-list 'auto-mode-alist '("\\.\\(js\\|mjs\\|cjs\\)\\'" . js2-mode))
-(add-to-list 'eglot-server-programs '((typescript-mode js2-mode) "typescript-language-server" "--stdio"))
-(add-hook 'typescript-mode-hook 'eglot-ensure)
-(add-hook 'js2-mode-hook 'eglot-ensure)
-;; Eglot
+;; EGLOT
+;; (require 'eglot)
+;; (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+;; (add-to-list 'auto-mode-alist '("\\.\\(js\\|mjs\\|cjs\\)\\'" . js2-mode))
+;; (add-to-list 'eglot-server-programs '((typescript-mode js2-mode) "typescript-language-server" "--stdio"))
+;; (add-hook 'typescript-mode-hook 'eglot-ensure)
+;; (add-hook 'js2-mode-hook 'eglot-ensure)
+;; EGLOT
 
 ;;; js-typescript.el ends here
