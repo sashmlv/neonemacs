@@ -40,7 +40,7 @@
                 (const             "#00FFFF")
                 (comment           "#909090")
                 (func              "#9612FF") ;; #9006FF, #8400FF
-                (str               "#FFFF00")
+                (str               "#FFFF33")
                 (type              "#BD93F9")
                 (var               "#00FF28")
                 (warning           "#FF0303")
