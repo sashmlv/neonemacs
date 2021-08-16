@@ -11,10 +11,6 @@
 (setq auto-revert-check-vc-info t)
 (global-total-lines-mode) ;; `total-lines' variable in modeline
 
-(defface mode_line_white
-  '((t :foreground "#FFFFFF" :weight normal))
-  "Face for highlight current buffer path.")
-
 (defun buffer_path(&optional path_limit part_length)
   "Get active buffer path, with limit path length"
   (let ((path))
@@ -57,9 +53,9 @@
          (format "%s%s%s"
                  start_part
                  (format-mode-line (list
-                                    '(:eval (propertize (format "%s" (nth 0 buffer_path_list)) 'face '(:foreground "#00BBB3" :weight normal)))
-                                    '(:eval (propertize (format "%s" (nth 1 buffer_path_list)) 'face '(:foreground "#45EDE6" :weight normal)))
-                                    '(:eval (propertize (format "%s" (nth 2 buffer_path_list)) 'face '(:foreground "#60FDF4" :weight normal)))))
+                                    '(:eval (propertize (format "%s" (nth 0 buffer_path_list)) 'face '(:foreground "#64FFDA")))
+                                    '(:eval (propertize (format "%s" (nth 1 buffer_path_list)) 'face '(:foreground "#64FFDA")))
+                                    '(:eval (propertize (format "%s" (nth 2 buffer_path_list)) 'face '(:foreground "#64FFDA")))))
                  end_part)))
 
 (setq mode-line-format
@@ -67,18 +63,18 @@
                 (format-mode-line (list
                                    "%e"
                                    'mode-line-front-space
-                                   '(:eval (propertize (format-time-string "%H:%M ") 'face 'mode_line_white))
-                                   '(:eval (propertize (format "%%l:%d:%%C " total-lines 'face 'mode_line_white))) ;; line : total lines : column
-                                   '(:eval (propertize (replace-regexp-in-string "(\\|)" "" (format "%s " mode-line-remote)) 'face 'mode_line_white))
+                                   '(:eval (propertize (format-time-string "%H:%M ") 'face '(:foreground "#A1C4FF"))) ;; 82B1FF, A1C4FF, B9D3FF
+                                   '(:eval (propertize (format "%%l:%d:%%C " total-lines) 'face '(:foreground "#A1C4FF"))) ;; line : total lines : column
+                                   '(:eval (propertize (replace-regexp-in-string "(\\|)" "" (format "%s " mode-line-remote)) 'face '(:foreground "#C6A6FF")))
                                    ))
                 (format-mode-line (list
                                    " "
-                                   '(:eval (propertize "%+" 'face 'mode_line_white)) ;; readonly, modified
-                                   '(:eval (propertize (format " %s " (vc-state (buffer-file-name (current-buffer))))))
-                                   '(:eval (propertize (car (vc-git-branches))) 'face 'mode_line_white)
-                                   '(:eval (propertize " %I " 'face 'mode_line_white)) ;; file size
-                                   '(:eval (propertize (format "%s " buffer-file-coding-system) 'face 'mode_line_white))
-                                   '(:propertize mode-name face mode_line_white)
-                                   '(:propertize minor-mode-alist face mode_line_white)))))))
+                                   '(:eval (propertize "%+" 'face '(:foreground "#C6A6FF"))) ;; readonly, modified
+                                   '(:eval (propertize (format " %s " (vc-state (buffer-file-name (current-buffer)))) 'face '(:foreground "#FFA0C0")))
+                                   '(:eval (propertize (car (vc-git-branches)) 'face '(:foreground "#FFA0C0"))) ;; FF80AB, FFA0C0, FFB8D0
+                                   '(:eval (propertize " %I" 'face '(:foreground "#A1C4FF"))) ;; file size
+                                   '(:eval (propertize (format " %s " buffer-file-coding-system) 'face '(:foreground "#A1C4FF")))
+                                   '(:propertize mode-name face (:foreground "#FFA0C0"))
+                                   '(:propertize minor-mode-alist face (:foreground "#C6A6FF")))))))) ;; B388FF, C6A6FF, D4BCFF
 
 ;;; mode-line.el ends here
