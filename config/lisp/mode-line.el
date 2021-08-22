@@ -52,10 +52,14 @@
          (buffer_path_list (buffer_path free_space_length)))
          (format "%s%s%s"
                  start_part
-                 (format-mode-line (list
-                                    '(:eval (propertize (format "%s" (nth 0 buffer_path_list)) 'face '(:foreground "#64FFDA")))
-                                    '(:eval (propertize (format "%s" (nth 1 buffer_path_list)) 'face '(:foreground "#64FFDA")))
-                                    '(:eval (propertize (format "%s" (nth 2 buffer_path_list)) 'face '(:foreground "#64FFDA")))))
+                 (format-mode-line (list '(:eval (propertize (let* ((path (format "%s%s%s"
+                                                                                  (or (nth 0 buffer_path_list) "")
+                                                                                  (or (nth 1 buffer_path_list) "")
+                                                                                  (or (nth 2 buffer_path_list) ""))))
+                                                               (setq path (replace-regexp-in-string "\\/\\{2,\\}" "/" path))
+                                                               (if (equal path "") " " (format " %s " path)))
+                                                             'face
+                                                             '(:foreground "#64FFDA")))))
                  end_part)))
 
 (setq mode-line-format
@@ -63,18 +67,20 @@
                 (format-mode-line (list
                                    "%e"
                                    'mode-line-front-space
-                                   '(:eval (propertize (format-time-string "%H:%M ") 'face '(:foreground "#A1C4FF"))) ;; 82B1FF, A1C4FF, B9D3FF
-                                   '(:eval (propertize (format "%%l:%d:%%C " total-lines) 'face '(:foreground "#A1C4FF"))) ;; line : total lines : column
-                                   '(:eval (propertize (replace-regexp-in-string "(\\|)" "" (format "%s " mode-line-remote)) 'face '(:foreground "#C6A6FF")))
-                                   ))
+                                   '(:eval (propertize (format-time-string "%H:%M ") 'face '(:foreground "#C6A6FF")))
+                                   '(:eval (propertize (format "%%l:%d:%%C " total-lines) 'face '(:foreground "#C6A6FF"))) ;; line : total lines : column
+                                   '(:eval (propertize (replace-regexp-in-string "(\\|)" "" (format "%s" mode-line-remote)) 'face '(:foreground "#64FFDA")))))
                 (format-mode-line (list
-                                   " "
-                                   '(:eval (propertize "%+" 'face '(:foreground "#C6A6FF"))) ;; readonly, modified
-                                   '(:eval (propertize (format " %s " (vc-state (buffer-file-name (current-buffer)))) 'face '(:foreground "#FFA0C0")))
-                                   '(:eval (propertize (car (vc-git-branches)) 'face '(:foreground "#FFA0C0"))) ;; FF80AB, FFA0C0, FFB8D0
-                                   '(:eval (propertize " %I" 'face '(:foreground "#A1C4FF"))) ;; file size
-                                   '(:eval (propertize (format " %s " buffer-file-coding-system) 'face '(:foreground "#A1C4FF")))
-                                   '(:propertize mode-name face (:foreground "#FFA0C0"))
-                                   '(:propertize minor-mode-alist face (:foreground "#C6A6FF")))))))) ;; B388FF, C6A6FF, D4BCFF
-
+                                   '(:eval (propertize "%+" 'face '(:foreground "#64FFDA"))) ;; readonly, modified
+                                   '(:eval (propertize (if (and (buffer-file-name (current-buffer)) (vc-state (buffer-file-name (current-buffer))))
+                                                           (format " %s " (vc-state (buffer-file-name (current-buffer))))
+                                                         " ")
+                                                       'face '(:foreground "#FF8CAC")))
+                                   '(:eval (propertize (if (car (vc-git-branches))
+                                                           (format "%s " (car (vc-git-branches)))
+                                                         "") 'face '(:foreground "#FF8CAC")))
+                                   '(:eval (propertize "%I" 'face '(:foreground "#C6A6FF"))) ;; file size
+                                   '(:eval (propertize (format " %s " buffer-file-coding-system) 'face '(:foreground "#C6A6FF")))
+                                   '(:propertize mode-name face (:foreground "#FF8CAC"))
+                                   '(:propertize minor-mode-alist face (:foreground "#C6A6FF"))))))))
 ;;; mode-line.el ends here
