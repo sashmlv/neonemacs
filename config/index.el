@@ -23,10 +23,10 @@
         highlight-indentation ;; or highlight-indent-guides
         rainbow-delimiters ;; rainbow parentheses
         js2-mode js2-refactor rjsx-mode less-css-mode php-mode
+        js-comint ;; js repl
         pug-mode yaml-mode markdown-mode json-mode dockerfile-mode svelte-mode
         haskell-mode web-mode
         eslint-fix ;; fix current file using ESLint
-        js-comint ;; js repl
         bongo volume ;; media player
         magit ;; git support
         highlight-symbol ;; highlight occurrences
@@ -48,7 +48,7 @@
         counsel ;;  Ivy-enhanced versions of common Emacs commands
         swiper ;; Ivy-enhanced alternative to isearch
         diff-hl ;; git highlights
-        drag-stuff ;; drag stuf around
+        move-text ;; move text up down
         restclient ;; rest client
         company-restclient ;; restclient completions
         popup-kill-ring ;; kill ring menu

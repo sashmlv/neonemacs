@@ -46,8 +46,8 @@
 (global-set-key (kbd "C-x r s") 'bm-show-all) ;; bookmarks show
 (global-set-key (kbd "C-x r r") 'bm-remove-all-current-buffer) ;; delete bookmarks
 
-(global-set-key (kbd "M-P") 'drag-stuff-up)
-(global-set-key (kbd "M-N") 'drag-stuff-down)
+(global-set-key (kbd "M-P") 'move-text-up)
+(global-set-key (kbd "M-N") 'move-text-down)
 
 ;; navigate through occurrences
 (global-set-key (kbd "M-}") 'highlight-symbol-next)
