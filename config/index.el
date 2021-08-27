@@ -62,6 +62,7 @@
         editorconfig ;; editorconfig plugin
         ob-mongo ;; mongodb support for org-mode
         typescript-mode tide
+        slime ;; common lisp
         d-mode
         rust-mode racer
         ;; lsp-mode dap-mode ;; JS, TS, - IDE
@@ -103,7 +104,7 @@
         "grep" "haskell" "hide-new-line" "highlight-indentation" "highlight-symbol" "highlight-words"
         "ivy" "json" "js-typescript" "markdown" "midnight-mode" "mode-line" "org" "perl" "php"
         ,(concat (file-name-as-directory "pomodoro") "pomodoro-setup")
-        "pug" "recentf-mode" "restclient" "d" "rust" "smex" "svelte" "vimish-fold" "webjump"
+        "pug" "recentf-mode" "restclient" "slime" "d" "rust" "smex" "svelte" "vimish-fold" "webjump"
         "xah-change-bracket-pairs" "xah-syntax-color-hex" "yaml" "yasnippet" "dired"
         "prog-mode" "base-setup" ;; last modes
         ))

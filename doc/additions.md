@@ -26,3 +26,6 @@
 ##### For ```eglot``` and ```js```, ```ts``` development:
 * [Node.js](https://nodejs.org)
 * ```npm install -g typescript-language-server typescript```
+
+##### For ```slime``` package:
+* ```sudo apt install sbcl```
