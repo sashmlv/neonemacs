@@ -63,6 +63,7 @@
         ob-mongo ;; mongodb support for org-mode
         typescript-mode tide
         slime ;; common lisp
+        slime-company
         d-mode
         rust-mode racer
         ;; lsp-mode dap-mode ;; JS, TS, - IDE
@@ -100,7 +101,7 @@
       `(
         "ag" "avy" "bm" "font"
         ,(concat (file-name-as-directory "column-marker") "highlight-100-mode")
-        "company" "css" "dockerfile" "drag-stuff" "eshell" "flycheck" "google-translate"
+        "company" "css" "dockerfile" "eshell" "flycheck" "google-translate"
         "grep" "haskell" "hide-new-line" "highlight-indentation" "highlight-symbol" "highlight-words"
         "ivy" "json" "js-typescript" "markdown" "midnight-mode" "mode-line" "org" "perl" "php"
         ,(concat (file-name-as-directory "pomodoro") "pomodoro-setup")
