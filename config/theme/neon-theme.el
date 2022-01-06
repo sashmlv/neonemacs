@@ -122,7 +122,7 @@
                ;; auto-complete
                (ac-completion-face :underline t :foreground ,keyword)
                ;; js2-mode
-               (js2-external-variable :foreground ,type  )
+               (js2-external-variable :foreground ,type)
                (js2-function-param :foreground ,const)
                (js2-jsdoc-html-tag-delimiter :foreground ,str)
                (js2-jsdoc-html-tag-name :foreground ,fg4)
@@ -176,6 +176,8 @@
                (highlight-symbol-face :background "#000000" :underline (:color "#7FFF00"))
                ;; (highlight-symbol-face :background "#7FFF00" :underline nil )
                ;; (highlight-symbol-face :background nil :box (:line-width -1 :color "#7FFF00"))
+               ;; lsp-mode
+               (lsp-face-highlight-read :background nil)
                )))
 
   (apply #'custom-theme-set-faces
