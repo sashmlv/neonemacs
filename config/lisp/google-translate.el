@@ -6,6 +6,7 @@
 (require 'google-translate-default-ui)
 (setq google-translate-default-source-language "en")
 (setq google-translate-default-target-language "ru")
+(setf google-translate-pop-up-buffer-set-focus t)
 
 (defun google_translate ()
   (interactive)
