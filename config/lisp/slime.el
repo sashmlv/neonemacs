@@ -4,9 +4,12 @@
 
 (setq inferior-lisp-program "sbcl")
 (add-to-list 'auto-mode-alist '("\\.lisp\\'" . lisp-mode))
-(add-hook 'slime-mode-hook (lambda ()
-                             (unless (slime-connected-p)
-                               (save-excursion (slime)))))
-(slime-setup '(slime-fancy slime-company))
+(add-to-list 'slime-contribs 'inferior-slime)
+(add-hook 'inferior-lisp-mode-hook (lambda () (inferior-slime-mode t)))
+;; (add-hook 'slime-mode-hook
+;;           (lambda ()
+;;             (unless (slime-connected-p)
+;;               (save-excursion (slime)))
+;;             ))
 
 ;;; slime.el ends here
