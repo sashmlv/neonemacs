@@ -6,7 +6,7 @@
 
 (setq company-idle-delay nil)
 (setq company-dabbrev-downcase nil)
-(setq company-minimum-prefix-length 3)
+(setq company-minimum-prefix-length 0)
 (setq company-dabbrev-code-ignore-case t)
 
 (defun fix-prog-mode-company (&optional arg)
