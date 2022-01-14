@@ -4,9 +4,11 @@
 
 (add-hook 'after-init-hook 'global-company-mode)
 
+(define-key prog-mode-map (kbd "<M-tab>") #'company-complete)
+
 (setq company-idle-delay nil)
 (setq company-dabbrev-downcase nil)
-(setq company-minimum-prefix-length 0)
+(setq company-minimum-prefix-length 1)
 (setq company-dabbrev-code-ignore-case t)
 
 (defun fix-prog-mode-company (&optional arg)
