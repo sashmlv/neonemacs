@@ -9,7 +9,7 @@
 * To apply theme completely try remove ```~/.emacs.d/emacs.desktop```
 
 ### Screenshot:
-![Image of editor](https://raw.githubusercontent.com/sashlex/emacs-config/master/img/screenshot.png)
+![Image of editor](https://raw.githubusercontent.com/sashmlv/neonemacs/master/img/screenshot.png)
 
 ### Theme license note:
 Each theme have own license, for details see in theme file.
