@@ -1,4 +1,4 @@
-## Current emacs config.
+## Emacs config.
 
 ### Installation:
 * Backup and clear ```~/.emacs.d/``` directory
