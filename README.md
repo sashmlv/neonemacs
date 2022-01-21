@@ -1,6 +1,6 @@
 ## Emacs config.
 
-### Installation:
+### Install:
 * Backup and clear ```~/.emacs.d/``` directory
 * Move ```config/init.el```, into ```~/.emacs.d/```
 * Set in ```~/.emacs.d/init.el``` path to ```config/index.el```

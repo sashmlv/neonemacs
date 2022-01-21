@@ -10,6 +10,10 @@
           (lambda()
             (if (equal 'lisp-mode major-mode)
                 (unless (slime-connected-p)
-                  (save-excursion (slime))))))
+                  (slime)))))
+(add-hook 'slime-connected-hook
+          (lambda()
+            (if (< 1 (length (window-list)))
+                (delete-window (get-buffer-window)))))
 
 ;;; slime.el ends here
