@@ -45,7 +45,7 @@
 ;; Example:
 ;; switch (true) {
 ;; case variable:
-(setq-default js-switch-indent-offset current_indent)
+(setq-default js-switch-indent-offset neon-indent)
 
 ;; Example:
 ;;   var o = {
@@ -74,8 +74,8 @@
 ;;   let a = 1,
 ;;     b = 2,
 ;;     c = 3;
-(defconst fix_variables_indentation t)
-(when fix_variables_indentation
+(defconst neon-fix-variables-indentation t)
+(when neon-fix-variables-indentation
 
   ;; Fix indentation for multiline variables names declarations
   ;; see emacs source - js.el, at end of function: js--multi-line-declaration-indentation
@@ -84,14 +84,14 @@
   ;; let name_a = 1,
   ;;   name_b = 2,
   ;;   name_c = 3;
-  (defun fix_var_name_indent (orig-fun &rest args)
+  (defun neon-fix-var-name-indent (orig-fun &rest args)
     (when (apply orig-fun args)
       (goto-char (match-beginning 0))
       (+ (current-column) js-indent-level)))
 
   ;; init fix
-  (advice-add #'js--multi-line-declaration-indentation :around #'fix_var_name_indent)
-  ;; (advice-remove #'js--maybe-goto-declaration-keyword-end #'fix_var_name_indent)
+  (advice-add #'js--multi-line-declaration-indentation :around #'neon-fix-var-name-indent)
+  ;; (advice-remove #'js--maybe-goto-declaration-keyword-end #'neon-fix-var-name-indent)
 
   ;; Fix indentation at begining variable declaration
   ;; see emacs source - js.el, at part where 'dynamic and t conditions: js--maybe-goto-declaration-keyword-end
@@ -103,12 +103,12 @@
   ;;       b = {
   ;;         y: 2,
   ;;       };
-  (defun fix_var_indent_begining (orig-fun &rest args)
+  (defun neon-fix-var-indent-begining (orig-fun &rest args)
     (cond
 
      ;; 'dynamic
      ((eq js-indent-first-init 'dynamic)
-      (apply 'dynamic_part_replacer_of_js--maybe-goto-declaration-keyword-end args))
+      (apply 'neon-dynamic-part-replacer-of-js--maybe-goto-declaration-keyword-end args))
 
      ;; t
      ((eq js-indent-first-init t)
@@ -120,10 +120,10 @@
 
   ;; init fix
   (when (or (eq js-indent-first-init 'dynamic) (eq js-indent-first-init t))
-    (advice-add #'js--maybe-goto-declaration-keyword-end :around #'fix_var_indent_begining))
-  ;; (advice-remove #'js--maybe-goto-declaration-keyword-end #'fix_var_indent_begining)
+    (advice-add #'js--maybe-goto-declaration-keyword-end :around #'neon-fix-var-indent-begining))
+  ;; (advice-remove #'js--maybe-goto-declaration-keyword-end #'neon-fix-var-indent-begining)
 
-  (defun dynamic_part_replacer_of_js--maybe-goto-declaration-keyword-end (parse-status)
+  (defun neon-dynamic-part-replacer-of-js--maybe-goto-declaration-keyword-end (parse-status)
     (let ((bracket (nth 1 parse-status))
           declaration-keyword-end
           at-closing-bracket-p
@@ -162,76 +162,86 @@
 ;; (add-hook 'js-mode-hook 'js2-minor-mode)
 ;; JS-MODE
 
-;; TIDE
-;; JavaScript, TypeScript
-(require 'tide)
-(require 'flycheck)
-(require 'web-mode)
+;; ;; TIDE
+;; ;; JavaScript, TypeScript
+;; (require 'tide)
+;; (require 'flycheck)
+;; (require 'web-mode)
 
-(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
-(add-to-list 'auto-mode-alist '("\\.\\(js\\|mjs\\|cjs\\)\\'" . js2-mode))
-;; (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
-(add-hook 'js2-mode-hook #'js2-refactor-mode)
-(js2r-add-keybindings-with-prefix "C-c C-m")
-
-(defun setup-tide-mode ()
-  (interactive)
-  (tide-setup)
-  (flycheck-mode +1)
-  (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  (eldoc-mode +1)
-  (tide-hl-identifier-mode +1)
-  ;; company is an optional dependency. You have to
-  ;; install it separately via package-install
-  ;; `M-x package-install [ret] company`
-  (company-mode +1))
-
-;; aligns annotation to the right hand side
-(setq company-tooltip-align-annotations t)
-
-;; always show documentation for the symbol at point
-(setq tide-always-show-documentation t)
-
-;; JavaScript
-(add-hook 'js2-mode-hook #'setup-tide-mode)
-;; configure javascript-tide checker to run after your default javascript checker
-(flycheck-add-next-checker 'javascript-eslint 'javascript-tide 'append)
-
-;; JSX
-(add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
-(add-hook 'web-mode-hook
-          (lambda ()
-            (when (string-equal "jsx" (file-name-extension buffer-file-name))
-              (setup-tide-mode))))
-;; configure jsx-tide checker to run after your default jsx checker
-(flycheck-add-mode 'javascript-eslint 'web-mode)
-(flycheck-add-next-checker 'javascript-eslint 'jsx-tide 'append)
-
-;; TypeScript
-;; formats the buffer before saving
-;; (add-hook 'before-save-hook 'tide-format-before-save)
-(add-hook 'typescript-mode-hook #'setup-tide-mode)
-
-;; TSX
-(add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
-(add-hook 'web-mode-hook
-          (lambda ()
-            (when (string-equal "tsx" (file-name-extension buffer-file-name))
-              (setup-tide-mode))))
-
-;; enable typescript-tslint checker
-(flycheck-add-mode 'typescript-tslint 'web-mode)
-;; TIDE
-
-;; ;; LSP mode, DAP mode
 ;; (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
 ;; (add-to-list 'auto-mode-alist '("\\.\\(js\\|mjs\\|cjs\\)\\'" . js2-mode))
-;; (setq lsp-keymap-prefix "C-z")
-;; (add-hook 'typescript-mode-hook #'lsp-deferred)
+;; ;; (add-to-list 'auto-mode-alist '("\\.jsx\\'" . rjsx-mode))
+;; (add-hook 'js2-mode-hook #'js2-refactor-mode)
+;; (js2r-add-keybindings-with-prefix "C-c C-m")
+
+;; (defun setup-tide-mode ()
+;;   (interactive)
+;;   (tide-setup)
+;;   (flycheck-mode +1)
+;;   (setq flycheck-check-syntax-automatically '(save mode-enabled))
+;;   (eldoc-mode +1)
+;;   (tide-hl-identifier-mode +1)
+;;   ;; company is an optional dependency. You have to
+;;   ;; install it separately via package-install
+;;   ;; `M-x package-install [ret] company`
+;;   (company-mode +1))
+
+;; ;; aligns annotation to the right hand side
+;; (setq company-tooltip-align-annotations t)
+
+;; ;; always show documentation for the symbol at point
+;; (setq tide-always-show-documentation t)
+
+;; ;; JavaScript
+;; (add-hook 'js2-mode-hook #'setup-tide-mode)
+;; ;; configure javascript-tide checker to run after your default javascript checker
+;; (flycheck-add-next-checker 'javascript-eslint 'javascript-tide 'append)
+
+;; ;; JSX
+;; (add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
+;; (add-hook 'web-mode-hook
+;;           (lambda ()
+;;             (when (string-equal "jsx" (file-name-extension buffer-file-name))
+;;               (setup-tide-mode))))
+;; ;; configure jsx-tide checker to run after your default jsx checker
+;; (flycheck-add-mode 'javascript-eslint 'web-mode)
+;; (flycheck-add-next-checker 'javascript-eslint 'jsx-tide 'append)
+
+;; ;; TypeScript
+;; ;; formats the buffer before saving
+;; ;; (add-hook 'before-save-hook 'tide-format-before-save)
+;; (add-hook 'typescript-mode-hook #'setup-tide-mode)
+
+;; ;; TSX
+;; (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+;; (add-hook 'web-mode-hook
+;;           (lambda ()
+;;             (when (string-equal "tsx" (file-name-extension buffer-file-name))
+;;               (setup-tide-mode))))
+
+;; ;; enable typescript-tslint checker
+;; (flycheck-add-mode 'typescript-tslint 'web-mode)
+;; ;; TIDE
+
+;; LSP mode, DAP mode
+(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+;; (add-to-list 'auto-mode-alist '("\\.\\(js\\|mjs\\|cjs\\)\\'" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.\\(js\\|mjs\\|cjs\\)\\'" . typescript-mode))
+(setq lsp-keymap-prefix "C-z")
+(add-hook 'typescript-mode-hook #'lsp-deferred)
 ;; (add-hook 'js2-mode-hook #'lsp-deferred)
-;; (setq flycheck-checker 'lsp)
-;; (setq lsp-headerline-breadcrumb-enable nil)
-;; ;; LSP mode, DAP mode
+(setq flycheck-checker 'lsp)
+(setq lsp-headerline-breadcrumb-enable nil)
+(setq lsp-completion-provider :none)
+(setq gc-cons-threshold 100000000) ;; 100mb
+(setq read-process-output-max (* 1024 1024)) ;; 1mb
+(setq lsp-idle-delay 0.500)
+(setq lsp-log-io nil)
+(setq lsp-eldoc-enable-hover nil)
+(setq lsp-completion-provider nil)
+(setq lsp-enable-on-type-formatting nil)
+(setq lsp-enable-indentation nil)
+;; LSP mode, DAP mode
 
 ;; EGLOT
 ;; (require 'eglot)
@@ -240,6 +250,8 @@
 ;; (add-to-list 'eglot-server-programs '((typescript-mode js2-mode) "typescript-language-server" "--stdio"))
 ;; (add-hook 'typescript-mode-hook 'eglot-ensure)
 ;; (add-hook 'js2-mode-hook 'eglot-ensure)
+;; (with-eval-after-load 'eglot
+;;   (set-face-attribute 'eglot-highlight-symbol-face nil :inherit nil))
 ;; EGLOT
 
 ;;; js-typescript.el ends here

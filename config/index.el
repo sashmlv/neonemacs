@@ -18,7 +18,6 @@
         ;; ido-vertical-mode
         multiple-cursors
         company ;; autocompletition
-        company-statistics
         ;; projectile ;; project management
         highlight-indentation ;; or highlight-indent-guides
         rainbow-delimiters ;; rainbow parentheses
@@ -36,7 +35,6 @@
         ivy-yasnippet
         vimish-fold ;; fold-unfold library
         ;; wakatime-mode ;; time tracking
-        xah-find
         avy
         expand-region ;; fast text selection
         ;; dumb-jump ;; jump to variable definition
@@ -61,24 +59,25 @@
         rg ;; search using ripgrep
         editorconfig ;; editorconfig plugin
         ob-mongo ;; mongodb support for org-mode
-        typescript-mode tide
         slime ;; common lisp
         slime-company
         d-mode
         rust-mode racer
-        ;; lsp-mode dap-mode ;; JS, TS, - IDE
+        typescript-mode
+        ;; tide ;; JS, TS, - IDE
+        lsp-mode dap-mode ;; JS, TS, - IDE
         ;; eglot ;; JS, TS, - IDE
         total-lines ;; buffer's total number of lines in mode-line
         ))
 
 ;; install packages from list
 ;; check installed packages
-(setq need_package_install nil)
-(setq need_emacs_restart nil) ;; change while initialization
+(setq neon-want-package-install nil)
+(setq neon-want-emacs-restart nil) ;; change while initialization
 (dolist (package package-list)
   (if(not(package-installed-p package))
-      (setq need_package_install t)))
-(if need_package_install ;; install packages if need
+      (setq neon-want-package-install t)))
+(if neon-want-package-install ;; install packages if need
     (progn
       (package-refresh-contents) ;; fetch list of packages available in melpa
       (dolist (package package-list) ;; install the missing packages
@@ -87,7 +86,7 @@
           (package-install package)
           ;; )
           ))
-      (setq need_emacs_restart t))) ;; restart emacs for "eglot" package installed
+      (setq neon-want-emacs-restart t))) ;; restart emacs for "eglot" package installed
 
 (defun load-directory (path files)
   "Load files from a path, parameter \"path\" is a directory path and \"files\" is a file list."
@@ -116,11 +115,11 @@
 (load (concat (file-name-directory load-file-name) (file-name-as-directory "common") "configs")) ;; load configs file ( see for params )
 
 ;; load files
-(load (concat configs_dir (file-name-as-directory "common") "projects")) ;; project specific params before
-(load-directory (concat configs_dir (file-name-as-directory "lisp")) lisp-list)
-(load-directory (concat configs_dir (file-name-as-directory "common")) common-list)
+(load (concat neon-config-dir (file-name-as-directory "common") "projects")) ;; project specific params before
+(load-directory (concat neon-config-dir (file-name-as-directory "lisp")) lisp-list)
+(load-directory (concat neon-config-dir (file-name-as-directory "common")) common-list)
 
-(if need_emacs_restart
+(if neon-want-emacs-restart
     (if (or
          (string-equal system-type "gnu/linux")
          (string-equal system-type "windows-nt"))

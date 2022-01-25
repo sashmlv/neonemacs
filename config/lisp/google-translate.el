@@ -8,7 +8,7 @@
 (setq google-translate-default-target-language "ru")
 (setf google-translate-pop-up-buffer-set-focus t)
 
-(defun google_translate ()
+(defun neon-google-translate ()
   (interactive)
   (cond ((or(looking-at "[a-zA-Z]")
             (string-match "[a-zA-Z]" (string (char-before))))

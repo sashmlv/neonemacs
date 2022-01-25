@@ -17,10 +17,11 @@
         tab-mark
         newline-mark))
 
-(defun enable-whitespace ()
+(defun neon-enable-whitespace ()
   (whitespace-mode t))
 
-(add-hook 'prog-mode-hook #'enable-whitespace)
-(add-hook 'org-mode-hook #'enable-whitespace)
+(add-hook 'prog-mode-hook #'neon-enable-whitespace)
+(add-hook 'org-mode-hook #'neon-enable-whitespace)
+(add-hook 'yaml-mode-hook #'neon-enable-whitespace)
 
 ;;; whitespace.el ends here

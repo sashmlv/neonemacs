@@ -45,20 +45,20 @@
                 (var               "#00FF28")
                 (warning           "#FF0303")
                 (region            "#109010")
-                (whitespace_fg     "#272727")
-                (whitespace_bg     "#000000")
-                (whitespace_trfg   "#FF0000")
-                (indentation_fg    "#303030")
-                (hl_line_bg        "#151515")
-                (hl_line_bg        "#151515")
-                (dired_directory   "#009688")
-                (dired_flagged     "#F44336")
-                (dired_header      "#BC4873")
-                (dired_mark        "#FFD600")
-                (dired_marked      "#5C6BC0")
-                (dired_perm_write  "#E57373")
-                (dired_symlink     "#BDBDBD")
-                (dired_warning     "#FF0303")
+                (whitespace-fg     "#272727")
+                (whitespace-bg     "#000000")
+                (whitespace-trfg   "#FF0000")
+                (indentation-fg    "#303030")
+                (hl-line-bg        "#151515")
+                (hl-line-bg        "#151515")
+                (dired-directory   "#009688")
+                (dired-flagged     "#F44336")
+                (dired-header      "#BC4873")
+                (dired-mark        "#FFD600")
+                (dired-marked      "#5C6BC0")
+                (dired-perm-write  "#E57373")
+                (dired-symlink     "#BDBDBD")
+                (dired-warning     "#FF0303")
                 ))
       (faces '(;; default
                (cursor :background ,cursor)
@@ -100,17 +100,17 @@
                (font-lock-variable-name-face :foreground ,var)
                (font-lock-warning-face :foreground ,warning :background ,bg2)
                ;; whitespace
-               (whitespace-space :foreground ,whitespace_fg :background ,whitespace_bg :weight light)
-               (whitespace-newline :foreground ,whitespace_fg :background nil :weight light)
-               (whitespace-tab :foreground ,whitespace_fg :background nil :weight light)
-               (trailing-whitespace :foreground ,whitespace_trfg :background ,whitespace_bg :weight light)
+               (whitespace-space :foreground ,whitespace-fg :background ,whitespace-bg :weight light)
+               (whitespace-newline :foreground ,whitespace-fg :background nil :weight light)
+               (whitespace-tab :foreground ,whitespace-fg :background nil :weight light)
+               (trailing-whitespace :foreground ,whitespace-trfg :background ,whitespace-bg :weight light)
                (whitespace-trailing :inherit trailing-whitespace)
                (whitespace-line :foreground nil :background nil)
                ;; (whitespace-empty :foreground nil :background nil) ;; remove this ?
                ;; indentation
                (highlight-indentation-current-column-face :foreground nil :background nil)
                (highlight-indentation-face
-                :foreground ,indentation_fg
+                :foreground ,indentation-fg
                 :background nil
                 :stipple ,(get-highlight-indentation-face-stipple)
                 :inherit nil
@@ -118,7 +118,7 @@
                ;; region
                (region :foreground nil :background ,region :distant-foreground nil)
                ;; hl-line-mode
-               (hl-line :foreground nil :background ,hl_line_bg)
+               (hl-line :foreground nil :background ,hl-line-bg)
                ;; auto-complete
                (ac-completion-face :underline t :foreground ,keyword)
                ;; js2-mode
@@ -150,26 +150,18 @@
                (web-mode-type-face :inherit ,font-lock-type-face)
                (web-mode-warning-face :inherit ,font-lock-warning-face)
                ;; dired
-               (dired-directory :foreground ,dired_directory :weight normal)
-               (dired-flagged :foreground ,dired_flagged)
-               (dired-header :foreground ,dired_header :background ,bg1)
+               (dired-directory :foreground ,dired-directory :weight normal)
+               (dired-flagged :foreground ,dired-flagged)
+               (dired-header :foreground ,dired-header :background ,bg1)
                (dired-ignored :inherit shadow) ;; ???
-               (dired-mark :foreground ,dired_mark :weight bold)
-               (dired-marked :foreground ,dired_marked :weight bold)
-               (dired-perm-write :foreground ,dired_perm_write :underline nil)
-               (dired-symlink :foreground ,dired_symlink :weight normal :slant italic)
+               (dired-mark :foreground ,dired-mark :weight bold)
+               (dired-marked :foreground ,dired-marked :weight bold)
+               (dired-perm-write :foreground ,dired-perm-write :underline nil)
+               (dired-symlink :foreground ,dired-symlink :weight normal :slant italic)
                (dired-warning :foreground ,warning :underline t)
                ;; mode-line
                (mode-line :inverse-video nil :foreground ,fg1 :background ,bg1 :weight normal)
                (mode-line-inactive :inverse-video nil :foreground ,fg1 :background ,bg1 :weight normal)
-               (buffer_path :foreground "#424EC6")
-               (buffer_path_dir :foreground "#6B73D5")
-               (buffer_path_file :foreground "#969FE4")
-               (mode_line_position :foreground "#969FE4")
-               (mode_line_buffer_size :foreground "#FF69B4")
-               (mode_line_modified :foreground "#FF1493")
-               (mode_line_mode_name :foreground "#CCCCCC")
-               (mode_line_minor_mode_alist :foreground "#CCCCCC")
                ;; vc-mode
                (vc-state-base :foreground "#FF1493")
                ;; highlight symbol face

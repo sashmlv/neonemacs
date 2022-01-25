@@ -39,7 +39,7 @@
 (setq vc-make-backup-files t)
 
 (setq make-backup-files t) ;; backup files
-(setq backup-directory-alist (list (cons "." backups_dir))) ;; backup directory
+(setq backup-directory-alist (list (cons "." neon-backup-dir))) ;; backup directory
 
 (defalias 'list-buffers 'ivy-switch-buffer) ;; make ibuffer default
 

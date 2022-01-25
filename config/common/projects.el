@@ -4,7 +4,7 @@
 
 ;; common projects settings
 (set-language-environment 'UTF-8)
-(defun change_encoding( encoding )
+(defun neon-change-encoding( encoding )
   "Switch encoding."
   (prefer-coding-system encoding)
   (set-default-coding-systems encoding)
@@ -12,9 +12,9 @@
   (set-keyboard-coding-system encoding))
 
 ;; set/reset indentation
-(defun set_indentation( indent )
+(defun neon-set-indentation( indent )
   "Set indentation."
-  (setq current_indent indent)
+  (setq neon-indent indent)
   (setq-default js-indent-level indent)
   (setq-default css-indent-offset indent)
   (setq-default web-mode-markup-indent-offset indent)
@@ -25,12 +25,12 @@
 ;; (add-hook
 ;;  'buffer-list-update-hook
 ;;  (lambda()
-;;    (change_encoding 'utf-8) ;; default utf-8 encoding
+;;    (neon-change-encoding 'utf-8) ;; default utf-8 encoding
 ;;    ;; first project config
 ;;    (if (string-match-p "\/disk\/project\/directory\/" default-directory)
 ;;        (progn
-;;          (change_encoding 'windows-1251)
-;;          (set_indentation 3)
+;;          (neon-change-encoding 'windows-1251)
+;;          (neon-set-indentation 3)
 ;;          ))))
 
 ;;; projects.el ends here

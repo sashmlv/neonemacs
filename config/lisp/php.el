@@ -8,6 +8,6 @@
 (add-hook 'php-mode-hook
           (lambda()
             (setq indent-tabs-mode nil)
-            (setq c-basic-offset current_indent)))
+            (setq c-basic-offset neon-indent)))
 
 ;;; php.el ends here

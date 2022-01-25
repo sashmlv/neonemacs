@@ -11,56 +11,56 @@
 (setq auto-revert-check-vc-info t)
 (global-total-lines-mode) ;; `total-lines' variable in modeline
 
-(defun buffer_path(&optional path_limit part_length)
+(defun neon-buffer-path(&optional path-limit part-length)
   "Get active buffer path, with limit path length"
   (let ((path))
-    (setq default_path_limit 50)
-    (setq default_part_length 20)
-    (setq curr_path (or buffer-file-name (directory-file-name (expand-file-name default-directory))))
-    (or path_limit (setq path_limit default_path_limit))
-    (cond ((not part_length)
+    (setq default-path-limit 50)
+    (setq default-part-length 20)
+    (setq curr-path (or buffer-file-name (directory-file-name (expand-file-name default-directory))))
+    (or path-limit (setq path-limit default-path-limit))
+    (cond ((not part-length)
            (setq path (list
-                        (directory-file-name (file-name-directory (directory-file-name (file-name-directory curr_path)))) ;; grand parent
-                        (concat "/" (file-name-nondirectory (directory-file-name (file-name-directory curr_path)))) ;; parent
-                        (concat "/" (file-name-nondirectory curr_path))))) ;; file, dir
-          (part_length
+                        (directory-file-name (file-name-directory (directory-file-name (file-name-directory curr-path)))) ;; grand parent
+                        (concat "/" (file-name-nondirectory (directory-file-name (file-name-directory curr-path)))) ;; parent
+                        (concat "/" (file-name-nondirectory curr-path))))) ;; file, dir
+          (part-length
            (setq path (list
                               (mapconcat
                                'identity
                                (let ((result ()))
-                                 (dolist (element (split-string curr_path "\\/"))
-                                   (if (< part_length (length element))
-                                       (push (substring element 0 part_length) result)
+                                 (dolist (element (split-string curr-path "\\/"))
+                                   (if (< part-length (length element))
+                                       (push (substring element 0 part-length) result)
                                      (push element result)))
                                  (nreverse (nthcdr 2 result)))
                                "/")
-                              (concat "/" (file-name-nondirectory (directory-file-name (file-name-directory curr_path)))) ;; file or dir parent name
-                              (concat "/" (file-name-nondirectory curr_path)))))) ;; file or dir name
-    (if (> (length (mapconcat 'identity path "")) path_limit)
+                              (concat "/" (file-name-nondirectory (directory-file-name (file-name-directory curr-path)))) ;; file or dir parent name
+                              (concat "/" (file-name-nondirectory curr-path)))))) ;; file or dir name
+    (if (> (length (mapconcat 'identity path "")) path-limit)
         (progn
-          (if (not part_length) (setq part_length (1+ default_part_length)))
-          (setq part_length (1- part_length))
-          (if (>= part_length 0)
-              (setq path (buffer_path path_limit part_length))))
+          (if (not part-length) (setq part-length (1+ default-part-length)))
+          (setq part-length (1- part-length))
+          (if (>= part-length 0)
+              (setq path (neon-buffer-path path-limit part-length))))
       path)))
 
-(defun mode-line-render (start_part end_part)
-  "Return a string containing start_part, buffer_path and end_part."
-  (let* ((start_length (length start_part))
-         (end_length (length end_part))
-         (free_space_length (- (window-width) start_length end_length))
-         (buffer_path_list (buffer_path free_space_length)))
+(defun mode-line-render (start-part end-part)
+  "Return a string containing start-part, neon-buffer-path and end-part."
+  (let* ((start-length (length start-part))
+         (end-length (length end-part))
+         (free-space-length (- (window-width) start-length end-length))
+         (buffer-path-list (neon-buffer-path free-space-length)))
          (format "%s%s%s"
-                 start_part
+                 start-part
                  (format-mode-line (list '(:eval (propertize (let* ((path (format "%s%s%s"
-                                                                                  (or (nth 0 buffer_path_list) "")
-                                                                                  (or (nth 1 buffer_path_list) "")
-                                                                                  (or (nth 2 buffer_path_list) ""))))
+                                                                                  (or (nth 0 buffer-path-list) "")
+                                                                                  (or (nth 1 buffer-path-list) "")
+                                                                                 (or (nth 2 buffer-path-list) ""))))
                                                                (setq path (replace-regexp-in-string "\\/\\{2,\\}" "/" path))
                                                                (if (equal path "") " " (format " %s " path)))
                                                              'face
                                                              '(:foreground "#64FFDA")))))
-                 end_part)))
+                 end-part)))
 
 (setq mode-line-format
       '((:eval (mode-line-render

@@ -4,24 +4,27 @@
 
 ;; highlight indentation hook
 (highlight-indentation-mode t)
+(setq highlight-indentation-offset neon-indent) ;; set indent size
 
-;; set current_indent value from .editorconfig file
-(setq current_indent_original current_indent)
-(defun set_current_indent_from_editorconfig (props)
-  (if (gethash 'indent_size props)
-      (setq current_indent (string-to-number (gethash 'indent_size props)))
-    (setq current_indent current_indent_original)))
-(add-hook 'editorconfig-after-apply-functions 'set_current_indent_from_editorconfig)
+;; set "neon-indent" equal to value from ".editorconfig" file and refresh highlight indentation
+(setq neon-indent-original neon-indent)
+(defun set-neon-indent-from-editorconfig (props)
+  (cond ((gethash 'indent_size props)
+         (setq neon-indent (string-to-number (gethash 'indent_size props))))
+        (t
+         (setq neon-indent neon-indent-original)))
+  (neon-highlight-indentation-offset))
+(add-hook 'editorconfig-hack-properties-functions 'set-neon-indent-from-editorconfig)
 
-(defun highlight_indentation_offset ()
-   (progn
-      (setq highlight-indentation-offset current_indent) ;; set indent size
-      (cond ((eq major-mode 'yaml-mode)
-               (setq highlight-indentation-offset yaml-indent-offset)))
-      ))
-(add-hook 'highlight-indentation-mode-hook 'highlight_indentation_offset)
+;; set "highlight-indentation-offset" value for modes
+(defun neon-highlight-indentation-offset ()
+  (cond ((eq major-mode 'yaml-mode)
+         (setq highlight-indentation-offset yaml-indent-offset))
+        (t
+         (setq highlight-indentation-offset neon-indent))))
+(add-hook 'highlight-indentation-mode-hook 'neon-highlight-indentation-offset)
 
-;; enable highlight-indentation on yml mode
+;; enable highlight-indentation for yml mode
 (add-hook 'yaml-mode-hook 'highlight-indentation-mode)
 
 ;;; highlight-indentation.el ends here

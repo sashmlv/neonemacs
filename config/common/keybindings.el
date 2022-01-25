@@ -83,7 +83,7 @@
 
 (global-set-key (kbd "C-x C-j") 'dired-jump)
 (global-set-key (kbd "C-c j") 'webjump)
-(global-set-key (kbd "C-c t") 'google_translate)
+(global-set-key (kbd "C-c t") 'neon-google-translate)
 
 ;; Redefine active window switcher
 (global-set-key (kbd "M-o") 'other-window)
