@@ -31,11 +31,11 @@
 * "M-x webjump";
 
 ##### Switch search method:
-* "M-x switch-search";
+* "M-x neon-switch-search";
 
 ##### Switch font name/size:
-* "M-x switch-font-name"
-* "M-x switch-font-size"
+* "M-x neon-switch-font-name"
+* "M-x neon-switch-font-size"
 
 ##### Show current font:
-* "M-x show-current-font"
+* "M-x neon-show-font"
