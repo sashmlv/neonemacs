@@ -29,3 +29,6 @@
 
 ##### For ```slime``` package:
 * ```sudo apt install sbcl```
+
+##### For ```walkman``` package:
+* ```sudo apt install curl```

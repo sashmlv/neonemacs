@@ -49,6 +49,7 @@
         move-text ;; move text up down
         restclient ;; rest client
         company-restclient ;; restclient completions
+        walkman ;; HTTP requests in Org mode
         popup-kill-ring ;; kill ring menu
         ;; trr ;; type-writing trainer
         ;; speed-type ;; practice touch/speed typing in emacs
