@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(defconst neon-indent 3) ;; common indentation
+(defconst neon-indent 2) ;; common indentation
 ;; define directories
 (defconst neon-config-dir (file-name-directory (directory-file-name (file-name-directory load-file-name))))
 (defconst neon-backup-dir (concat user-emacs-directory (file-name-as-directory "backup")))
