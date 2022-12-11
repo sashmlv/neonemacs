@@ -87,8 +87,6 @@
 
 (setq mode-require-final-newline nil) ;; remove newline at end
 
-(setq delete-by-moving-to-trash t) ;; replace remove, whith remove in trash
-
 ;; (setq debug-on-error t)
 
 ;; make shortcuts working in russian layout

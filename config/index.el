@@ -49,7 +49,8 @@
         move-text ;; move text up down
         restclient ;; rest client
         company-restclient ;; restclient completions
-        walkman ;; HTTP requests in Org mode
+        verb ;; HTTP requests
+        ;; walkman ;; HTTP requests in Org mode
         popup-kill-ring ;; kill ring menu
         ;; trr ;; type-writing trainer
         ;; speed-type ;; practice touch/speed typing in emacs
@@ -105,7 +106,7 @@
         "grep" "haskell" "hide-new-line" "highlight-indentation" "highlight-symbol" "highlight-words"
         "ivy" "json" "js-typescript" "markdown" "midnight-mode" "mode-line" "org" "perl" "php"
         ,(concat (file-name-as-directory "pomodoro") "pomodoro-setup")
-        "pug" "recentf-mode" "restclient" "walkman" "slime" "d" "rust" "smex" "svelte" "vimish-fold" "webjump"
+        "pug" "recentf-mode" "restclient" "slime" "d" "rust" "smex" "svelte" "vimish-fold" "webjump"
         "xah-change-bracket-pairs" "xah-syntax-color-hex" "yaml" "yasnippet" "dired"
         "prog-mode" "base-setup" ;; last modes
         ))
