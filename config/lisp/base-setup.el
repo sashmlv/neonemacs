@@ -3,7 +3,7 @@
 ;;; Code:
 
 ;; save session
-(setq desktop-restore-eager 40) ;; how much buffers restore immediately
+(setq desktop-restore-eager 100) ;; how much buffers restore immediately
 (setq desktop-dirname user-emacs-directory)
 (setq desktop-base-file-name "emacs.desktop")
 (setq desktop-base-lock-name "lock")

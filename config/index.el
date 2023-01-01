@@ -21,9 +21,14 @@
         ;; projectile ;; project management
         highlight-indentation ;; or highlight-indent-guides
         rainbow-delimiters ;; rainbow parentheses
-        js2-mode js2-refactor rjsx-mode less-css-mode php-mode
+        js2-mode js2-refactor rjsx-mode vue-mode svelte-mode
         js-comint ;; js repl
-        pug-mode yaml-mode markdown-mode json-mode dockerfile-mode svelte-mode
+        typescript-mode
+        tide ;; JS, TS, - IDE
+        lsp-mode dap-mode ;; JS, TS, - IDE
+        eglot ;; JS, TS, - IDE
+        less-css-mode php-mode
+        pug-mode yaml-mode markdown-mode json-mode dockerfile-mode
         haskell-mode web-mode
         eslint-fix ;; fix current file using ESLint
         bongo volume ;; media player
@@ -65,10 +70,6 @@
         slime-company
         d-mode
         rust-mode racer
-        typescript-mode
-        ;; tide ;; JS, TS, - IDE
-        lsp-mode dap-mode ;; JS, TS, - IDE
-        ;; eglot ;; JS, TS, - IDE
         total-lines ;; buffer's total number of lines in mode-line
         ))
 
