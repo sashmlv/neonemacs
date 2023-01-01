@@ -11,7 +11,17 @@
 
 ;; "verb" HTTP requests
 (with-eval-after-load 'org
-  (define-key org-mode-map (kbd "C-c C-r") verb-command-map))
+  (define-key org-mode-map (kbd "C-c C-r") verb-command-map)
+  ;;(define-key org-mode-map (kbd "C-c r") #'verb-send-request-on-point-other-window-stay)
+  (define-key org-mode-map (kbd "C-c r") #'verb-send-request-on-point-other-window)
+  (define-key org-mode-map (kbd "C-c q") #'verb-kill-all-response-buffers)
+)
+(with-eval-after-load 'verb
+  (define-key verb-response-body-mode-map (kbd "q") #'verb-kill-response-buffer-and-window)
+  (define-key verb-response-body-mode-map (kbd "r")
+    (lambda () (interactive) (verb-toggle-show-headers) (other-window 1) (beginning-of-buffer)))
+  (define-key verb-response-headers-mode-map (kbd "q") #'verb-kill-response-buffer-and-window))
+(setq verb-auto-kill-response-buffers t)
 
 ;; (require 'walkman)
 ;; (setq walkman-keep-headers t)
