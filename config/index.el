@@ -52,8 +52,8 @@
         swiper ;; Ivy-enhanced alternative to isearch
         diff-hl ;; git highlights
         move-text ;; move text up down
-        restclient ;; rest client
-        company-restclient ;; restclient completions
+        ;; restclient ;; rest client
+        ;; company-restclient ;; restclient completions
         verb ;; HTTP requests in Org mode
         ;; walkman ;; HTTP requests in Org mode
         popup-kill-ring ;; kill ring menu
@@ -107,7 +107,7 @@
         "grep" "haskell" "hide-new-line" "highlight-indentation" "highlight-symbol" "highlight-words"
         "ivy" "json" "js-typescript" "markdown" "midnight-mode" "mode-line" "org" "perl" "php"
         ,(concat (file-name-as-directory "pomodoro") "pomodoro-setup")
-        "pug" "recentf-mode" "restclient" "slime" "d" "rust" "smex" "svelte" "vimish-fold" "webjump"
+        "pug" "recentf-mode" "slime" "d" "rust" "smex" "svelte" "vimish-fold" "webjump"
         "xah-change-bracket-pairs" "xah-syntax-color-hex" "yaml" "yasnippet" "dired"
         "prog-mode" "base-setup" ;; last modes
         ))
