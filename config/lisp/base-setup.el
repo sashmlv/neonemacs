@@ -49,10 +49,6 @@
 
 (setq blink-cursor-blinks 0) ;; make cursor blinking always
 
-;; disable "insert" key ( which toggle overwrite-mode )
-(define-key global-map [(insert)] nil)
-(define-key global-map [(control insert)] 'overwrite-mode)
-
 ;; highlight brackets
 (show-paren-mode 1)
 (setq show-paren-delay 0)
@@ -120,9 +116,5 @@
 
 ;; editorconfig
 (editorconfig-mode 1)
-
-;; variable definition jump
-;; (dumb-jump-mode)
-;; (add-hook 'xref-backend-functions #'dumb-jump-xref-activate)
 
 ;;; base-setup.el ends here

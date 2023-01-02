@@ -6,7 +6,7 @@
 (add-hook 'prog-mode-hook
           (lambda()
             (syntax-subword-mode t)
-            (smartscan-mode t)
+            ;;(smartscan-mode t)
             (highlight-indentation-mode t) ;; (highlight-indent-guides-mode t)
             (highlight-symbol-mode t) ;; highlight occurrences
             (highlight-100-mode t) ;; highlight 100 column rule

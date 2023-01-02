@@ -170,6 +170,9 @@
                ;; (highlight-symbol-face :background nil :box (:line-width -1 :color "#7FFF00"))
                ;; lsp-mode
                (lsp-face-highlight-read :background nil)
+               ;; mmm
+               (mmm-default-submode-face :background nil)
+               (tide-hl-identifier-face :background nil)
                )))
 
   (apply #'custom-theme-set-faces

@@ -9,35 +9,15 @@
 (define-prefix-command 'ring-map)
 (global-set-key (kbd "C-z") 'ring-map)
 
-;; change bracket pairs from one type to another, on current line or text selection
-(global-set-key
- (kbd "C-c `")
- (lambda()
-   (interactive)
-   (setq from (read-string "Enter replacement:"))
-   (setq to (read-string "Enter new value:"))
-   (xah-change-bracket-pairs from to)))
-
 (global-set-key (kbd "C-c d")   'duplicate-line-or-region)
 (global-set-key (kbd "C-c C-r") 'revert-buffer)
 
 ;; expand-region faster text selection
 (global-set-key (kbd "C-=") 'er/expand-region)
 
-;; goto-chg goto-last-change
-(global-set-key (kbd "M-]") 'goto-last-change)
-(global-set-key (kbd "M-[") 'goto-last-change-reverse)
-
 ;; avy - fast navigation https://github.com/abo-abo/avy/wiki
 (global-set-key (kbd "C-;")   'avy-goto-char-2)
 (global-set-key (kbd "C-'")   'avy-goto-line)
-(global-set-key (kbd "M-g c") 'avy-goto-char)
-(global-set-key (kbd "M-g e") 'avy-goto-word-0)
-(global-set-key (kbd "M-g g") 'avy-goto-line)
-(global-set-key (kbd "M-g w") 'avy-goto-word-1)
-(global-set-key (kbd "M-g (") 'avy-goto-open-paren)
-(global-set-key (kbd "M-g )") 'avy-goto-close-paren)
-(global-set-key (kbd "M-g P") 'avy-pop-mark)
 
 ;; bookmarks https://github.com/joodland/bm
 (global-set-key (kbd "C-x r t") 'bm-toggle) ;; set a bookmark
@@ -87,5 +67,9 @@
 
 ;; Redefine active window switcher
 (global-set-key (kbd "M-o") 'other-window)
+
+;; scroll
+(global-set-key (kbd "M-p") (lambda () (interactive) (scroll-up 1)))
+(global-set-key (kbd "M-n") (lambda () (interactive) (scroll-down 1)))
 
 ;;; keybindings.el ends here

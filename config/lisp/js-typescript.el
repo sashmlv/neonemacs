@@ -8,7 +8,7 @@
 ;; warnings in js2-mode
 (setq-default js2-mode-show-parse-errors t
       js2-mode-show-strict-warnings t
-      js2-strict-missing-semi-warning t
+      js2-strict-missing-semi-warning nil
       js2-strict-trailing-comma-warning nil)
 
 ;; Example:
@@ -74,7 +74,7 @@
 ;;   let a = 1,
 ;;     b = 2,
 ;;     c = 3;
-(defconst neon-fix-variables-indentation t)
+(defconst neon-fix-variables-indentation nil)
 (when neon-fix-variables-indentation
 
   ;; Fix indentation for multiline variables names declarations
@@ -224,7 +224,7 @@
 ;; ;; TIDE
 
 ;; LSP mode, DAP mode
-(add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-mode))
+(add-to-list 'auto-mode-alist '("\\.\\(ts\\|tsx\\)\\'" . typescript-mode))
 ;; (add-to-list 'auto-mode-alist '("\\.\\(js\\|mjs\\|cjs\\)\\'" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.\\(js\\|mjs\\|cjs\\)\\'" . typescript-mode))
 (setq lsp-keymap-prefix "C-z")

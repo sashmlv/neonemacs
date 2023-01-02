@@ -5,9 +5,9 @@
 (require 'package)
 (package-initialize)
 (setq package-archives nil)
-(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
+;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 ;;(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
 ;;(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
 ;;(add-to-list 'package-archives '("elpy" . "https://jorgenschaefer.github.io/packages/") t)
@@ -42,11 +42,9 @@
         ;; wakatime-mode ;; time tracking
         avy
         expand-region ;; fast text selection
-        ;; dumb-jump ;; jump to variable definition
         bm ;; visible bookmarks
         syntax-subword ;; make word editing and motion more fine-grained
-        smartscan ;; jumps between other symbols found at point
-        goto-chg ;; goto-last-change
+        ;; smartscan ;; jumps between other symbols found at point
         ivy ;; completion for Emacs
         counsel ;;  Ivy-enhanced versions of common Emacs commands
         swiper ;; Ivy-enhanced alternative to isearch
