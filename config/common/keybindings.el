@@ -26,8 +26,8 @@
 (global-set-key (kbd "C-x r s") 'bm-show-all) ;; bookmarks show
 (global-set-key (kbd "C-x r r") 'bm-remove-all-current-buffer) ;; delete bookmarks
 
-(global-set-key (kbd "M-P") 'move-text-up)
-(global-set-key (kbd "M-N") 'move-text-down)
+(global-set-key (kbd "M-<up>")   'move-text-up)
+(global-set-key (kbd "M-<down>") 'move-text-down)
 
 ;; navigate through occurrences
 (global-set-key (kbd "M-}") 'highlight-symbol-next)
@@ -69,7 +69,21 @@
 (global-set-key (kbd "M-o") 'other-window)
 
 ;; scroll
-(global-set-key (kbd "M-p") (lambda () (interactive) (scroll-up 1)))
-(global-set-key (kbd "M-n") (lambda () (interactive) (scroll-down 1)))
+(global-set-key (kbd "M-p")
+                (lambda (n) (interactive "p") (previous-line n) (unless (eq (window-start) (point-min)) (scroll-down n))))
+(global-set-key (kbd "M-n")
+                (lambda (n) (interactive "p") (next-line n) (unless (eq (window-end) (point-max)) (scroll-up n))))
+(global-set-key (kbd "M-P")
+                (lambda (n) (interactive "p")
+                  (when (not (region-active-p))
+                    (setq-local transient-mark-mode (cons 'only (unless (eq transient-mark-mode 'lambda) transient-mark-mode)))
+                    (push-mark nil nil t))
+                  (previous-line n) (unless (eq (window-start) (point-min)) (scroll-down n))))
+(global-set-key (kbd "M-N")
+                (lambda (n) (interactive "p")
+                  (when (not (region-active-p))
+                    (setq-local transient-mark-mode (cons 'only (unless (eq transient-mark-mode 'lambda) transient-mark-mode)))
+                    (push-mark nil nil t))
+                  (next-line n) (unless (eq (window-end) (point-max)) (scroll-up n))))
 
 ;;; keybindings.el ends here
