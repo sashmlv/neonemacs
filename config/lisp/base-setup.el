@@ -117,4 +117,7 @@
 ;; editorconfig
 (editorconfig-mode 1)
 
+;; isearch
+(setq isearch-allow-scroll t)
+
 ;;; base-setup.el ends here
