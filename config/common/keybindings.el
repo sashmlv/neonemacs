@@ -35,7 +35,7 @@
 
 ;; ivy
 (global-set-key (kbd "C-s") 'swiper)
-(global-set-key (kbd "C-M-s") 'swiper-isearch-thing-at-point)
+(define-key swiper-map (kbd "C-<return>") 'swiper-isearch-thing-at-point)
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 
