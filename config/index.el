@@ -14,7 +14,6 @@
 
 (setq package-list
       '(restart-emacs ;; support only linux and windows
-        smex ;; minibuffer improvements
         ;; ido-vertical-mode
         multiple-cursors
         company ;; autocompletition
@@ -105,7 +104,7 @@
         "grep" "haskell" "hide-new-line" "highlight-indentation" "highlight-symbol" "highlight-words"
         "ivy" "json" "js-typescript" "markdown" "midnight-mode" "mode-line" "org" "perl" "php"
         ,(concat (file-name-as-directory "pomodoro") "pomodoro-setup")
-        "pug" "recentf-mode" "slime" "d" "rust" "smex" "svelte" "vimish-fold" "webjump"
+        "pug" "recentf-mode" "slime" "d" "rust" "svelte" "vimish-fold" "webjump"
         "xah-change-bracket-pairs" "xah-syntax-color-hex" "yaml" "yasnippet" "dired"
         "prog-mode" "base-setup" ;; last modes
         ))
