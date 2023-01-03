@@ -35,7 +35,7 @@
 
 ;; ivy
 (global-set-key (kbd "C-s") 'swiper)
-(define-key swiper-map (kbd "C-<return>") 'swiper-isearch-thing-at-point)
+(with-eval-after-load 'swiper (define-key swiper-map (kbd "C-<return>") 'swiper-isearch-thing-at-point))
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 
@@ -84,7 +84,9 @@
 
 ;; isearch
 (global-set-key (kbd "M-s s") 'isearch-forward-symbol-at-point)
-(define-key isearch-mode-map (kbd "n") 'isearch-repeat-forward)
-(define-key isearch-mode-map (kbd "p") 'isearch-repeat-backward)
+(with-eval-after-load 'isearch
+  (define-key isearch-mode-map (kbd "C-n") 'isearch-repeat-forward)
+  (define-key isearch-mode-map (kbd "C-p") 'isearch-repeat-backward)
+)
 
 ;;; keybindings.el ends here
