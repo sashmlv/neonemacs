@@ -43,7 +43,6 @@
         expand-region ;; fast text selection
         bm ;; visible bookmarks
         syntax-subword ;; make word editing and motion more fine-grained
-        ;; smartscan ;; jumps between other symbols found at point
         ivy ;; completion for Emacs
         counsel ;;  Ivy-enhanced versions of common Emacs commands
         swiper ;; Ivy-enhanced alternative to isearch
