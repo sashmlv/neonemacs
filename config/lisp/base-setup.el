@@ -119,5 +119,6 @@
 
 ;; isearch
 (setq isearch-allow-scroll t)
+(setq isearch-wrap-pause nil)
 
 ;;; base-setup.el ends here
