@@ -46,6 +46,7 @@
         ivy ;; completion for Emacs
         counsel ;;  Ivy-enhanced versions of common Emacs commands
         swiper ;; Ivy-enhanced alternative to isearch
+        smex ;; for counsel M-x cache
         diff-hl ;; git highlights
         move-text ;; move text up down
         ;; restclient ;; rest client
