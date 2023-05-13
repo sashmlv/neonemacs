@@ -1,4 +1,4 @@
-;;; search.el --- search configuration
+;;; search.el --- search
 ;;; Commentary:
 ;;; Code:
 

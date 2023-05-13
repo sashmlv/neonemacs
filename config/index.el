@@ -98,16 +98,51 @@
 ;; lisp files (configs, params)
 (setq lisp-list ;; "doom-modeline" "highlight-indent-guides" "ido-vertical" "wakatime"
       `(
-        "ag" "avy" "bm" "font"
+        "ag"
+        "avy"
+        "ascii"
+        "bm"
         ,(concat (file-name-as-directory "column-marker") "highlight-100-mode")
-        "company" "css" "dockerfile" "eshell" "flycheck" "google-translate"
-        "grep" "haskell" "hide-new-line" "highlight-indentation" "highlight-symbol" "highlight-words"
-        "ivy" "json" "js-typescript" "markdown" "midnight-mode" "mode-line" "org" "perl" "php"
+        "company"
+        "css"
+        "dockerfile"
+        "d"
+        "dired"
+        "eshell"
+        "font"
+        "flycheck"
+        "google-translate"
+        "grep"
+        "haskell"
+        "hide-new-line"
+        "highlight-indentation"
+        "highlight-symbol"
+        "highlight-words"
+        "ivy"
+        "json"
+        "js-typescript"
+        "markdown"
+        "midnight-mode"
+        "mode-line"
+        "move-to-trash"
+        "org"
+        "perl"
+        "php"
         ,(concat (file-name-as-directory "pomodoro") "pomodoro-setup")
-        "pug" "recentf-mode" "slime" "d" "rust" "svelte" "vimish-fold" "webjump"
-        "xah-change-bracket-pairs" "xah-syntax-color-hex" "yaml" "yasnippet" "dired"
-        "prog-mode" "base-setup" ;; last modes
-        ))
+        "pug"
+        "recentf-mode"
+        "rust"
+        "slime"
+        "svelte"
+        "vimish-fold"
+        "webjump"
+        "xah-change-bracket-pairs"
+        "xah-syntax-color-hex"
+        "yaml"
+        "yasnippet"
+        "prog-mode" ;; last modes
+        "base-setup" ;; last modes
+      ))
 
 ;; common configs
 (setq common-list '("indentation" "theme" "whitespace" "keybindings" "search"))

@@ -29,8 +29,6 @@
 (global-set-key (kbd "M-<up>") 'move-text-up)
 (global-set-key (kbd "M-<down>") 'move-text-down)
 
-;; navigate through occurrences
-(global-set-key (kbd "M-}") 'highlight-symbol-next)
 (global-set-key (kbd "M-{") 'highlight-symbol-prev)
 
 ;; ivy
@@ -88,5 +86,8 @@
   (define-key isearch-mode-map (kbd "C-n") 'isearch-repeat-forward)
   (define-key isearch-mode-map (kbd "C-p") 'isearch-repeat-backward)
 )
+
+;; disable search
+(global-set-key (kbd "M-s M-w") (lambda()()))
 
 ;;; keybindings.el ends here

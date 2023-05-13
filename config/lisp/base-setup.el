@@ -33,7 +33,6 @@
 
 (setq version-control t) ;; enable versioning
 (setq delete-old-versions t)
-(setq delete-by-moving-to-trash t)
 (setq kept-new-versions 6)
 (setq kept-old-versions 3)
 (setq vc-make-backup-files t)

@@ -1,14 +1,11 @@
 ### Addition packages:
 
 ##### For ```ag``` package:
-* ```sudo apt install silversearcher-ag```
-
+* ```silversearcher-ag```
 ##### For ```rg``` package:
-* ```sudo apt install ripgrep```
-
+* ```ripgrep```
 ##### For ```editorconfig``` package:
-* ```sudo apt install editorconfig```
-
+* ```editorconfig```
 ##### For ```eslint-fix``` package:
 * [Node.js](https://nodejs.org)
 * [ESLint](https://eslint.org)
@@ -28,7 +25,10 @@
 * ```npm install -g typescript-language-server typescript```
 
 ##### For ```slime``` package:
-* ```sudo apt install sbcl```
+* ```sbcl```
 
 ##### For ```walkman``` package:
-* ```sudo apt install curl```
+* ```curl```
+
+##### For ```delete-by-moving-to-trash``` setting:
+* ```gio```
