@@ -4,8 +4,6 @@
 * ```silversearcher-ag```
 ##### For ```rg``` package:
 * ```ripgrep```
-##### For ```editorconfig``` package:
-* ```editorconfig```
 ##### For ```eslint-fix``` package:
 * [Node.js](https://nodejs.org)
 * [ESLint](https://eslint.org)
@@ -32,3 +30,6 @@
 
 ##### For ```delete-by-moving-to-trash``` setting:
 * ```gio```
+
+##### For ```sqlformat``` setting:
+* ```pgformatter```

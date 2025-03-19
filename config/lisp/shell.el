@@ -1,6 +1,8 @@
-;;; eshell.el --- eshell configuration
+;;; shell.el --- eshell configuration
 ;;; Commentary:
 ;;; Code:
+
+(add-to-list 'auto-mode-alist '("\\.env\\'" . shell-script-mode))
 
 (setq eshell-prompt-function
       (lambda nil
@@ -8,4 +10,4 @@
          (eshell/pwd)
          " λ ")))
 
-;;; eshell.el ends here
+;;; shell.el ends here

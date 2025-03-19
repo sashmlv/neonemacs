@@ -15,11 +15,6 @@
 * "M-g )" - avy-goto-close-paren;
 * "M-g P" - avy-pop-mark;
 
-##### Dumb jump, definition jump:
-* "C-M-g" - dumb-jump-go
-* "C-M-p" - dumb-jump-back
-* "C-M-q" - dumb-jump-quick-look
-
 ##### Recentering:
 * "C-l" - recenter-top-bottom;
 * "C-M-l" - reposition-window;
@@ -35,10 +30,6 @@
 ##### Navigate to register:
 * "C-x r SPC R" - set register R;
 * "C-x r j R" - jump to register R;
-
-##### Goto last change:
-* "M-]" - goto-last-change;
-* "M-[" - goto-last-change-reverse;
 
 ##### Navigate through occurrences at point:
 * "M-}" - highlight-symbol-next;

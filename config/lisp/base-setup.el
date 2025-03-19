@@ -110,8 +110,9 @@
 (cfg:reverse-input-method 'russian-computer)
 
 ;; undo limits
-(setq undo-limit (* 3 undo-limit))
-(setq undo-strong-limit (* 3 undo-strong-limit))
+(setq undo-limit (* 10 undo-limit))
+(setq undo-strong-limit (* 10 undo-strong-limit))
+(setq undo-outer-limit (* 10 undo-outer-limit))
 
 ;; editorconfig
 (editorconfig-mode 1)
@@ -119,5 +120,9 @@
 ;; isearch
 (setq isearch-allow-scroll t)
 (setq isearch-wrap-pause nil)
+
+;; highlight regexp colors
+(setq hi-lock-face-defaults
+      '("hi-yellow" "hi-green" "hi-blue" "hi-aquamarine" "hi-pink" "hi-salmon" "hi-black-b" "hi-blue-b" "hi-red-b" "hi-green-b" "hi-black-hb"))
 
 ;;; base-setup.el ends here

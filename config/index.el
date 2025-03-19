@@ -20,6 +20,7 @@
         ;; projectile ;; project management
         highlight-indentation ;; or highlight-indent-guides
         rainbow-delimiters ;; rainbow parentheses
+        ;; dumb-jump ;; jump to definition
         js2-mode js2-refactor rjsx-mode vue-mode svelte-mode
         js-comint ;; js repl
         typescript-mode
@@ -30,6 +31,8 @@
         pug-mode yaml-mode markdown-mode json-mode dockerfile-mode
         haskell-mode web-mode
         eslint-fix ;; fix current file using ESLint
+        ;; sqlformat ;; sql formatter
+        sql-indent ;; syntax-based indentation when editing SQL
         bongo volume ;; media player
         magit ;; git support
         highlight-symbol ;; highlight occurrences
@@ -49,11 +52,11 @@
         smex ;; for counsel M-x cache
         diff-hl ;; git highlights
         move-text ;; move text up down
+        verb ;; HTTP requests in Org mode
+        ;; request ;; elisp HTTP library
         ;; restclient ;; rest client
         ;; company-restclient ;; restclient completions
-        verb ;; HTTP requests in Org mode
         ;; walkman ;; HTTP requests in Org mode
-        popup-kill-ring ;; kill ring menu
         ;; trr ;; type-writing trainer
         ;; speed-type ;; practice touch/speed typing in emacs
         flycheck ;; syntax checking
@@ -67,7 +70,10 @@
         slime-company
         d-mode
         rust-mode racer
+        cmake-mode
         total-lines ;; buffer's total number of lines in mode-line
+        ;;xah-fly-keys ;; this is the most efficient editing system in the universe
+        csv-mode ;; csv mode
         ))
 
 ;; install packages from list
@@ -108,7 +114,7 @@
         "dockerfile"
         "d"
         "dired"
-        "eshell"
+        "shell"
         "font"
         "flycheck"
         "google-translate"
@@ -120,7 +126,9 @@
         "highlight-words"
         "ivy"
         "json"
+        ;; "treesit"
         "js-typescript"
+        "magit"
         "markdown"
         "midnight-mode"
         "mode-line"
@@ -133,12 +141,16 @@
         "recentf-mode"
         "rust"
         "slime"
+        "sql"
         "svelte"
         "vimish-fold"
         "webjump"
-        "xah-change-bracket-pairs"
-        "xah-syntax-color-hex"
+        ;;,(concat (file-name-as-directory "xah") "xah-fly-keys")
+        ;;,(concat (file-name-as-directory "xah") "xah-fly-keys-setup")
+        ,(concat (file-name-as-directory "xah") "xah-change-bracket-pairs")
+        ,(concat (file-name-as-directory "xah") "xah-syntax-color-hex")
         "yaml"
+        "sqlformat"
         "yasnippet"
         "prog-mode" ;; last modes
         "base-setup" ;; last modes

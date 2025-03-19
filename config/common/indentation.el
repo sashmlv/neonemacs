@@ -18,6 +18,7 @@
 (setq-default sh-indentation neon-indent)
 (setq-default yaml-indent-offset 2)
 (setq-default nginx-indent-level 4)
+(setq-default electric-indent-mode nil)
 
 ;; html-mode indentation https://www.emacswiki.org/emacs/IndentingHtml
 (setq-default sgml-basic-offset neon-indent)

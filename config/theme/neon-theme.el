@@ -99,14 +99,21 @@
                (font-lock-type-face :foreground ,type )
                (font-lock-variable-name-face :foreground ,var)
                (font-lock-warning-face :foreground ,warning :background ,bg2)
+
                ;; whitespace
-               (whitespace-space :foreground ,whitespace-fg :background ,whitespace-bg :weight light)
-               (whitespace-newline :foreground ,whitespace-fg :background nil :weight light)
                (whitespace-tab :foreground ,whitespace-fg :background nil :weight light)
+               (whitespace-line :foreground nil :background nil)
+               (whitespace-empty :background ,bg1 :foreground ,fg1)
+               (whitespace-space :foreground ,whitespace-fg :background ,whitespace-bg :weight light)
+               (whitespace-hspace :background ,bg1 :foreground ,fg1)
+               (whitespace-newline :foreground ,whitespace-fg :background nil :weight light)
                (trailing-whitespace :foreground ,whitespace-trfg :background ,whitespace-bg :weight light)
                (whitespace-trailing :inherit trailing-whitespace)
-               (whitespace-line :foreground nil :background nil)
-               ;; (whitespace-empty :foreground nil :background nil) ;; remove this ?
+               (whitespace-big-indent :background ,fg1 :foreground ,bg1)
+               (whitespace-indentation :background ,fg1 :foreground ,bg1)
+               (whitespace-space-after-tab :background ,fg1 :foreground ,bg1)
+               (whitespace-space-before-tab :background ,fg1 :foreground ,bg1)
+
                ;; indentation
                (highlight-indentation-current-column-face :foreground nil :background nil)
                (highlight-indentation-face

@@ -5,7 +5,7 @@
 
 ;; Author: Alexey Kutepov <reximkut@gmail.com>
 ;; URL: http://github.com/rexim/gruber-darker-theme
-;; Version: 0.6
+;; Version: 0.7
 
 ;; Permission is hereby granted, free of charge, to any person
 ;; obtaining a copy of this software and associated documentation
@@ -57,7 +57,8 @@
       (gruber-darker-yellow    "#ffdd33")
       (gruber-darker-brown     "#cc8c3c")
       (gruber-darker-quartz    "#95a99f")
-      (gruber-darker-niagara-1 "#5f627f")
+      (gruber-darker-niagara-2 "#303540")
+      (gruber-darker-niagara-1 "#565f73")
       (gruber-darker-niagara   "#96a6c8")
       (gruber-darker-wisteria  "#9e95c7")
       )
@@ -93,8 +94,9 @@
    `(cursor ((t (:background ,gruber-darker-yellow))))
    `(default ((t ,(list :foreground gruber-darker-fg
                         :background gruber-darker-bg))))
-   `(fringe ((t ,(list :background gruber-darker-bg-1
+   `(fringe ((t ,(list :background nil
                        :foreground gruber-darker-bg+2))))
+   `(vertical-border ((t ,(list :foreground gruber-darker-bg+2))))
    `(link ((t (:foreground ,gruber-darker-niagara :underline t))))
    `(link-visited ((t (:foreground ,gruber-darker-wisteria :underline t))))
    `(match ((t (:background ,gruber-darker-bg+4))))
@@ -124,6 +126,9 @@
    `(compilation-mode-line-exit ((t ,(list :foreground gruber-darker-green
                                            :weight 'bold
                                            :inherit 'unspecified))))
+
+   ;; Completion
+   `(completions-annotations ((t (:inherit 'shadow))))
 
    ;; Custom
    `(custom-state ((t (:foreground ,gruber-darker-green))))
@@ -261,6 +266,10 @@
    `(highlight-current-line-face ((t ,(list :background gruber-darker-bg+1
                                             :foreground nil))))
 
+   ;; line numbers
+   `(line-number ((t (:inherit default :foreground ,gruber-darker-bg+4))))
+   `(line-number-current-line ((t (:inherit line-number :foreground ,gruber-darker-yellow))))
+
    ;; Linum
    `(linum ((t `(list :foreground gruber-darker-quartz
                       :background gruber-darker-bg))))
@@ -362,7 +371,22 @@
    `(whitespace-space-before-tab ((t ,(list :background gruber-darker-brown
                                             :foreground gruber-darker-brown))))
 
-   ;;;;; company-mode
+   ;; tab-bar
+   `(tab-bar ((t (:background ,gruber-darker-bg+1 :foreground ,gruber-darker-bg+4))))
+   `(tab-bar-tab ((t (:background nil :foreground ,gruber-darker-yellow :weight bold))))
+   `(tab-bar-tab-inactive ((t (:background nil))))
+
+   ;; vterm / ansi-term
+   `(term-color-black ((t (:foreground ,gruber-darker-bg+3 :background ,gruber-darker-bg+4))))
+   `(term-color-red ((t (:foreground ,gruber-darker-red-1 :background ,gruber-darker-red-1))))
+   `(term-color-green ((t (:foreground ,gruber-darker-green :background ,gruber-darker-green))))
+   `(term-color-blue ((t (:foreground ,gruber-darker-niagara :background ,gruber-darker-niagara))))
+   `(term-color-yellow ((t (:foreground ,gruber-darker-yellow :background ,gruber-darker-yellow))))
+   `(term-color-magenta ((t (:foreground ,gruber-darker-wisteria :background ,gruber-darker-wisteria))))
+   `(term-color-cyan ((t (:foreground ,gruber-darker-quartz :background ,gruber-darker-quartz))))
+   `(term-color-white ((t (:foreground ,gruber-darker-fg :background ,gruber-darker-white))))
+
+   ;; company-mode
    `(company-tooltip ((t (:foreground ,gruber-darker-fg :background ,gruber-darker-bg+1))))
    `(company-tooltip-annotation ((t (:foreground ,gruber-darker-brown :background ,gruber-darker-bg+1))))
    `(company-tooltip-annotation-selection ((t (:foreground ,gruber-darker-brown :background ,gruber-darker-bg-1))))
@@ -374,6 +398,15 @@
    `(company-scrollbar-bg ((t (:background ,gruber-darker-bg+2))))
    `(company-preview ((t (:background ,gruber-darker-green))))
    `(company-preview-common ((t (:foreground ,gruber-darker-green :background ,gruber-darker-bg-1))))
+
+   ;; Proof General
+   `(proof-locked-face ((t (:background ,gruber-darker-niagara-2))))
+
+   ;; Orderless
+   `(orderless-match-face-0 ((t (:foreground ,gruber-darker-yellow))))
+   `(orderless-match-face-1 ((t (:foreground ,gruber-darker-green))))
+   `(orderless-match-face-2 ((t (:foreground ,gruber-darker-brown))))
+   `(orderless-match-face-3 ((t (:foreground ,gruber-darker-quartz))))
    ))
 
 ;;;###autoload

@@ -7,7 +7,8 @@
 (set 'win-theme 'neon) ;; neon, cyberpunk, grandshell
 
 ;; define theme for terminal
-(set 'term-theme 'dracula)
+;; (set 'term-theme 'dracula)
+(set 'term-theme 'neon)
 
 ;; set theme for window or terminal
 (add-to-list 'custom-theme-load-path neon-theme-dir)

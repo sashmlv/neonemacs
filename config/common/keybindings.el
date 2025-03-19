@@ -37,6 +37,9 @@
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 
+;; buffer list
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
 ;; multiple-cursors
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
@@ -89,5 +92,10 @@
 
 ;; disable search
 (global-set-key (kbd "M-s M-w") (lambda()()))
+;; disable news
+(global-set-key (kbd "C-h n") (lambda()()))
+
+;; make C-j newline
+(global-set-key (kbd "C-j") 'newline)
 
 ;;; keybindings.el ends here

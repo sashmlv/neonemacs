@@ -50,64 +50,100 @@
 (let ((class '((class color) (min-colors 89)))
       ;; Jazz palette
       ;; colors with +x are lighter, colors with -x are darker
-      (jazz-fg       "#c6a57b")
-      (jazz-fg-1     "#c6a57b")
-      (jazz-fg+1     "#303030")
+      (jazz-fg         "#c6a57b")
 
-      (jazz-bg-1     "#101010")
-      (jazz-bg-05    "#151515")
-      (jazz-bg       "#151515")
-      (jazz-bg+1     "#202020")
-      (jazz-bg+2     "#505050")
-      (jazz-bg+3     "#606060")
+      (jazz-bg+3       "#606060")
+      (jazz-bg+2       "#505050")
+      (jazz-bg+1       "#202020")
+      (jazz-bg         "#151515")
+      (jazz-bg-1       "#101010")
 
-      (jazz-red+1    "#8d4a4a")
-      (jazz-red      "#953331")
-      (jazz-red-1    "#953331")
-      (jazz-red-2    "#953331")
-      (jazz-red-3    "#953331")
-      (jazz-red-4    "#953331")
+      (jazz-bg-blue    "#272A36")
+      (jazz-bg-green   "#121c16")
+      (jazz-bg-green+1 "#253529")
+      (jazz-bg-red     "#3e2022")
 
-      (jazz-orange   "#ba5b34")
+      (jazz-red+1      "#a43836")
+      (jazz-red        "#953331")
+      (jazz-red-1      "#862e2c")
 
-      (jazz-yellow+1 "#96a62d")
-      (jazz-yellow   "#909737")
-      (jazz-yellow-1 "#909737")
-      (jazz-yellow-2 "#909737")
+      (jazz-orange+1   "#c36a44")
+      (jazz-orange     "#ba5b34")
+      (jazz-orange-1   "#a54500")
 
-      (jazz-green-1  "#546a29")
-      (jazz-green    "#546a29")
-      (jazz-green+1  "#7e9960")
-      (jazz-green+2  "#7e9960")
-      (jazz-green+3  "#7e9960")
-      (jazz-green+4  "#7e9960")
+      (jazz-yellow+1   "#96a62d")
+      (jazz-yellow     "#909737")
+      (jazz-yellow-1   "#828932")
 
-      (jazz-cyan     "#34676f")
+      (jazz-green+1    "#7e9960")
+      (jazz-green      "#5e7531")
+      (jazz-green-1    "#546a29")
 
-      (jazz-blue+1   "#5c737c")
-      (jazz-blue     "#385e6b")
-      (jazz-blue-1   "#385e6b")
-      (jazz-blue-2   "#385e6b")
-      (jazz-blue-3   "#385e6b")
-      (jazz-blue-4   "#385e6b")
-      (jazz-blue-5   "#385e6b")
+      (jazz-cyan+1     "#3a737c")
+      (jazz-cyan       "#34676f")
+      (jazz-cyan-1     "#2e5b62")
 
-      (jazz-magenta  "#7f355e"))
+      (jazz-blue+1     "#5c737c")
+      (jazz-blue       "#385e6b")
+      (jazz-blue-1     "#31535e")
+
+      (jazz-violet+1   "#6c6c8c")
+      (jazz-violet     "#5e5e7a")
+      (jazz-violet-1   "#515169")
+
+      (jazz-magenta+1  "#8d3b68")
+      (jazz-magenta    "#7f355e")
+      (jazz-magenta-1  "#712f54"))
+
   (custom-theme-set-faces
    'jazz
+   ;;; Built-in
+   ;;; basic coloring
    '(button ((t (:underline t))))
    `(link ((,class (:foreground ,jazz-yellow :underline t :weight bold))))
-   `(link-visited ((,class (:foreground ,jazz-yellow-2 :underline t :weight normal))))
-
-   ;;; basic coloring
+   `(link-visited ((,class (:foreground ,jazz-yellow-1 :underline t :weight normal))))
    `(default ((,class (:foreground ,jazz-fg :background ,jazz-bg))))
    `(cursor ((,class (:foreground ,jazz-fg :background ,jazz-fg))))
-   `(escape-glyph-face ((,class (:foreground ,jazz-red))))
-   `(fringe ((,class (:foreground ,jazz-fg+1 :background ,jazz-bg))))
+   `(escape-glyph ((,class (:foreground ,jazz-fg :background ,jazz-red))))
+   `(escape-glyph-face ((,class (:foreground ,jazz-fg :background ,jazz-red))))
+   `(homoglyph ((,class (:foreground ,jazz-fg :background ,jazz-red))))
+   `(nobreak-hyphen ((,class (:foreground ,jazz-fg :background ,jazz-red))))
+   `(fringe ((,class (:foreground ,jazz-bg+2 :background ,jazz-bg))))
    `(header-line ((,class (:foreground ,jazz-yellow
                                        :background ,jazz-bg-1
                                        :box (:line-width -1 :color ,jazz-bg :style released-button)))))
    `(highlight ((,class (:background ,jazz-bg+1))))
+   `(error ((,class (:foreground ,jazz-fg :background ,jazz-red))))
+   `(success ((,class (:foreground ,jazz-green))))
+   `(warning ((,class (:foreground ,jazz-orange))))
+   `(shadow ((,class (:foreground ,jazz-cyan))))
+
+   ;;ansi-color
+   `(ansi-color-black ((,class (:foreground ,jazz-bg :background ,jazz-bg))))
+   `(ansi-color-blue ((,class (:foreground ,jazz-blue :background ,jazz-blue))))
+   `(ansi-color-bright-black ((,class (:foreground ,jazz-bg+2 :background ,jazz-bg+2))))
+   `(ansi-color-bright-blue ((,class (:foreground ,jazz-blue+1 :background ,jazz-blue+1))))
+   `(ansi-color-bright-cyan ((,class (:foreground ,jazz-cyan+1 :background ,jazz-cyan+1))))
+   `(ansi-color-bright-green ((,class (:foreground ,jazz-green+1 :background ,jazz-green+1))))
+   `(ansi-color-bright-magenta ((,class (:foreground ,jazz-magenta+1 :background ,jazz-magenta+1))))
+   `(ansi-color-bright-red ((,class (:foreground ,jazz-red+1 :background ,jazz-red+1))))
+   `(ansi-color-bright-white ((,class (:foreground ,jazz-fg :background ,jazz-fg))))
+   `(ansi-color-bright-yellow ((,class (:foreground ,jazz-yellow+1 :background ,jazz-yellow+1))))
+   `(ansi-color-cyan ((,class (:foreground ,jazz-cyan :background ,jazz-cyan))))
+   `(ansi-color-green ((,class (:foreground ,jazz-green :background ,jazz-green))))
+   `(ansi-color-magenta ((,class (:foreground ,jazz-magenta :background ,jazz-magenta))))
+   `(ansi-color-red ((,class (:foreground ,jazz-red :background ,jazz-red))))
+   `(ansi-color-white ((,class (:foreground ,jazz-fg :background ,jazz-fg))))
+   `(ansi-color-yellow ((,class (:foreground ,jazz-yellow :background ,jazz-yellow))))
+
+   ;; bookmark
+   `(bookmark-face ((,class (:foreground ,jazz-orange))))
+   `(bookmark-menu-bookmark ((,class (:weight normal))))
+
+   ;; change-log
+   `(change-log-date ((,class (:inherit font-lock-keyword-face))))
+   `(change-log-name ((,class (:inherit font-lock-builtin-face))))
+   `(change-log-email ((,class (:inherit default))))
 
    ;;; compilation
    `(compilation-column-face ((,class (:foreground ,jazz-yellow))))
@@ -133,29 +169,21 @@
 
    ;; faces used by isearch
    `(isearch ((,class (:foreground ,jazz-yellow :background ,jazz-bg-1))))
-   `(isearch-fail ((,class (:foreground ,jazz-fg :background ,jazz-red-4))))
+   `(isearch-fail ((,class (:foreground ,jazz-fg :background ,jazz-red-1))))
    `(lazy-highlight ((,class (:foreground ,jazz-yellow :background ,jazz-bg+2))))
 
    `(menu ((,class (:foreground ,jazz-fg :background ,jazz-bg))))
    `(minibuffer-prompt ((,class (:foreground ,jazz-blue))))
    `(mode-line
-     ((,class (:foreground ,jazz-fg
+     ((,class (:foreground ,jazz-bg+3
                            :background ,jazz-bg+1
                            :box (:line-width 5 :color ,jazz-bg+1)))))
-   `(mode-line-buffer-id ((,class (:foreground ,jazz-yellow :weight bold))))
+   `(mode-line-buffer-id ((,class (:foreground ,jazz-yellow))))
    `(mode-line-highlight ((,class (:inverse-video t))))
    `(mode-line-inactive
-     ((,class (:inherit mode-line :foreground ,jazz-green-1
+     ((,class (:foreground ,jazz-bg+2
                         :background ,jazz-bg-1
                         :box (:line-width 5 :color ,jazz-bg-1)))))
-   `(mode-line-folder-face ((,class (:foreground ,jazz-bg+2))))
-   `(mode-line-modified-face ((,class (:foreground ,jazz-red))))
-   `(mode-line-ro-modified-face ((,class (:foreground ,jazz-blue))))
-   `(mode-line-buffer-name ((,class (:foreground ,jazz-yellow))))
-   `(mode-line-mode-name ((,class (:foreground ,jazz-blue))))
-   `(mode-line-mode-string ((,class (:foreground ,jazz-bg+3))))
-   `(mode-line-vc-mode ((,class (:foreground ,jazz-magenta))))
-   `(mode-line-minor-mode-face ((,class (:foreground ,jazz-bg+2 :height 96))))
 
    `(region ((,class (:background ,jazz-fg :foreground ,jazz-blue))))
    `(secondary-selection ((,class (:background ,jazz-bg+2))))
@@ -180,6 +208,187 @@
 
    `(c-annotation-face ((,class (:inherit font-lock-constant-face))))
 
+   ;; help
+   `(help-key-binding ((,class (:foreground ,jazz-blue+1 :background ,jazz-bg :box nil))))
+
+   ;; line-number-mode
+   `(line-number ((,class (:foreground ,jazz-bg+2 :background ,jazz-bg-1))))
+   `(line-number-current-line ((,class (:foreground ,jazz-blue :background ,jazz-bg-1))))
+
+   ;; vc
+   `(vc-annotate-face-3F3FFF ((,class (:foreground ,jazz-violet+1))))
+   `(vc-annotate-face-3F6CFF ((,class (:foreground ,jazz-magenta+1))))
+   `(vc-annotate-face-3F99FF ((,class (:foreground ,jazz-blue-1))))
+   `(vc-annotate-face-3FC6FF ((,class (:foreground ,jazz-blue))))
+   `(vc-annotate-face-3FF3FF ((,class (:foreground ,jazz-blue+1))))
+   `(vc-annotate-face-3FFF56 ((,class (:foreground ,jazz-green-1))))
+   `(vc-annotate-face-3FFF83 ((,class (:foreground ,jazz-cyan+1))))
+   `(vc-annotate-face-3FFFB0 ((,class (:foreground ,jazz-cyan))))
+   `(vc-annotate-face-3FFFDD ((,class (:foreground ,jazz-cyan-1))))
+   `(vc-annotate-face-56FF3F ((,class (:foreground ,jazz-green))))
+   `(vc-annotate-face-83FF3F ((,class (:foreground ,jazz-green+1))))
+   `(vc-annotate-face-B0FF3F ((,class (:foreground ,jazz-yellow-1))))
+   `(vc-annotate-face-DDFF3F ((,class (:foreground ,jazz-yellow))))
+   `(vc-annotate-face-F6FFCC ((,class (:foreground ,jazz-bg))))
+   `(vc-annotate-face-FF3F3F ((,class (:foreground ,jazz-red+1))))
+   `(vc-annotate-face-FF6C3F ((,class (:foreground ,jazz-orange-1))))
+   `(vc-annotate-face-FF993F ((,class (:foreground ,jazz-orange))))
+   `(vc-annotate-face-FFC63F ((,class (:foreground ,jazz-orange+1))))
+   `(vc-annotate-face-FFF33F ((,class (:foreground ,jazz-yellow+1))))
+
+   ;;; Third-party (first level support)
+
+   ;; all-the-icons
+   ;; red
+   `(all-the-icons-red ((,class (:foreground ,jazz-red))))
+   `(all-the-icons-lred ((,class (:foreground ,jazz-red+1))))
+   `(all-the-icons-dred ((,class (:foreground ,jazz-red-1))))
+   `(all-the-icons-red-alt ((,class (:foreground ,jazz-red))))
+   ;; green
+   `(all-the-icons-green ((,class (:foreground ,jazz-green))))
+   `(all-the-icons-lgreen ((,class (:foreground ,jazz-green+1))))
+   `(all-the-icons-dgreen ((,class (:foreground ,jazz-green-1))))
+   ;; yellow
+   `(all-the-icons-yellow ((,class (:foreground ,jazz-yellow))))
+   `(all-the-icons-lyellow ((,class (:foreground ,jazz-yellow+1))))
+   `(all-the-icons-dyellow ((,class (:foreground ,jazz-yellow-1))))
+   ;; blue
+   `(all-the-icons-blue ((,class (:foreground ,jazz-blue))))
+   `(all-the-icons-blue-alt ((,class (:foreground ,jazz-blue))))
+   `(all-the-icons-lblue ((,class (:foreground ,jazz-blue+1))))
+   `(all-the-icons-dblue ((,class (:foreground ,jazz-blue-1))))
+   ;; maroon
+   `(all-the-icons-maroon ((,class (:foreground ,jazz-red-1))))
+   `(all-the-icons-lmaroon ((,class (:foreground ,jazz-red))))
+   `(all-the-icons-dmaroon ((,class (:foreground ,jazz-red-1))))
+   ;; purple
+   `(all-the-icons-purple ((,class (:foreground ,jazz-violet))))
+   `(all-the-icons-purple-alt ((,class (:foreground ,jazz-magenta))))
+   `(all-the-icons-lpurple ((,class (:foreground ,jazz-violet+1))))
+   `(all-the-icons-dpurple ((,class (:foreground ,jazz-violet-1))))
+   ;; orange
+   `(all-the-icons-orange ((,class (:foreground ,jazz-orange))))
+   `(all-the-icons-lorange ((,class (:foreground ,jazz-orange+1))))
+   `(all-the-icons-dorange ((,class (:foreground ,jazz-orange-1))))
+   ;; cyan
+   `(all-the-icons-cyan ((,class (:foreground ,jazz-cyan))))
+   `(all-the-icons-cyan-alt ((,class (:foreground ,jazz-cyan))))
+   `(all-the-icons-lcyan ((,class (:foreground ,jazz-cyan+1))))
+   `(all-the-icons-dcyan ((,class (:foreground ,jazz-cyan-1))))
+   ;; pink
+   `(all-the-icons-pink ((,class (:foreground ,jazz-magenta))))
+   `(all-the-icons-lpink ((,class (:foreground ,jazz-magenta+1))))
+   `(all-the-icons-dpink ((,class (:foreground ,jazz-magenta-1))))
+   ;; silver
+   `(all-the-icons-silver ((,class (:foreground ,jazz-bg+2))))
+   `(all-the-icons-lsilver ((,class (:foreground ,jazz-bg+3))))
+   `(all-the-icons-dsilver ((,class (:foreground ,jazz-bg+2))))
+
+   ;; company
+   `(company-echo-common ((,class (:foreground ,jazz-red))))
+   `(company-preview ((,class (:background ,jazz-blue :foreground ,jazz-fg))))
+   `(company-preview-common ((,class (:inherit company-preview))))
+   `(company-preview-search ((,class (:inherit company-preview :background ,jazz-blue+1))))
+   `(company-scrollbar-fg ((,class (:background ,jazz-bg+1))))
+   `(company-scrollbar-bg ((,class (:background ,jazz-bg+2))))
+   `(company-template-field ((,class (:background ,jazz-yellow :foreground ,jazz-bg))))
+   `(company-tooltip ((,class (:background ,jazz-bg+1 :foreground ,jazz-fg))))
+   `(company-tooltip-annotation ((,class (:background unspecified :foreground ,jazz-yellow))))
+   `(company-tooltip-common ((,class (:foreground ,jazz-bg+3 :underline t))))
+   `(company-tooltip-common-selection ((,class (:background ,jazz-blue-1 :foreground ,jazz-fg :underline t))))
+   `(company-tooltip-selection ((,class (:background ,jazz-blue-1 :foreground ,jazz-fg))))
+
+   ;; dashboard
+   `(dashboard-items-face ((,class (:weight normal))))
+   `(dashboard-no-items-face ((,class (:weight normal))))
+   `(dashboard-text-banner ((,class :inherit font-lock-builtin-face)))
+
+   ;; flycheck
+   `(flycheck-error
+     ((((supports :underline (:style wave)))
+       (:underline (:style wave :color ,jazz-red)
+                   :inherit unspecified :foreground unspecified :background unspecified))
+      (t (:foreground ,jazz-red :weight bold :underline t))))
+   `(flycheck-info
+     ((((supports :underline (:style wave)))
+       (:underline (:style wave :color ,jazz-green)
+                   :inherit unspecified :foreground unspecified :background unspecified))
+      (t (:foreground ,jazz-red :weight bold :underline t))))
+   `(flycheck-warning
+     ((((supports :underline (:style wave)))
+       (:underline (:style wave :color ,jazz-orange)
+                   :inherit unspecified :foreground unspecified :background unspecified))
+      (t (:foreground ,jazz-orange :weight bold :underline t))))
+   `(flycheck-fringe-error ((,class (:foreground ,jazz-red :background ,jazz-bg))))
+   `(flycheck-fringe-info ((,class (:foreground ,jazz-green :background ,jazz-bg))))
+   `(flycheck-fringe-warning ((,class (:foreground ,jazz-orange :background ,jazz-bg))))
+   `(flycheck-error-list-column-number ((,class (:foreground ,jazz-cyan :background ,jazz-bg))))
+   `(flycheck-error-list-line-number ((,class (:foreground ,jazz-cyan :background ,jazz-bg))))
+   `(flycheck-error-list-filename ((,class (:foreground ,jazz-fg :background ,jazz-bg))))
+   `(flycheck-error-list-highlight ((,class (:foreground ,jazz-fg :background ,jazz-bg))))
+
+   ;; hydra
+   `(hydra-face-red ((,class (:foreground ,jazz-red :bold t))))
+   `(hydra-face-blue ((,class (:foreground ,jazz-blue :bold t))))
+   `(hydra-face-amaranth ((,class (:foreground ,jazz-red+1 :bold t))))
+   `(hydra-face-pink ((,class (:foreground ,jazz-magenta+1 :bold t))))
+   `(hydra-face-teal ((,class (:foreground ,jazz-cyan+1 :bold t))))
+
+   ;; ivy-mode
+   `(ivy-confirm-face ((,class (:foreground ,jazz-green))))
+   `(ivy-current-match ((,class (:foreground ,jazz-bg :background ,jazz-fg))))
+   `(ivy-cursor ((,class (:foreground ,jazz-bg :background ,jazz-fg))))
+   `(ivy-match-required-face ((,class (:foreground ,jazz-red))))
+   `(ivy-minibuffer-match-face-1 ((,class (:foreground ,jazz-bg :background ,jazz-bg+3))))
+   `(ivy-minibuffer-match-face-2 ((,class (:foreground ,jazz-fg :background ,jazz-blue))))
+   `(ivy-minibuffer-match-face-3 ((,class (:foreground ,jazz-fg :background ,jazz-magenta))))
+   `(ivy-minibuffer-match-face-4 ((,class (:foreground ,jazz-fg :background ,jazz-bg+2))))
+   `(ivy-remote ((,class (:foreground ,jazz-magenta))))
+
+   ;; lsp-mode
+   `(lsp-face-semhl-deprecated ((,class (:underline (:color ,jazz-yellow :style wave)))))
+   `(lsp-flycheck-info-unnecessary-face ((,class (:foreground ,jazz-bg+3
+                                                              :underline (:color ,jazz-green :style wave)))))
+   `(lsp-headerline-breadcrumb-deprecated-face ((,class (:foreground ,jazz-yellow :strike-through t))))
+   `(lsp-headerline-breadcrumb-path-face ((,class :inherit font-lock-keyword-face)))
+   `(lsp-headerline-breadcrumb-path-error-face ((,class (:inherit lsp-headerline-breadcrumb-path-face
+                                                                  :underline (:color ,jazz-red :style wave)))))
+   `(lsp-headerline-breadcrumb-path-hint-face ((,class (:inherit lsp-headerline-breadcrumb-path-face
+                                                                 :underline (:color ,jazz-green :style wave)))))
+   `(lsp-headerline-breadcrumb-path-info-face ((,class (:inherit lsp-headerline-breadcrumb-path-face
+                                                                 :underline (:color ,jazz-green :style wave)))))
+   `(lsp-headerline-breadcrumb-path-warning-face ((,class (:inherit lsp-headerline-breadcrumb-path-face
+                                                                    :underline (:color ,jazz-orange :style wave)))))
+   `(lsp-headerline-breadcrumb-symbols-face ((,class (:foreground ,jazz-violet))))
+   `(lsp-headerline-breadcrumb-symbols-error-face ((,class (:inherit lsp-headerline-breadcrumb-symbols-face
+                                                                     :underline (:color ,jazz-red :style wave)))))
+   `(lsp-headerline-breadcrumb-symbols-hint-face ((,class (:inherit lsp-headerline-breadcrumb-symbols-face
+                                                                    :underline (:color ,jazz-green :style wave)))))
+   `(lsp-headerline-breadcrumb-symbols-info-face ((,class (:inherit lsp-headerline-breadcrumb-symbols-face
+                                                                    :underline (:color ,jazz-green :style wave)))))
+   `(lsp-headerline-breadcrumb-symbols-warning-face ((,class (:inherit lsp-headerline-breadcrumb-symbols-face
+                                                                       :underline (:color ,jazz-orange :style wave)))))
+
+   ;; lsp-ui
+   `(lsp-ui-doc-header ((,class (:foreground ,jazz-cyan :background ,jazz-bg+1))))
+   `(lsp-ui-peek-filename ((,class (:foreground ,jazz-blue))))
+   `(lsp-ui-peek-header ((,class (:foreground ,jazz-bg :background ,jazz-bg+3))))
+   `(lsp-ui-peek-highlight ((,class (:foreground ,jazz-bg+1
+                                                 :distant-foreground ,jazz-fg
+                                                 :background ,jazz-fg
+                                                 :box (:line-width -1 :color ,jazz-fg)))))
+   `(lsp-ui-peek-line-number ((,class (:foreground ,jazz-bg+2))))
+   `(lsp-ui-peek-list ((,class (:background ,jazz-bg+1))))
+   `(lsp-ui-peek-peek ((,class (:background ,jazz-bg+1))))
+   `(lsp-ui-peek-selection ((,class (:foreground ,jazz-bg+1 :background ,jazz-fg))))
+   `(lsp-ui-sideline-code-action ((,class (:foreground ,jazz-cyan :background ,jazz-fg))))
+   `(lsp-ui-sideline-current-symbol ((,class (:foreground ,jazz-fg :box (:line-width -1 :color ,jazz-fg)))))
+   `(lsp-ui-sideline-symbol ((,class (:foreground ,jazz-bg+3 :box (:line-width -1 :color ,jazz-bg+3)))))
+
+   ;; typit
+   `(typit-correct-char ((,class (:foreground ,jazz-yellow))))
+   `(typit-statistic ((,class (:foreground ,jazz-blue))))
+
    ;;; external
 
    ;; ace-jump
@@ -203,17 +412,17 @@
    `(font-latex-title-4 ((,class (:inherit variable-pitch :weight bold))))
 
    ;; popup
-   `(popup-summary-face ((,class (:background ,jazz-bg+3 :foreground ,jazz-fg+1))))
-   `(popup-scroll-bar-foreground-face ((,class (:background ,jazz-bg+3))))
-   `(popup-scroll-bar-background-face ((,class (:background ,jazz-fg+1))))
+   `(popup-summary-face ((,class (:background ,jazz-bg+3 :foreground ,jazz-bg+1))))
+   `(popup-scroll-bar-foreground-face ((,class (:background ,jazz-bg+1))))
+   `(popup-scroll-bar-background-face ((,class (:background ,jazz-bg+2))))
    `(popup-menu-mouse-face ((,class (:background ,jazz-yellow+1 :foreground ,jazz-bg))))
    `(popup-tip-face ((,class (:background ,jazz-bg+3 :foreground ,jazz-bg))))
 
    ;; auto-complete
    `(ac-candidate-face ((,class (:background ,jazz-bg+3 :foreground "black"))))
-   `(ac-selection-face ((,class (:background ,jazz-blue-4 :foreground ,jazz-fg))))
-   `(popup-tip-face ((,class (:background ,jazz-yellow-2 :foreground "black"))))
-   `(popup-scroll-bar-foreground-face ((,class (:background ,jazz-blue-5))))
+   `(ac-selection-face ((,class (:background ,jazz-blue-1 :foreground ,jazz-fg))))
+   `(popup-tip-face ((,class (:background ,jazz-yellow-1 :foreground "black"))))
+   `(popup-scroll-bar-foreground-face ((,class (:background ,jazz-blue-1))))
    `(popup-scroll-bar-background-face ((,class (:background ,jazz-bg-1))))
    `(popup-isearch-match ((,class (:background ,jazz-bg :foreground ,jazz-fg))))
 
@@ -221,31 +430,30 @@
    `(cheatsheet-group-face ((,class (:foreground ,jazz-blue))))
    `(cheatsheet-key-face ((,class (:foreground ,jazz-yellow))))
 
-   ;; company
-   `(company-tooltip ((,class (:background ,jazz-bg+3 :foreground ,jazz-bg))))
-   `(company-tooltip-common ((,class (:foreground ,jazz-bg :underline t))))
-   `(company-tooltip-common-selection ((,class (:background ,jazz-blue-4 :foreground ,jazz-fg :underline t))))
-   `(company-tooltip-selection ((,class (:background ,jazz-blue-4 :foreground ,jazz-fg))))
-   `(company-preview ((,class (:background ,jazz-blue :foreground ,jazz-fg))))
-   `(company-preview-common ((,class (:inherit company-preview))))
-   `(company-preview-search ((,class (:inherit company-preview :background ,jazz-blue+1))))
-   `(company-scrollbar-fg ((,class (:background ,jazz-bg+1))))
-   `(company-scrollbar-bg ((,class (:background ,jazz-bg+2))))
-   `(company-tooltip-annotation ((,class (:background nil :foreground ,jazz-yellow))))
-
    ;; diff
-   `(diff-added ((,class (:foreground ,jazz-green+4))))
+   `(diff-added ((,class (:foreground ,jazz-green+1))))
    `(diff-changed ((,class (:foreground ,jazz-yellow))))
-   `(diff-removed ((,class (:foreground ,jazz-red))))
-   `(diff-header ((,class (:background ,jazz-bg+1))))
    `(diff-file-header
      ((,class (:background ,jazz-bg+2 :foreground ,jazz-fg :bold t))))
+   `(diff-header ((,class (:background ,jazz-bg+1))))
+   `(diff-removed ((,class (:foreground ,jazz-red))))
+   `(diff-refine-added ((,class (:background ,jazz-bg-green+1))))
+   `(diff-refine-removed ((,class (:background ,jazz-red-1))))
+
+   ;; diff-hl
+   `(diff-hl-insert ((,class (:foreground ,jazz-green))))
+   `(diff-hl-delete ((,class (:foreground ,jazz-red))))
+   `(diff-hl-change ((,class (:foreground ,jazz-blue))))
+
+   ;; dockerfile-mode
+   `(dockerfile-image-alias ((,class (:inherit font-lock-constant-face))))
+   `(dockerfile-image-name ((,class (:inherit font-lock-builtin-face))))
 
    ;; ein
    `(ein:cell-input-area ((,class (:background ,jazz-bg+1))))
 
    ;; ert
-   `(ert-test-result-expected ((,class (:foreground ,jazz-green+4 :background ,jazz-bg))))
+   `(ert-test-result-expected ((,class (:foreground ,jazz-green+1 :background ,jazz-bg))))
    `(ert-test-result-unexpected ((,class (:foreground ,jazz-red :background ,jazz-bg))))
 
    ;; eshell
@@ -287,20 +495,6 @@
      ((((supports :underline (:style wave)))
        (:underline (:style wave :color ,jazz-red-1) :inherit unspecified))
       (t (:foreground ,jazz-red-1 :weight bold :underline t))))
-
-   ;; flycheck
-   `(flycheck-error
-     ((((supports :underline (:style wave)))
-       (:underline (:style wave :color ,jazz-red)
-                   :inherit unspecified :foreground unspecified :background unspecified))
-      (t (:foreground ,jazz-red :weight bold :underline t))))
-   `(flycheck-fringe-error ((,class (:foreground ,jazz-red :background ,jazz-bg))))
-   `(flycheck-warning
-     ((((supports :underline (:style wave)))
-       (:underline (:style wave :color ,jazz-orange)
-                   :inherit unspecified :foreground unspecified :background unspecified))
-      (t (:foreground ,jazz-orange :weight bold :underline t))))
-   `(flycheck-fringe-warning ((,class (:foreground ,jazz-orange :background ,jazz-bg))))
 
    ;; erc
    `(erc-action-face ((,class (:inherit erc-default-face))))
@@ -368,18 +562,18 @@
    `(gnus-cite-10 ((,class (:foreground ,jazz-yellow-1))))
    `(gnus-cite-11 ((,class (:foreground ,jazz-yellow))))
    `(gnus-cite-2 ((,class (:foreground ,jazz-blue-1))))
-   `(gnus-cite-3 ((,class (:foreground ,jazz-blue-2))))
-   `(gnus-cite-4 ((,class (:foreground ,jazz-green+2))))
+   `(gnus-cite-3 ((,class (:foreground ,jazz-blue-1))))
+   `(gnus-cite-4 ((,class (:foreground ,jazz-green+1))))
    `(gnus-cite-5 ((,class (:foreground ,jazz-green+1))))
    `(gnus-cite-6 ((,class (:foreground ,jazz-green))))
    `(gnus-cite-7 ((,class (:foreground ,jazz-red))))
    `(gnus-cite-8 ((,class (:foreground ,jazz-red-1))))
-   `(gnus-cite-9 ((,class (:foreground ,jazz-red-2))))
+   `(gnus-cite-9 ((,class (:foreground ,jazz-red-1))))
    `(gnus-group-news-1-empty ((,class (:foreground ,jazz-yellow))))
-   `(gnus-group-news-2-empty ((,class (:foreground ,jazz-green+3))))
+   `(gnus-group-news-2-empty ((,class (:foreground ,jazz-green+1))))
    `(gnus-group-news-3-empty ((,class (:foreground ,jazz-green+1))))
-   `(gnus-group-news-4-empty ((,class (:foreground ,jazz-blue-2))))
-   `(gnus-group-news-5-empty ((,class (:foreground ,jazz-blue-3))))
+   `(gnus-group-news-4-empty ((,class (:foreground ,jazz-blue-1))))
+   `(gnus-group-news-5-empty ((,class (:foreground ,jazz-blue-1))))
    `(gnus-group-news-6-empty ((,class (:foreground ,jazz-bg+2))))
    `(gnus-group-news-low-empty ((,class (:foreground ,jazz-bg+2))))
    `(gnus-signature ((,class (:foreground ,jazz-yellow))))
@@ -398,8 +592,8 @@
                            :box (:line-width -1 :style released-button)))))
    `(helm-selection ((,class (:background ,jazz-bg+1))))
    `(helm-selection-line ((,class (:background ,jazz-bg+1))))
-   `(helm-visible-mark ((,class (:foreground ,jazz-bg :background ,jazz-yellow-2))))
-   `(helm-candidate-number ((,class (:foreground ,jazz-green+4 :background ,jazz-bg-1))))
+   `(helm-visible-mark ((,class (:foreground ,jazz-bg :background ,jazz-yellow-1))))
+   `(helm-candidate-number ((,class (:foreground ,jazz-green+1 :background ,jazz-bg-1))))
 
    ;; hl-line-mode
    `(hl-line-face ((,class (:background ,jazz-bg-1))))
@@ -409,17 +603,20 @@
    `(ido-only-match ((,class (:foreground ,jazz-orange :weight normal))))
    `(ido-subdir ((,class (:foreground ,jazz-red))))
 
+   ;; iedit
+   `(iedit-occurrence ((,class (:foreground ,jazz-fg :background ,jazz-blue))))
+
    ;; js2-mode
    `(js2-warning-face ((,class (:underline ,jazz-orange))))
    `(js2-error-face ((,class (:foreground ,jazz-red :weight bold))))
    `(js2-jsdoc-tag-face ((,class (:foreground ,jazz-green-1))))
-   `(js2-jsdoc-type-face ((,class (:foreground ,jazz-green+2))))
-   `(js2-jsdoc-value-face ((,class (:foreground ,jazz-green+3))))
-   `(js2-function-param-face ((,class (:foreground, jazz-green+3))))
+   `(js2-jsdoc-type-face ((,class (:foreground ,jazz-green+1))))
+   `(js2-jsdoc-value-face ((,class (:foreground ,jazz-green+1))))
+   `(js2-function-param-face ((,class (:foreground, jazz-green+1))))
    `(js2-external-variable-face ((,class (:foreground ,jazz-orange))))
 
    ;; jabber-mode
-   `(jabber-roster-user-away ((,class (:foreground ,jazz-green+2))))
+   `(jabber-roster-user-away ((,class (:foreground ,jazz-green+1))))
    `(jabber-roster-user-online ((,class (:foreground ,jazz-blue-1))))
    `(jabber-roster-user-dnd ((,class (:foreground ,jazz-red+1))))
    `(jabber-rare-time-face ((,class (:foreground ,jazz-green+1))))
@@ -435,9 +632,50 @@
    `(linum ((,class (:foreground ,jazz-bg+2 :background ,jazz-bg-1))))
 
    ;; magit
-   `(magit-section-title ((,class (:foreground ,jazz-yellow :weight bold :box nil :background ,jazz-bg))))
-   `(magit-branch ((,class (:foreground ,jazz-orange :weight bold :box nil :background ,jazz-bg))))
-   `(magit-item-highlight ((t (:background ,jazz-bg+1))))
+   `(magit-blame-highlight ((,class (:foreground ,jazz-bg :background ,jazz-blue+1))))
+   `(magit-branch-local ((,class (:foreground ,jazz-blue+1))))
+   `(magit-branch-current ((,class (:inherit magit-branch-local :box 1))))
+   `(magit-branch-remote ((,class (:foreground ,jazz-green+1))))
+   `(magit-branch-remote-head ((,class (:inherit magit-branch-remote :box 1))))
+   `(magit-cherry-equivalent ((,class (:foreground ,jazz-magenta))))
+   `(magit-cherry-unmatched ((,class (:foreground ,jazz-cyan))))
+   `(magit-diff-added ((,class (:background ,jazz-bg-green :extend t))))
+   `(magit-diff-added-highlight ((,class (:background ,jazz-bg-green :extend t))))
+   `(magit-diff-context ((,class (:foreground ,jazz-fg :extend t))))
+   `(magit-diff-context-highlight ((,class (:inherit magit-diff-context :background ,jazz-bg+1))))
+   `(magit-diff-file-heading ((,class (:weight normal :extend t))))
+   `(magit-diff-file-heading-highlight ((,class (:inherit magit-section-highlight))))
+   `(magit-diff-file-heading-selection ((,class (:inherit region :extend t))))
+   `(magit-diff-hunk-heading ((,class (:foreground ,jazz-bg+2 :background ,jazz-bg :extend t))))
+   `(magit-diff-hunk-heading-highlight ((,class (:background ,jazz-bg+1 :extend t))))
+   `(magit-diff-hunk-heading-selection ((,class (:inherit region :extend t))))
+   `(magit-diff-lines-heading ((,class (:foreground ,jazz-fg :background ,jazz-blue :extend t))))
+   `(magit-diff-our ((,class (:background ,jazz-bg-red :extend t))))
+   `(magit-diff-our-highlight ((,class (:background ,jazz-bg-red :extend t))))
+   `(magit-diff-removed ((,class (:background ,jazz-bg-red :extend t))))
+   `(magit-diff-removed-highlight ((,class (:background ,jazz-bg-red :extend t))))
+   `(magit-diff-their ((,class (:background ,jazz-bg-green :extend t))))
+   `(magit-diff-their-highlight ((,class (:background ,jazz-bg-green :extend t))))
+   `(magit-diffstat-added ((,class (:foreground ,jazz-green))))
+   `(magit-diffstat-removed ((,class (:foreground ,jazz-red))))
+   `(magit-log-author ((,class (:foreground ,jazz-blue))))
+   `(magit-log-date ((,class (:foreground ,jazz-bg+3))))
+   `(magit-log-graph ((,class (:foreground ,jazz-bg+3))))
+   `(magit-process-ng ((,class (:inherit magit-section-heading :foreground ,jazz-red))))
+   `(magit-process-ok ((,class (:inherit magit-section-heading :foreground ,jazz-green))))
+   `(magit-reflog-amend ((,class (:foreground ,jazz-magenta))))
+   `(magit-reflog-checkout ((,class (:foreground ,jazz-blue))))
+   `(magit-reflog-cherry-pick ((,class (:foreground ,jazz-yellow))))
+   `(magit-reflog-commit ((,class (:foreground ,jazz-yellow))))
+   `(magit-reflog-merge ((,class (:foreground ,jazz-yellow))))
+   `(magit-reflog-other ((,class (:foreground ,jazz-violet))))
+   `(magit-reflog-rebase ((,class (:foreground ,jazz-magenta+1))))
+   `(magit-reflog-remote ((,class (:foreground ,jazz-cyan))))
+   `(magit-reflog-reset ((,class (:foreground ,jazz-red))))
+   `(magit-section-heading ((,class (:weight normal :foreground ,jazz-yellow :extend t))))
+   `(magit-section-highlight ((,class (:background ,jazz-bg+1 :extend t :weight normal))))
+   `(magit-section-heading-selection ((,class (:inherit region :extend t))))
+   `(magit-tag ((,class (:foreground ,jazz-orange+1))))
 
    ;; markdown
    `(markdown-header-face ((,class (:inherit variable-pitch))))
@@ -483,7 +721,7 @@
    `(mew-face-mark-delete ((,class (:foreground ,jazz-red))))
    `(mew-face-mark-unlink ((,class (:foreground ,jazz-yellow))))
    `(mew-face-mark-refile ((,class (:foreground ,jazz-green))))
-   `(mew-face-mark-unread ((,class (:foreground ,jazz-red-2))))
+   `(mew-face-mark-unread ((,class (:foreground ,jazz-red-1))))
    `(mew-face-eof-message ((,class (:foreground ,jazz-green))))
    `(mew-face-eof-part ((,class (:foreground ,jazz-yellow))))
 
@@ -504,7 +742,7 @@
    `(nav-face-dir ((,class (:foreground ,jazz-green))))
    `(nav-face-hdir ((,class (:foreground ,jazz-red))))
    `(nav-face-file ((,class (:foreground ,jazz-fg))))
-   `(nav-face-hfile ((,class (:foreground ,jazz-red-4))))
+   `(nav-face-hfile ((,class (:foreground ,jazz-red-1))))
 
    ;; org-mode
    `(org-agenda-date-today
@@ -516,24 +754,24 @@
                                         :box (:line-width 1 :style released-button)))))
    `(org-date ((,class (:foreground ,jazz-blue :underline t))))
    `(org-deadline-announce ((,class (:foreground ,jazz-red-1))))
-   `(org-done ((,class (:bold t :weight bold :foreground ,jazz-green+3))))
-   `(org-formula ((,class (:foreground ,jazz-yellow-2))))
-   `(org-headline-done ((,class (:foreground ,jazz-green+3))))
+   `(org-done ((,class (:bold t :weight bold :foreground ,jazz-green+1))))
+   `(org-formula ((,class (:foreground ,jazz-yellow-1))))
+   `(org-headline-done ((,class (:foreground ,jazz-green+1))))
    `(org-hide ((,class (:foreground ,jazz-bg-1))))
    `(org-level-1 ((,class (:foreground ,jazz-orange))))
    `(org-level-2 ((,class (:foreground ,jazz-green+1))))
    `(org-level-3 ((,class (:foreground ,jazz-blue-1))))
-   `(org-level-4 ((,class (:foreground ,jazz-yellow-2))))
+   `(org-level-4 ((,class (:foreground ,jazz-yellow-1))))
    `(org-level-5 ((,class (:foreground ,jazz-cyan))))
    `(org-level-6 ((,class (:foreground ,jazz-green-1))))
-   `(org-level-7 ((,class (:foreground ,jazz-red-4))))
-   `(org-level-8 ((,class (:foreground ,jazz-blue-4))))
-   `(org-link ((,class (:foreground ,jazz-yellow-2 :underline t))))
-   `(org-scheduled ((,class (:foreground ,jazz-green+4))))
-   `(org-scheduled-previously ((,class (:foreground ,jazz-red-4))))
+   `(org-level-7 ((,class (:foreground ,jazz-red-1))))
+   `(org-level-8 ((,class (:foreground ,jazz-blue-1))))
+   `(org-link ((,class (:foreground ,jazz-yellow-1 :underline t))))
+   `(org-scheduled ((,class (:foreground ,jazz-green+1))))
+   `(org-scheduled-previously ((,class (:foreground ,jazz-red-1))))
    `(org-scheduled-today ((,class (:foreground ,jazz-blue+1))))
    `(org-special-keyword ((,class (:foreground ,jazz-yellow-1))))
-   `(org-table ((,class (:foreground ,jazz-green+2))))
+   `(org-table ((,class (:foreground ,jazz-green+1))))
    `(org-tag ((,class (:bold t :weight bold))))
    `(org-time-grid ((,class (:foreground ,jazz-orange))))
    `(org-todo ((,class (:bold t :foreground ,jazz-red :weight bold))))
@@ -557,21 +795,21 @@
    `(rainbow-delimiters-depth-4-face ((,class (:foreground ,jazz-red+1))))
    `(rainbow-delimiters-depth-5-face ((,class (:foreground ,jazz-orange))))
    `(rainbow-delimiters-depth-6-face ((,class (:foreground ,jazz-blue-1))))
-   `(rainbow-delimiters-depth-7-face ((,class (:foreground ,jazz-green+4))))
-   `(rainbow-delimiters-depth-8-face ((,class (:foreground ,jazz-red-3))))
-   `(rainbow-delimiters-depth-9-face ((,class (:foreground ,jazz-yellow-2))))
-   `(rainbow-delimiters-depth-10-face ((,class (:foreground ,jazz-green+2))))
+   `(rainbow-delimiters-depth-7-face ((,class (:foreground ,jazz-green+1))))
+   `(rainbow-delimiters-depth-8-face ((,class (:foreground ,jazz-red-1))))
+   `(rainbow-delimiters-depth-9-face ((,class (:foreground ,jazz-yellow-1))))
+   `(rainbow-delimiters-depth-10-face ((,class (:foreground ,jazz-green+1))))
    `(rainbow-delimiters-depth-11-face ((,class (:foreground ,jazz-blue+1))))
-   `(rainbow-delimiters-depth-12-face ((,class (:foreground ,jazz-red-4))))
+   `(rainbow-delimiters-depth-12-face ((,class (:foreground ,jazz-red-1))))
 
    ;; rcirc
    `(rcirc-my-nick ((,class (:foreground ,jazz-blue))))
    `(rcirc-other-nick ((,class (:foreground ,jazz-orange))))
    `(rcirc-bright-nick ((,class (:foreground ,jazz-blue+1))))
-   `(rcirc-dim-nick ((,class (:foreground ,jazz-blue-2))))
+   `(rcirc-dim-nick ((,class (:foreground ,jazz-blue-1))))
    `(rcirc-server ((,class (:foreground ,jazz-green))))
    `(rcirc-server-prefix ((,class (:foreground ,jazz-green+1))))
-   `(rcirc-timestamp ((,class (:foreground ,jazz-green+2))))
+   `(rcirc-timestamp ((,class (:foreground ,jazz-green+1))))
    `(rcirc-nick-in-message ((,class (:foreground ,jazz-yellow))))
    `(rcirc-nick-in-message-full-line ((,class (:bold t))))
    `(rcirc-prompt ((,class (:foreground ,jazz-yellow :bold t))))
@@ -595,7 +833,7 @@
    `(rst-level-1-face ((,class (:foreground ,jazz-orange))))
    `(rst-level-2-face ((,class (:foreground ,jazz-green+1))))
    `(rst-level-3-face ((,class (:foreground ,jazz-blue-1))))
-   `(rst-level-4-face ((,class (:foreground ,jazz-yellow-2))))
+   `(rst-level-4-face ((,class (:foreground ,jazz-yellow-1))))
    `(rst-level-5-face ((,class (:foreground ,jazz-cyan))))
    `(rst-level-6-face ((,class (:foreground ,jazz-green-1))))
 
@@ -605,7 +843,7 @@
    `(sbt:warning ((,class (:foreground ,jazz-orange))))
 
    ;; show-paren
-   `(show-paren-mismatch ((,class (:foreground ,jazz-red-3 :background ,jazz-bg :weight bold))))
+   `(show-paren-mismatch ((,class (:foreground ,jazz-red-1 :background ,jazz-bg :weight bold))))
    `(show-paren-match ((,class (:foreground ,jazz-blue-1 :background ,jazz-bg :weight bold :underline t))))
 
    ;; SLIME
@@ -629,20 +867,28 @@
    `(undo-tree-visualizer-register-face ((,class (:foreground ,jazz-yellow))))
    `(undo-tree-visualizer-unmodified-face ((,class (:foreground, jazz-fg))))
 
+   ;; visual-regexp
+   `(vr/match-separator-face ((,class (:foreground ,jazz-red))))
+   `(vr/match-0 ((,class (:background ,jazz-cyan))))
+   `(vr/match-1 ((,class (:background ,jazz-blue))))
+   `(vr/group-0 ((,class (:background ,jazz-green-1))))
+   `(vr/group-1 ((,class (:background ,jazz-magenta))))
+   `(vr/group-2 ((,class (:background ,jazz-bg+2))))
+
    ;; whitespace-mode
    `(whitespace-space ((,class (:background ,jazz-bg :foreground ,jazz-bg+1))))
    `(whitespace-hspace ((,class (:background ,jazz-bg :foreground ,jazz-bg+1))))
    `(whitespace-tab ((,class (:background ,jazz-bg :foreground ,jazz-red))))
    `(whitespace-newline ((,class (:foreground ,jazz-bg+1))))
    `(whitespace-trailing ((,class (:foreground ,jazz-red :background ,jazz-bg))))
-   `(whitespace-line ((,class (:background ,jazz-bg-05 :foreground ,jazz-magenta))))
+   `(whitespace-line ((,class (:background ,jazz-bg :foreground ,jazz-magenta))))
    `(whitespace-space-before-tab ((,class (:background ,jazz-orange :foreground ,jazz-orange))))
    `(whitespace-indentation ((,class (:background ,jazz-yellow :foreground ,jazz-red))))
    `(whitespace-empty ((,class (:background ,jazz-yellow :foreground ,jazz-red))))
    `(whitespace-space-after-tab ((,class (:background ,jazz-yellow :foreground ,jazz-red))))
 
    ;; wanderlust
-   `(wl-highlight-folder-few-face ((,class (:foreground ,jazz-red-2))))
+   `(wl-highlight-folder-few-face ((,class (:foreground ,jazz-red-1))))
    `(wl-highlight-folder-many-face ((,class (:foreground ,jazz-red-1))))
    `(wl-highlight-folder-path-face ((,class (:foreground ,jazz-orange))))
    `(wl-highlight-folder-unread-face ((,class (:foreground ,jazz-blue))))
@@ -650,14 +896,14 @@
    `(wl-highlight-folder-unknown-face ((,class (:foreground ,jazz-blue))))
    `(wl-highlight-message-citation-header ((,class (:foreground ,jazz-red-1))))
    `(wl-highlight-message-cited-text-1 ((,class (:foreground ,jazz-red))))
-   `(wl-highlight-message-cited-text-2 ((,class (:foreground ,jazz-green+2))))
+   `(wl-highlight-message-cited-text-2 ((,class (:foreground ,jazz-green+1))))
    `(wl-highlight-message-cited-text-3 ((,class (:foreground ,jazz-blue))))
    `(wl-highlight-message-cited-text-4 ((,class (:foreground ,jazz-blue+1))))
    `(wl-highlight-message-header-contents-face ((,class (:foreground ,jazz-green))))
    `(wl-highlight-message-headers-face ((,class (:foreground ,jazz-red+1))))
-   `(wl-highlight-message-important-header-contents ((,class (:foreground ,jazz-green+2))))
+   `(wl-highlight-message-important-header-contents ((,class (:foreground ,jazz-green+1))))
    `(wl-highlight-message-header-contents ((,class (:foreground ,jazz-green+1))))
-   `(wl-highlight-message-important-header-contents2 ((,class (:foreground ,jazz-green+2))))
+   `(wl-highlight-message-important-header-contents2 ((,class (:foreground ,jazz-green+1))))
    `(wl-highlight-message-signature ((,class (:foreground ,jazz-green))))
    `(wl-highlight-message-unimportant-header-contents ((,class (:foreground ,jazz-fg))))
    `(wl-highlight-summary-answered-face ((,class (:foreground ,jazz-blue))))
@@ -673,13 +919,13 @@
    ;; ensime
    `(ensime-errline-highlight ((,class (:background ,jazz-red :foreground ,jazz-fg))))
    `(ensime-warnline ((,class (:background ,jazz-bg+1))))
-   
+
    ;; coffee-mode
    `(coffee-mode-function-param ((,class (:foreground ,jazz-blue+1))))
    `(coffee-mode-class-name ((,class (:foreground ,jazz-blue))))
-   
+
    ;; which-func-mode
-   `(which-func ((,class (:foreground ,jazz-green+4)))))
+   `(which-func ((,class (:foreground ,jazz-green+1)))))
 
   ;;; custom theme variables
   (custom-theme-set-variables
@@ -688,7 +934,7 @@
                                        ,jazz-blue ,jazz-magenta ,jazz-cyan ,jazz-fg])
 
    ;; fill-column-indicator
-   `(fci-rule-color ,jazz-bg-05)))
+   `(fci-rule-color ,jazz-bg)))
 
 ;;;###autoload
 (when load-file-name
