@@ -6,11 +6,11 @@
 (package-initialize)
 (setq package-archives nil)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+;;(add-to-list 'package-archives '("melpa-stable" . "https://www.mirrorservice.org/sites/stable.melpa.org/packages/") t)
+;;(add-to-list 'package-archives '("melpa" . "https://www.mirrorservice.org/sites/melpa.org/packages/") t)
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
-;;(add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-;;(add-to-list 'package-archives '("marmalade" . "https://marmalade-repo.org/packages/") t)
-;;(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
-;;(add-to-list 'package-archives '("elpy" . "https://jorgenschaefer.github.io/packages/") t)
+(add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/packages/") t)
 
 (setq package-list
       '(restart-emacs ;; support only linux and windows
@@ -72,8 +72,8 @@
         rust-mode racer
         cmake-mode
         total-lines ;; buffer's total number of lines in mode-line
-        ;;xah-fly-keys ;; this is the most efficient editing system in the universe
         csv-mode ;; csv mode
+        general ;; convenience wrappers for keybindings
         ))
 
 ;; install packages from list
@@ -152,12 +152,13 @@
         "yaml"
         "sqlformat"
         "yasnippet"
+        "general"
         "prog-mode" ;; last modes
         "base-setup" ;; last modes
       ))
 
 ;; common configs
-(setq common-list '("indentation" "theme" "whitespace" "keybindings" "search"))
+(setq common-list '("indentation" "theme" "whitespace" "search"))
 
 (load (concat (file-name-directory load-file-name) (file-name-as-directory "common") "configs")) ;; load configs file ( see for params )
 

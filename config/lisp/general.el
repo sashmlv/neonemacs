@@ -1,6 +1,9 @@
-;;; keybindings.el --- keybindings
+;;; general.el --- general
 ;;; Commentary:
 ;;; Code:
+
+;; (general-define-key
+;;  "M-z" 'counsel-M-x)
 
 ;; disable emacs exiting accidentally, use save-buffers-kill-terminal instead
 (global-unset-key (kbd "C-x C-c"))
@@ -98,4 +101,4 @@
 ;; make C-j newline
 (global-set-key (kbd "C-j") 'newline)
 
-;;; keybindings.el ends here
+;;; general.el ends here
