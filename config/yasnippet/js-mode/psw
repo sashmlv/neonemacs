@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name : process.stdout.write
-# key: psw
-# --
-process.stdout.write( \`\${ $0 }\` );

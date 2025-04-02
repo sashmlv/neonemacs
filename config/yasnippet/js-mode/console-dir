@@ -1,5 +1,0 @@
-# - - mode: snippet - -
-# name : console.dir
-# key: cd
-# --
-console.dir( $0 );

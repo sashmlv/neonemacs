@@ -1,5 +1,0 @@
-# - - mode: snippet - -
-# name : typeof
-# key: ty
-# --
-typeof $0

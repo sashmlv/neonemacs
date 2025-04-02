@@ -23,7 +23,7 @@
 ;;         (restclient-toggle-body-visibility-or-indent))))
 ;; (with-eval-after-load 'company (add-to-list 'company-backends 'company-restclient))
 
-(define-key prog-mode-map (kbd "<M-tab>") #'company-complete)
+(define-key prog-mode-map (kbd "<C-tab>") #'company-complete)
 (define-key prog-mode-map (kbd "<tab>") #'fix-prog-mode-company)
 ;; (with-eval-after-load 'restclient (define-key restclient-mode-map (kbd "<tab>") #'fix-restclient-mode-company))
 

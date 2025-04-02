@@ -2,25 +2,25 @@
 ;;; Commentary:
 ;;; Code:
 
-;; (general-define-key
-;;  "M-z" 'counsel-M-x)
+(global-unset-key (kbd "C-x C-c")) ;; disable emacs exiting accidentally, use save-buffers-kill-terminal instead
+(global-set-key (kbd "M-s M-w") (lambda()())) ;; disable search
+(global-set-key (kbd "C-h n") (lambda()())) ;; disable news
+(global-set-key (kbd "C-j") 'newline) ;; make C-j newline without indent
 
-;; disable emacs exiting accidentally, use save-buffers-kill-terminal instead
-(global-unset-key (kbd "C-x C-c"))
+(general-define-key
+ :prefix-command 'neon-prefix
+ :prefix "C-z"
+ "b" 'ibuffer ;; buffer list
+ "d" 'duplicate-line-or-region
+ "g" 'avy-goto-char-2 ;; avy - fast navigation https://github.com/abo-abo/avy/wiki
+ "t" 'neon-google-translate
+ "w" 'webjump)
 
-;; make Ctrl+z - new prefix key
-(define-prefix-command 'ring-map)
-(global-set-key (kbd "C-z") 'ring-map)
-
-(global-set-key (kbd "C-c d") 'duplicate-line-or-region)
-(global-set-key (kbd "C-c C-r") 'revert-buffer)
-
-;; expand-region faster text selection
-(global-set-key (kbd "C-=") 'er/expand-region)
-
-;; avy - fast navigation https://github.com/abo-abo/avy/wiki
-(global-set-key (kbd "C-;") 'avy-goto-char-2)
-(global-set-key (kbd "C-'") 'avy-goto-line)
+;; ivy
+(global-set-key (kbd "C-s") 'swiper)
+(with-eval-after-load 'swiper (define-key swiper-map (kbd "C-<return>") 'swiper-isearch-thing-at-point))
+(global-set-key (kbd "M-x") 'counsel-M-x)
+(global-set-key (kbd "C-x C-f") 'counsel-find-file)
 
 ;; bookmarks https://github.com/joodland/bm
 (global-set-key (kbd "C-x r t") 'bm-toggle) ;; set a bookmark
@@ -34,15 +34,6 @@
 
 (global-set-key (kbd "M-{") 'highlight-symbol-prev)
 
-;; ivy
-(global-set-key (kbd "C-s") 'swiper)
-(with-eval-after-load 'swiper (define-key swiper-map (kbd "C-<return>") 'swiper-isearch-thing-at-point))
-(global-set-key (kbd "M-x") 'counsel-M-x)
-(global-set-key (kbd "C-x C-f") 'counsel-find-file)
-
-;; buffer list
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-
 ;; multiple-cursors
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
@@ -50,20 +41,10 @@
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
 
-;; (define-key projectile-mode-map (kbd "C-z p") 'projectile-command-map)
-
-(global-set-key "\C-z\ b" 'recentf-open-files)
-
 (global-set-key (kbd "C-c f") #'vimish-fold)
 (global-set-key (kbd "C-c u") #'vimish-fold-delete)
 
-;; undo-fu
-;; (global-set-key (kbd "C-/") 'undo-fu-only-undo)
-;; (global-set-key (kbd "C-?") 'undo-fu-only-redo)
-
 (global-set-key (kbd "C-x C-j") 'dired-jump)
-(global-set-key (kbd "C-c j") 'webjump)
-(global-set-key (kbd "C-c t") 'neon-google-translate)
 
 ;; Redefine active window switcher
 (global-set-key (kbd "M-o") 'other-window)
@@ -92,13 +73,5 @@
   (define-key isearch-mode-map (kbd "C-n") 'isearch-repeat-forward)
   (define-key isearch-mode-map (kbd "C-p") 'isearch-repeat-backward)
 )
-
-;; disable search
-(global-set-key (kbd "M-s M-w") (lambda()()))
-;; disable news
-(global-set-key (kbd "C-h n") (lambda()()))
-
-;; make C-j newline
-(global-set-key (kbd "C-j") 'newline)
 
 ;;; general.el ends here

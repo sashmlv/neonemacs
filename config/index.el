@@ -16,7 +16,6 @@
       '(restart-emacs ;; support only linux and windows
         ;; ido-vertical-mode
         multiple-cursors
-        company ;; autocompletition
         ;; projectile ;; project management
         highlight-indentation ;; or highlight-indent-guides
         rainbow-delimiters ;; rainbow parentheses
@@ -52,22 +51,22 @@
         smex ;; for counsel M-x cache
         diff-hl ;; git highlights
         move-text ;; move text up down
+        corfu ;; autocompletition
+        ;; company ;; autocompletition
+        ;; company-restclient ;; restclient completions
+        ;; slime-company
         verb ;; HTTP requests in Org mode
         ;; request ;; elisp HTTP library
         ;; restclient ;; rest client
-        ;; company-restclient ;; restclient completions
         ;; walkman ;; HTTP requests in Org mode
         ;; trr ;; type-writing trainer
         ;; speed-type ;; practice touch/speed typing in emacs
         flycheck ;; syntax checking
-        undo-propose ;; stage undo’s in a temporary buffer
-        ;; undo-fu ;; linear undo with redo
         ag ;; search using ag (the silver searcher)
         rg ;; search using ripgrep
         editorconfig ;; editorconfig plugin
         ob-mongo ;; mongodb support for org-mode
         slime ;; common lisp
-        slime-company
         d-mode
         rust-mode racer
         cmake-mode
@@ -109,7 +108,7 @@
         "ascii"
         "bm"
         ,(concat (file-name-as-directory "column-marker") "highlight-100-mode")
-        "company"
+        ;; "company"
         "css"
         "dockerfile"
         "d"
@@ -145,9 +144,6 @@
         "svelte"
         "vimish-fold"
         "webjump"
-        ;;,(concat (file-name-as-directory "xah") "xah-fly-keys")
-        ;;,(concat (file-name-as-directory "xah") "xah-fly-keys-setup")
-        ,(concat (file-name-as-directory "xah") "xah-change-bracket-pairs")
         ,(concat (file-name-as-directory "xah") "xah-syntax-color-hex")
         "yaml"
         "sqlformat"

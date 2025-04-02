@@ -54,7 +54,7 @@
 
 (set-default 'truncate-lines t) ;; disable word wrap
 
-;; duplicate line ( Ctrl + c, d )
+;; duplicate line
 (defun duplicate-line-or-region (&optional n)
   "Duplicate current line, or region if active.
     With argument N, make N copies.

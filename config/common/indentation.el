@@ -3,7 +3,7 @@
 ;;; Code:
 
 ;; make tab key do indent first then completion.
-(setq-default tab-always-indent t)
+(setq-default tab-always-indent 'complete)
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width neon-indent)
 (setq-default c-basic-offset neon-indent)

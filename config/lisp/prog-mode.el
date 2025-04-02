@@ -11,6 +11,8 @@
             (highlight-100-mode t) ;; highlight 100 column rule
             (rainbow-delimiters-mode t) ;; rainbow parentheses
             (highlight-words)
+            (yas-minor-mode)
+            (corfu-mode)
             ))
 
 ;;; prog-mode.el ends here

@@ -10,6 +10,6 @@
   ;; otherwise define with our directories
   (setq yas-snippet-dirs (append `(,neon-yasnippet-common-dir) `(,neon-yasnippet-dir))))
 
-;; (add-hook 'prog-mode-hook #'yas-minor-mode)
-(yas-global-mode 1)
+;; (yas-global-mode 1)
+
 ;;; yasnippet.el ends here
