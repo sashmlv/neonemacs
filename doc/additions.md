@@ -33,6 +33,3 @@
 
 ##### For ```sqlformat``` package:
 * ```pgformatter```
-
-##### For ```gptel``` package:
-* [llamafile](https://github.com/Mozilla-Ocho/llamafile)
