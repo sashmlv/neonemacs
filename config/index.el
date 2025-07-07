@@ -73,6 +73,7 @@
         total-lines ;; buffer's total number of lines in mode-line
         csv-mode ;; csv mode
         general ;; convenience wrappers for keybindings
+        gptel ;; LLM client for Emacs
         ))
 
 ;; install packages from list
@@ -149,6 +150,7 @@
         "sqlformat"
         "yasnippet"
         "general"
+        "gptel"
         "prog-mode" ;; last modes
         "base-setup" ;; last modes
       ))

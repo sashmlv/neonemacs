@@ -28,8 +28,11 @@
 ##### For ```walkman``` package:
 * ```curl```
 
-##### For ```delete-by-moving-to-trash``` setting:
+##### For ```delete-by-moving-to-trash``` package:
 * ```gio```
 
-##### For ```sqlformat``` setting:
+##### For ```sqlformat``` package:
 * ```pgformatter```
+
+##### For ```gptel``` package:
+* [llamafile](https://github.com/Mozilla-Ocho/llamafile)
