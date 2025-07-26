@@ -19,13 +19,33 @@
 ;; -- mv google_gemma-3-12b-it-Q8_0.llamafile?download=true google_gemma-3-12b-it-Q8_0.llamafile
 ;; -- chmod +x ./google_gemma-3-12b-it-Q8_0.llamafile
 ;; -- ./google_gemma-3-12b-it-Q8_0.llamafile --server --v2 --log-disable
+;; Ollama:
+;; -- https://github.com/ollama/ollama/blob/main/docs/linux.md
+;; -- curl -LO https://ollama.com/download/ollama-linux-amd64.tgz
+;; -- sudo tar -C /usr -xzf ollama-linux-amd64.tgz
+;; -- ollama serve
+;; -- ollama -v
+;; Uninstall:
+;; -- sudo rm $(which ollama)
+;; -- sudo rm -r /usr/share/ollama
+;; -- sudo userdel ollama
+;; -- sudo groupdel ollama
+;; -- sudo rm -rf /usr/local/lib/ollama
+
+;; (setq
+;;  gptel-model   'test
+;;  gptel-backend (gptel-make-openai "llama-cpp"
+;;                  :stream t
+;;                  :protocol "http"
+;;                  ;; :host "127.0.0.1:8080"
+;;                  :host "127.0.0.1:11434"
+;;                  :models '(test)))
 
 (setq
- gptel-model   'test
- gptel-backend (gptel-make-openai "llama-cpp"
+ gptel-model 'codellama:34b
+ gptel-backend (gptel-make-ollama "Ollama"
+                 :host "127.0.0.1:11434"
                  :stream t
-                 :protocol "http"
-                 :host "127.0.0.1:8080"
-                 :models '(test)))
+                 :models '(codellama:34b)))
 
 ;;; gptel.el ends here
