@@ -51,6 +51,15 @@
 ;; python3.10 ./convert_hf_to_gguf.py deepseek-coder-1.3b-typescript
 ;; pyenv local system
 
+;; ollama-dl
+;; https://github.com/akx/ollama-dl
+;; cd ~/llama.cpp
+;; git clone https://github.com/akx/ollama-dl.git
+;; cd ~/llama.cpp/ollama-dl
+;; pip install -e .
+;; cd ~/llama.cpp
+;; ollama-dl deepcoder:14b
+
 ;; Models:
 ;; ;; deepseek-coder-v2 [https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct]
 ;; ;; deepseek-coder-v2 [https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Instruct]
@@ -61,17 +70,17 @@
 ;; ;; codegeex4 [https://huggingface.co/zai-org/codegeex4-all-9b]
 ;; ;; codeup [https://huggingface.co/juyongjiang/CodeUp-Llama-3-8B]
 ;; ;; phi4 [https://huggingface.co/microsoft]
-;; ;; deepcoder [https://ollama.com/library/deepcoder]
+;; ;; deepcoder [https://huggingface.co/agentica-org/DeepCoder-14B-Preview]
 ;; ;; Ghenwy/AliaDev5 [https://ollama.com/Ghenwy/AliaDev5]
 ;; ;; dolphincoder [https://ollama.com/library/dolphincoder]
 ;; ;; starcoder2 [https://huggingface.co/bigcode]
 ;; ;; starcoder [https://ollama.com/library/starcoder]
 ;; ;; codestral [https://ollama.com/library/codestral]
 ;; ;; devstral [https://ollama.com/library/devstral]
-;; ;; openthinker [https://ollama.com/library/openthinker]
+;; ;; openthinker [https://huggingface.co/open-thoughts]
 ;; ;; deepseek-r1 [https://ollama.com/library/deepseek-r1]
 ;; ;; qwen2.5-coder [https://huggingface.co/Qwen]
-;; ;; qwq [https://ollama.com/library/qwq]
+;; ;; qwq [https://huggingface.co/Qwen/QwQ-32B]
 ;; ;; wizardcoder [https://huggingface.co/WizardLMTeam/WizardCoder-33B-V1.1]
 ;; ;; codebooga [https://huggingface.co/oobabooga/CodeBooga-34B-v0.1]
 ;; ;; granite-code [https://huggingface.co/ibm-granite]
