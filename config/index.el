@@ -7,10 +7,10 @@
 (setq package-archives nil)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
-;;(add-to-list 'package-archives '("melpa-stable" . "https://www.mirrorservice.org/sites/stable.melpa.org/packages/") t)
-;;(add-to-list 'package-archives '("melpa" . "https://www.mirrorservice.org/sites/melpa.org/packages/") t)
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/packages/") t)
+;; (add-to-list 'package-archives '("melpa-stable" . "https://www.mirrorservice.org/sites/stable.melpa.org/packages/") t)
+;; (add-to-list 'package-archives '("melpa" . "https://www.mirrorservice.org/sites/melpa.org/packages/") t)
 
 (setq package-list
       '(restart-emacs ;; support only linux and windows
@@ -74,6 +74,7 @@
         csv-mode ;; csv mode
         general ;; convenience wrappers for keybindings
         gptel ;; LLM client for Emacs
+        aidermacs
         ))
 
 ;; install packages from list
@@ -151,6 +152,7 @@
         "yasnippet"
         "general"
         "gptel"
+        "aidermacs"
         "prog-mode" ;; last modes
         "base-setup" ;; last modes
       ))

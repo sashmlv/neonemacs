@@ -33,3 +33,8 @@
 
 ##### For ```sqlformat``` package:
 * ```pgformatter```
+
+##### For ```aidermacs``` package:
+* [aider](https://aider.chat/docs/install.html)
+* [transient](https://github.com/magit/transient)
+* [aidermacs](https://melpa.org/#/aidermacs)

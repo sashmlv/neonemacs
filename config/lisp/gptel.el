@@ -24,7 +24,10 @@
 ;; models paths:
 ;; ;; ll ~/.cache/llama.cpp/
 ;; ;; ;; ll ~/llama.cpp/granite-code
-;; llama-server -m ~/llama.cpp/deepseek-coder-1.3b-typescript/deepseek-coder-1.3B-base-F16.gguf
+;; llama-server -c 65536 -m ~/llama.cpp/deepseek-coder-1.3b-typescript/deepseek-coder-1.3B-base-F16.gguf
+
+;; llama-server -m ~/llama.cpp/model/gemma-3-1b-pt_full_sft_TypeScript_data_12K/gemma-3-1B-pt_full_sft_TypeScript_data_12K-F16.gguf
+;; llama-server -c 65536 -m ~/llama.cpp/model/DeepSeek-Coder-V2-Lite-Instruct/DeepSeek-Coder-V2-Lite-64x1.5B-Instruct-F16.gguf
 
 ;; Convert .safetensors to GGUF:
 ;; sudo apt install git-lfs
@@ -47,20 +50,27 @@
 ;; pyenv local 3.10
 ;; cd ~/llama.cpp
 ;; python3.10 -m pip install -r requirements.txt
+;; pip install huggingface_hub
 ;; git clone https://huggingface.co/CodeGPTPlus/deepseek-coder-1.3b-typescript
 ;; python3.10 ./convert_hf_to_gguf.py deepseek-coder-1.3b-typescript
 ;; pyenv local system
 
-;; ollama-dl
-;; https://github.com/akx/ollama-dl
-;; cd ~/llama.cpp
-;; git clone https://github.com/akx/ollama-dl.git
-;; cd ~/llama.cpp/ollama-dl
-;; pip install -e .
-;; cd ~/llama.cpp
-;; ollama-dl deepcoder:14b
+;; Ollama:
+;; -- https://github.com/ollama/ollama/blob/main/docs/linux.md
+;; -- curl -LO https://ollama.com/download/ollama-linux-amd64.tgz
+;; -- sudo tar -C /usr -xzf ollama-linux-amd64.tgz
+;; -- GGML_CUDA_ENABLE_UNIFIED_MEMORY=1 ollama serve
+;; -- ollama -v
+;; Uninstall:
+;; -- sudo rm $(which ollama)
+;; -- sudo rm -r /usr/share/ollama
+;; -- sudo userdel ollama
+;; -- sudo groupdel ollama
+;; -- sudo rm -rf /usr/local/lib/ollama
 
 ;; Models:
+;; https://huggingface.co
+;; https://www.modelscope.cn
 ;; ;; deepseek-coder-v2 [https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct]
 ;; ;; deepseek-coder-v2 [https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Instruct]
 ;; ;; codeqwen [https://huggingface.co/Qwen/Qwen3-Coder-480B-A35B-Instruct]
@@ -86,20 +96,23 @@
 ;; ;; granite-code [https://huggingface.co/ibm-granite]
 ;; ;; codellama [https://huggingface.co/codellama]
 ;; ;; cogito [https://huggingface.co/deepcogito]
-;; ;; command-a [https://ollama.com/library/command-a]
 
-(gptel-make-openai "llama-cpp"
+(gptel-make-ollama "Ollama"
+  :host "127.0.0.1:11434"
   :stream t
-  :protocol "http"
-  :host "127.0.0.1:8080"
-  :models '(test))
+  :models '(deepseek-r1:32b
+            devstral:24b
+            codestral:22b
+            dolphincoder:15b
+            starcoder:15b
+            Ghenwy/AliaDev5:Pro14b))
 
 (setq
- gptel-model   'test
+ gptel-model 'test
  gptel-backend (gptel-make-openai "llama-cpp"
                  :stream t
                  :protocol "http"
                  :host "127.0.0.1:8080"
-                 :models '(test)))
+                 :models '(LlamaCpp)))
 
 ;;; gptel.el ends here
