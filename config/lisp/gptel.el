@@ -8,9 +8,10 @@
 ;; cd ~
 ;; git clone https://github.com/ggml-org/llama.cpp
 ;; cd llama.cpp
-;; GGML_CUDA_ENABLE_UNIFIED_MEMORY=1 GGML_CCACHE=OFF cmake -B build -DGGML_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES="61"
-;; cmake --build build --config Release -j 8
-;; vim ~/.bashrc, add:
+;; ;; ;; GGML_CUDA_ENABLE_UNIFIED_MEMORY=1 GGML_CCACHE=OFF GGML_CUDA_FA_ALL_QUANTS=ON GGML_CUDA_FORCE_CUBLAS=ON cmake -B build -DCMAKE_CUDA_ARCHITECTURES="61" -DGGML_CUDA=ON -DBUILD_SHARED_LIBS=OFF -DLLAMA_CURL=OFF -DGGML_NATIVE=ON -DGGML_AVX=OFF -DGGML_AVX2=OFF -DGGML_AVX512=OFF -DGGML_FMA=OFF -DGGML_F16C=OFF
+;; GGML_CUDA_ENABLE_UNIFIED_MEMORY=1 GGML_CCACHE=OFF cmake -B build -DCMAKE_CUDA_ARCHITECTURES="61" -DGGML_CUDA=ON
+;; cmake --build build --config Release -j 12
+;; vim ~/.bashrc
 ;; ;; # llama.cpp
 ;; ;; export PATH=$PATH:~/llama.cpp/build/bin
 ;; vim ~/.config/fish/config.fish
@@ -25,9 +26,6 @@
 ;; ;; ll ~/.cache/llama.cpp/
 ;; ;; ;; ll ~/llama.cpp/granite-code
 ;; llama-server -c 65536 -m ~/llama.cpp/deepseek-coder-1.3b-typescript/deepseek-coder-1.3B-base-F16.gguf
-
-;; llama-server -m ~/llama.cpp/model/gemma-3-1b-pt_full_sft_TypeScript_data_12K/gemma-3-1B-pt_full_sft_TypeScript_data_12K-F16.gguf
-;; llama-server -c 65536 -m ~/llama.cpp/model/DeepSeek-Coder-V2-Lite-Instruct/DeepSeek-Coder-V2-Lite-64x1.5B-Instruct-F16.gguf
 
 ;; Convert .safetensors to GGUF:
 ;; sudo apt install git-lfs
@@ -55,21 +53,31 @@
 ;; python3.10 ./convert_hf_to_gguf.py deepseek-coder-1.3b-typescript
 ;; pyenv local system
 
-;; Ollama:
-;; -- https://github.com/ollama/ollama/blob/main/docs/linux.md
-;; -- curl -LO https://ollama.com/download/ollama-linux-amd64.tgz
-;; -- sudo tar -C /usr -xzf ollama-linux-amd64.tgz
-;; -- GGML_CUDA_ENABLE_UNIFIED_MEMORY=1 ollama serve
-;; -- ollama -v
-;; Uninstall:
-;; -- sudo rm $(which ollama)
-;; -- sudo rm -r /usr/share/ollama
-;; -- sudo userdel ollama
-;; -- sudo groupdel ollama
-;; -- sudo rm -rf /usr/local/lib/ollama
+;; Podman:
+;; podman pull ghcr.io/ggml-org/llama.cpp:server-cuda-b6408
+;; compose.yaml
+;;;; services:
+;;;;   llamacpp-server:
+;;;;     image: ghcr.io/ggml-org/llama.cpp:server-cuda-b6408
+;;;;     ports:
+;;;;       - 8080:8080
+;;;;     volumes:
+;;;;       - ./models/models:/models
+;;;;     environment:
+;;;;       LLAMA_ARG_MODEL: /models/jan-nano-4b-Q8_0.gguf
+;;;;       LLAMA_ARG_PORT: 127.0.0.1
+;;;;       LLAMA_ARG_PORT: 8080
+;;;;       LLAMA_ARG_CTX_SIZE: 0
+;;;;       LLAMA_ARG_JINJA: 1
+;;;;       LLAMA_ARG_UBATCH: 2048
+;;;;       LLAMA_ARG_BATCH: 2048
+;;;;       LLAMA_ARG_N_CPU_MOE: 24
+;;;;       LLAMA_ARG_ENDPOINT_METRICS: 1
+;; podman compose --file ./compose.yaml up
 
 ;; Models:
 ;; https://huggingface.co
+;; https://huggingface.co/ggml-org/models
 ;; https://www.modelscope.cn
 ;; ;; deepseek-coder-v2 [https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct]
 ;; ;; deepseek-coder-v2 [https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Instruct]
@@ -81,14 +89,8 @@
 ;; ;; codeup [https://huggingface.co/juyongjiang/CodeUp-Llama-3-8B]
 ;; ;; phi4 [https://huggingface.co/microsoft]
 ;; ;; deepcoder [https://huggingface.co/agentica-org/DeepCoder-14B-Preview]
-;; ;; Ghenwy/AliaDev5 [https://ollama.com/Ghenwy/AliaDev5]
-;; ;; dolphincoder [https://ollama.com/library/dolphincoder]
 ;; ;; starcoder2 [https://huggingface.co/bigcode]
-;; ;; starcoder [https://ollama.com/library/starcoder]
-;; ;; codestral [https://ollama.com/library/codestral]
-;; ;; devstral [https://ollama.com/library/devstral]
 ;; ;; openthinker [https://huggingface.co/open-thoughts]
-;; ;; deepseek-r1 [https://ollama.com/library/deepseek-r1]
 ;; ;; qwen2.5-coder [https://huggingface.co/Qwen]
 ;; ;; qwq [https://huggingface.co/Qwen/QwQ-32B]
 ;; ;; wizardcoder [https://huggingface.co/WizardLMTeam/WizardCoder-33B-V1.1]
@@ -97,15 +99,7 @@
 ;; ;; codellama [https://huggingface.co/codellama]
 ;; ;; cogito [https://huggingface.co/deepcogito]
 
-(gptel-make-ollama "Ollama"
-  :host "127.0.0.1:11434"
-  :stream t
-  :models '(deepseek-r1:32b
-            devstral:24b
-            codestral:22b
-            dolphincoder:15b
-            starcoder:15b
-            Ghenwy/AliaDev5:Pro14b))
+(require 'gptel)
 
 (setq
  gptel-model 'test
@@ -114,5 +108,29 @@
                  :protocol "http"
                  :host "127.0.0.1:8080"
                  :models '(LlamaCpp)))
+
+(setq gptel-use-tools t)
+(setq gptel-log-level 'debug)
+(setq gptel-expert-commands t)
+
+(gptel-make-tool
+ :name "create_file" ; snake_case
+ :function (lambda (path filename content) ; the function that runs
+             (let ((full-path (expand-file-name filename path)))
+               (with-temp-buffer
+                 (insert content)
+                 (write-file full-path))
+               (format "Created file %s in %s" filename path)))
+ :description "Create a new file with the specified content"
+ :args (list '(:name "path" ; a list of argument specifications
+	                   :type string
+	                   :description "The directory where to create the file")
+             '(:name "filename"
+	                   :type string
+	                   :description "The name of the file to create")
+             '(:name "content"
+	                   :type string
+	                   :description "The content to write to the file"))
+ :category "filesystem") ; grouping label
 
 ;;; gptel.el ends here
