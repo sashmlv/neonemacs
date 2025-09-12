@@ -74,7 +74,7 @@
         csv-mode ;; csv mode
         general ;; convenience wrappers for keybindings
         gptel ;; LLM client for Emacs
-        aidermacs
+        aider ;; AI assisted programming in Emacs with Aider
         ))
 
 ;; install packages from list
@@ -152,7 +152,7 @@
         "yasnippet"
         "general"
         "gptel"
-        "aidermacs"
+        "aider"
         "prog-mode" ;; last modes
         "base-setup" ;; last modes
       ))
