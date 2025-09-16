@@ -99,38 +99,39 @@
 ;; ;; codellama [https://huggingface.co/codellama]
 ;; ;; cogito [https://huggingface.co/deepcogito]
 
-(require 'gptel)
-
-(setq
- gptel-model 'test
- gptel-backend (gptel-make-openai "llama-cpp"
-                 :stream t
-                 :protocol "http"
-                 :host "127.0.0.1:8080"
-                 :models '(LlamaCpp)))
-
-(setq gptel-use-tools t)
-(setq gptel-log-level 'debug)
-(setq gptel-expert-commands t)
-
-(gptel-make-tool
- :name "create_file" ; snake_case
- :function (lambda (path filename content) ; the function that runs
-             (let ((full-path (expand-file-name filename path)))
-               (with-temp-buffer
-                 (insert content)
-                 (write-file full-path))
-               (format "Created file %s in %s" filename path)))
- :description "Create a new file with the specified content"
- :args (list '(:name "path" ; a list of argument specifications
-	                   :type string
-	                   :description "The directory where to create the file")
-             '(:name "filename"
-	                   :type string
-	                   :description "The name of the file to create")
-             '(:name "content"
-	                   :type string
-	                   :description "The content to write to the file"))
- :category "filesystem") ; grouping label
+(use-package gptel
+  :ensure t
+  :config
+  (setq
+   gptel-model 'test
+   gptel-backend (gptel-make-openai "llama-cpp"
+                   :stream t
+                   :protocol "http"
+                   :host "127.0.0.1:8080"
+                   :models '(LlamaCpp)))
+  (setq gptel-use-tools t)
+  (setq gptel-log-level 'debug)
+  (setq gptel-expert-commands t)
+  ;; (setq gptel-context-restrict-to-project-files t)
+  (gptel-make-tool
+   :name "create_file" ; snake_case
+   :function (lambda (path filename content) ; the function that runs
+               (let ((full-path (expand-file-name filename path)))
+                 (with-temp-buffer
+                   (insert content)
+                   (write-file full-path))
+                 (format "Created file %s in %s" filename path)))
+   :description "Create a new file with the specified content"
+   :args (list '(:name "path" ; a list of argument specifications
+	                     :type string
+	                     :description "The directory where to create the file")
+               '(:name "filename"
+	                     :type string
+	                     :description "The name of the file to create")
+               '(:name "content"
+	                     :type string
+	                     :description "The content to write to the file"))
+   :category "filesystem") ; grouping label
+  )
 
 ;;; gptel.el ends here
