@@ -75,6 +75,11 @@
 ;;;;       LLAMA_ARG_ENDPOINT_METRICS: 1
 ;; podman compose --file ./compose.yaml up
 
+;; Repomix:
+;; https://github.com/yamadashy/repomix
+;; npm i -g repomix
+;; repomix --compress --remove-comments
+
 ;; Models:
 ;; https://huggingface.co
 ;; https://huggingface.co/ggml-org/models
