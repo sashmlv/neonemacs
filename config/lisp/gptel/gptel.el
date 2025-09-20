@@ -87,6 +87,8 @@
 
 ;; MCP servers:
 ;; https://hub.docker.com/mcp
+;; https://github.com/modelcontextprotocol/servers
+;; https://github.com/appcypher/awesome-mcp-servers
 
 (require 'gptel-integrations)
 
