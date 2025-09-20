@@ -54,33 +54,6 @@
 ;; pyenv local system
 
 ;; Podman:
-;; podman pull ghcr.io/ggml-org/llama.cpp:server-cuda-b6408
-;; compose.yaml
-;;;; services:
-;;;;   llamacpp-server:
-;;;;     image: ghcr.io/ggml-org/llama.cpp:server-cuda-b6408
-;;;;     ports:
-;;;;       - 8080:8080
-;;;;     volumes:
-;;;;       - ./models/models:/models
-;;;;     environment:
-;;;;       LLAMA_ARG_MODEL: /models/jan-nano-4b-Q8_0.gguf
-;;;;       LLAMA_ARG_PORT: 127.0.0.1
-;;;;       LLAMA_ARG_PORT: 8080
-;;;;       LLAMA_ARG_CTX_SIZE: 0
-;;;;       LLAMA_ARG_JINJA: 1
-;;;;       LLAMA_ARG_UBATCH: 2048
-;;;;       LLAMA_ARG_BATCH: 2048
-;;;;       LLAMA_ARG_N_CPU_MOE: 24
-;;;;       LLAMA_ARG_ENDPOINT_METRICS: 1
-;;;;   mcp-filesystem-server:
-;;;;     image: ghcr.io/mark3labs/mcp-filesystem-server:latest
-;;;;     container_name: mcp-filesystem-server
-;;;;     stdin_open: true
-;;;;     # tty: true
-;;;;     command: /test
-;;;;     volumes:
-;;;;       - ./models/test:/test
 ;; Run: podman compose --file ./compose.yaml up
 
 ;; Repomix:
