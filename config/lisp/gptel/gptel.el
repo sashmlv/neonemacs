@@ -73,7 +73,15 @@
 ;;;;       LLAMA_ARG_BATCH: 2048
 ;;;;       LLAMA_ARG_N_CPU_MOE: 24
 ;;;;       LLAMA_ARG_ENDPOINT_METRICS: 1
-;; podman compose --file ./compose.yaml up
+;;;;   mcp-filesystem-server:
+;;;;     image: ghcr.io/mark3labs/mcp-filesystem-server:latest
+;;;;     container_name: mcp-filesystem-server
+;;;;     stdin_open: true
+;;;;     # tty: true
+;;;;     command: /test
+;;;;     volumes:
+;;;;       - ./models/test:/test
+;; Run: podman compose --file ./compose.yaml up
 
 ;; Repomix:
 ;; https://github.com/yamadashy/repomix
@@ -104,6 +112,11 @@
 ;; ;; codellama [https://huggingface.co/codellama]
 ;; ;; cogito [https://huggingface.co/deepcogito]
 
+;; MCP servers:
+;; https://hub.docker.com/mcp
+
+(require 'gptel-integrations)
+
 (use-package gptel
   :ensure t
   :config
@@ -117,26 +130,14 @@
   (setq gptel-use-tools t)
   (setq gptel-log-level 'debug)
   (setq gptel-expert-commands t)
+  (setq gptel-confirm-tool-calls t)
   ;; (setq gptel-context-restrict-to-project-files t)
-  (gptel-make-tool
-   :name "create_file" ; snake_case
-   :function (lambda (path filename content) ; the function that runs
-               (let ((full-path (expand-file-name filename path)))
-                 (with-temp-buffer
-                   (insert content)
-                   (write-file full-path))
-                 (format "Created file %s in %s" filename path)))
-   :description "Create a new file with the specified content"
-   :args (list '(:name "path" ; a list of argument specifications
-	                     :type string
-	                     :description "The directory where to create the file")
-               '(:name "filename"
-	                     :type string
-	                     :description "The name of the file to create")
-               '(:name "content"
-	                     :type string
-	                     :description "The content to write to the file"))
-   :category "filesystem") ; grouping label
+  (require 'mcp-hub)
+  (setq mcp-hub-servers nil)
+  ;; (setq mcp-hub-servers `(("mcp-servers" . (:command "podman-compose" :args ("--file" "compose.yaml" "up")))))
+  (setq mcp-hub-servers `(
+                          ("mcp-filesystem-server" . (:command "podman" :args ("attach" "mcp-filesystem-server")))
+                          ))
   )
 
 ;;; gptel.el ends here
