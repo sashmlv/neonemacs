@@ -4,13 +4,13 @@
 
 ;; Llama.cpp (Ubuntu):
 ;; https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md
-;; sudo apt install nvidia-cuda-toolkit libcurl4-openssl-dev ccache
+;; sudo apt install nvidia-cuda-toolkit libcurl4-openssl-dev
 ;; cd ~
 ;; git clone https://github.com/ggml-org/llama.cpp
 ;; cd llama.cpp
-;; ;; ;; GGML_CUDA_ENABLE_UNIFIED_MEMORY=1 GGML_CCACHE=OFF GGML_CUDA_FA_ALL_QUANTS=ON GGML_CUDA_FORCE_CUBLAS=ON cmake -B build -DCMAKE_CUDA_ARCHITECTURES="61" -DGGML_CUDA=ON -DBUILD_SHARED_LIBS=OFF -DLLAMA_CURL=OFF -DGGML_NATIVE=ON -DGGML_AVX=OFF -DGGML_AVX2=OFF -DGGML_AVX512=OFF -DGGML_FMA=OFF -DGGML_F16C=OFF
-;; GGML_CUDA_ENABLE_UNIFIED_MEMORY=1 GGML_CCACHE=OFF cmake -B build -DCMAKE_CUDA_ARCHITECTURES="61" -DGGML_CUDA=ON
-;; cmake --build build --config Release -j 12
+;; rm -rf ./build
+;; cmake -B build -DGGML_CCACHE=OFF -DGGML_CUDA_ENABLE_UNIFIED_MEMORY=OFF -DGGML_CPU_ALL_VARIANTS=OFF -DGGML_CUDA_FA_ALL_QUANTS=ON -DGGML_CUDA_FORCE_CUBLAS=OFF -DGGML_CUDA_FORCE_MMQ=OFF -DCMAKE_CUDA_ARCHITECTURES="61" -DGGML_CUDA=ON -DLLAMA_CURL=OFF -DGGML_NATIVE=ON -DGGML_AVX=ON -DGGML_AVX2=ON -DGGML_AVX512=OFF -DGGML_FMA=ON -DGGML_F16C=ON -DLLAMA_BUILD_TESTS=OFF
+;; cmake --build build --config Release -j 12 --clean-first
 ;; vim ~/.bashrc
 ;; ;; # llama.cpp
 ;; ;; export PATH=$PATH:~/llama.cpp/build/bin
@@ -25,7 +25,7 @@
 ;; models paths:
 ;; ;; ll ~/.cache/llama.cpp/
 ;; ;; ;; ll ~/llama.cpp/granite-code
-;; llama-server -c 65536 -m ~/llama.cpp/deepseek-coder-1.3b-typescript/deepseek-coder-1.3B-base-F16.gguf
+;; llama-server -m ~/llama.cpp/models/jan-nano-4b-Q8_0.gguf --n-cpu-moe 99 --n-gpu-layers 0 --threads 6 --batch-size 1024 --ubatch-size 1024 --no-op-offload 0 --mmap 0 --flash-attn 1 --temp 0.7 --top-p 0.8 --top-k 20 --min-p 0
 
 ;; Convert .safetensors to GGUF:
 ;; sudo apt install git-lfs
@@ -54,6 +54,15 @@
 ;; pyenv local system
 
 ;; Podman:
+;; https://podman-desktop.io/docs/podman/gpu
+;; https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
+;; https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/cdi-support.html
+;; cd ~/llama.cpp/.devops
+;; cp cuda.Dockerfile cuda-local.Dockerfile
+;; vim cuda-local.Dockerfile
+;; ;; replase line: cmake -B build -DGGML_NATIVE=OFF -DGGML_CUDA=ON -DGGML_BACKEND_DL=ON -DGGML_CPU_ALL_VARIANTS=ON -DLLAMA_BUILD_TESTS=OFF ${CMAKE_ARGS} -DCMAKE_EXE_LINKER_FLAGS=-Wl,--allow-shlib-undefined . && \
+;; ;; with following: cmake -B build -DGGML_CCACHE=OFF -DGGML_CUDA_ENABLE_UNIFIED_MEMORY=OFF -DGGML_CPU_ALL_VARIANTS=OFF -DGGML_CUDA_FA_ALL_QUANTS=ON -DGGML_CUDA_FORCE_CUBLAS=OFF -DGGML_CUDA_FORCE_MMQ=OFF -DCMAKE_CUDA_ARCHITECTURES="61" -DGGML_CUDA=ON -DLLAMA_CURL=OFF -DGGML_NATIVE=ON -DGGML_AVX=ON -DGGML_AVX2=ON -DGGML_AVX512=OFF -DGGML_FMA=ON -DGGML_F16C=ON -DLLAMA_BUILD_TESTS=OFF -DCMAKE_EXE_LINKER_FLAGS=-Wl,--allow-shlib-undefined . && \
+;; podman build -t local/llama.cpp:full-cuda --target full -f .devops/cuda-local.Dockerfile .
 ;; Run: podman compose --file ./compose.yaml up
 
 ;; Repomix:
@@ -89,6 +98,7 @@
 ;; https://hub.docker.com/mcp
 ;; https://github.com/modelcontextprotocol/servers
 ;; https://github.com/appcypher/awesome-mcp-servers
+;; https://www.pulsemcp.com/servers
 
 (require 'gptel-integrations)
 
@@ -109,10 +119,12 @@
   ;; (setq gptel-context-restrict-to-project-files t)
   (require 'mcp-hub)
   (setq mcp-hub-servers nil)
-  ;; (setq mcp-hub-servers `(("mcp-servers" . (:command "podman-compose" :args ("--file" "compose.yaml" "up")))))
   (setq mcp-hub-servers `(
                           ("mcp-filesystem-server" . (:command "podman" :args ("attach" "mcp-filesystem-server")))
+                          ;; ("mcp-sequentialthinking" . (:command "podman" :args ("attach" "mcp-sequentialthinking")))
+                          ;; ("mcp-fetch" . (:command "podman" :args ("attach" "mcp-fetch")))
+                          ;; ("mcp-playwright" . (:command "podman" :args ("attach" "mcp-playwright")))
                           ))
-  )
+ )
 
 ;;; gptel.el ends here

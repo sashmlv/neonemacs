@@ -1,25 +1,31 @@
 # podman compose --file ./compose.yaml up
+# --n-cpu-moe 0,99[66% number of layers (from "block_count")] --n-gpu-layers 0.99[33% number of layers (from "block_count")] --threads 6 --batch-size 1024 --ubatch-size 2048 --no-op-offload --no-mmap --flash-attn 1
 services:
   llamacpp-server:
-    image: ghcr.io/ggml-org/llama.cpp:server-cuda-b6408
+    image: localhost/local/llama.cpp:full-cuda
     ports:
       - 8080:8080
+    devices:
+      - nvidia.com/gpu=all
     volumes:
       - ./models:/models
-    environment:
-      LLAMA_ARG_MODEL: /models/jan-nano-4b-Q8_0.gguf
-      LLAMA_ARG_PORT: 127.0.0.1
-      LLAMA_ARG_PORT: 8080
-      LLAMA_ARG_CTX_SIZE: 0
-      LLAMA_ARG_JINJA: 1
-      LLAMA_ARG_UBATCH: 2048
-      LLAMA_ARG_BATCH: 2048
-      LLAMA_ARG_N_CPU_MOE: 24
-      LLAMA_ARG_ENDPOINT_METRICS: 1
-  mcp-filesystem-server:
-    image: ghcr.io/mark3labs/mcp-filesystem-server:latest
-    container_name: mcp-filesystem-server
-    stdin_open: true
-    command: /project
-    volumes:
-      - ./project:/project
+    command: ["--server", "--verbose", "--metrics", "--port", "8080", "--host", "127.0.0.1", "-m", "/models/jan-nano-128k-iQ4_XS.gguf", "--ctx-size", "0", "--n-cpu-moe", "35", "--n-gpu-layers", "1", "--threads", "6", "--batch-size", "1024", "--ubatch-size", "2048", "--no-op-offload", "--no-mmap", "--flash-attn", "1", "--temp", "0.7", "--top-p", "0.8", "--top-k", "20", "--min-p", "0"] # jan-nano-128k-iQ4_XS.gguf
+    # command: ["--bench", "--verbose", "-m", "/models/jan-nano-128k-iQ4_XS.gguf", "--n-gen", "0", "--n-cpu-moe", "29", "--n-gpu-layers", "7", "--threads", "6", "--batch-size", "1024", "--ubatch-size", "2048", "--no-op-offload", "0", "--mmap", "0", "--flash-attn", "1"]
+  # mcp-filesystem-server:
+  #   image: ghcr.io/mark3labs/mcp-filesystem-server:latest
+  #   container_name: mcp-filesystem-server
+  #   stdin_open: true
+  #   command: /project
+  #   volumes:
+  #     - ./project:/project
+  # mcp-fetch:
+  #   image: mcp/fetch
+  #   container_name: mcp-fetch
+  #   command: ["--ignore-robots-txt", "--user-agent=Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"]
+  #   stdin_open: true
+  # mcp-playwright:
+  #   image: mcr.microsoft.com/playwright/mcp
+  #   container_name: mcp-playwright
+  #   entrypoint: ["node"]
+  #   command: ["cli.js", "--headless", "--isolated", "--browser=chromium", "--no-sandbox", "--viewport-size=1920,1080", "--timeout-navigation=600000ms", "--user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.3"]
+  #   stdin_open: true
