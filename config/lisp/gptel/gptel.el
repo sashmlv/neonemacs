@@ -21,11 +21,11 @@
 ;; llama-server --version
 ;; https://github.com/ggml-org/llama.cpp/blob/master/tools/main/README.md
 ;; https://huggingface.co/models?apps=llama.cpp&sort=downloads&search=code
-;; llama-server -hf MaziyarPanahi/Yi-Coder-1.5B-Chat-GGUF:Q5_K_S
+;; llama-server -hf Menlo/Jan-nano-128k-gguf
 ;; models paths:
 ;; ;; ll ~/.cache/llama.cpp/
 ;; ;; ;; ll ~/llama.cpp/granite-code
-;; llama-server -m ~/llama.cpp/models/jan-nano-4b-Q8_0.gguf --n-cpu-moe 99 --n-gpu-layers 0 --threads 6 --batch-size 1024 --ubatch-size 1024 --no-op-offload 0 --mmap 0 --flash-attn 1 --temp 0.7 --top-p 0.8 --top-k 20 --min-p 0
+;; llama-server -m ~/llama.cpp/models/jan-nano-128k-iQ4_XS.gguf --n-cpu-moe 99 --n-gpu-layers 0 --threads 6 --batch-size 1024 --ubatch-size 2048 --no-op-offload --no-mmap --flash-attn 1 --temp 0.7 --top-p 0.8 --top-k 20 --min-p 0
 
 ;; Convert .safetensors to GGUF:
 ;; sudo apt install git-lfs
@@ -120,7 +120,7 @@
   (require 'mcp-hub)
   (setq mcp-hub-servers nil)
   (setq mcp-hub-servers `(
-                          ("mcp-filesystem-server" . (:command "podman" :args ("attach" "mcp-filesystem-server")))
+                          ;; ("mcp-filesystem-server" . (:command "podman" :args ("attach" "mcp-filesystem-server")))
                           ;; ("mcp-sequentialthinking" . (:command "podman" :args ("attach" "mcp-sequentialthinking")))
                           ;; ("mcp-fetch" . (:command "podman" :args ("attach" "mcp-fetch")))
                           ;; ("mcp-playwright" . (:command "podman" :args ("attach" "mcp-playwright")))
