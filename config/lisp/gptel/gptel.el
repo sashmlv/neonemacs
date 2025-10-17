@@ -63,7 +63,8 @@
 ;; ;; replase line: cmake -B build -DGGML_NATIVE=OFF -DGGML_CUDA=ON -DGGML_BACKEND_DL=ON -DGGML_CPU_ALL_VARIANTS=ON -DLLAMA_BUILD_TESTS=OFF ${CMAKE_ARGS} -DCMAKE_EXE_LINKER_FLAGS=-Wl,--allow-shlib-undefined . && \
 ;; ;; with following: cmake -B build -DGGML_CCACHE=OFF -DGGML_CUDA_ENABLE_UNIFIED_MEMORY=OFF -DGGML_CPU_ALL_VARIANTS=OFF -DGGML_CUDA_FA_ALL_QUANTS=ON -DGGML_CUDA_FORCE_CUBLAS=OFF -DGGML_CUDA_FORCE_MMQ=OFF -DCMAKE_CUDA_ARCHITECTURES="61" -DGGML_CUDA=ON -DLLAMA_CURL=OFF -DGGML_NATIVE=ON -DGGML_AVX=ON -DGGML_AVX2=ON -DGGML_AVX512=OFF -DGGML_FMA=ON -DGGML_F16C=ON -DLLAMA_BUILD_TESTS=OFF -DCMAKE_EXE_LINKER_FLAGS=-Wl,--allow-shlib-undefined . && \
 ;; podman build -t local/llama.cpp:full-cuda --target full -f .devops/cuda-local.Dockerfile .
-;; Run: podman compose --file ./compose.yaml up
+;; disable GPU usage in user programms: chromium, firefox, thunderbird, etc.
+;; run: podman compose --file ./compose.yaml up
 
 ;; Repomix:
 ;; https://github.com/yamadashy/repomix
