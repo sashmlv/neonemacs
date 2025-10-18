@@ -56,7 +56,7 @@
 ;; Podman:
 ;; https://podman-desktop.io/docs/podman/gpu
 ;; https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
-;; https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/cdi-support.html
+;; [install and repead this steps after driver has been updated] https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/cdi-support.html
 ;; cd ~/llama.cpp/.devops
 ;; cp cuda.Dockerfile cuda-local.Dockerfile
 ;; vim cuda-local.Dockerfile
@@ -107,11 +107,11 @@
   :ensure t
   :config
   (setq
-   gptel-model 'test
+   gptel-model 'LlamaCpp
    gptel-backend (gptel-make-openai "llama-cpp"
                    :stream t
                    :protocol "http"
-                   :host "127.0.0.1:8080"
+                   :host "0.0.0.0:8080"
                    :models '(LlamaCpp)))
   (setq gptel-use-tools t)
   (setq gptel-log-level 'debug)

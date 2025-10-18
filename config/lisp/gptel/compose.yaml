@@ -9,7 +9,7 @@ services:
       - nvidia.com/gpu=all
     volumes:
       - ./models:/models
-    command: ["--server", "--verbose", "--metrics", "--port", "8080", "--host", "127.0.0.1", "-m", "/models/jan-nano-128k-iQ4_XS.gguf", "--ctx-size", "8192", "--n-cpu-moe", "7", "--n-gpu-layers", "29", "--batch-size", "1024", "--ubatch-size", "2048", "--no-op-offload", "--no-kv-offload", "--no-mmap", "--flash-attn", "1", "--temp", "0.7", "--top-p", "0.8", "--top-k", "20", "--min-p", "0" ] # jan-nano-128k-iQ4_XS.gguf
+    command: ["--server", "--verbose", "--metrics", "--port", "8080", "--host", "0.0.0.0", "-m", "/models/jan-nano-128k-iQ4_XS.gguf", "--ctx-size", "8192", "--n-cpu-moe", "8", "--n-gpu-layers", "28", "--batch-size", "1024", "--ubatch-size", "2048", "--no-op-offload", "--no-kv-offload", "--no-mmap", "--flash-attn", "1", "--temp", "0.7", "--top-p", "0.8", "--top-k", "20", "--min-p", "0" ] # jan-nano-128k-iQ4_XS.gguf
     # command: ["--bench", "--verbose", "-m", "/models/jan-nano-128k-iQ4_XS.gguf", "--n-cpu-moe", "18", "--n-gpu-layers", "18", "--threads", "6", "--batch-size", "1024", "--ubatch-size", "2048", "--no-op-offload", "0", "--mmap", "0", "--flash-attn", "1"]
   # mcp-filesystem-server:
   #   image: ghcr.io/mark3labs/mcp-filesystem-server:latest
