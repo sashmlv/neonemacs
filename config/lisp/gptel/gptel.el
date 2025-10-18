@@ -123,8 +123,6 @@
   (setq mcp-hub-servers `(
                           ;; ("mcp-filesystem-server" . (:command "podman" :args ("attach" "mcp-filesystem-server")))
                           ;; ("mcp-sequentialthinking" . (:command "podman" :args ("attach" "mcp-sequentialthinking")))
-                          ;; ("mcp-fetch" . (:command "podman" :args ("attach" "mcp-fetch")))
-                          ;; ("mcp-playwright" . (:command "podman" :args ("attach" "mcp-playwright")))
                           ))
  )
 

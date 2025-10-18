@@ -9,7 +9,7 @@ services:
       - nvidia.com/gpu=all
     volumes:
       - ./models:/models
-    command: ["--server", "--verbose", "--metrics", "--port", "8080", "--host", "0.0.0.0", "-m", "/models/jan-nano-128k-iQ4_XS.gguf", "--ctx-size", "8192", "--n-cpu-moe", "8", "--n-gpu-layers", "28", "--batch-size", "1024", "--ubatch-size", "2048", "--no-op-offload", "--no-kv-offload", "--no-mmap", "--flash-attn", "1", "--temp", "0.7", "--top-p", "0.8", "--top-k", "20", "--min-p", "0" ] # jan-nano-128k-iQ4_XS.gguf
+    command: ["--server", "-m", "/models/jan-nano-128k-iQ4_XS.gguf", "--metrics", "--port", "8080", "--host", "0.0.0.0", "--jinja", "--ctx-size", "8192", "--n-cpu-moe", "8", "--n-gpu-layers", "28", "--batch-size", "1024", "--ubatch-size", "2048", "--no-op-offload", "--no-kv-offload", "--no-mmap", "--flash-attn", "1", "--temp", "0.7", "--top-p", "0.8", "--top-k", "20", "--min-p", "0" ] # jan-nano-128k-iQ4_XS.gguf
     # command: ["--bench", "--verbose", "-m", "/models/jan-nano-128k-iQ4_XS.gguf", "--n-cpu-moe", "18", "--n-gpu-layers", "18", "--threads", "6", "--batch-size", "1024", "--ubatch-size", "2048", "--no-op-offload", "0", "--mmap", "0", "--flash-attn", "1"]
   # mcp-filesystem-server:
   #   image: ghcr.io/mark3labs/mcp-filesystem-server:latest
@@ -18,14 +18,3 @@ services:
   #   command: /project
   #   volumes:
   #     - ./project:/project
-  # mcp-fetch:
-  #   image: mcp/fetch
-  #   container_name: mcp-fetch
-  #   command: ["--ignore-robots-txt", "--user-agent=Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"]
-  #   stdin_open: true
-  # mcp-playwright:
-  #   image: mcr.microsoft.com/playwright/mcp
-  #   container_name: mcp-playwright
-  #   entrypoint: ["node"]
-  #   command: ["cli.js", "--headless", "--isolated", "--browser=chromium", "--no-sandbox", "--viewport-size=1920,1080", "--timeout-navigation=600000ms", "--user-agent=Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.3"]
-  #   stdin_open: true
