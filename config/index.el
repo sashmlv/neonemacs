@@ -75,7 +75,7 @@
         general ;; convenience wrappers for keybindings
         gptel ;; LLM client for Emacs
         mcp ;; Model Context Protocol for Emacs
-        aider ;; AI assisted programming in Emacs with Aider
+        ;; aider ;; AI assisted programming in Emacs with Aider
         ))
 
 ;; install packages from list
@@ -153,7 +153,7 @@
         "yasnippet"
         "general"
         ,(concat (file-name-as-directory "gptel") "gptel")
-        "aider"
+        ;; "aider"
         "prog-mode" ;; last modes
         "base-setup" ;; last modes
       ))

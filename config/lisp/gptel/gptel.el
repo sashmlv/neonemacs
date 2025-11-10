@@ -85,7 +85,7 @@
 ;; ;; Run ssh tunnel on the host: ssh -p 2222 -N -R 9222:127.0.0.1:9222 root@127.0.0.1
 ;; ;; If container is upgraded, you need to remove the entry from known_hosts on the host machine (then run ssh tunnel as usual): ssh-keygen -R '[127.0.0.1]:2222'
 
-;; MPC inspector (debug mpc servers):
+;; MCP inspector (debug mcp servers):
 ;; npx @modelcontextprotocol/inspector
 
 ;; Repomix:
