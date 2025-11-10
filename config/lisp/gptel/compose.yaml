@@ -4,17 +4,27 @@ services:
   llamacpp-server:
     image: localhost/local/llama.cpp:full-cuda
     ports:
-      - 8080:8080
+      - "127.0.0.1:9000:9000"
     devices:
       - nvidia.com/gpu=all
     volumes:
       - ./models:/models
-    command: ["--server", "-m", "/models/jan-nano-128k-iQ4_XS.gguf", "--metrics", "--port", "8080", "--host", "0.0.0.0", "--jinja", "--ctx-size", "8192", "--n-cpu-moe", "8", "--n-gpu-layers", "28", "--batch-size", "1024", "--ubatch-size", "2048", "--no-op-offload", "--no-kv-offload", "--no-mmap", "--flash-attn", "1", "--temp", "0.7", "--top-p", "0.8", "--top-k", "20", "--min-p", "0" ] # jan-nano-128k-iQ4_XS.gguf
+    command: ["--server", "-m", "/models/jan-nano-4b-Q8_0.gguf", "--metrics", "--port", "9000", "--host", "0.0.0.0", "--jinja", "--ctx-size", "16384", "--n-cpu-moe", "23", "--n-gpu-layers", "13", "--batch-size", "1024", "--ubatch-size", "2048", "--no-op-offload", "--no-kv-offload", "--no-mmap", "--flash-attn", "1", "--temp", "0.7", "--top-p", "0.8", "--top-k", "20", "--min-p", "0" ] # jan-nano-128k-iQ4_XS.gguf
     # command: ["--bench", "--verbose", "-m", "/models/jan-nano-128k-iQ4_XS.gguf", "--n-cpu-moe", "18", "--n-gpu-layers", "18", "--threads", "6", "--batch-size", "1024", "--ubatch-size", "2048", "--no-op-offload", "0", "--mmap", "0", "--flash-attn", "1"]
-  # mcp-filesystem-server:
-  #   image: ghcr.io/mark3labs/mcp-filesystem-server:latest
-  #   container_name: mcp-filesystem-server
-  #   stdin_open: true
-  #   command: /project
-  #   volumes:
-  #     - ./project:/project
+  mcp-filesystem-server:
+    image: ghcr.io/mark3labs/mcp-filesystem-server:latest
+    container_name: mcp-filesystem-server
+    stdin_open: true
+    command: /project
+    volumes:
+      - ./project:/project
+  mcp-chrome-devtools:
+    build:
+      dockerfile: Dockerfile
+      context: ./mcp/chrome-devtools-mcp
+    container_name: mcp-chrome-devtools
+    ports:
+      - "127.0.0.1:2222:22"
+    stdin_open: true
+    volumes:
+      - ~/.ssh/id_rsa_chrome_dev_tools.pub:/root/.ssh/authorized_keys:ro

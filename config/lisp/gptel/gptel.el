@@ -65,6 +65,25 @@
 ;; podman build -t local/llama.cpp:full-cuda --target full -f .devops/cuda-local.Dockerfile .
 ;; disable GPU usage in user programms: chromium, firefox, thunderbird, etc.
 ;; run: podman compose --file ./compose.yaml up
+;; Chrome Dev Tools:
+;; ;; https://developer.chrome.com/docs/devtools/remote-debugging/local-server#port-forwarding
+;; chromium --remote-debugging-port=9222 --user-data-dir=/home/$USER/snap/chromium/common/chromium/Testing-profile
+;; sudo apt install openssh-server
+;; sudo systemctl enable --now ssh
+;; sudo systemctl status ssh
+;; cd ~
+;; ssh-keygen -t ed25519 -f ~/.ssh/id_rsa_chrome_dev_tools -N ""
+;; Enter name: id_rsa_chrome_dev_tools
+;; Run services: podman compose --file ./compose.yaml up
+;; Run ssh agent for port forwarding:
+;; ;; bash: eval "$(ssh-agent -s)"
+;; ;; fish: eval (ssh-agent -c)
+;; ;; ssh-add ~/.ssh/id_rsa_chrome_dev_tools
+;; ;; Run ssh tunnel on the host: ssh -p 2222 -N -R 9222:127.0.0.1:9222 root@127.0.0.1
+;; ;; If container is upgraded, you need to remove the entry from known_hosts on the host machine (then run ssh tunnel as usual): ssh-keygen -R '[127.0.0.1]:2222'
+
+;; MPC inspector (debug mpc servers):
+;; npx @modelcontextprotocol/inspector
 
 ;; Repomix:
 ;; https://github.com/yamadashy/repomix
@@ -100,6 +119,7 @@
 ;; https://github.com/modelcontextprotocol/servers
 ;; https://github.com/appcypher/awesome-mcp-servers
 ;; https://www.pulsemcp.com/servers
+;; https://mcpmarket.com
 
 (require 'gptel-integrations)
 
@@ -111,7 +131,7 @@
    gptel-backend (gptel-make-openai "llama-cpp"
                    :stream t
                    :protocol "http"
-                   :host "0.0.0.0:8080"
+                   :host "127.0.0.1:9000"
                    :models '(LlamaCpp)))
   (setq gptel-use-tools t)
   (setq gptel-log-level 'debug)
@@ -121,8 +141,8 @@
   (require 'mcp-hub)
   (setq mcp-hub-servers nil)
   (setq mcp-hub-servers `(
-                          ;; ("mcp-filesystem-server" . (:command "podman" :args ("attach" "mcp-filesystem-server")))
-                          ;; ("mcp-sequentialthinking" . (:command "podman" :args ("attach" "mcp-sequentialthinking")))
+                          ("mcp-filesystem-server" . (:command "podman" :args ("attach" "mcp-filesystem-server")))
+                          ("mcp-chrome-devtools" . (:command "podman" :args ("attach" "mcp-chrome-devtools")))
                           ))
  )
 
