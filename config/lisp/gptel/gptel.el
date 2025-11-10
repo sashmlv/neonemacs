@@ -76,9 +76,12 @@
 ;; Enter name: id_rsa_chrome_dev_tools
 ;; Run services: podman compose --file ./compose.yaml up
 ;; Run ssh agent for port forwarding:
-;; ;; bash: eval "$(ssh-agent -s)"
-;; ;; fish: eval (ssh-agent -c)
-;; ;; ssh-add ~/.ssh/id_rsa_chrome_dev_tools
+;; ;; Add connnection config: vim ~/.ssh/config
+;; ;; ;; Host 127.0.0.1
+;; ;; ;;   User root
+;; ;; ;;   Port 2222
+;; ;; ;;   AddKeysToAgent yes
+;; ;; ;;   IdentityFile ~/.ssh/id_rsa_chrome_dev_tools
 ;; ;; Run ssh tunnel on the host: ssh -p 2222 -N -R 9222:127.0.0.1:9222 root@127.0.0.1
 ;; ;; If container is upgraded, you need to remove the entry from known_hosts on the host machine (then run ssh tunnel as usual): ssh-keygen -R '[127.0.0.1]:2222'
 
@@ -129,15 +132,16 @@
   (setq
    gptel-model 'LlamaCpp
    gptel-backend (gptel-make-openai "llama-cpp"
+                   :curl-args '("-m7200" "-y7200" "-Y0")
                    :stream t
                    :protocol "http"
                    :host "127.0.0.1:9000"
                    :models '(LlamaCpp)))
+  ;; (setq gptel-use-curl nil)
   (setq gptel-use-tools t)
   (setq gptel-log-level 'debug)
   (setq gptel-expert-commands t)
   (setq gptel-confirm-tool-calls t)
-  ;; (setq gptel-context-restrict-to-project-files t)
   (require 'mcp-hub)
   (setq mcp-hub-servers nil)
   (setq mcp-hub-servers `(
