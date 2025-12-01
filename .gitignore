@@ -1,2 +1,3 @@
 **/gptel/models/*
 !**/gptel/models/README.md
+**/gptel/**/*.env

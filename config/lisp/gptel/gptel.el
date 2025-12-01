@@ -147,6 +147,7 @@
   (setq mcp-hub-servers `(
                           ("mcp-filesystem-server" . (:command "podman" :args ("attach" "mcp-filesystem-server")))
                           ("mcp-chrome-devtools" . (:command "podman" :args ("attach" "mcp-chrome-devtools")))
+                          ("mcp-crystaldba-postgres" . (:command "podman" :args ("attach" "mcp-crystaldba-postgres")))
                           ))
  )
 

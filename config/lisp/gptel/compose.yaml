@@ -2,6 +2,7 @@
 # --n-gpu-layers 99[or higher as possible (part of layers from "block_count")] --n-cpu-moe 0[or remainder of --n-gpu-layers option] --threads 6 --batch-size 1024 --ubatch-size 2048 --no-op-offload --no-mmap --flash-attn 1
 services:
   llamacpp-server:
+    container_name: llamacpp-server
     image: localhost/local/llama.cpp:full-cuda
     ports:
       - "127.0.0.1:9000:9000"
@@ -28,3 +29,32 @@ services:
     stdin_open: true
     volumes:
       - ~/.ssh/id_rsa_chrome_dev_tools.pub:/root/.ssh/authorized_keys:ro
+  mcp-postgresql:
+    container_name: mcp-postgresql
+    build:
+      context: ./postgresql/debian/
+      dockerfile: ./Dockerfile
+    env_file:
+      - ./.env
+    environment:
+      PGDATA: /var/lib/postgresql
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - ${POSTGRES_PORT}:5432
+    expose:
+      - 5432
+    volumes:
+      - mcp-postgresql:/var/lib/postgresql:rw
+  mcp-crystaldba-postgres:
+    container_name: mcp-crystaldba-postgres
+    image: crystaldba/postgres-mcp
+    depends_on:
+      - mcp-postgresql
+    environment:
+      DATABASE_URI: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@host.containers.internal:${POSTGRES_PORT}/${POSTGRES_DB}
+    stdin_open: true
+    command: ["--access-mode=unrestricted", "--transport=stdio" ]
+volumes:
+  mcp-postgresql:
