@@ -1,0 +1,12 @@
+{
+  "delay": 100,
+  "exec": "node --enable-source-maps dist",
+  "ext": "js,yaml",
+  "watch": [
+    "dist/index.js"
+  ],
+  "ignore": [
+    ".git",
+    "**/node_modules/**"
+  ]
+}

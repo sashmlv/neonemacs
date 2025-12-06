@@ -56,5 +56,11 @@ services:
       DATABASE_URI: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@host.containers.internal:${POSTGRES_PORT}/${POSTGRES_DB}
     stdin_open: true
     command: ["--access-mode=unrestricted", "--transport=stdio" ]
+  mcp-template:
+    container_name: mcp-template
+    build:
+      context: ./mcp/template-mcp/
+      dockerfile: ./Dockerfile
+    stdin_open: true
 volumes:
   mcp-postgresql:

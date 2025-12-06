@@ -120,9 +120,6 @@
 ;; MCP servers:
 ;; https://hub.docker.com/mcp
 ;; https://github.com/modelcontextprotocol/servers
-;; https://github.com/appcypher/awesome-mcp-servers
-;; https://www.pulsemcp.com/servers
-;; https://mcpmarket.com
 
 (require 'gptel-integrations)
 
@@ -148,7 +145,15 @@
                           ("mcp-filesystem-server" . (:command "podman" :args ("attach" "mcp-filesystem-server")))
                           ("mcp-chrome-devtools" . (:command "podman" :args ("attach" "mcp-chrome-devtools")))
                           ("mcp-crystaldba-postgres" . (:command "podman" :args ("attach" "mcp-crystaldba-postgres")))
+                          ("mcp-template" . (:command "podman" :args ("attach" "mcp-template")))
                           ))
- )
+  )
+
+;; (gptel-make-preset 'gpt4coding                       ;preset name, a symbol
+;;   :description "A preset optimized for coding tasks" ;for your reference
+;;   :backend "Claude"                                  ;gptel backend or backend name
+;;   :model 'claude-3-7-sonnet-20250219.1
+;;   :system "You are an expert coding assistant. Your role is to provide high-quality code solutions, refactorings, and explanations."
+;;   :tools '("read_buffer" "modify_buffer"))           ;gptel tools or tool names
 
 ;;; gptel.el ends here
