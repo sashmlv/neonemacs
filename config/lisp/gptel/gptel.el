@@ -151,7 +151,7 @@
 
 (gptel-make-preset 'sql
   :description "Preset for sql coding"
-  :backend (gptel-make-openai "llama-cpp-sql"
+  :backend (gptel-make-openai "llama-cpp"
              :stream t
              :protocol "http"
              :host "127.0.0.1:9002"
@@ -167,8 +167,8 @@
              :protocol "http"
              :host "127.0.0.1:9003"
              :models '((LlamaCpp
-                        :capabilities (media tool-use json url)
-                        :mime-types ("image/png" "image/jpeg" "image/jpg" "image/webp" "application/pdf"))))
+                        :capabilities (media json) ;; (media tool-use json url)
+                        :mime-types ("image/png" "image/jpeg" "image/webp" "application/pdf"))))
   )
 
 ;;; gptel.el ends here
