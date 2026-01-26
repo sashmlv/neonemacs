@@ -50,7 +50,8 @@
 ;; python3.10 -m pip install -r requirements.txt
 ;; pip install huggingface_hub
 ;; git clone https://huggingface.co/CodeGPTPlus/deepseek-coder-1.3b-typescript
-;; python3.10 ./convert_hf_to_gguf.py deepseek-coder-1.3b-typescript
+;; python3.10 ./convert_hf_to_gguf.py deepseek-coder
+;; python3.10 ./convert_hf_to_gguf.py chandra --mmproj
 ;; pyenv local system
 
 ;; Podman:
@@ -129,13 +130,12 @@
   (setq
    gptel-model 'LlamaCpp
    gptel-backend (gptel-make-openai "llama-cpp"
-                   :curl-args '("-m7200" "-y7200" "-Y0")
                    :stream t
                    :protocol "http"
-                   :host "127.0.0.1:9000"
+                   :host "127.0.0.1:9001"
                    :models '(LlamaCpp)))
-  ;; (setq gptel-use-curl nil)
   (setq gptel-use-tools t)
+  (setq gptel-track-media t)
   (setq gptel-log-level 'debug)
   (setq gptel-expert-commands t)
   (setq gptel-confirm-tool-calls t)
@@ -149,11 +149,26 @@
                           ))
   )
 
-;; (gptel-make-preset 'gpt4coding                       ;preset name, a symbol
-;;   :description "A preset optimized for coding tasks" ;for your reference
-;;   :backend "Claude"                                  ;gptel backend or backend name
-;;   :model 'claude-3-7-sonnet-20250219.1
-;;   :system "You are an expert coding assistant. Your role is to provide high-quality code solutions, refactorings, and explanations."
-;;   :tools '("read_buffer" "modify_buffer"))           ;gptel tools or tool names
+(gptel-make-preset 'sql
+  :description "Preset for sql coding"
+  :backend (gptel-make-openai "llama-cpp-sql"
+             :stream t
+             :protocol "http"
+             :host "127.0.0.1:9002"
+             :models '(LlamaCpp))
+  )
+
+(gptel-make-preset 'ocr
+  :description "Preset for ocr"
+  :track-media t
+  :model 'LlamaCpp
+  :backend (gptel-make-openai "llama-cpp"
+             :stream t
+             :protocol "http"
+             :host "127.0.0.1:9003"
+             :models '((LlamaCpp
+                        :capabilities (media tool-use json url)
+                        :mime-types ("image/png" "image/jpeg" "image/jpg" "image/webp" "application/pdf"))))
+  )
 
 ;;; gptel.el ends here

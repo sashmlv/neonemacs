@@ -1,5 +1,7 @@
 **/gptel/models/*
 !**/gptel/models/README.md
+**/gptel/files/*
+!**/gptel/files/README.md
 **/gptel/**/*.env
 dist
 node_modules

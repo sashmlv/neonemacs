@@ -1,17 +1,38 @@
 # podman compose --file ./compose.yaml up
 # --n-gpu-layers 99[or higher as possible (part of layers from "block_count")] --n-cpu-moe 0[or remainder of --n-gpu-layers option] --threads 6 --batch-size 1024 --ubatch-size 2048 --no-op-offload --no-mmap --flash-attn 1
 services:
-  llamacpp-server:
-    container_name: llamacpp-server
+  codding-server:
+    container_name: codding-server
     image: localhost/local/llama.cpp:full-cuda
     ports:
-      - "127.0.0.1:9000:9000"
+      - "127.0.0.1:9001:9001"
     devices:
       - nvidia.com/gpu=all
     volumes:
       - ./models:/models
-    command: ["--server", "-m", "/models/jan-nano-4b-Q8_0.gguf", "--metrics", "--port", "9000", "--host", "0.0.0.0", "--jinja", "--ctx-size", "16384", "--n-cpu-moe", "23", "--n-gpu-layers", "13", "--batch-size", "1024", "--ubatch-size", "2048", "--no-op-offload", "--no-kv-offload", "--no-mmap", "--flash-attn", "1", "--temp", "0.7", "--top-p", "0.8", "--top-k", "20", "--min-p", "0" ] # jan-nano-128k-iQ4_XS.gguf
+    command: ["--server", "-m", "/models/jan-nano-4b-Q8_0.gguf", "--metrics", "--port", "9001", "--host", "0.0.0.0", "--jinja"]
+    # command: ["--server", "-m", "/models/jan-nano-4b-Q8_0.gguf", "--metrics", "--port", "9001", "--host", "0.0.0.0", "--jinja", "--ctx-size", "40960", "--n-cpu-moe", "36", "--n-gpu-layers", "0", "--batch-size", "1024", "--ubatch-size", "2048", "--no-op-offload", "--no-kv-offload", "--no-mmap", "--flash-attn", "1", "--temp", "0.7", "--top-p", "0.8", "--top-k", "20", "--min-p", "0" ] # jan-nano-128k-iQ4_XS.gguf
     # command: ["--bench", "--verbose", "-m", "/models/jan-nano-128k-iQ4_XS.gguf", "--n-cpu-moe", "18", "--n-gpu-layers", "18", "--threads", "6", "--batch-size", "1024", "--ubatch-size", "2048", "--no-op-offload", "0", "--mmap", "0", "--flash-attn", "1"]
+  sql-server:
+    container_name: sql-server
+    image: localhost/local/llama.cpp:full-cuda
+    ports:
+      - "127.0.0.1:9002:9002"
+    devices:
+      - nvidia.com/gpu=all
+    volumes:
+      - ./models:/models
+    command: ["--server", "-m", "/models/Qwen-3-4b-Text_to_SQL-F16.gguf", "--metrics", "--port", "9002", "--host", "0.0.0.0", "--jinja"]
+  ocr-server:
+    container_name: ocr-server
+    image: localhost/local/llama.cpp:full-cuda
+    ports:
+      - "127.0.0.1:9003:9003"
+    devices:
+      - nvidia.com/gpu=all
+    volumes:
+      - ./models:/models
+    command: ["--server", "-m", "/models/Chandra-8.2B-BF16.gguf", "--mmproj", "/models/mmproj-Chandra-BF16.gguf", "--no-mmproj-offload", "--metrics", "--port", "9003", "--host", "0.0.0.0", "--jinja"]
   mcp-filesystem-server:
     image: ghcr.io/mark3labs/mcp-filesystem-server:latest
     container_name: mcp-filesystem-server
