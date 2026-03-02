@@ -8,7 +8,7 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/") t)
-(add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/packages/") t)
+(add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/") t)
 ;; (add-to-list 'package-archives '("melpa-stable" . "https://www.mirrorservice.org/sites/stable.melpa.org/packages/") t)
 ;; (add-to-list 'package-archives '("melpa" . "https://www.mirrorservice.org/sites/melpa.org/packages/") t)
 
@@ -82,6 +82,7 @@
 ;; check installed packages
 (setq neon-want-package-install nil)
 (setq neon-want-emacs-restart nil) ;; change while initialization
+(package-refresh-contents)
 (dolist (package package-list)
   (if(not(package-installed-p package))
       (setq neon-want-package-install t)))

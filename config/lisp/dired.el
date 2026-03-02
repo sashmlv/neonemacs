@@ -11,7 +11,7 @@
                 '("\\.zip\\'" ".zip" "unzip")))
 
 ;; human readable file size
-(setq-default dired-listing-switches "-alFh") ;; default: "-al"
+(setq-default dired-listing-switches "-alFh --group-directories-first") ;; default: "-al"
 
 (defun add-left-fringe ()
   (setq left-fringe-width 7
