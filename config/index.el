@@ -82,7 +82,6 @@
 ;; check installed packages
 (setq neon-want-package-install nil)
 (setq neon-want-emacs-restart nil) ;; change while initialization
-(package-refresh-contents)
 (dolist (package package-list)
   (if(not(package-installed-p package))
       (setq neon-want-package-install t)))

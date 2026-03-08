@@ -1,11 +1,12 @@
 {
   "name": "template-mcp",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "start": "node dist",
     "nodemon": "nodemon --config nodemon.json",
+    "test": "npm run build && node --test dist/test/*.test.js",
     "watch": "tsc -b -w tsconfig.json",
     "dev": "npm run build && concurrently -n tsc,srv \"npm run watch\" \"npm run nodemon\""
   },
