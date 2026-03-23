@@ -10,6 +10,7 @@ import {
 
 describe('multiply', async () => {
 
+  let toolName = 'multiply';
   let client: Client;
   let multiplyTool: (Awaited<ReturnType<typeof client.listTools>>)['tools'][number];
 
@@ -20,7 +21,7 @@ describe('multiply', async () => {
     const transport = new StdioClientTransport({command, args});
     await client.connect(transport);
     const listTools: Awaited<ReturnType<typeof client.listTools>> = await client.listTools();
-    multiplyTool = listTools.tools.find(t => t.name === 'multiply')!;
+    multiplyTool = listTools.tools.find(t => t.name === toolName)!;
   })
   after(async () => {
     await client.close();
@@ -41,4 +42,3 @@ describe('multiply', async () => {
     }
   })
 })
-
