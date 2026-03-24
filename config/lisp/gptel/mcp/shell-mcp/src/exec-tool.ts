@@ -4,8 +4,19 @@ import {
   exec,
   ExecOptions,
 } from 'node:child_process';
+import {
+  NotAllowed,
+  AllowedCommandsRequired,
+} from './error';
 
 export type ExecOutput = z.infer<typeof execOutputSchema>;
+
+const ALLOWED_COMMANDS = process.env.ALLOWED_COMMANDS?.split(',')
+  .filter(c => c).map(c => c?.trim()) || [];
+
+if(!ALLOWED_COMMANDS.length) {
+  throw new AllowedCommandsRequired();
+}
 
 const EXEC_OPTIONS: ExecOptions = {
   timeout: 5000,
@@ -34,6 +45,9 @@ mcpServer.registerTool('exec', {
     try {
       const command = [cmd, ...args].join(' ');
       exec(command, EXEC_OPTIONS, (err, stdout, stderr) => {
+        if (ALLOWED_COMMANDS.includes(command)) {
+          rej(new NotAllowed(command));
+        }
         const error = (err || stderr) ? {
           name: err?.name || 'Error',
           message: err?.message || stderr,

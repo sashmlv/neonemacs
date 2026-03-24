@@ -40,7 +40,10 @@ describe('exec', async () => {
       })
       const {structuredContent} = ctResult;
       const {result} = structuredContent as ExecOutput;
-      assert.strictEqual(result?.startsWith('2026'), true);
+      assert.strictEqual(
+        result?.startsWith(new Date().getFullYear().toString()),
+        true,
+      )
     } catch (err) {
       console.error(err);
     }
@@ -49,7 +52,7 @@ describe('exec', async () => {
   it('date bad param', async() => {
     try {
       const cmd = 'date';
-      const args = ['error'];
+      const args = ['bad_param'];
       const ctResult: Partial<CallToolResult> = await client.callTool({
         name: shellTool.name,
         arguments: { cmd, args },
@@ -65,7 +68,7 @@ describe('exec', async () => {
     }
   })
 
-  it('bad command', async() => {
+  it('empty command', async() => {
     try {
       const cmd = '';
       const args: [] = [];
@@ -101,7 +104,7 @@ describe('exec', async () => {
     }
   })
 
-  it('bad util', async() => {
+  it('bad command', async() => {
     try {
       const cmd = 'yeah';
       const args = ['awesome', 'parameters'];
