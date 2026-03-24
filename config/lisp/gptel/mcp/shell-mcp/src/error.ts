@@ -21,8 +21,8 @@ export class AllowedCommandsRequired extends AppError {
   constructor() {
     super(
       AllowedCommandsRequired.message,
-      NotAllowed.code,
-      NotAllowed.statusCode,
+      AllowedCommandsRequired.code,
+      AllowedCommandsRequired.statusCode,
     )
   }
 }
