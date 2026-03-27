@@ -1,3 +1,4 @@
+import './allowed-commands-tool';
 import './exec-tool';
 import { mcpServer } from './server';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
@@ -5,7 +6,8 @@ import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 async function main() {
   const transport = new StdioServerTransport();
   await mcpServer.connect(transport);
-  console.log('Shell MCP server is running...');
+  console.log('*** PLEASE BE CAREFUL THIS TOOL IS POTENTIALLY DANGEROUS WITHOUT USER CONTROL! ***');
+  console.log('Shell-MCP server is running...');
 }
 
 main().catch(error => {

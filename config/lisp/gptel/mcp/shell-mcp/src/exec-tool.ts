@@ -1,21 +1,13 @@
 import * as z from 'zod/v4';
 import { mcpServer } from './server';
+import { NotAllowed } from './error';
+import { ALLOWED_COMMANDS } from './constant';
 import {
   exec,
   ExecOptions,
 } from 'node:child_process';
-import {
-  NotAllowed,
-  AllowedCommandsRequired,
-} from './error';
 
 export type ExecOutput = z.infer<typeof execOutputSchema>;
-
-const ALLOWED_COMMANDS = process.env.ALLOWED_COMMANDS?.split(',').filter(c => c) || [];
-
-if(!ALLOWED_COMMANDS.length) {
-  throw new AllowedCommandsRequired();
-}
 
 const EXEC_OPTIONS: ExecOptions = {
   timeout: 5000,
@@ -33,7 +25,18 @@ const execOutputSchema = z.object({
 
 mcpServer.registerTool('exec', {
   title: 'Exec',
-  description: 'Shell command executor',
+  description: `
+    Shell command executor. Executes commands in the bash shell.
+    ### What needs to be taken into account:
+    * Allowed commands are: ${ALLOWED_COMMANDS.join(', ')}
+    * If you want to run a command that is not in the list, ask the user to do so
+    * This tool returns the result of executing the bash command
+    ### This tool can be used for:
+    * Development process
+    * Run the project
+    * Api calls
+    * Error debbuging
+    * And some other user commands`,
   inputSchema: {
     cmd: z.string(),
     args: z.array(z.string()),
@@ -44,8 +47,8 @@ mcpServer.registerTool('exec', {
     try {
       const command = [cmd, ...args].join(' ');
       exec(command, EXEC_OPTIONS, (err, stdout, stderr) => {
-        if (ALLOWED_COMMANDS.includes(command)) {
-          rej(new NotAllowed(command));
+        if (!ALLOWED_COMMANDS.includes(cmd)) {
+          return rej(new NotAllowed(cmd));
         }
         const error = (err || stderr) ? {
           name: err?.name || 'Error',

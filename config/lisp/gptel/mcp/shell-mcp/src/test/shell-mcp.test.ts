@@ -17,30 +17,48 @@ const exec = promisify(exec_);
 
 describe('exec', async () => {
 
-  let toolName = 'exec';
+  let execToolName = 'exec';
+  let getAllowedCommandsToolName = 'get-allowed-commands';
   let client: Client;
   let shellTool: (Awaited<ReturnType<typeof client.listTools>>)['tools'][number];
+  let getAllowedCommandsTool: (Awaited<ReturnType<typeof client.listTools>>)['tools'][number];
 
   before(async () => {
     const command = 'npm';
     const args = ['start'];
-    const env = {ALLOWED_COMMANDS: 'data'};
+    const env = {ALLOWED_COMMANDS: 'date,time%'};
     client = new Client({name: 'client', version: '0.0.1'});
     const transport = new StdioClientTransport({command, args, env});
     await client.connect(transport);
     const listTools: Awaited<ReturnType<typeof client.listTools>> = await client.listTools();
-    shellTool = listTools.tools.find(t => t.name === toolName)!;
+    shellTool = listTools.tools.find(t => t.name === execToolName)!;
+    getAllowedCommandsTool = listTools.tools.find(t => t.name === getAllowedCommandsToolName)!;
   })
 
   after(async () => {
     await client.close();
   })
 
-  it('check allowed commands', async() => {
+  it('check allowed commands required', async() => {
     try {
       await exec('npm start', {timeout: 5000, killSignal: 'SIGTERM'});
     } catch (err: any) {
       assert.strictEqual(err?.message.includes(AllowedCommandsRequired.code), true);
+    }
+  })
+
+  it('check allowed commands list', async() => {
+    try {
+      const ctResult: Partial<CallToolResult> = await client.callTool({
+        name: getAllowedCommandsTool.name,
+        arguments: {},
+      })
+      const {structuredContent} = ctResult;
+      const {result} = structuredContent as ExecOutput;
+      assert.strictEqual(result, 'date');
+    } catch (err) {
+      console.error(err);
+      throw err;
     }
   })
 
@@ -60,6 +78,7 @@ describe('exec', async () => {
       )
     } catch (err) {
       console.error(err);
+      throw err;
     }
   })
 
@@ -79,6 +98,7 @@ describe('exec', async () => {
       assert.strictEqual(error?.stack?.includes('invalid date'), true);
     } catch (err) {
       console.error(err);
+      throw err;
     }
   })
 
@@ -97,6 +117,7 @@ describe('exec', async () => {
       assert.strictEqual(structuredContent, undefined);
     } catch (err) {
       console.error(err);
+      throw err;
     }
   })
 
@@ -115,6 +136,7 @@ describe('exec', async () => {
       assert.strictEqual(structuredContent, undefined);
     } catch (err) {
       console.error(err);
+      throw err;
     }
   })
 
@@ -126,14 +148,14 @@ describe('exec', async () => {
         name: shellTool.name,
         arguments: { cmd, args },
       })
-      const {structuredContent} = ctResult;
-      const {result, error} = structuredContent as ExecOutput;
-      assert.strictEqual(result, '');
-      assert.strictEqual(error?.name, 'Error');
-      assert.strictEqual(error?.message.includes('not found'), true);
-      assert.strictEqual(error?.stack?.includes('not found'), true);
+      const {content, isError, structuredContent} = ctResult;
+      const errorText = (isError && content?.length === 1 && content[0].type === 'text') ? content[0].text : '';
+      assert.strictEqual(isError, true);
+      assert.strictEqual(errorText.includes('Not allowed: ' + cmd), true);
+      assert.strictEqual(structuredContent, undefined);
     } catch (err) {
       console.error(err);
+      throw err;
     }
   })
 })
