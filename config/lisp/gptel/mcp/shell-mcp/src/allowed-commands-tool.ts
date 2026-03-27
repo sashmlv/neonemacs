@@ -8,7 +8,7 @@ const allowedCommandsOutputSchema = z.object({
 
 mcpServer.registerTool('get-allowed-commands', {
   title: 'Get Allowed Commands',
-  description: 'This command returns a list of allowed bash commands',
+  description: 'This tool returns a list of allowed bash commands',
   outputSchema: allowedCommandsOutputSchema,
 }, async () => {
   const result = ALLOWED_COMMANDS.join(', ');
