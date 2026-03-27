@@ -1,14 +1,19 @@
 import assert from 'node:assert';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
+import { promisify } from 'node:util';
 import { ExecOutput } from '../exec-tool';
 import { CallToolResult } from '@modelcontextprotocol/sdk/types.js';
+import { exec as exec_ } from 'node:child_process';
 import { StdioClientTransport } from '@modelcontextprotocol/sdk/client/stdio.js';
+import { AllowedCommandsRequired } from '../error';
 import {
   it,
   after,
   before,
   describe,
 } from 'node:test';
+
+const exec = promisify(exec_);
 
 describe('exec', async () => {
 
@@ -19,8 +24,9 @@ describe('exec', async () => {
   before(async () => {
     const command = 'npm';
     const args = ['start'];
+    const env = {ALLOWED_COMMANDS: 'data'};
     client = new Client({name: 'client', version: '0.0.1'});
-    const transport = new StdioClientTransport({command, args});
+    const transport = new StdioClientTransport({command, args, env});
     await client.connect(transport);
     const listTools: Awaited<ReturnType<typeof client.listTools>> = await client.listTools();
     shellTool = listTools.tools.find(t => t.name === toolName)!;
@@ -28,6 +34,14 @@ describe('exec', async () => {
 
   after(async () => {
     await client.close();
+  })
+
+  it('check allowed commands', async() => {
+    try {
+      await exec('npm start', {timeout: 5000, killSignal: 'SIGTERM'});
+    } catch (err: any) {
+      assert.strictEqual(err?.message.includes(AllowedCommandsRequired.code), true);
+    }
   })
 
   it('date', async() => {

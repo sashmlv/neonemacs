@@ -11,8 +11,7 @@ import {
 
 export type ExecOutput = z.infer<typeof execOutputSchema>;
 
-const ALLOWED_COMMANDS = process.env.ALLOWED_COMMANDS?.split(',')
-  .filter(c => c).map(c => c?.trim()) || [];
+const ALLOWED_COMMANDS = process.env.ALLOWED_COMMANDS?.split(',').filter(c => c) || [];
 
 if(!ALLOWED_COMMANDS.length) {
   throw new AllowedCommandsRequired();
