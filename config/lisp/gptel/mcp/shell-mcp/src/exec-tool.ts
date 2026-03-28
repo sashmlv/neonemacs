@@ -26,17 +26,17 @@ const execOutputSchema = z.object({
 mcpServer.registerTool('exec', {
   title: 'Exec',
   description: `
-    Shell command executor. Executes commands in the bash shell.
+    Executes commands in the shell.
     ### What needs to be taken into account:
     * Allowed commands are: ${ALLOWED_COMMANDS.join(', ')}
     * If you want to run a command that is not in the list, ask the user to do so
-    * This tool returns the result of executing the bash command
+    * This tool returns the result of executing the shell command
     ### This tool can be used for:
     * Development process
     * Run the project
     * Api calls
     * Error debbuging
-    * And some other user commands`,
+    * And some other actions`,
   inputSchema: {
     cmd: z.string(),
     args: z.array(z.string()),
