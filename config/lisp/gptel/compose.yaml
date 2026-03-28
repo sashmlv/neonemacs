@@ -48,8 +48,8 @@ services:
       - ./.env.mcp-shell
     stdin_open: true
     volumes:
-      - mcp-shell:/mcp-shell:rw
-      - project:/project
+      - mcp-shell:/mcp-shell
+      - project:/project:rw
   mcp-chrome-devtools:
     build:
       dockerfile: Dockerfile
