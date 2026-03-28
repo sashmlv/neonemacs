@@ -1,9 +1,7 @@
-**/gptel/models/*
-!**/gptel/models/README.md
-**/gptel/files/*
-!**/gptel/files/README.md
-**/gptel/**/*.env*
-!**/gptel/**/*.env*.example
+**/models/*
+!**/models/README.md
+**/*.env*
+!**/*.env*.example
 dist
 node_modules
 *.tsbuildinfo
