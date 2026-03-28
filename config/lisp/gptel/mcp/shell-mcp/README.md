@@ -2,5 +2,5 @@
 Shell commands runner
 ### Env parameters
 ```
-ALLOWED_COMMANDS=date,time,echo
+ALLOWED_COMMANDS=date,pwd,echo
 ```

@@ -10,9 +10,8 @@ services:
       - nvidia.com/gpu=all
     volumes:
       - ./models:/models
-    command: ["--server", "-m", "/models/jan-nano-4b-Q8_0.gguf", "--metrics", "--port", "9001", "--host", "0.0.0.0", "--jinja"]
-    # command: ["--server", "-m", "/models/jan-nano-4b-Q8_0.gguf", "--metrics", "--port", "9001", "--host", "0.0.0.0", "--jinja", "--ctx-size", "40960", "--n-cpu-moe", "36", "--n-gpu-layers", "0", "--batch-size", "1024", "--ubatch-size", "2048", "--no-op-offload", "--no-kv-offload", "--no-mmap", "--flash-attn", "1", "--temp", "0.7", "--top-p", "0.8", "--top-k", "20", "--min-p", "0" ] # jan-nano-128k-iQ4_XS.gguf
-    # command: ["--bench", "--verbose", "-m", "/models/jan-nano-128k-iQ4_XS.gguf", "--n-cpu-moe", "18", "--n-gpu-layers", "18", "--threads", "6", "--batch-size", "1024", "--ubatch-size", "2048", "--no-op-offload", "0", "--mmap", "0", "--flash-attn", "1"]
+    command: ["--server", "-m", "/models/Qwen3-Coder-Next-UD-IQ2_XXS.gguf", "--metrics", "--port", "9001", "--host", "0.0.0.0", "--jinja", "--ctx-size", "81920"]
+    # command: ["--bench", "--verbose", "-m", "/models/Qwen3-Coder-Next-UD-IQ2_XXS.gguf", "--n-cpu-moe", "18", "--n-gpu-layers", "18", "--threads", "6", "--batch-size", "1024", "--ubatch-size", "2048", "--no-op-offload", "0", "--mmap", "0", "--flash-attn", "1"]
   sql-server:
     container_name: sql-server
     image: localhost/local/llama.cpp:full-cuda
@@ -37,9 +36,20 @@ services:
     image: ghcr.io/mark3labs/mcp-filesystem-server:latest
     container_name: mcp-filesystem-server
     stdin_open: true
-    command: /project
+    command: ["/project"]
     volumes:
-      - ./project:/project
+      - project:/project
+  mcp-shell:
+    container_name: mcp-shell
+    build:
+      context: ./mcp/shell-mcp
+      dockerfile: Dockerfile
+    env_file:
+      - ./.env.mcp-shell
+    stdin_open: true
+    volumes:
+      - mcp-shell:/mcp-shell:rw
+      - project:/project
   mcp-chrome-devtools:
     build:
       dockerfile: Dockerfile
@@ -56,7 +66,7 @@ services:
       context: ./postgresql/debian/
       dockerfile: ./Dockerfile
     env_file:
-      - ./.env
+      - ./.env.postgres
     environment:
       PGDATA: /var/lib/postgresql
       POSTGRES_DB: ${POSTGRES_DB}
@@ -77,11 +87,12 @@ services:
       DATABASE_URI: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@host.containers.internal:${POSTGRES_PORT}/${POSTGRES_DB}
     stdin_open: true
     command: ["--access-mode=unrestricted", "--transport=stdio" ]
-  mcp-template:
-    container_name: mcp-template
-    build:
-      context: ./mcp/template-mcp/
-      dockerfile: ./Dockerfile
-    stdin_open: true
 volumes:
+  mcp-shell:
   mcp-postgresql:
+  project:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      # device: /my/phoject/path/on/host/machine/awesome-project
