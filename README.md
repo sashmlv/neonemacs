@@ -7,6 +7,3 @@
 * Install packages from ```doc/additions.md```
 * Overview files, and set your prefer
 * To apply theme completely try remove ```~/.emacs.d/emacs.desktop```
-
-### Theme license note:
-Each theme have own license, for details see in theme file.
