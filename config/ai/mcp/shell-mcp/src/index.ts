@@ -6,7 +6,7 @@ import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 async function main() {
   const transport = new StdioServerTransport();
   await mcpServer.connect(transport);
-  console.log('*** PLEASE BE CAREFUL THIS TOOL IS DANGEROUS WITHOUT USER CONTROL! ***');
+  console.log('*** PLEASE BE CAREFUL THIS TOOL IS DANGER WITHOUT USER CONTROL! ***');
   console.log('Shell-MCP server is running...');
 }
 

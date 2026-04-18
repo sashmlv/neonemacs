@@ -10,8 +10,8 @@ services:
       - nvidia.com/gpu=all
     volumes:
       - ./models:/models
-    command: ["--server", "-m", "/models/Qwen3-Coder-Next-UD-IQ2_XXS.gguf", "--metrics", "--port", "9001", "--host", "0.0.0.0", "--jinja", "--ctx-size", "81920"]
-    # command: ["--bench", "--verbose", "-m", "/models/Qwen3-Coder-Next-UD-IQ2_XXS.gguf", "--n-cpu-moe", "18", "--n-gpu-layers", "18", "--threads", "6", "--batch-size", "1024", "--ubatch-size", "2048", "--no-op-offload", "0", "--mmap", "0", "--flash-attn", "1"]
+    command: ["--server", "-m", "/models/Qwen3-Coder-Next-UD-IQ1_S.gguf", "--port", "9001", "--host", "0.0.0.0", "--jinja", "--metrics", "--ctx-size", "81920"]
+    # command: ["--bench", "--verbose", "-m", "/models/Qwen3-Coder-Next-UD-IQ1_S.gguf"]
   sql-server:
     container_name: sql-server
     image: localhost/local/llama.cpp:full-cuda
@@ -32,6 +32,14 @@ services:
     volumes:
       - ./models:/models
     command: ["--server", "-m", "/models/Chandra-8.2B-BF16.gguf", "--mmproj", "/models/mmproj-Chandra-BF16.gguf", "--no-mmproj-offload", "--metrics", "--port", "9003", "--host", "0.0.0.0", "--jinja"]
+  mcp-repomix:
+    container_name: mcp-repomix
+    image: ghcr.io/yamadashy/repomix
+    stdin_open: true
+    command: --mcp
+    # command: --compress --remove-comments --style markdown --output /project/repomix-output.md /project
+    volumes:
+      - project:/project:rw
   mcp-filesystem-server:
     image: ghcr.io/mark3labs/mcp-filesystem-server:latest
     container_name: mcp-filesystem-server

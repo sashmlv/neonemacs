@@ -19,9 +19,11 @@
   (setq gptel-log-level 'debug)
   (setq gptel-expert-commands t)
   (setq gptel-confirm-tool-calls t)
+  (setq gptel--system-message nil)
   (require 'mcp-hub)
   (setq mcp-hub-servers nil)
   (setq mcp-hub-servers `(
+                          ("mcp-repomix" . (:command "podman" :args ("attach" "mcp-repomix")))
                           ("mcp-filesystem-server" . (:command "podman" :args ("attach" "mcp-filesystem-server")))
                           ("mcp-chrome-devtools" . (:command "podman" :args ("attach" "mcp-chrome-devtools")))
                           ("mcp-crystaldba-postgres" . (:command "podman" :args ("attach" "mcp-crystaldba-postgres")))
@@ -31,6 +33,7 @@
 
 (gptel-make-preset 'sql
   :description "Preset for sql coding"
+  :system nil
   :backend (gptel-make-openai "llama-cpp"
              :stream t
              :protocol "http"
@@ -40,6 +43,7 @@
 
 (gptel-make-preset 'ocr
   :description "Preset for ocr"
+  :system nil
   :track-media t
   :model 'LlamaCpp
   :backend (gptel-make-openai "llama-cpp"
