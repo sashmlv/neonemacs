@@ -1,5 +1,36 @@
 # podman compose --file ./compose.yaml up
+# podman compose --env-file .env.postgres --file ./compose.yaml up
 # --n-gpu-layers 99[or higher as possible (part of layers from "block_count")] --n-cpu-moe 0[or remainder of --n-gpu-layers option] --threads 6 --batch-size 1024 --ubatch-size 2048 --no-op-offload --no-mmap --flash-attn 1
+
+x-project-volumes: &project-volumes
+  - project:/project:rw
+  - project-ignore:/project/ignore
+
+x-model-volumes: &model-volumes
+  - /my/models/path/on/host/machine/incredible-models:/models
+
+x-shell-volumes: &shell-volumes
+  - project:/project:rw
+  - project-ignore:/project/ignore
+  - mcp-shell:/mcp-shell
+
+x-db-postgresql-volumes: &db-postgresql-volumes
+  - db-postgresql:/var/lib/postgresql:rw
+
+x-dev-tools-volumes: &dev-tools-volumes
+  - ~/.ssh/id_rsa_chrome_dev_tools.pub:/root/.ssh/authorized_keys:ro
+
+volumes:
+  project:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /my/phoject/path/on/host/machine/awesome-project
+  project-ignore:
+  db-postgresql:
+  mcp-shell:
+
 services:
   codding-server:
     container_name: codding-server
@@ -8,8 +39,7 @@ services:
       - "127.0.0.1:9001:9001"
     devices:
       - nvidia.com/gpu=all
-    volumes:
-      - ./models:/models
+    volumes: *model-volumes
     command: ["--server", "-m", "/models/Qwen3-Coder-Next-UD-IQ1_S.gguf", "--port", "9001", "--host", "0.0.0.0", "--jinja", "--metrics", "--ctx-size", "81920"]
     # command: ["--bench", "--verbose", "-m", "/models/Qwen3-Coder-Next-UD-IQ1_S.gguf"]
   sql-server:
@@ -19,8 +49,7 @@ services:
       - "127.0.0.1:9002:9002"
     devices:
       - nvidia.com/gpu=all
-    volumes:
-      - ./models:/models
+    volumes: *model-volumes
     command: ["--server", "-m", "/models/Qwen-3-4b-Text_to_SQL-F16.gguf", "--metrics", "--port", "9002", "--host", "0.0.0.0", "--jinja"]
   ocr-server:
     container_name: ocr-server
@@ -29,8 +58,7 @@ services:
       - "127.0.0.1:9003:9003"
     devices:
       - nvidia.com/gpu=all
-    volumes:
-      - ./models:/models
+    volumes: *model-volumes
     command: ["--server", "-m", "/models/Chandra-8.2B-BF16.gguf", "--mmproj", "/models/mmproj-Chandra-BF16.gguf", "--no-mmproj-offload", "--metrics", "--port", "9003", "--host", "0.0.0.0", "--jinja"]
   mcp-repomix:
     container_name: mcp-repomix
@@ -38,15 +66,13 @@ services:
     stdin_open: true
     command: --mcp
     # command: --compress --remove-comments --style markdown --output /project/repomix-output.md /project
-    volumes:
-      - project:/project:rw
+    volumes: *project-volumes
   mcp-filesystem-server:
     image: ghcr.io/mark3labs/mcp-filesystem-server:latest
     container_name: mcp-filesystem-server
     stdin_open: true
     command: ["/project"]
-    volumes:
-      - project:/project
+    volumes: *project-volumes
   mcp-shell:
     container_name: mcp-shell
     build:
@@ -54,10 +80,8 @@ services:
       dockerfile: Dockerfile
     env_file:
       - ./.env.mcp-shell
+    volumes: *shell-volumes
     stdin_open: true
-    volumes:
-      - mcp-shell:/mcp-shell
-      - project:/project:rw
   mcp-chrome-devtools:
     build:
       dockerfile: Dockerfile
@@ -66,10 +90,9 @@ services:
     ports:
       - "127.0.0.1:2222:22"
     stdin_open: true
-    volumes:
-      - ~/.ssh/id_rsa_chrome_dev_tools.pub:/root/.ssh/authorized_keys:ro
-  mcp-postgresql:
-    container_name: mcp-postgresql
+    volumes: *dev-tools-volumes
+  db-postgresql:
+    container_name: db-postgresql
     build:
       context: ./postgresql/debian/
       dockerfile: ./Dockerfile
@@ -84,23 +107,13 @@ services:
       - ${POSTGRES_PORT}:5432
     expose:
       - 5432
-    volumes:
-      - mcp-postgresql:/var/lib/postgresql:rw
+    volumes: *db-postgresql-volumes
   mcp-crystaldba-postgres:
     container_name: mcp-crystaldba-postgres
     image: crystaldba/postgres-mcp
     depends_on:
-      - mcp-postgresql
+      - db-postgresql
     environment:
       DATABASE_URI: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@host.containers.internal:${POSTGRES_PORT}/${POSTGRES_DB}
     stdin_open: true
     command: ["--access-mode=unrestricted", "--transport=stdio" ]
-volumes:
-  mcp-shell:
-  mcp-postgresql:
-  project:
-    driver: local
-    driver_opts:
-      type: none
-      o: bind
-      # device: /my/phoject/path/on/host/machine/awesome-project

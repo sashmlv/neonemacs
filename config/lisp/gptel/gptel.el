@@ -14,12 +14,14 @@
                    :protocol "http"
                    :host "127.0.0.1:9001"
                    :models '(LlamaCpp)))
+  (setq gptel-use-curl t)
   (setq gptel-use-tools t)
   (setq gptel-track-media t)
   (setq gptel-log-level 'debug)
   (setq gptel-expert-commands t)
   (setq gptel-confirm-tool-calls t)
   (setq gptel--system-message nil)
+  (setq gptel-default-mode 'org-mode)
   (require 'mcp-hub)
   (setq mcp-hub-servers nil)
   (setq mcp-hub-servers `(
