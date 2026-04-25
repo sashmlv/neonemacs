@@ -1,6 +1,6 @@
 ## AI
 <!--
-;; Llama.cpp (Ubuntu):
+;; * Llama.cpp (Ubuntu) *
 ;; https://github.com/ggml-org/llama.cpp/blob/master/docs/build.md
 ;; sudo apt install nvidia-cuda-toolkit libcurl4-openssl-dev
 ;; cd ~
@@ -26,7 +26,7 @@
 ;; ;; ;; ll ~/llama.cpp/granite-code
 ;; llama-server -m ~/llama.cpp/models/jan-nano-128k-iQ4_XS.gguf --n-cpu-moe 99 --n-gpu-layers 0 --threads 6 --batch-size 1024 --ubatch-size 2048 --no-op-offload --no-mmap --flash-attn 1 --temp 0.7 --top-p 0.8 --top-k 20 --min-p 0
 
-;; Convert .safetensors to GGUF:
+;; * Convert .safetensors to GGUF *
 ;; sudo apt install git-lfs
 ;; git lfs install
 ;; install: https://github.com/pyenv/pyenv
@@ -42,6 +42,7 @@
 ;; ;; fish_add_path $PYENV_ROOT/bin
 ;; ;; status is-interactive; and pyenv init - | source
 ;; pyenv --version
+;; ;; pyenv update
 ;; pip --version
 ;; pyenv install 3.10
 ;; pyenv local 3.10
@@ -53,10 +54,38 @@
 ;; python3.10 ./convert_hf_to_gguf.py chandra --mmproj
 ;; pyenv local system
 
-;; Podman:
-;; https://podman-desktop.io/docs/podman/gpu
-;; https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
-;; [install and repead this steps after driver has been updated] https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/cdi-support.html
+;; * Podman *
+;; ** Conmon install
+;; cd ~
+;; git clone https://github.com/containers/conmon
+;; cd conmon
+;; export GOCACHE="$(mktemp -d)"
+;; sudo make podman
+;; ** Podman install
+;; sudo apt install btrfs-progs gcc git golang-go go-md2man iptables libassuan-dev libbtrfs-dev libc6-dev libdevmapper-dev libglib2.0-dev libgpgme-dev libgpg-error-dev libprotobuf-dev libprotobuf-c-dev libseccomp-dev libselinux1-dev libsystemd-dev make netavark passt pkg-config runc uidmap libapparmor-dev fuse-overlayfs
+;; cd ~
+;; git clone https://github.com/containers/podman/
+;; cd podman
+;; git tag -l | sort -V
+;; git checkout v5.8.2
+;; make BUILDTAGS='selinux seccomp apparmor exclude_graphdriver_devicemapper cgo exclude_apiservices' PREFIX=/usr
+;; sudo env PATH=$PATH make install PREFIX=/usr
+;; ;; sudo env PATH=$PATH make uninstall PREFIX=/usr
+;; ** Podman-compose install
+;; cd ~
+;; git clone https://github.com/containers/podman-compose
+;; cd podman-compose
+;; git tag -l | sort -V
+;; git checkout v1.5.0
+;; pyenv install 3.13
+;; pyenv local 3.13
+;; python -m pip install -r requirements.txt
+;; pip install --user .
+;; ** Podman GPU
+;; ;; https://podman-desktop.io/docs/podman/gpu
+;; ;; https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
+;; ;; [install and repead this steps after driver has been updated] https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/cdi-support.html
+;; ** Podman llama cpp
 ;; cd ~/llama.cpp/.devops
 ;; cp cuda.Dockerfile cuda-local.Dockerfile
 ;; vim cuda-local.Dockerfile
@@ -66,7 +95,8 @@
 ;; ;; podman build -t local/llama.cpp:server-cuda --target server -f .devops/cuda-local.Dockerfile .
 ;; disable GPU usage in user programms: chromium, firefox, thunderbird, etc.
 ;; run: podman compose --file ./compose.yaml up
-;; Chrome Dev Tools:
+
+;; * Chrome Dev Tools*
 ;; ;; https://developer.chrome.com/docs/devtools/remote-debugging/local-server#port-forwarding
 ;; chromium --remote-debugging-port=9222 --user-data-dir=/home/$USER/snap/chromium/common/chromium/Testing-profile
 ;; sudo apt install openssh-server
@@ -86,37 +116,13 @@
 ;; ;; Run ssh tunnel on the host: ssh -p 2222 -N -R 9222:127.0.0.1:9222 root@127.0.0.1
 ;; ;; If container is upgraded, you need to remove the entry from known_hosts on the host machine (then run ssh tunnel as usual): ssh-keygen -R '[127.0.0.1]:2222'
 
-;; MCP inspector (debug mcp servers):
+;; * MCP inspector (debug mcp servers) *
 ;; npx @modelcontextprotocol/inspector
 
-;; Repomix:
+;; * Repomix *
 ;; https://github.com/yamadashy/repomix
 ;; npm i -g repomix
 ;; repomix --compress --remove-comments
-
-;; Models:
-;; https://huggingface.co
-;; https://huggingface.co/ggml-org/models
-;; https://www.modelscope.cn
-;; ;; deepseek-coder-v2 [https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Lite-Instruct]
-;; ;; deepseek-coder-v2 [https://huggingface.co/deepseek-ai/DeepSeek-Coder-V2-Instruct]
-;; ;; codeqwen [https://huggingface.co/Qwen/Qwen3-Coder-480B-A35B-Instruct]
-;; ;; magicoder [https://huggingface.co/ise-uiuc/Magicoder-S-CL-7B]
-;; ;; codegemma [https://huggingface.co/google]
-;; ;; opencoder [https://huggingface.co/infly]
-;; ;; codegeex4 [https://huggingface.co/zai-org/codegeex4-all-9b]
-;; ;; codeup [https://huggingface.co/juyongjiang/CodeUp-Llama-3-8B]
-;; ;; phi4 [https://huggingface.co/microsoft]
-;; ;; deepcoder [https://huggingface.co/agentica-org/DeepCoder-14B-Preview]
-;; ;; starcoder2 [https://huggingface.co/bigcode]
-;; ;; openthinker [https://huggingface.co/open-thoughts]
-;; ;; qwen2.5-coder [https://huggingface.co/Qwen]
-;; ;; qwq [https://huggingface.co/Qwen/QwQ-32B]
-;; ;; wizardcoder [https://huggingface.co/WizardLMTeam/WizardCoder-33B-V1.1]
-;; ;; codebooga [https://huggingface.co/oobabooga/CodeBooga-34B-v0.1]
-;; ;; granite-code [https://huggingface.co/ibm-granite]
-;; ;; codellama [https://huggingface.co/codellama]
-;; ;; cogito [https://huggingface.co/deepcogito]
 
 ;; MCP servers:
 ;; https://hub.docker.com/mcp
