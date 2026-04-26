@@ -55,14 +55,7 @@
 ;; pyenv local system
 
 ;; * Podman *
-;; ** Conmon install
-;; cd ~
-;; git clone https://github.com/containers/conmon
-;; cd conmon
-;; export GOCACHE="$(mktemp -d)"
-;; sudo make podman
-;; ** Podman install
-;; sudo apt install btrfs-progs gcc git golang-go go-md2man iptables libassuan-dev libbtrfs-dev libc6-dev libdevmapper-dev libglib2.0-dev libgpgme-dev libgpg-error-dev libprotobuf-dev libprotobuf-c-dev libseccomp-dev libselinux1-dev libsystemd-dev make netavark passt pkg-config runc uidmap libapparmor-dev fuse-overlayfs
+;; sudo apt install conmon btrfs-progs gcc git golang-go go-md2man iptables libassuan-dev libbtrfs-dev libc6-dev libdevmapper-dev libglib2.0-dev libgpgme-dev libgpg-error-dev libprotobuf-dev libprotobuf-c-dev libseccomp-dev libselinux1-dev libsystemd-dev make netavark passt pkg-config runc uidmap libapparmor-dev fuse-overlayfs
 ;; cd ~
 ;; git clone https://github.com/containers/podman/
 ;; cd podman
@@ -71,7 +64,7 @@
 ;; make BUILDTAGS='selinux seccomp apparmor exclude_graphdriver_devicemapper cgo exclude_apiservices' PREFIX=/usr
 ;; sudo env PATH=$PATH make install PREFIX=/usr
 ;; ;; sudo env PATH=$PATH make uninstall PREFIX=/usr
-;; ** Podman-compose install
+;; * Podman-compose *
 ;; cd ~
 ;; git clone https://github.com/containers/podman-compose
 ;; cd podman-compose
@@ -81,11 +74,11 @@
 ;; pyenv local 3.13
 ;; python -m pip install -r requirements.txt
 ;; pip install --user .
-;; ** Podman GPU
+;; * Podman GPU *
 ;; ;; https://podman-desktop.io/docs/podman/gpu
 ;; ;; https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html
 ;; ;; [install and repead this steps after driver has been updated] https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/cdi-support.html
-;; ** Podman llama cpp
+;; * Podman llama cpp *
 ;; cd ~/llama.cpp/.devops
 ;; cp cuda.Dockerfile cuda-local.Dockerfile
 ;; vim cuda-local.Dockerfile
