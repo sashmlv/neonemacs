@@ -40,30 +40,26 @@ services:
     devices:
       - nvidia.com/gpu=all
     volumes: *model-volumes
-    command: ["--server", "-m", "/models/Qwen3-Coder-30B-A3B-Instruct-UD-IQ1_S.gguf", "--port", "9001", "--host", "0.0.0.0", "--jinja", "--metrics", "--ctx-size", "81920"]
-    # command: ["--bench", "--verbose", "-m", "/models/Qwen3-Coder-Next-UD-IQ1_S.gguf"]
+    command: ["--server", "-m", "/models/Qwen3-Coder-30B-A3B-Instruct-UD-IQ1_S.gguf", "--port", "9001", "--host", "0.0.0.0", "--jinja", "--metrics", "-ngl", "0", "-t", "12", "-c", "2048", "--mlock", "--no-mmap"]
+    # command: ["--bench", "--verbose", "-m", "/models/Qwen3-Coder-30B-A3B-Instruct-UD-IQ1_S.gguf"]
   sql-server:
     container_name: sql-server
     image: localhost/local/llama.cpp:full-cuda
-    depends_on:
-      - codding-server
     ports:
       - "127.0.0.1:9002:9002"
     devices:
       - nvidia.com/gpu=all
     volumes: *model-volumes
-    command: ["--server", "-m", "/models/Qwen-3-4b-Text_to_SQL-q8_0.gguf", "--metrics", "--port", "9002", "--host", "0.0.0.0", "--jinja", "--metrics"]
+    command: ["--server", "-m", "/models/Qwen-3-4b-Text_to_SQL-q8_0.gguf", "--metrics", "--port", "9002", "--host", "0.0.0.0", "--jinja", "--metrics", "-ngl", "0", "-t", "12", "-c", "2048", "--mlock", "--no-mmap"]
   ocr-server:
     container_name: ocr-server
     image: localhost/local/llama.cpp:full-cuda
-    depends_on:
-      - codding-server
     ports:
       - "127.0.0.1:9003:9003"
     devices:
       - nvidia.com/gpu=all
     volumes: *model-volumes
-    command: ["--server", "-m", "/models/GLM-OCR-f16.gguf", "--mmproj", "/models/mmproj-GLM-OCR-Q8_0.gguf", "--no-mmproj-offload", "--port", "9003", "--host", "0.0.0.0", "--jinja", "--metrics"]
+    command: ["--server", "-m", "/models/GLM-OCR-f16.gguf", "--mmproj", "/models/mmproj-GLM-OCR-Q8_0.gguf", "--no-mmproj-offload", "--port", "9003", "--host", "0.0.0.0", "--jinja", "--metrics", "-ngl", "0", "-t", "12", "-c", "2048", "--mlock", "--no-mmap"]
   mcp-repomix:
     container_name: mcp-repomix
     image: ghcr.io/yamadashy/repomix
