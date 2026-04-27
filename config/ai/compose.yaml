@@ -1,5 +1,4 @@
 # podman compose --file ./compose.yaml up
-# podman compose --env-file .env.postgres --file ./compose.yaml up
 # --n-gpu-layers 99[or higher as possible (part of layers from "block_count")] --n-cpu-moe 0[or remainder of --n-gpu-layers option] --threads 6 --batch-size 1024 --ubatch-size 2048 --no-op-offload --no-mmap --flash-attn 1
 
 x-project-volumes: &project-volumes
@@ -11,11 +10,12 @@ x-model-volumes: &model-volumes
 
 x-shell-volumes: &shell-volumes
   - project:/project:rw
-  - project-ignore:/project/ignore
-  - mcp-shell:/mcp-shell
+  - project-ignore:/project/ignore:ro
+  - mcp-shell:/mcp-shell:ro
 
 x-db-postgresql-volumes: &db-postgresql-volumes
   - db-postgresql:/var/lib/postgresql:rw
+  - ./postgresql/init.sh:/docker-entrypoint-initdb.d/init.sh
 
 x-dev-tools-volumes: &dev-tools-volumes
   - ~/.ssh/id_rsa_chrome_dev_tools.pub:/root/.ssh/authorized_keys:ro
@@ -40,26 +40,30 @@ services:
     devices:
       - nvidia.com/gpu=all
     volumes: *model-volumes
-    command: ["--server", "-m", "/models/Qwen3-Coder-Next-UD-IQ1_S.gguf", "--port", "9001", "--host", "0.0.0.0", "--jinja", "--metrics", "--ctx-size", "81920"]
+    command: ["--server", "-m", "/models/Qwen3-Coder-30B-A3B-Instruct-UD-IQ1_S.gguf", "--port", "9001", "--host", "0.0.0.0", "--jinja", "--metrics", "--ctx-size", "81920"]
     # command: ["--bench", "--verbose", "-m", "/models/Qwen3-Coder-Next-UD-IQ1_S.gguf"]
   sql-server:
     container_name: sql-server
     image: localhost/local/llama.cpp:full-cuda
+    depends_on:
+      - codding-server
     ports:
       - "127.0.0.1:9002:9002"
     devices:
       - nvidia.com/gpu=all
     volumes: *model-volumes
-    command: ["--server", "-m", "/models/Qwen-3-4b-Text_to_SQL-F16.gguf", "--metrics", "--port", "9002", "--host", "0.0.0.0", "--jinja"]
+    command: ["--server", "-m", "/models/Qwen-3-4b-Text_to_SQL-q8_0.gguf", "--metrics", "--port", "9002", "--host", "0.0.0.0", "--jinja", "--metrics"]
   ocr-server:
     container_name: ocr-server
     image: localhost/local/llama.cpp:full-cuda
+    depends_on:
+      - codding-server
     ports:
       - "127.0.0.1:9003:9003"
     devices:
       - nvidia.com/gpu=all
     volumes: *model-volumes
-    command: ["--server", "-m", "/models/Chandra-8.2B-BF16.gguf", "--mmproj", "/models/mmproj-Chandra-BF16.gguf", "--no-mmproj-offload", "--metrics", "--port", "9003", "--host", "0.0.0.0", "--jinja"]
+    command: ["--server", "-m", "/models/GLM-OCR-f16.gguf", "--mmproj", "/models/mmproj-GLM-OCR-Q8_0.gguf", "--no-mmproj-offload", "--port", "9003", "--host", "0.0.0.0", "--jinja", "--metrics"]
   mcp-repomix:
     container_name: mcp-repomix
     image: ghcr.io/yamadashy/repomix
@@ -79,9 +83,11 @@ services:
       context: ./mcp/shell-mcp
       dockerfile: Dockerfile
     env_file:
-      - ./.env.mcp-shell
+      - ./.env
     volumes: *shell-volumes
     stdin_open: true
+    environment:
+      ALLOWED_COMMANDS: ${ALLOWED_COMMANDS}
   mcp-chrome-devtools:
     build:
       dockerfile: Dockerfile
@@ -97,9 +103,8 @@ services:
       context: ./postgresql/debian/
       dockerfile: ./Dockerfile
     env_file:
-      - ./.env.postgres
+      - ./.env
     environment:
-      PGDATA: /var/lib/postgresql
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}

@@ -7,6 +7,7 @@
 ;; git clone https://github.com/ggml-org/llama.cpp
 ;; cd llama.cpp
 ;; rm -rf ./build
+;; git tag -l | sort -V
 ;; ;; ;; cmake -B build -DCMAKE_CUDA_ARCHITECTURES="61" -DGGML_CUDA=ON
 ;; cmake -B build -DGGML_CCACHE=OFF -DGGML_CUDA_ENABLE_UNIFIED_MEMORY=OFF -DGGML_CPU_ALL_VARIANTS=OFF -DGGML_CUDA_FA_ALL_QUANTS=ON -DGGML_CUDA_FORCE_CUBLAS=OFF -DGGML_CUDA_FORCE_MMQ=OFF -DCMAKE_CUDA_ARCHITECTURES="61" -DGGML_CUDA=ON -DLLAMA_CURL=OFF -DGGML_NATIVE=ON -DGGML_AVX=ON -DGGML_AVX2=ON -DGGML_AVX512=OFF -DGGML_FMA=ON -DGGML_F16C=ON -DLLAMA_BUILD_TESTS=OFF
 ;; cmake --build build --config Release -j 12 --clean-first
