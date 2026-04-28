@@ -3,10 +3,10 @@
 
 x-project-volumes: &project-volumes
   - project:/project:rw
-  - project-ignore:/project/ignore
+  - project-ignore:/project/my/working/stuff:ro # this creates a stub directory in the project to keep working files out
 
 x-model-volumes: &model-volumes
-  - /my/models/path/on/host/machine/incredible-models:/models
+  - /my/models/path/on/host/machine/incredible-models:/models:ro
 
 x-shell-volumes: &shell-volumes
   - project:/project:rw
@@ -15,7 +15,7 @@ x-shell-volumes: &shell-volumes
 
 x-db-postgresql-volumes: &db-postgresql-volumes
   - db-postgresql:/var/lib/postgresql:rw
-  - ./postgresql/init.sh:/docker-entrypoint-initdb.d/init.sh
+  - ./postgresql/init.sh:/docker-entrypoint-initdb.d/init.sh:ro
 
 x-dev-tools-volumes: &dev-tools-volumes
   - ~/.ssh/id_rsa_chrome_dev_tools.pub:/root/.ssh/authorized_keys:ro
