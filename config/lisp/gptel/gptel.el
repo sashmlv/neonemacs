@@ -14,7 +14,7 @@
                    :protocol "http"
                    :host "127.0.0.1:9001"
                    :models '(LlamaCpp)))
-  (setq gptel-use-curl t)
+  (setq gptel-use-curl nil) ;; tmp disabled
   (setq gptel-use-tools t)
   (setq gptel-track-media t)
   (setq gptel-log-level 'debug)

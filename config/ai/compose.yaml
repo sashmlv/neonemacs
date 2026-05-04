@@ -41,7 +41,6 @@ services:
       - nvidia.com/gpu=all
     volumes: *model-volumes
     command: ["--server", "-m", "/models/Qwen3-Coder-30B-A3B-Instruct-UD-IQ1_S.gguf", "--port", "9001", "--host", "0.0.0.0", "--jinja", "--metrics", "-ngl", "0", "-t", "12", "-c", "2048", "--mlock", "--no-mmap"]
-    # command: ["--bench", "--verbose", "-m", "/models/Qwen3-Coder-30B-A3B-Instruct-UD-IQ1_S.gguf"]
   sql-server:
     container_name: sql-server
     image: localhost/local/llama.cpp:full-cuda
@@ -67,12 +66,6 @@ services:
     command: --mcp
     # command: --compress --remove-comments --style markdown --output /project/repomix-output.md /project
     volumes: *project-volumes
-  mcp-filesystem-server:
-    image: ghcr.io/mark3labs/mcp-filesystem-server:latest
-    container_name: mcp-filesystem-server
-    stdin_open: true
-    command: ["/project"]
-    volumes: *project-volumes
   mcp-shell:
     container_name: mcp-shell
     build:
@@ -83,7 +76,14 @@ services:
     volumes: *shell-volumes
     stdin_open: true
     environment:
+      CWD: /project
       ALLOWED_COMMANDS: ${ALLOWED_COMMANDS}
+  mcp-filesystem-server:
+    image: ghcr.io/mark3labs/mcp-filesystem-server:latest
+    container_name: mcp-filesystem-server
+    stdin_open: true
+    command: ["/project"]
+    volumes: *project-volumes
   mcp-chrome-devtools:
     build:
       dockerfile: Dockerfile

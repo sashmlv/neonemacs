@@ -1,15 +1,19 @@
 import * as z from 'zod/v4';
 import { mcpServer } from './server';
 import { NotAllowed } from './error';
-import { ALLOWED_COMMANDS } from './constant';
 import {
   exec,
   ExecOptions,
 } from 'node:child_process';
+import {
+  CWD,
+  ALLOWED_COMMANDS,
+} from './constant';
 
 export type ExecOutput = z.infer<typeof execOutputSchema>;
 
 const EXEC_OPTIONS: ExecOptions = {
+  cwd: CWD,
   timeout: 5000,
   killSignal: 'SIGTERM',
 }

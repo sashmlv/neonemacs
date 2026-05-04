@@ -26,7 +26,7 @@ describe('exec', async () => {
   before(async () => {
     const command = 'npm';
     const args = ['start'];
-    const env = {ALLOWED_COMMANDS: 'date,pwd%'};
+    const env = {ALLOWED_COMMANDS: 'date,pwd%', CWD: '/tmp'};
     client = new Client({name: 'client', version: '0.0.1'});
     const transport = new StdioClientTransport({command, args, env});
     await client.connect(transport);

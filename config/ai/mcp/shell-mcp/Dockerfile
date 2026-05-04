@@ -5,4 +5,4 @@ COPY tsconfig.json ./
 COPY ./src ./src
 RUN npm install
 RUN npm run build
-CMD ["node", "dist"]
+CMD ["npm", "start", "--prefix", "/app"]

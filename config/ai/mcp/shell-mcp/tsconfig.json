@@ -11,12 +11,14 @@
     "strict": true,
     "skipLibCheck": true,
     "removeComments": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "types": ["node"]
   },
   "include": [
-    "./src"
+    "./src/**/*"
   ],
   "exclude": [
     "**/node_modules",
+    "**/dist"
   ]
 }

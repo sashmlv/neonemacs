@@ -26,3 +26,16 @@ export class AllowedCommandsRequired extends AppError {
     )
   }
 }
+
+export class CWDRequired extends AppError {
+  public static code = 'CWD_REQUIRED';
+  public static statusCode = 400;
+  public static message = 'CWD required';
+  constructor() {
+    super(
+      CWDRequired.message,
+      CWDRequired.code,
+      CWDRequired.statusCode,
+    )
+  }
+}

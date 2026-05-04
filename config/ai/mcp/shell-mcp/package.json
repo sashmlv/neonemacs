@@ -4,7 +4,7 @@
   "main": "dist",
   "scripts": {
     "build": "tsc",
-    "start": "npm run build && node dist",
+    "start": "node dist",
     "nodemon": "nodemon --config nodemon.json",
     "test": "npm run build && node --enable-source-maps --test dist/test/*.test.js",
     "watch": "tsc -b -w tsconfig.json",
