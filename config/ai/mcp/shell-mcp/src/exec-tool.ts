@@ -7,6 +7,7 @@ import {
 } from 'node:child_process';
 import {
   CWD,
+  TIMEOUT,
   ALLOWED_COMMANDS,
 } from './constant';
 
@@ -14,7 +15,7 @@ export type ExecOutput = z.infer<typeof execOutputSchema>;
 
 const EXEC_OPTIONS: ExecOptions = {
   cwd: CWD,
-  timeout: 5000,
+  timeout: TIMEOUT || 5000,
   killSignal: 'SIGTERM',
 }
 

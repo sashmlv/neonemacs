@@ -26,7 +26,7 @@ describe('exec', async () => {
   before(async () => {
     const command = 'npm';
     const args = ['start'];
-    const env = {ALLOWED_COMMANDS: 'date,pwd%', CWD: '/tmp'};
+    const env = {ALLOWED_COMMANDS: 'date,pwd%,sleep', CWD: '/tmp', TIMEOUT: '1000'};
     client = new Client({name: 'client', version: '0.0.1'});
     const transport = new StdioClientTransport({command, args, env});
     await client.connect(transport);
@@ -55,7 +55,7 @@ describe('exec', async () => {
       })
       const {structuredContent} = ctResult;
       const {result} = structuredContent as ExecOutput;
-      assert.strictEqual(result, 'date');
+      assert.strictEqual(result, 'date, sleep');
     } catch (err) {
       console.error(err);
       throw err;
@@ -153,6 +153,28 @@ describe('exec', async () => {
       assert.strictEqual(isError, true);
       assert.strictEqual(errorText.includes('Not allowed: ' + cmd), true);
       assert.strictEqual(structuredContent, undefined);
+    } catch (err) {
+      console.error(err);
+      throw err;
+    }
+  })
+
+  it('timeout', async() => {
+    try {
+      const cmd = 'sleep';
+      const args = ['7'];
+      const ctResult: Partial<CallToolResult> = await client.callTool({
+        name: shellTool.name,
+        arguments: { cmd, args },
+      })
+      const {content, isError, structuredContent} = ctResult;
+      const result = structuredContent?.result;
+      const error = <Error>structuredContent?.error;
+      assert.strictEqual(!!content, true);
+      assert.strictEqual(isError, undefined);
+      assert.strictEqual(!!result, false);
+      assert.strictEqual(!!error, true);
+      assert.strictEqual(error?.message.includes('Command failed: ' + cmd), true);
     } catch (err) {
       console.error(err);
       throw err;
