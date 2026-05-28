@@ -10,8 +10,9 @@
   '(add-to-list 'dired-compress-file-suffixes
                 '("\\.zip\\'" ".zip" "unzip")))
 
-;; human readable file size
-(setq-default dired-listing-switches "-alFh --group-directories-first") ;; default: "-al"
+;; ls options
+(setenv "TIME_STYLE" "+%d.%m.%Y %H:%M:%S")
+(setq-default dired-listing-switches "-lahb --author --time-style \"+%d.%m.%Y %H:%M:%S\"")
 
 (defun add-left-fringe ()
   (setq left-fringe-width 7
