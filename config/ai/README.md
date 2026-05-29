@@ -63,7 +63,9 @@
 ;; git tag -l | sort -V
 ;; git checkout v5.8.2
 ;; make BUILDTAGS='selinux seccomp apparmor exclude_graphdriver_devicemapper cgo exclude_apiservices' PREFIX=/usr
-;; sudo env PATH=$PATH make install PREFIX=/usr
+;; sudo make install PREFIX=/usr
+;; ;; sudo env PATH=$PATH make install PREFIX=/usr
+;; sudo make uninstall PREFIX=/usr
 ;; ;; sudo env PATH=$PATH make uninstall PREFIX=/usr
 ;; * Podman-compose *
 ;; cd ~
